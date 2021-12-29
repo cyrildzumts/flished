@@ -66,7 +66,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             autofocus: true,
             placeholder: 'Start typing here ...',
             onReady: function(){
-                console.log("Editor is ready" , this);
+                console.log("Editor is ready" , editor);
             },
             onChange: () =>{
                 console.log("Editor has changed");
