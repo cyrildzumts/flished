@@ -64,7 +64,6 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                     },
                   },
             },
-            data : {},
             autofocus: true,
             placeholder: 'Start typing here ...',
             onReady: function(){
