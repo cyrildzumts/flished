@@ -28,7 +28,6 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     function editor_init(){
         editor = new EditorJS({
             holder:'editor',
-            inlineToolbar: ['link', 'marker', 'bold', 'italic'],
             tools: {
                 header : {
                     class : Header,
@@ -67,7 +66,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             autofocus: true,
             placeholder: 'Start typing here ...',
             onReady: function(){
-                console.log("Editor is ready");
+                console.log("Editor is ready" , this);
             },
             onChange: () =>{
                 console.log("Editor has changed");
