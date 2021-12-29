@@ -1,5 +1,7 @@
-define(['ajax_api', 'element_utils', 'vendor/editor'], function(ajax_api, element_utils,EditorJS) {
+define(['require','ajax_api', 'element_utils', 'editor/editor'], function(require,ajax_api, element_utils,EditorJS) {
     'use strict';
+
+    const Header = require('editor/plugins/header.min');
 
     let fileUpload;
     let messages;
@@ -20,6 +22,12 @@ define(['ajax_api', 'element_utils', 'vendor/editor'], function(ajax_api, elemen
         editor = new EditorJS({
             holder:'editor',
             inlineToolbar: ['link', 'marker', 'bold', 'italic'],
+            tools: {
+                header : {
+                    class : Header,
+                    inlineToolbar : true
+                }
+            },
             data : {},
             autofocus: true,
             placeholder: 'Start typing here ...',
