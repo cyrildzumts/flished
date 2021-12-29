@@ -10,8 +10,8 @@
   --header-panel-color: #242424;
   --banner-bg: #45A29E;
   --banner-color: #fff;
-  --default-banner-url : url(../assets/lyshop-banner.png);
-  --default-small-banner-url : url(../assets/lyshop-small-banner.png);
+  /*--default-banner-url :'';
+  --default-small-banner-url :'';*/
   --card-bg : transparent;
   --card-color : #616161;
   --btn-border : 1px solid #ccc;
