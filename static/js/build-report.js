@@ -6,5 +6,5 @@
         main: '../report-app',
     },
     name: "main",
-    out: "../report.min.js"
+    out: "report.min.js"
 })

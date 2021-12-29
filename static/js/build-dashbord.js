@@ -6,5 +6,5 @@
         main: '../dashboard-app',
     },
     name: "main",
-    out: "../dashboard.min.js"
+    out: "dashboard.min.js"
 })
