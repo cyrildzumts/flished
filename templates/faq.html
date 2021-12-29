@@ -1,0 +1,120 @@
+{% extends "base.html"%}
+{% load i18n %} 
+{% block META_REDIRECT %}
+        
+{% endblock META_REDIRECT %}
+
+
+{% block MAIN %}
+<div id="static-page" class="col-xs-12 col-6">
+<div class="faq-group">
+    <h3>{% trans "LYSHOP FAQ" %}</h3>
+    <p>
+    {% blocktrans trimmed %}
+    This FAQ collects the commons questions you may be looking for answers.
+    {% endblocktrans %}
+    </p>
+</div>
+<div class="faq-group">
+    <h4>{% trans "How do I pay my bills ?" %}</h4>
+    <p>{% trans "As of now, we support the following payment method" %} : </p>
+    {% include "tags/supported_payment_method.html" %}
+    <p>{% trans "Other payments methods will be added when available" %}</p>
+</div>
+
+<div class="faq-group">
+    <h4>{% trans "The payment methods don't suit me, how can I get your products ?" %}</h4>
+    <p>{% trans "Please, get in touch with us. will see if we find a solution." %}</p>
+    <p>{% trans "You can contact us through the following channels" %} : </p>
+    {% include "tags/channel.html" %}
+</div>
+<div class="faq-group">
+    <h4>{% trans "How do I add an Item in the Cart ?" %}</h4>
+    <p>{% trans "To add an item into your cart follow the step below" %} :</p>
+    <ul>
+        <li>{% trans "From our website, open the article you want to buy" %}</li>
+        <li>{% trans "From the product page, click on the Add to Cart button" %}</li>
+        <li>{% trans "The article is added to your cart" %}</li>
+    </ul>
+</div>
+<div class="faq-group">
+    <h4>{% trans "How can I place an Order ?" %}</h4>
+    <p>{% trans "To place an order, please follow the steps below" %} : </p>
+    <ul>
+        <li>{% trans "Add items in your cart" %}</li>
+        <li>{% trans "From your cart page, click on the Checkout button" %}</li>
+        <li>{% trans "From there on, follow the displayed steps" %}</li>
+    </ul>
+</div>
+<div class="faq-group">
+<h4>{% trans "I have placed an order. What now ?" %}</h4>
+    <p>
+    {% trans "Once we receive your order's payment, your order will be processed and shipped to you at the registered address you gave." %}
+    </p>
+    <p>{% trans "You have 3 days to pay your order before we can ship it. After this delay your order will be automatically cancelled." %}
+    </p>
+</div>
+<div class="faq-group">
+    <h4>{% trans "I placed an order, but didn't get a confirmation mail" %}</h4>
+    <p>
+    {% trans "It may be due to network error, or a technical issue from our side. Please get in touch with us through one of the following channels." %}
+    </p>
+    {% include "tags/channel.html" %}
+</div>
+<div class="faq-group">
+    <h4>{% trans "I place an order, but the order was not delivered" %}</h4>
+    <p> {% trans "Make sure you have paid your order before the delay. After the payment delay timeout, your order will be automatically cancelled. Please contact us with the evidence of your payment so that we proceed to a refund. Get in touch with us through one of the following channels." %}
+    </p>
+    {% include "tags/channel.html" %}
+</div>
+<div class="faq-group">
+    <h4>{% trans "How can I cancel my order ?" %}</h4>
+    <p>{% trans "To cancel your order, please follow steps described below" %}</p>
+    <ul>
+    <li>{% trans "From your account page, click on the Orders button" %}</li>
+    <li>{% trans "open the order you want to cancel" %}</li>
+    <li>{% trans "click on the Cancel Order button" %}</li>
+    <li>{% trans "please, check the order status. A shipped Order can no longer be cancelled." %}</li>
+    </ul>
+</div>
+<div class="faq-group">
+    <h4>{% trans "How long does it take to be delivered ?" %}</h4>
+    <p>{% trans "Standard shipping can take up to 5 days to be delivered" %}</p>
+    <p>{% trans "If you are in a  hurry, please consider the Express shipping option" %}</p>
+    <h4>{% trans "What are the available payment methods ?" %}</h4>
+    <p>{% trans "The available payment methods are" %} : </p>
+    {% include "tags/supported_payment_method.html" %}
+</div>
+<div class="faq-group">
+    <h4>{% trans "I place an Order, but it got cancelled after some days" %}</h4>
+    <p>
+    {% trans "All unpaid orders get automatically cancelled after 3 days from the day you placed the order." %}
+    </p>
+    <p>{% trans "Make sure you pay your order on time" %}</p>
+</div>
+<div class="faq-group">
+    <h4>{% trans "What is an 'On Demand article' ?" %}</h4>
+    <p>{% trans "An On Demand article is an article that not available immediately in our store in Gabon." %}</p>
+    <p>{% trans "Those articles need to be first sent in Gabon before the customer get it delivered to him/her" %}</p>
+</div>
+<div class="faq-group">
+    <h4>{% trans "How to buy an 'On Demand' article ?" %}</h4>
+    <p>{% trans "You simply place your order like usually. The only difference is that you have to pay for the first half of the article price." %}</p>
+    <p>{% trans "Once we get the first half of the article price, we will process your order." %}</p>
+    <p>{% trans "You have 3 days to pay the first half of the price. After that delay your order will be cancelled." %}</p>
+</div>
+<div class="faq-group">
+    <h4>{% trans "Can I place an order that contain both immediately available and On Demand articles ?" %}</h4>
+    <p>{% trans "Yes, you can. The article that are available immediately will be delivered on time." %}</p>
+    <p>{% trans "On Demand articles will be delivered later when they arrived in Gabon." %}</p>
+    <p>{% trans "For the payment you will pay for the total price of immediately available article plus the half of the On Demand articles." %}</p>
+    <p>{% trans "Here an example : " %}</p>
+    <p>{% trans "You order 4 articles. 2 are available immediately and cost in 10000 XAF and 15000 XAF each.  The 2 other are On Demand article , 10000 XAF and 20000 XAF each." %}</p>
+    <p>{% trans "The total for the immediately available article is 25000 XAF. The total for the On Demand article is 30000 XAF. At the moment you place your order, you have to pay a total of 40000 XAF." %}</p>
+    <p>{% trans "That is : " %} <span>25000 + 30000 / 2   --> 25000 + 15000 = 40000.</span></p>
+    <p>{% trans "You will pay the 15000 XAF left when the On Demand articles are available in Gabon." %}</p>
+</div>
+
+</div>
+
+{% endblock MAIN %}

@@ -1,0 +1,26 @@
+{% load i18n %}
+
+<div class="footer-content">
+    
+    <div class="col-xs-12 col-4">
+        <div class="footer-catalog">
+            <div class="flex flex-left bold"><span class="capitalize">{{UI_STRINGS_CONTEXT.UI_CONTACT_LABEL}}</span></div>
+            <ul class="small">
+                <li><a class="js-action-abtest" data-action="7" href="https://wa.me/+24177433646/?text={{UI_WHATSAPP_BODY|urlencode}}" ><i class="fab fa-whatsapp icon"></i><span>WhatsApp</span></a></li>
+                <li><a class="js-action-abtest" data-action="8" href="https://www.facebook.com/lyshoppinggabao" target="_blank" rel="noopener noreferrer" ><i class="fab fa-facebook icon"></i><span>Facebook</span></a></li>
+                <li><a class="js-action-abtest" data-action="9" href="mailto:{{CONTACT_MAIL}}"><i class="far fa-envelope icon"></i><span>{{CONTACT_MAIL}}</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-xs-12 col-4">
+        <div class="footer-catalog">
+            <div class="flex flex-left bold"><span class="capitalize">{{UI_STRINGS_CONTEXT.UI_SITE_CONDITIONS}}</span></div>
+            <ul class="small">
+                <li><a href="{% url 'privacy-policy' %}">{{UI_STRINGS_CONTEXT.UI_PRIVACY_POLICY}}</a></li>
+                <li><a href="{% url 'terms-of-use' %}">{{UI_STRINGS_CONTEXT.UI_TERMS_OF_USE}}</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+

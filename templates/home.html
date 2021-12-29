@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %} 
+{% load static %}
+
+
+{% if banner %}
+
+{% block HEADER_BANNER %}
+<div class="banner">
+    <div class="container banner-container">
+         <h1>{{SITE_NAME}} BLOG !</h1>
+    </div>
+</div><!--End of Banner-->
+{% endblock HEADER_BANNER %}
+{% endif %}
+
+{% block MAIN %}
+<div class="container">
+  <p>Ici vient une liste de publications</p>
+</div>
+{% endblock MAIN %}

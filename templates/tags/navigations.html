@@ -1,0 +1,28 @@
+{% load i18n %}
+
+
+
+<div class="big-menu full">
+    <span>{% trans "Shop" %} <i class="fas fa-caret-down icon"></i></span>
+    <div class="nav-menu full">
+        
+        <ul class="grid">
+            {% for c in root_category_list %}
+            <li class="col-xs-12 col-2">
+                <div class="submenu full">
+                    <span>{% trans c.display_name %} <i class="icon"></i></span>
+                    
+                    {% if c.children.exists %}
+                    <ul>
+                        <li><a class="mat-button mat-button-text" href="{{c.get_slug_url}}"><span>{% trans "See all" %}</span></a></li>
+                        {% for cc in c.children.all %}
+                            <li class="full"><a class="mat-button mat-button-text" href="{{cc.get_slug_url}}"><span>{% trans cc.display_name %}</span></a></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

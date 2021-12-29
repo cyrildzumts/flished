@@ -1,0 +1,18 @@
+{% load i18n %}
+
+<div class="mat-box full">
+    <div class="mat-box-title full"><span class="bold">{{UI_STRINGS_CONTEXT.UI_NO_SEARCH_RESULT_TITLE}}</span></div>
+    <div class="mat-box-content">
+        <span class="text-center">{{UI_STRINGS_CONTEXT.UI_NO_SEARCH_RESULT}}</span>
+        <span>
+            <span>{{UI_STRINGS_CONTEXT.UI_SEARCHED_TERM_LABEL}} :</span>
+            <span class="padding-h bold">{{search}}</span>
+        </span>
+        
+    </div>
+    <div class="mat-box-footer">
+        <div class="actions">
+            <a class="mat-button mat-button-outline" href="#"><span>{{UI_STRINGS_CONTEXT.UI_DISCOVER_OUR_CATALOG}}</span></a>
+        </div>
+    </div>
+</div>

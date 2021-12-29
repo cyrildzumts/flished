@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %} 
+{% block GOOGLE_TAG %}
+{% endblock GOOGLE_TAG %}
+{% block GOOGLE_TAG_NOSCRIP %}
+{% endblock GOOGLE_TAG_NOSCRIP %}
+{% block MAIN %}
+    <div  class="mat-box">
+            <div class="title">
+                {% trans "Internal Server Error ! " %}
+            </div>
+            <div class="box-content content">
+                    <p>{% trans "The server has encountered an internal error." %}</p>
+                    <p>{% trans "If this problem persists please contact us." %}</p>
+                    <p>{% trans "Our technicians are working on the problem." %}</p>
+            </div>
+            <div class="actions">
+                <a class="mat-button mat-button-default" href="{% url 'home' %}">{% trans "Go back to Home Page" %} </a>
+            </div>
+    </div> 
+  {% endblock MAIN %}

@@ -1,0 +1,14 @@
+
+{% comment %}
+    {% load cache %}
+{% endcomment %}
+
+{% comment %}
+    {% cache 600 navtree%}
+{% endcomment %}
+
+{% include "tags/nav_tree_content.html" %}
+
+{% comment %}
+    {% endcache %}
+{% endcomment %}

@@ -1,0 +1,62 @@
+/*
+:root{
+    --body-bg: #fff;
+    --header-hover-color: #242424; 
+    --header-bg: white;
+    --header-color: #242424;
+    --header-panel-bg :transparent;
+    --header-panel-color: #242424;
+    --banner-bg: transparent;
+    --banner-color: #242424;
+    --card-bg : transparent;
+    --card-color : #242424;
+    --btn-border : 1px solid #242424;
+    --btn-color: #242424;
+    --btn-hover-border : 1px solid #454545;
+    --btn-hover-color: #454545;
+    --box-shadow: 0 1px 0 rgba(9,45,66,.25);
+    --in-bg : white;
+    --in-color: #454545;
+    --out-bg:transparent;
+    --out-color:#eeeeee;
+    --nav-link-color: #242424;
+    --nav-link-hover-color: #454545;
+    --form-bg: transparent;
+    --form-color: #242424;
+  }
+
+*/
+
+* {
+    background-color: transparent;
+    /*color: black;*/
+    font-size: 1em;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 0;
+}
+
+
+.baseline-16{
+    background-image: url("/static/assets/baseline_16.svg");
+    background-repeat: repeat;
+    background-color: white;
+    font-size: 1em;
+    line-height: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.baseline-grid-btn{
+    cursor: pointer;
+    color: black;
+    background-color: #fff;
+    padding: 0 22px
+}
+
+.baseline-grid-btn.active{
+    color: #fff;
+    background-color: black;
+}
+
+

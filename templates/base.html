@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+{% load i18n %} 
+<html lang="{{LANGUAGE_CODE}}">
+{% load static %}
+{% load core_tags %}
+
+<head>
+        <meta charset="utf-8">
+        {% block META_REDIRECT %}
+        
+        {% endblock META_REDIRECT %}
+        <title>
+                {% block title %} {{page_title}} {% endblock %}
+        </title>
+        {% comment %}
+                twitter card
+        {% endcomment %}
+        <meta name="twitter:card"       content="summary_large_image">
+        <meta name="twitter:creator"    content="@cyrildz"/>
+        <meta name="keywords"           content="{{META_KEYWORDS}}">
+        <meta name="description"        content="{{META_DESCRIPTION}}">
+        <meta property="og:title"       content="{{OG_TITLE}}">
+        <meta property="og:description" content="{{META_DESCRIPTION}}">
+        <meta property="og:image"       content="{{OG_IMAGE}}">
+        <meta property="og:url"         content="{{OG_URL}}">
+        <meta property="og:type"        content="website">
+        <meta property="og:site_name"   content="{{SITE_NAME}}">
+        <meta name="theme-color"        content="{{SITE_HEADER_BG}}">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {% comment %}
+                <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+        {% endcomment %}
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> 
+        <link rel="canonical" href="{{OG_URL}}" hreflang="{{LANGUAGE_CODE}}">
+        
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <!-- Add icon library -->
+        {% block STYLESHEET %}<link rel="stylesheet" type="text/css" href="{% static 'css/main.min.css' %}" />{% endblock STYLESHEET %}
+
+        {% block external %} {% endblock external %}
+        {% if structured_data %}
+        {% json_ld structured_data %}
+        {% endif %}
+ 
+</head>
+
+<body>
+
+<input id="lang" type="hidden" name="lang" value="{{LANGUAGE_CODE}}">
+{% block SCRIPT_VAR %}
+{% endblock SCRIPT_VAR %}
+<div class="page full">
+{% block HEADER %}
+<header class="header">
+{% block HEADER_PANEL %}
+<div class="header--panel">
+  <div class="col-xs-12 col-1">
+        <div class="row">
+                <button class="js-menu js-action-abtest menu-button mat-button mat-button-text" data-action="0"><i class="btn-icon fas fa-bars"></i></button>
+                <button class="js-menu-close js-action-abtest menu-close menu-button mat-button" data-action="0"><i class="btn-icon fas fa-times"></i></button>
+                <ul class="logo">
+                        <li class="mat-list-item js-action-abtest" data-action="3"><a class="mat-button mat-button-text" href="{%url 'home'%}">{{site_name}}</a></li>
+                </ul>
+        </div>
+  </div>
+    <ul class="site-panel">
+        <li class="catalog-overlay-item js-action-abtest hidden-m" data-action="6"><label id="menu-overlay-label" for="catalog-overlay-toggle"><i class="fas fa-bars icon hidden"></i><span class="mat-button mat-button-text">{% trans "Catalog" %}</span></label></li>
+
+
+      {% if dev_mode %}
+        {% block GRID %}
+        <li><button class="js-grid-enable baseline-grid-btn mat-button mat-button-text">{% trans "Enable Grid" %}</button></li>
+        {% endblock GRID %}
+      {% endif %}
+      
+    </ul> 
+</div>
+{% endblock HEADER_PANEL %}
+         
+</header>
+{% endblock HEADER %}
+{% block SEARCH_BAR %}
+{% if SEARCH_AVAILABLE %}
+{% include 'tags/search_bar.html' with cls="hidden-xl" %}
+{% endif %}
+{% endblock SEARCH_BAR %}
+{% block CATEGORY_OVERLAY_MENU %}
+{% endblock CATEGORY_OVERLAY_MENU %}  
+{% block NEWS %}
+{% if news %}
+<div class="news">
+<span class="news-title">{% trans news.title %}</span>
+<div class="news-content"> {% trans news.content %}</div>
+</div>
+{% endif %}
+{% endblock NEWS %}
+
+{% block CATEGORIES %}
+{% include 'tags/category_nav.html' %}
+{% endblock CATEGORIES %}
+{% if banner %}
+{% block HEADER_BANNER %}
+
+{% endblock HEADER_BANNER %}
+
+{% endif %}
+{% block DIALOGS %}
+
+{% endblock DIALOGS %}
+
+{% block SIGNUP_DIALOG %}
+
+{% endblock SIGNUP_DIALOG %}
+
+
+
+<div class="container full-h">
+
+{% block MAIN %}
+
+{% endblock MAIN %}
+</div>
+{% block NOTIFICATIONS %}
+        <div id="notifications-wrapper" class="notifications-wrapper">
+                <div class="flex-column">
+                        <ul id="messages" class="messages notification-list" data-toggle="#notifications-wrapper">
+                        {% for message in messages %}
+                                <li {% if message.tags %} class="{{message.tags}}" {% endif %}>
+                                        <div class="notification flex">
+                                                <i class="js-close fas fa-info-circle icon"></i>
+                                                <p>{{message}}</p>
+                                        </div>
+                                </li>
+                        {% endfor %}
+                        </ul>
+                </div>
+        </div>
+{% endblock NOTIFICATIONS %}
+</div>
+{% block FOOTER %}
+ <footer class="footer">
+        {% block FOOTER_CONTENT %}
+        <div class="footer-content-wrapper">
+        {% include 'tags/footer_content.html' %}
+        </div>
+        {% endblock FOOTER_CONTENT %}
+        <div class="footer-list">
+                {% now "Y" as current_year %}
+                <ul class="mat-list small">
+                        <li class="list-item"><span>Copyright <i class="fa fa-copyright"></i><span class="copyright-year">{{current_year}}</span><span class="site">{{site_name}} - {{UI_STRINGS_CONTEXT.UI_FOOTER_MENTION}}</span></span></li>
+                        <li class="list-item">
+                                <div class="actions">
+                                        <a class="mat-button mat-button-text" href="{% url 'about' %}">{{UI_STRINGS_CONTEXT.UI_ABOUT_US}}</a>
+                                        <a class="mat-button mat-button-text" href="{% url 'faq' %}">{{UI_STRINGS_CONTEXT.UI_FAQ}}</a>
+                                </div>
+                        </li>
+                </ul>
+        </div>
+</footer>
+{% endblock FOOTER %}
+
+<script async  src="{% static 'js/vendor/jquery-3.6.0.slim.min.js' %}"></script>
+{% block BASE_SCRIPT %}
+<script async data-main="{% static 'js/main.min' %}" src="{% static 'js/require.js' %}"></script>        
+{% endblock BASE_SCRIPT %}
+
+{% block SCRIPT %}
+{% endblock SCRIPT %}
+{% block GOOGLE_ANALYTICS %}
+
+{% endblock GOOGLE_ANALYTICS %}
+</body>
+
+</html>

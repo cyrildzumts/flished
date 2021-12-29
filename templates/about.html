@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load i18n %} 
+
+{% block MAIN %}
+<div id="static-page" class="col-xs-12 col-6">
+<h3>{% trans "About LYSHOP" %}</h3>
+<p>
+{% blocktrans trimmed%}
+We are selling products like :
+{% endblocktrans %}
+</p>
+<ul>
+    <li>{% trans "accessoires" %}</li>
+    <li>{% trans "clothes" %}</li>
+    <li>{% trans "electronics" %}</li>
+    <li>{% trans "parfums" %}</li>
+    <li>{% trans "shoes" %}</li>
+</ul>
+<h4>{% trans "Product quality" %}</h4>
+<p>
+{% blocktrans trimmed%}
+We pay attention to the quality of the products we sell.
+We are only selling original articles
+{% endblocktrans %}
+</p>
+<h4>{% trans "Trust" %}</h4>
+<p>
+{% blocktrans trimmed%}
+We understand your concern about trustability.
+Our business is based on trust. If you pay for an order,
+rest assured that your order will be delivered.
+{% endblocktrans %}
+</p>
+<h4>{% trans "Our Location" %}</h4>
+<p>
+{% blocktrans trimmed%}
+We are currently based at Libreville and Port-Gentil.
+We will expand the region where we can deliver our product 
+as soon as possible.
+{% endblocktrans %}
+</p>
+<h4>{% trans "Issues report" %}</h4>
+<p>
+{% blocktrans trimmed%}
+In case you have any issue with your order, 
+please contact at the following address:
+{% endblocktrans %}
+<a class="mat-button mat-button-text" href="mailto:info@lyshoping.com">{% trans "Send Mail" %}</a>
+</p>
+
+<h4>{% trans "Refund" %}</h4>
+<div>
+<p>
+{% blocktrans trimmed%}
+It is possible to get a refund. You must meet the following conditions:
+{% endblocktrans %}
+</p>
+<ul>
+    <li>{% trans "The order must have been paid" %}</li>
+    <li>{% trans "You have successfully returned the ordered items" %}</li>
+    <li>{% trans "The returned ordered items are intact and has not been used." %}</li>
+    <li>{% trans "The ordered items have been returned on time." %} ({% trans "max. 7 days after delivery" %})</li>
+</ul>
+</div>
+
+</div>
+{% endblock MAIN %}

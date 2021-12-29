@@ -1,0 +1,98 @@
+{% load i18n %}
+
+
+<div class="mat-box container">
+<div class="full">
+    <div class="box create-form">
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group">
+                <label for="name">{% trans "Name" %}</label>
+                <input id="name" type="text"  name="name" value="{{category.name}}" disabled>
+            </div>
+            <div class="form-group">
+                <label for="display_name">{% trans "Display Name" %}</label>
+                <input id="display_name" type="text"  name="display_name" value="{{category.display_name}}" disabled>
+            </div>
+        </div>
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group">
+                <label for="code">{% trans "Code" %}</label>
+                <input id="code" type="text"  name="code" value="{{category.code}}" disabled>
+            </div>
+            <div class="form-group">
+                <label for="page_title_index">{% trans "Page title" %}</label>
+                <input id="page_title_index" type="text"  name="page_title_index" value="{{category.get_page_title}}" disabled>
+            </div>
+            <div class="form-group full">
+                <label for="seo-page-title">{% trans "SEO Page Title" %}</label>
+                <input type="text" id="seo-page-title" class="full" name="seo_page_title" value="{{category.seo_page_title|default_if_none:''}}" maxlength="{{SEO_PAGE_TITLE_MAX_SIZE}}" disabled>
+            </div>
+            <div class="form-group">
+                <label for="seo-meta-keywords">{% trans "SEO Meta Keywords" %}</label>
+                <input type="text" id="seo-meta-keywords" class="full" name="seo_meta_keywords" value="{{category.seo_meta_keywords|default_if_none:''}}" maxlength="{{SEO_META_KEYWORDS_MAX_SIZE}}" disabled>
+            </div>
+        </div>
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group">
+                <label for="added_by">{% trans "Created By" %}</label>
+                <input id="added_by" type="text"  name="added_by" value="{{category.added_by.username}}" disabled>
+            </div>
+            <div class="form-group">
+                <label for="created_at">{% trans "Creation" %}</label>
+                <input id="created_at" type="date"  name="created_at" value="{{category.created_at|date:'Y-m-d'}}" disabled>
+            </div>
+        </div>
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group">
+                <label for="name">{% trans "Slug" %}</label>
+                <input id="name" type="text"  name="slug" value="{{category.slug}}" disabled>
+            </div>
+            <div class="form-group">
+                <label for="display_name">{% trans "Views" %}</label>
+                <input id="display_name" type="text"  name="view_count" value="{{category.view_count}}" disabled>
+            </div>
+        </div>
+
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group">
+                <label for="parent">{% trans "Highlight" %}</label>
+                <input type="text" value="{% if category.highlight %}{{category.highlight.display_name}}{% else %}-{% endif %}" disabled>
+            </div>
+        </div>
+        
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group">
+                <label for="parent">{% trans "Parent" %}</label>
+                <input type="text" value="{{category.parent.display_name}}" disabled>
+            </div>
+            <div class="form-group">
+                    <span class="padding-bottom">{% trans "Status" %}</span>
+                    <div class="row"><span class="padding"><input id="is_active" type="checkbox"  name="is_active" {% if category.is_active %}checked{% endif %} disabled><label for="is_active">{% trans "Active" %}</label></span></div>
+            </div>
+        </div>
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group">
+                <label class="padding-bottom" for="description">{% trans "Description" %}</label>
+                <textarea id="description" class="limited-input bordered" name="description" cols="30" rows="10" data-target="#description-counter" data-max-length="{{DESCRIPTION_MAX_SIZE}}" disabled>{{category.description}}</textarea>
+            </div>
+            <div class="flex flex-left flex-wrap">
+                <div class="form-group full">
+                    <label class="padding-bottom" for="seo-description">{% trans "SEO Description" %}</label>
+                    <textarea id="seo-description" class="limited-input bordered" name="seo_description" cols="30" rows="10" data-target="#seo-description-counter" data-max-length="{{SEO_DESCRIPTION_MAX_SIZE}}" disabled>{{category.seo_description|default_if_none:''}}</textarea>
+                </div>
+                
+                <div class="row padding-l"> <span id="seo-description-counter" class="char-counter">{{category.seo_description|default_if_none:''|length}}</span><span class="text-max-length">/{{SEO_DESCRIPTION_MAX_SIZE}}</span></div>
+            </div>
+            <div class="flex flex-left flex-wrap">
+                <div class="form-group full">
+                    <label class="padding-bottom" for="fb-description">{% trans "FACEBOOK Description" %}</label>
+                    <textarea id="fb-description" class="limited-input bordered" name="facebook_description" cols="30" rows="10" data-target="#fb-description-counter" data-max-length="{{FACEBOOK_DESCRIPTION_MAX_SIZE}}" disabled>{{category.facebook_description|default_if_none:''}}</textarea>
+                </div>
+                
+                <div class="row padding-l"> <span id="fb-description-counter" class="char-counter">{{category.facebook_description|default_if_none:''|length}}</span><span class="text-max-length">/{{FACEBOOK_DESCRIPTION_MAX_SIZE}}</span></div>
+            </div>
+            <div class="row padding-l"> <span id="description-counter" class="char-counter">{{category.parent.description|length}}</span><span class="text-max-length">/{{DESCRIPTION_MAX_SIZE}}</span></div>
+        </div>
+    </div>
+</div>
+</div><!-- End of container-->

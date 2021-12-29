@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %} 
+{% block GOOGLE_TAG %}
+{% endblock GOOGLE_TAG %}
+{% block GOOGLE_TAG_NOSCRIP %}
+{% endblock GOOGLE_TAG_NOSCRIP %}
+{% block MAIN %}
+    <div  class="mat-box">
+            <div class="title">
+                {% trans "Access Forbidden ! " %}
+            </div>
+            <div class="box-content content">
+                    <p> {% trans "You are not allowed to access this page." %}</p>
+            </div>
+            <div class="actions">
+                <a class="mat-button mat-button-default" href="{% url 'home' %}">{% trans "Go back to Home Page" %} </a>
+            </div>
+    </div> 
+  {% endblock MAIN %}

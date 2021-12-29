@@ -1,0 +1,36 @@
+/* global styles */
+
+html{
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-size: 100%;
+  font-family: "Nunito", sans-serif;
+  line-height: 1.5em;
+  margin: 0;
+  height: 100%;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+* {
+  background-color: transparent;
+  /*color: black;*/
+  font-family: "Nunito", sans-serif;
+  line-height: 1.5em;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+p{
+  padding: 1em;
+  text-decoration: none;
+  text-align: left;
+}
