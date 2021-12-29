@@ -1,7 +1,7 @@
 define(['require','ajax_api', 'element_utils', 'editor/editor'], function(require,ajax_api, element_utils,EditorJS) {
     'use strict';
 
-    const Header = require('editor/plugins/header.min');
+    const Header = require('vendor/Editor/plugins/header.min');
 
     let fileUpload;
     let messages;
