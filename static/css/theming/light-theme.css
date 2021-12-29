@@ -23,7 +23,6 @@
     --success-color :#45A29E ;
     --info-color: #0A0A0A;
     --debug-color: #1e88e5;
-    --on-demand-order : #f39c12;
     --standard-order : #2980b9;
     --footer-content-wrapper:#FFFFFF;
     --footer-content-wrapper-color: #0A0A0A;
@@ -32,46 +31,8 @@
     --footer-catelog: #F5F5F5;
     --footer-catelog-color: #1A1A1A;
     --footer-catalog-link: #1A1A1A;
-    --new-arrivals : #028E9B33;
-    --new-arrivals-info : #016E7833;
-    /*--new-arrivals-color : #0C5C63;*/
-    --new-arrivals-color : #0A0A0A;
-    --offers : #F4143333;
-    --offers-info : #D3001D33;
-    --offers-color : #0A0A0A;
-    --features: #3AE3F322;
-    --features-info: #01CCDF11;
-    --features-color : #0A0A0A;
-    --perfumes : #c2185b33;
-    --perfumes-info : #E0689633;
-    --perfumes-color: #0A0A0A;
-
-    --standard-perfumes : #9848B200;
-    --standard-perfumes-info : #832D9F00;
-    --standard-perfumes-color: #0A0A0A;
-
-    --children: #F3BC0033;
-    --children-info: #C0950033;
-    --children-color : #0A0A0A;
-    --women: #FF590033;
-    --women-info: #D64B0033;
-    --women-color : #0A0A0A;
-    --men: #0584B533;
-    --men-info: #04638733;
-    --men-color : #0A0A0A;
-    --lingerie: #EE799633;
-    --lingerie-info: #702F4033;
-    --lingerie-color : #0A0A0A;
-    --subscription-vip-header-bg: #0A0A0A;
-    --subscription-vip-header-color: #FAFAFA;
-    --subscription-premium-header-bg: #FF0D00;
-    --subscription-premium-header-color: #FAFAFA;
-    --subscription-basic-header-bg: #00C618;
-    --subscription-basic-header-color: #FAFAFA;
-    --subscription-pricing-bg: #eee;
-    --subscription-pricing-color: #0A0A0A;
-    --subscription-footer-bg: #eee;
-    --subscription-fouter-color: #FAFAFA;
-
-
+    --editor : #fafafa;
+    --editor-color : #1A1A1A;
+    --editor-header : #F5F5F5;
+    --editor-header-color : #1a1a1a;
 }

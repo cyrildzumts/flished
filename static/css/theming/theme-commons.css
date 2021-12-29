@@ -186,145 +186,20 @@ li.active.selected{
     /*font-size: 1em;*/
 }
 
-
-.highlight, .highlight-wrapper{
-    background-color: transparent;
+.editor-wrapper{
+    background-color: #FFFFFF;
+    color: #0A0A0A;
 }
 
-.new-arrivals{
-    background-color: var(--new-arrivals);
-    color: var(--new-arrivals-color);
-}
-.new-arrivals .highlight-info .highlight-info{
-    background-color: var(--new-arrivals-info);
-    color: var(--new-arrivals-color);
+.editor{
+    background-color: var(--editor);
+    color: var(--editor-color);
 }
 
-.new-arrivals .mat-button-outline{
-    color: var(--new-arrivals-color);
-    border-color: var(--new-arrivals-color);
+.editor-header{
+    background-color: var(--editor-header);
+    color: var(--editor-header-color);
 }
-
-.offers{
-    background-color: var(--offers);
-    color: var(--offers-color);
-}
-
-.offers .highlight-info{
-    background-color: var(--offers-info);
-    color: var(--offers-color);
-}
-
-.offers .highlight-info .mat-button-outline{
-    color: var(--offers-color);
-    border-color: var(--offers-color);
-}
-
-.offers .price{
-    color: var(--offers-color) !important;
-    font-weight: 500;
-}
-
-.offers .sale-price{
-    color: var(--offers-color) !important;
-    font-weight: 600;
-}
-
-.features{
-    background-color: var(--features);
-    color: var(--features-color);
-}
-
-.features .highlight-info{
-    background-color: var(--features-info);
-    color: var(--features-color);
-}
-
-.features .highlight-info .mat-button-outline{
-    color: var(--features-color);
-    border-color: var(--features-color);
-}
-
-.highlight_kids, .children{
-    background-color: var(--children);
-    color: var(--children-color);
-}
-
-.highlight_kids .highlight-info, .children .highlight-info{
-    background-color: var(--children-info);
-    color: var(--children-color);
-}
-
-.highlight_kids .highlight-info .mat-button-outline{
-    color: var(--children-color);
-    border-color: var(--children-color);
-}
-
-.highlight_women, .women{
-    background-color: var(--women);
-    color: var(--women-color);
-}
-
-.highlight_women .highlight-info, .women .highlight-info{
-    background-color: var(--women-info);
-    color: var(--women-color);
-}
-
-.highlight_women .highlight-info .mat-button-outline, .women .highlight-info .mat-button-outline{
-    color: var(--women-color);
-    border-color: var(--women-color);
-}
-
-.highlight_men, .men{
-    background-color: var(--men);
-    color: var(--men-color);
-}
-
-.highlight_men .highlight-info, .men .highlight-info{
-    background-color: var(--men-info);
-    color: var(--men-color);
-}
-
-.highlight_men .highlight-info .mat-button-outline, .men .highlight-info .mat-button-outline{
-    color: var(--men-color);
-    border-color: var(--men-color);
-}
-
-.lingerie, .slips{
-    background-color: var(--lingerie);
-    color: var(--lingerie-color);
-}
-
-.lingerie .highlight-info, .slips .highlight-info{
-    background-color: var(--lingerie-info);
-    color: var(--lingerie-color);
-}
-
-.highlight_lingerie .highlight-info .mat-button-outline, .lingerie .highlight-info .mat-button-outline{
-    color: var(--lingerie-color);
-    border-color: var(--lingerie-color);
-}
-
-.perfumes{
-    background-color: var(--perfumes);
-    color: var(--perfumes-color);
-}
-
-.perfumes .highlight-info{
-    background-color: var(--perfumes-info);
-    color: var(--perfumes-color);
-}
-
-.highlight_perfumes .highlight-info .mat-button-outline, .perfumes .highlight-info .mat-button-outline{
-    color: var(--perfumes-color);
-    border-color: var(--perfumes-color);
-}
-
-.perfumes .sale-price{
-    color: var(--perfumes-color) !important;
-    font-weight: 600;
-}
-
 
 .highlight .scroll-bar{
 	background-color: transparent;
