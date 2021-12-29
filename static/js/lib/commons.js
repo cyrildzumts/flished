@@ -68,9 +68,10 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             autofocus: true,
             placeholder: 'Start typing here ...',
             onReady: () =>{
+                let self = this;
                 console.log("Editor is ready");
                 $(".js-save-btn").on('click', (event)=>{
-                    editor.save().then(on_editor_save).catch((error)=>{
+                    self.save().then(on_editor_save).catch((error)=>{
                         console.log("Error on saving editor content : ", error);
                     });
                 });
