@@ -2,6 +2,11 @@ define(['require','ajax_api', 'element_utils', 'editor/editor', 'editor/plugins/
     'use strict';
 
     const Header = require('editor/plugins/header.min');
+    const List = require('editor/plugins/list.min');
+    const Link = require('editor/plugins/link.min');
+    const Checklist = require('editor/plugins/checklist.min');
+    const Quote = require('editor/plugins/quote.min');
+    const Table = require('editor/plugins/table.min');
 
     let fileUpload;
     let messages;
@@ -12,8 +17,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor', 'editor/plugins/
 
 
     function on_editor_save(saved_data){
-        console.log("Editor saved data : ");
-        console.log(saved_data);
+        console.log("Editor saved data : ", saved_data);
     }
 
     
@@ -26,13 +30,51 @@ define(['require','ajax_api', 'element_utils', 'editor/editor', 'editor/plugins/
                 header : {
                     class : Header,
                     inlineToolbar : true
-                }
+                },
+                list: {
+                    class: List,
+                    inlineToolbar: True
+                },
+                linkTool: {
+                    class: Link,
+                    inlineToolbar: True
+                },
+                checklist: {
+                    class:Checklist,
+                    inlineToolbar:true
+                },
+                quote: {
+                    class:Quote,
+                    inlineToolbar:true,
+                    shortcut: 'CMD+SHIFT+Q',
+                    config: {
+                        quotePlaceholder: 'Enter a quote',
+                        captionPlaceholder: 'Quote\'s author',
+                    },
+                },
+                table: {
+                    class: Table,
+                    inlineToolbar: true,
+                    config: {
+                      rows: 2,
+                      cols: 3,
+                    },
+                  },
             },
             data : {},
             autofocus: true,
             placeholder: 'Start typing here ...',
             onReady: () =>{
                 console.log("Editor is ready");
+                $(".js-save-btn").on('click', (event)=>{
+                    editor.save().then(on_editor_save).catch((error)=>{
+                        console.log("Error on saving editor content : ", error);
+                    });
+                });
+                $(".js-clear-btn").on('click', (event)=>{
+                    console.log("Clearing editor content not implemented yet ");
+                });
+
             },
             onChange: () =>{
                 console.log("Editor has changed");
