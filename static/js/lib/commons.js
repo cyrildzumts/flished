@@ -36,11 +36,11 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 },
                 list: {
                     class: List,
-                    inlineToolbar: True
+                    inlineToolbar: true
                 },
                 linkTool: {
                     class: Link,
-                    inlineToolbar: True
+                    inlineToolbar: true
                 },
                 checklist: {
                     class:Checklist,
