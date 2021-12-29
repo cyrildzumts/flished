@@ -1,4 +1,4 @@
-define(['ajax_api', 'element_utils'], function(ajax_api, element_utils) {
+define(['ajax_api', 'element_utils', 'vendor/editor'], function(ajax_api, element_utils,EditorJS) {
     'use strict';
 
     let fileUpload;
@@ -6,6 +6,29 @@ define(['ajax_api', 'element_utils'], function(ajax_api, element_utils) {
     let notification_wrapper;
     let fadeDelay = 10000; // 10s
     let filter_form;
+    let editor;
+
+
+    function on_editor_save(saved_data){
+        console.log("Editor saved data : ");
+        console.log(saved_data);
+    }
+
+    function editor_init(){
+        editor = new EditorJS({
+            holder:'editor',
+            tools:{
+                header:{
+                    class:Headers,
+                    inlineToolbar : true
+                }
+            },
+            data : {}
+        });
+        console.log("Editor loaded");
+        
+        return editor;
+    }
 
     function clean_form_before_submit(form){
         let filter_inputs = $('.filter-input', form);
@@ -341,6 +364,7 @@ define(['ajax_api', 'element_utils'], function(ajax_api, element_utils) {
         if(window){
             window.notify = notify;
         }
+        editor = editor_init();
         notification_wrapper = $('#notifications-wrapper');
         messages = $('#messages', notification_wrapper);
         //onDragInit();

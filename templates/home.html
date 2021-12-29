@@ -17,10 +17,12 @@
 {% block MAIN %}
 <div class="container">
   <p>Ici vient une liste de publications</p>
-  <div class="mat-box">
+  <div class="flex flex-left full">
     <div id="editor-wrapper" class="editor-wrapper">
-      <textarea name="content" id="editor"></textarea>
+      <textarea name="content" id="editor-area"></textarea>
+      <div id="editor"></div>
     </div>
+    
   </div>
 </div>
 {% endblock MAIN %}
