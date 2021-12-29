@@ -1,4 +1,7 @@
-define(['require','ajax_api', 'element_utils', 'editor/editor', 'editor/plugins/header.min'], function(require,ajax_api, element_utils,EditorJS) {
+define(['require','ajax_api', 'element_utils', 'editor/editor', 
+    'editor/plugins/header.min','editor/plugins/list.min', 'editor/plugins/link.min',
+    'editor/plugins/checklist.min', 'editor/plugins/quote.min', 'editor/plugins/table.min'
+    ], function(require,ajax_api, element_utils,EditorJS) {
     'use strict';
 
     const Header = require('editor/plugins/header.min');
