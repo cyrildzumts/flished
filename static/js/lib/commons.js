@@ -14,19 +14,24 @@ define(['ajax_api', 'element_utils', 'vendor/editor'], function(ajax_api, elemen
         console.log(saved_data);
     }
 
+    
+
     function editor_init(){
         editor = new EditorJS({
             holder:'editor',
-            tools:{
-                header:{
-                    class:Headers,
-                    inlineToolbar : true
-                }
+            inlineToolbar: ['link', 'marker', 'bold', 'italic'],
+            data : {},
+            autofocus: true,
+            placeholder: 'Start typing here ...',
+            onReady: () =>{
+                console.log("Editor is ready");
             },
-            data : {}
+            onChange: () =>{
+                console.log("Editor has changed");
+            }
         });
         console.log("Editor loaded");
-        
+
         return editor;
     }
 
