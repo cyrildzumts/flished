@@ -1,0 +1,618 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-30 17:08+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: core/resources/ui_strings.py:6
+msgid "Blog"
+msgstr ""
+
+#: core/resources/ui_strings.py:13
+msgid "No article found"
+msgstr ""
+
+#: core/resources/ui_strings.py:14
+msgid "Your research has no results"
+msgstr ""
+
+#: core/resources/ui_strings.py:15
+msgid "Search"
+msgstr ""
+
+#: core/resources/ui_strings.py:16
+msgid "Your search term"
+msgstr ""
+
+#: core/resources/ui_strings.py:17
+msgid "Search results for"
+msgstr ""
+
+#: core/resources/ui_strings.py:18
+msgid "Back"
+msgstr ""
+
+#: core/resources/ui_strings.py:19
+msgid "Create"
+msgstr ""
+
+#: core/resources/ui_strings.py:20
+msgid "Update"
+msgstr ""
+
+#: core/resources/ui_strings.py:21
+msgid "Cancel"
+msgstr ""
+
+#: core/resources/ui_strings.py:22
+msgid "Reset"
+msgstr ""
+
+#: core/resources/ui_strings.py:23
+msgid "Close"
+msgstr ""
+
+#: core/resources/ui_strings.py:24
+msgid "Send"
+msgstr ""
+
+#: core/resources/ui_strings.py:25
+msgid "Save"
+msgstr ""
+
+#: core/resources/ui_strings.py:26
+msgid "Publish"
+msgstr ""
+
+#: core/resources/ui_strings.py:27
+msgid "Contact us"
+msgstr ""
+
+#: core/resources/ui_strings.py:28
+msgid "Clear"
+msgstr ""
+
+#: core/resources/ui_strings.py:29
+msgid "Blog Home"
+msgstr ""
+
+#: core/resources/ui_strings.py:30
+msgid "New Post"
+msgstr ""
+
+#: core/resources/ui_strings.py:31
+msgid "There no posts currently. Feel free to create an new one"
+msgstr ""
+
+#: core/resources/ui_strings.py:32
+msgid "Invalid user request"
+msgstr ""
+
+#: core/resources/ui_strings.py:33
+msgid "Resource not found !"
+msgstr ""
+
+#: core/resources/ui_strings.py:34
+msgid ""
+"The resource you requested does not exist or is no longer available. Visit "
+"our blog to discover other blos posts."
+msgstr ""
+
+#: core/resources/ui_strings.py:35
+msgid "Discover our Blog"
+msgstr ""
+
+#: jasiri/settings.py:250
+msgid "French"
+msgstr ""
+
+#: jasiri/settings.py:251
+msgid "English"
+msgstr ""
+
+#: templates/400.html:10
+msgid "Bad Request ! "
+msgstr ""
+
+#: templates/400.html:13
+msgid "The server did not understand your request."
+msgstr ""
+
+#: templates/400.html:16 templates/403.html:16 templates/500.html:18
+msgid "Go back to Home Page"
+msgstr ""
+
+#: templates/403.html:10
+msgid "Access Forbidden ! "
+msgstr ""
+
+#: templates/403.html:13
+msgid "You are not allowed to access this page."
+msgstr ""
+
+#: templates/500.html:10
+msgid "Internal Server Error ! "
+msgstr ""
+
+#: templates/500.html:13
+msgid "The server has encountered an internal error."
+msgstr ""
+
+#: templates/500.html:14
+msgid "If this problem persists please contact us."
+msgstr ""
+
+#: templates/500.html:15
+msgid "Our technicians are working on the problem."
+msgstr ""
+
+#: templates/about.html:6
+msgid "About LYSHOP"
+msgstr ""
+
+#: templates/about.html:8
+msgid "We are selling products like :"
+msgstr ""
+
+#: templates/about.html:13
+msgid "accessoires"
+msgstr ""
+
+#: templates/about.html:14
+msgid "clothes"
+msgstr ""
+
+#: templates/about.html:15
+msgid "electronics"
+msgstr ""
+
+#: templates/about.html:16
+msgid "parfums"
+msgstr ""
+
+#: templates/about.html:17
+msgid "shoes"
+msgstr ""
+
+#: templates/about.html:19
+msgid "Product quality"
+msgstr ""
+
+#: templates/about.html:21
+msgid ""
+"We pay attention to the quality of the products we sell. We are only selling "
+"original articles"
+msgstr ""
+
+#: templates/about.html:26
+msgid "Trust"
+msgstr ""
+
+#: templates/about.html:28
+msgid ""
+"We understand your concern about trustability. Our business is based on "
+"trust. If you pay for an order, rest assured that your order will be "
+"delivered."
+msgstr ""
+
+#: templates/about.html:34
+msgid "Our Location"
+msgstr ""
+
+#: templates/about.html:36
+msgid ""
+"We are currently based at Libreville and Port-Gentil. We will expand the "
+"region where we can deliver our product as soon as possible."
+msgstr ""
+
+#: templates/about.html:42
+msgid "Issues report"
+msgstr ""
+
+#: templates/about.html:44
+msgid ""
+"In case you have any issue with your order, please contact at the following "
+"address:"
+msgstr ""
+
+#: templates/about.html:48
+msgid "Send Mail"
+msgstr ""
+
+#: templates/about.html:51
+msgid "Refund"
+msgstr ""
+
+#: templates/about.html:54
+msgid "It is possible to get a refund. You must meet the following conditions:"
+msgstr ""
+
+#: templates/about.html:59
+msgid "The order must have been paid"
+msgstr ""
+
+#: templates/about.html:60
+msgid "You have successfully returned the ordered items"
+msgstr ""
+
+#: templates/about.html:61
+msgid "The returned ordered items are intact and has not been used."
+msgstr ""
+
+#: templates/about.html:62
+msgid "The ordered items have been returned on time."
+msgstr ""
+
+#: templates/about.html:62
+msgid "max. 7 days after delivery"
+msgstr ""
+
+#: templates/base.html:74
+msgid "Catalog"
+msgstr ""
+
+#: templates/base.html:79
+msgid "Enable Grid"
+msgstr ""
+
+#: templates/faq.html:11
+msgid "LYSHOP FAQ"
+msgstr ""
+
+#: templates/faq.html:13
+msgid "This FAQ collects the commons questions you may be looking for answers."
+msgstr ""
+
+#: templates/faq.html:19
+msgid "How do I pay my bills ?"
+msgstr ""
+
+#: templates/faq.html:20
+msgid "As of now, we support the following payment method"
+msgstr ""
+
+#: templates/faq.html:22
+msgid "Other payments methods will be added when available"
+msgstr ""
+
+#: templates/faq.html:26
+msgid "The payment methods don't suit me, how can I get your products ?"
+msgstr ""
+
+#: templates/faq.html:27
+msgid "Please, get in touch with us. will see if we find a solution."
+msgstr ""
+
+#: templates/faq.html:28
+msgid "You can contact us through the following channels"
+msgstr ""
+
+#: templates/faq.html:32
+msgid "How do I add an Item in the Cart ?"
+msgstr ""
+
+#: templates/faq.html:33
+msgid "To add an item into your cart follow the step below"
+msgstr ""
+
+#: templates/faq.html:35
+msgid "From our website, open the article you want to buy"
+msgstr ""
+
+#: templates/faq.html:36
+msgid "From the product page, click on the Add to Cart button"
+msgstr ""
+
+#: templates/faq.html:37
+msgid "The article is added to your cart"
+msgstr ""
+
+#: templates/faq.html:41
+msgid "How can I place an Order ?"
+msgstr ""
+
+#: templates/faq.html:42
+msgid "To place an order, please follow the steps below"
+msgstr ""
+
+#: templates/faq.html:44
+msgid "Add items in your cart"
+msgstr ""
+
+#: templates/faq.html:45
+msgid "From your cart page, click on the Checkout button"
+msgstr ""
+
+#: templates/faq.html:46
+msgid "From there on, follow the displayed steps"
+msgstr ""
+
+#: templates/faq.html:50
+msgid "I have placed an order. What now ?"
+msgstr ""
+
+#: templates/faq.html:52
+msgid ""
+"Once we receive your order's payment, your order will be processed and "
+"shipped to you at the registered address you gave."
+msgstr ""
+
+#: templates/faq.html:54
+msgid ""
+"You have 3 days to pay your order before we can ship it. After this delay "
+"your order will be automatically cancelled."
+msgstr ""
+
+#: templates/faq.html:58
+msgid "I placed an order, but didn't get a confirmation mail"
+msgstr ""
+
+#: templates/faq.html:60
+msgid ""
+"It may be due to network error, or a technical issue from our side. Please "
+"get in touch with us through one of the following channels."
+msgstr ""
+
+#: templates/faq.html:65
+msgid "I place an order, but the order was not delivered"
+msgstr ""
+
+#: templates/faq.html:66
+msgid ""
+"Make sure you have paid your order before the delay. After the payment delay "
+"timeout, your order will be automatically cancelled. Please contact us with "
+"the evidence of your payment so that we proceed to a refund. Get in touch "
+"with us through one of the following channels."
+msgstr ""
+
+#: templates/faq.html:71
+msgid "How can I cancel my order ?"
+msgstr ""
+
+#: templates/faq.html:72
+msgid "To cancel your order, please follow steps described below"
+msgstr ""
+
+#: templates/faq.html:74
+msgid "From your account page, click on the Orders button"
+msgstr ""
+
+#: templates/faq.html:75
+msgid "open the order you want to cancel"
+msgstr ""
+
+#: templates/faq.html:76
+msgid "click on the Cancel Order button"
+msgstr ""
+
+#: templates/faq.html:77
+msgid ""
+"please, check the order status. A shipped Order can no longer be cancelled."
+msgstr ""
+
+#: templates/faq.html:81
+msgid "How long does it take to be delivered ?"
+msgstr ""
+
+#: templates/faq.html:82
+msgid "Standard shipping can take up to 5 days to be delivered"
+msgstr ""
+
+#: templates/faq.html:83
+msgid "If you are in a  hurry, please consider the Express shipping option"
+msgstr ""
+
+#: templates/faq.html:84
+msgid "What are the available payment methods ?"
+msgstr ""
+
+#: templates/faq.html:85
+msgid "The available payment methods are"
+msgstr ""
+
+#: templates/faq.html:89
+msgid "I place an Order, but it got cancelled after some days"
+msgstr ""
+
+#: templates/faq.html:91
+msgid ""
+"All unpaid orders get automatically cancelled after 3 days from the day you "
+"placed the order."
+msgstr ""
+
+#: templates/faq.html:93
+msgid "Make sure you pay your order on time"
+msgstr ""
+
+#: templates/faq.html:96
+msgid "What is an 'On Demand article' ?"
+msgstr ""
+
+#: templates/faq.html:97
+msgid ""
+"An On Demand article is an article that not available immediately in our "
+"store in Gabon."
+msgstr ""
+
+#: templates/faq.html:98
+msgid ""
+"Those articles need to be first sent in Gabon before the customer get it "
+"delivered to him/her"
+msgstr ""
+
+#: templates/faq.html:101
+msgid "How to buy an 'On Demand' article ?"
+msgstr ""
+
+#: templates/faq.html:102
+msgid ""
+"You simply place your order like usually. The only difference is that you "
+"have to pay for the first half of the article price."
+msgstr ""
+
+#: templates/faq.html:103
+msgid ""
+"Once we get the first half of the article price, we will process your order."
+msgstr ""
+
+#: templates/faq.html:104
+msgid ""
+"You have 3 days to pay the first half of the price. After that delay your "
+"order will be cancelled."
+msgstr ""
+
+#: templates/faq.html:107
+msgid ""
+"Can I place an order that contain both immediately available and On Demand "
+"articles ?"
+msgstr ""
+
+#: templates/faq.html:108
+msgid ""
+"Yes, you can. The article that are available immediately will be delivered "
+"on time."
+msgstr ""
+
+#: templates/faq.html:109
+msgid "On Demand articles will be delivered later when they arrived in Gabon."
+msgstr ""
+
+#: templates/faq.html:110
+msgid ""
+"For the payment you will pay for the total price of immediately available "
+"article plus the half of the On Demand articles."
+msgstr ""
+
+#: templates/faq.html:111
+msgid "Here an example : "
+msgstr ""
+
+#: templates/faq.html:112
+msgid ""
+"You order 4 articles. 2 are available immediately and cost in 10000 XAF and "
+"15000 XAF each.  The 2 other are On Demand article , 10000 XAF and 20000 XAF "
+"each."
+msgstr ""
+
+#: templates/faq.html:113
+msgid ""
+"The total for the immediately available article is 25000 XAF. The total for "
+"the On Demand article is 30000 XAF. At the moment you place your order, you "
+"have to pay a total of 40000 XAF."
+msgstr ""
+
+#: templates/faq.html:114
+msgid "That is : "
+msgstr ""
+
+#: templates/faq.html:115
+msgid ""
+"You will pay the 15000 XAF left when the On Demand articles are available in "
+"Gabon."
+msgstr ""
+
+#: templates/tags/category_tag.html:9
+msgid "Name"
+msgstr ""
+
+#: templates/tags/category_tag.html:13
+msgid "Display Name"
+msgstr ""
+
+#: templates/tags/category_tag.html:19
+msgid "Code"
+msgstr ""
+
+#: templates/tags/category_tag.html:23
+msgid "Page title"
+msgstr ""
+
+#: templates/tags/category_tag.html:27
+msgid "SEO Page Title"
+msgstr ""
+
+#: templates/tags/category_tag.html:31
+msgid "SEO Meta Keywords"
+msgstr ""
+
+#: templates/tags/category_tag.html:37
+msgid "Created By"
+msgstr ""
+
+#: templates/tags/category_tag.html:41
+msgid "Creation"
+msgstr ""
+
+#: templates/tags/category_tag.html:47
+msgid "Slug"
+msgstr ""
+
+#: templates/tags/category_tag.html:51
+msgid "Views"
+msgstr ""
+
+#: templates/tags/category_tag.html:58
+msgid "Highlight"
+msgstr ""
+
+#: templates/tags/category_tag.html:65
+msgid "Parent"
+msgstr ""
+
+#: templates/tags/category_tag.html:69
+msgid "Status"
+msgstr ""
+
+#: templates/tags/category_tag.html:70
+msgid "Active"
+msgstr ""
+
+#: templates/tags/category_tag.html:75
+msgid "Description"
+msgstr ""
+
+#: templates/tags/category_tag.html:80
+msgid "SEO Description"
+msgstr ""
+
+#: templates/tags/category_tag.html:88
+msgid "FACEBOOK Description"
+msgstr ""
+
+#: templates/tags/images_uploader.html:5
+msgid "Accepted formats"
+msgstr ""
+
+#: templates/tags/images_uploader.html:9
+msgid "Please Drag and drop the product images here"
+msgstr ""
+
+#: templates/tags/images_uploader.html:9
+msgid "or click here to choose your images"
+msgstr ""
+
+#: templates/tags/images_uploader.html:20
+msgid "no images"
+msgstr ""
+
+#: templates/tags/navigations.html:6
+msgid "Shop"
+msgstr ""
+
+#: templates/tags/navigations.html:17
+msgid "See all"
+msgstr ""
