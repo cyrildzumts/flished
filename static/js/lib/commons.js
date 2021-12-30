@@ -32,7 +32,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             element:headers[header.data.level],
             options : {
                 id:header.id,
-                innerText : header.data.text
+                innerHtml: header.data.text
             }
         });
         return h;
@@ -43,7 +43,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             element:headers[paragraph.data.level],
             options : {
                 id:paragraph.id,
-                innerText : paragraph.data.text
+                innerHtml : paragraph.data.text
             }
         });
         return p;
