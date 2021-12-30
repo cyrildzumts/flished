@@ -26,7 +26,7 @@ urlpatterns = i18n_patterns( * [
     path('about/', views.about, name='about'),
     path('admin/', admin.site.urls),
     #path('api/', include('api.urls', namespace='api')),
-    path('blog/', include('blogs.urls', namespace='blog')),
+    path('blog/', include('blog.urls', namespace='blog')),
     path('faq/', views.faq, name='faq'),
     #path('dashboard/', include('dashboard.urls')),
 
