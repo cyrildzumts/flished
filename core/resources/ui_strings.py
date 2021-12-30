@@ -29,8 +29,16 @@ UI_CLEAR_BTN_LABEL = _('Clear')
 UI_BLOG_HOME_LABEL = _('Blog Home')
 UI_NEW_BLOG_POST = _('New Post')
 UI_NO_BLOG_POSTS_HINT = _("There no posts currently. Feel free to create an new one")
+UI_INVALID_USER_REQUEST = _('Invalid user request')
+UI_RESOURCE_NOT_FOUND_TITLE = _('Resource not found !')
+UI_RESOURCE_NOT_FOUND = _('The resource you requested does not exist or is no longer available. Visit our blog to discover other blos posts.')
+UI_DISCOVER_OUR_BLOG = _('Discover our Blog')
 
 UI_STRINGS_CONTEXT = {
+    'UI_INVALID_USER_REQUEST': UI_INVALID_USER_REQUEST,
+    'UI_RESOURCE_NOT_FOUND_TITLE': UI_RESOURCE_NOT_FOUND_TITLE,
+    'UI_RESOURCE_NOT_FOUND': UI_RESOURCE_NOT_FOUND,
+    'UI_DISCOVER_OUR_BLOG': UI_DISCOVER_OUR_BLOG,
     'HOME_PAGE_TITLE': HOME_PAGE_TITLE,
     'HOME_META_DESCRIPTION': HOME_META_DESCRIPTION,
     'HOME_META_KEYWORDS': HOME_META_KEYWORDS,
