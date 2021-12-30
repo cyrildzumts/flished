@@ -111,7 +111,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             );
         });
         let node = element_utils.create_element_api({
-            element: LIST_TYPE_MAPPING[checklist.data.type],
+            element: LIST_TYPE_MAPPING[checklist.type],
             options : {
                 id:checklist.id,
                 children : items
