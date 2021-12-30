@@ -134,7 +134,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         let node = element_utils.create_element_api({
             element: "blockquote",
             options : {
-                id:paragraph.id,
+                id:quote.id,
                 innerHTML : quote.data.text,
                 children: [cite]
             }
