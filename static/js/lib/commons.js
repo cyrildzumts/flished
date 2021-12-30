@@ -101,8 +101,6 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 
             }
         }
-        console.log("Saved editor data : ");
-        //console.log(saved_data);
     }
 
 
