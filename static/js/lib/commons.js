@@ -19,8 +19,29 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     let editor;
 
 
+    function editor_content_clear(container){
+        let editor_content = container || document.querySelector('#editor-content');
+        if (editor_content){
+            while(editor_content.firstChild){
+                editor_content.removeChild(editor_content.firstChild);
+            }
+        }
+    }
+
     function on_editor_save(saved_data){
-        console.log("Editor saved data : ", saved_data);
+        let editor_content = document.querySelector('#editor-content');
+        if (editor_content){
+            let content = element_utils.create_element_api({
+                element:"p",
+                options : {
+                    cls:"content",
+                    innerText : saved_data
+                }
+            });
+            editor_content_clear(editor_content);
+            editor_content.appendChild(content);
+
+        }
     }
 
     
