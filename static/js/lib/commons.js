@@ -87,19 +87,33 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         console.log("Saving editor data : ", saved_data);
         let editor_content = document.querySelector('#editor-content');
         if (editor_content){
-            
-            let content = element_utils.create_element_api({
-                element:"div",
-                options : {
-                    cls:"content full",
-                    children : render_content(saved_data.blocks)
+            try {
+                let content = element_utils.create_element_api({
+                    element:"div",
+                    options : {
+                        cls:"content full",
+                        children : render_content(saved_data.blocks)
+                    }
+                });
+                if(content){
+                    editor_content_clear(editor_content);
+                    editor_content.appendChild(content);
+                    console.log("Saved editor data : ");
+                    
                 }
-            });
-            if(content){
-                editor_content_clear(editor_content);
-                editor_content.appendChild(content);
-                console.log("Saved editor data : ");
-                
+            } catch (error) {
+                console.log("Content data not saved",error);
+            }
+            let content_object = document.querySelector('#content-object');
+            if(content_object){
+                let content = element_utils.create_element_api({
+                    element:"div",
+                    options : {
+                        cls:"object full",
+                        innerHTML: JSON.stringify(saved_data)
+                    }
+                });
+                content_object.appendChild(content);
             }
         }
     }
