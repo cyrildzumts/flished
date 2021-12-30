@@ -85,7 +85,7 @@ p{
 	border: none;
 }
 .editor-post input[name="title"]::placeholder{
-	font-size: 1.1em;
+	font-size: 2em;
 	border: none;
 }
 .editor-post .editor-content ol, .editor-post .editor-content ul{

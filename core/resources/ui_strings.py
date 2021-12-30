@@ -34,7 +34,7 @@ UI_RESOURCE_NOT_FOUND_TITLE = _('Resource not found !')
 UI_RESOURCE_NOT_FOUND = _('The resource you requested does not exist or is no longer available. Visit our blog to discover other blos posts.')
 UI_DISCOVER_OUR_BLOG = _('Discover our Blog')
 UI_BLOG_POST_PREVIEW = _('Post Preview')
-UI_BLOG_INPUT_TITLE_PLACEHOLDER = _('Title ...')
+UI_BLOG_INPUT_TITLE_PLACEHOLDER = _("Story's title ...")
 
 UI_STRINGS_CONTEXT = {
     'UI_BLOG_INPUT_TITLE_PLACEHOLDER': UI_BLOG_INPUT_TITLE_PLACEHOLDER,
