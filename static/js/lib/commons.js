@@ -98,7 +98,6 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             let div = element_utils.create_element_api({
                 element: "div",
                 options : {
-                    cls:"flex",
                     children : [input, span]
                 }
             });
