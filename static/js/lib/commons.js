@@ -84,8 +84,10 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         checklist.data.items.forEach((item)=>{
             let input = element_utils.create_element_api({
                 element : "input",
-                'type': 'checkbox',
-                'checked': item.checked
+                options : {
+                    'type': 'checkbox',
+                    'checked': item.checked
+                }
             });
             let span = element_utils.create_element_api({
                 element: "span",
