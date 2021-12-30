@@ -50,19 +50,19 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     }
 
     function render_table(table){
-        
+        return new Node();
     }
 
     function render_list(list){
-        
+        return new Node();
     }
 
     function render_checklist(checklist){
-        
+        return new Node();
     }
 
     function render_quote(quote){
-        
+        return new Node();
     }
 
     
@@ -84,6 +84,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     }
 
     function on_editor_save(saved_data){
+        console.log("Saving editor data : ", saved_data);
         let editor_content = document.querySelector('#editor-content');
         if (editor_content){
             
