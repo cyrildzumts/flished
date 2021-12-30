@@ -35,7 +35,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 element:"p",
                 options : {
                     cls:"content",
-                    innerText : saved_data
+                    innerText : JSON.stringify(saved_data)
                 }
             });
             editor_content_clear(editor_content);
