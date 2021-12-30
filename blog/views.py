@@ -53,3 +53,16 @@ def blog_post(request, post_slug):
         'blog_post': None
     }
     return render(request, template_name, context)
+
+
+
+def post_preview(request, post_slug):
+    template_name = "blog/blog_post.html"
+
+    page_title = UI_STRINGS.UI_BLOG_POST_PREVIEW
+    context = {
+        'page_title': page_title,
+        'PAGE_TITLE': page_title,
+        'blog_post': None
+    }
+    return render(request, template_name, context)
