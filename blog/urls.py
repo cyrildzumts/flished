@@ -6,9 +6,9 @@ from django.urls import path, reverse_lazy
 app_name = "blog"
 
 blog_routes = [
-    path('', views.blog_home, name='home'),
-    path('new-post', views.new_post, name="new-post"),
-    path('<slug:post_slug>', views.blog_post, name="blog-post"),
+    path('', views.blog_home, name='blog-home'),
+    path('new-post/', views.new_post, name="new-post"),
+    path('<slug:post_slug>/', views.blog_post, name="blog-post"),
 ]
 
 urlpatterns = [
