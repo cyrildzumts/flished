@@ -40,7 +40,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
 
     function render_paragraph(paragraph){
         let p = element_utils.create_element_api({
-            element:headers[paragraph.data.level],
+            element: "p",
             options : {
                 id:paragraph.id,
                 innerHtml : paragraph.data.text
@@ -61,7 +61,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         
     }
 
-    function render_quote(paragraph){
+    function render_quote(quote){
         
     }
 
@@ -86,6 +86,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     function on_editor_save(saved_data){
         let editor_content = document.querySelector('#editor-content');
         if (editor_content){
+            
             let content = element_utils.create_element_api({
                 element:"div",
                 options : {
@@ -96,6 +97,8 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             if(content){
                 editor_content_clear(editor_content);
                 editor_content.appendChild(content);
+                console.log("Saved editor data : ");
+                //console.log(saved_data);
             }
         }
     }
