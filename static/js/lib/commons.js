@@ -119,7 +119,27 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     }
 
     function render_quote(quote){
-        return new Node();
+        let span = element_utils.create_element_api({
+            element: "span",
+            options : {
+                innerHTML : quote.data.text
+            }
+        });
+        let cite = element_utils.create_element_api({
+            element: "cite",
+            options : {
+                innerHTML : quote.data.caption
+            }
+        });
+        let node = element_utils.create_element_api({
+            element: "blockquote",
+            options : {
+                id:paragraph.id,
+                innerHTML : quote.data.text,
+                children: [cite]
+            }
+        });
+        return node;
     }
 
     
