@@ -17,8 +17,55 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     let fadeDelay = 10000; // 10s
     let filter_form;
     let editor;
+    let headers = [null, "h1","h2", "h3", "h4", "h5", "h6"];
+    let BLOCK_MAPPING = {
+        'header': render_header,
+        'paragraph': render_paragraph,
+        'table': render_table,
+        'list': render_list,
+        'checklist': render_checklist,
+        'quote': render_quote
+    }
 
+    function render_header(header){
+        let h = element_utils.create_element_api({
+            element:headers[header.data.level],
+            options : {
+                id:header.id,
+                innerText : header.data.text
+            }
+        });
+        return h;
+    }
 
+    function render_paragraph(paragraph){
+        let p = element_utils.create_element_api({
+            element:headers[paragraph.data.level],
+            options : {
+                id:paragraph.id,
+                innerText : paragraph.data.text
+            }
+        });
+        return p;
+    }
+
+    function render_table(table){
+        
+    }
+
+    function render_list(list){
+        
+    }
+
+    function render_checklist(checklist){
+        
+    }
+
+    function render_quote(paragraph){
+        
+    }
+
+    
     function editor_content_clear(container){
         let editor_content = container || document.querySelector('#editor-content');
         if (editor_content){
@@ -28,23 +75,31 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         }
     }
 
+    function render_content(blocks){
+        let elements = [];
+        blocks.forEach((block)=>{
+            elements.push(BLOCK_MAPPING[block.type](block));
+        });
+        return elements;
+    }
+
     function on_editor_save(saved_data){
         let editor_content = document.querySelector('#editor-content');
         if (editor_content){
             let content = element_utils.create_element_api({
-                element:"p",
+                element:"div",
                 options : {
-                    cls:"content",
-                    innerText : JSON.stringify(saved_data)
+                    cls:"content full",
+                    children : render_content(saved_data.blocks)
                 }
             });
-            editor_content_clear(editor_content);
-            editor_content.appendChild(content);
-
+            if(content){
+                editor_content_clear(editor_content);
+                editor_content.appendChild(content);
+            }
         }
     }
 
-    
 
     function editor_init(){
         editor = new EditorJS({
