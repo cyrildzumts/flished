@@ -2,8 +2,6 @@
 {% load i18n %} 
 {% load static %}
 
-{% if banner %}
-
 {% block HEADER_BANNER %}
 <div class="banner">
     <div class="container banner-container">
@@ -11,13 +9,20 @@
     </div>
 </div><!--End of Banner-->
 {% endblock HEADER_BANNER %}
-{% endif %}
 
 {% block MAIN %}
 <div class="container">
-  <p>Ici vient une liste de publications</p>
+  <ul class="flex">
+      <li><a href="{% url 'blog:new-post' %}">{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</a></li>
+  </ul>
 </div>
 <div class="full">
-  <a href="{% url 'blog:home' %}" class="mat-button mat-button-text"><span>{{UI_STRINGS_CONTEXT.UI_BLOG_HOME_LABEL}}</span></a>
+  {% if recent_posts %}
+    <ul>
+        {% for p in recent_posts %}<li><span>{{p.title}}</span></li>{% endfor %}
+    </ul>
+  {% else %}
+  <p>{{UI_STRINGS_CONTEXT.UI_NO_BLOG_POSTS_HINT}}</p>
+  {% endif %}
 </div>
 {% endblock MAIN %}

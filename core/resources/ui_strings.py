@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 HOME_META_DESCRIPTION = "Votre Blog actuel"
 HOME_META_KEYWORDS = "jasiri"
 HOME_PAGE_TITLE = "JASIRI Blog"
+UI_BLOG_HOME_PAGE_TITLE = _("Blog")
 UI_SITE_CONDITIONS = "Protection de données & Conditions"
 UI_PRIVACY_POLICY = 'Vie privée'
 UI_ABOUT_US = 'A propos'
@@ -25,7 +26,9 @@ UI_SAVE_BTN_LABEL = _('Save')
 UI_PUBLISH_BTN_LABEL = _('Publish')
 UI_CONTACT_LABEL = _('Contact us')
 UI_CLEAR_BTN_LABEL = _('Clear')
-
+UI_BLOG_HOME_LABEL = _('Blog Home')
+UI_NEW_BLOG_POST = _('New Post')
+UI_NO_BLOG_POSTS_HINT = _("There no posts currently. Feel free to create an new one")
 
 UI_STRINGS_CONTEXT = {
     'HOME_PAGE_TITLE': HOME_PAGE_TITLE,
@@ -52,5 +55,9 @@ UI_STRINGS_CONTEXT = {
     'UI_CLOSE_BTN_LABEL': UI_CLOSE_BTN_LABEL,
     'UI_SAVE_BTN_LABEL': UI_SAVE_BTN_LABEL,
     'UI_PUBLISH_BTN_LABEL': UI_PUBLISH_BTN_LABEL,
+    'UI_BLOG_HOME_LABEL': UI_BLOG_HOME_LABEL,
+    'UI_NEW_BLOG_POST': UI_NEW_BLOG_POST,
+    'UI_NO_BLOG_POSTS_HINT': UI_NO_BLOG_POSTS_HINT,
+
 
 }

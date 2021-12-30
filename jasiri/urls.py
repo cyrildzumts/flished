@@ -14,19 +14,28 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf.urls.i18n import i18n_patterns
 from django.urls import path
-#from django.conf.urls import url, include
+from django.conf.urls import url, include
 from django.conf.urls.static import static
 from jasiri import views, settings
 
 
-urlpatterns = [
+urlpatterns = i18n_patterns( * [
     path('', views.home, name="home"),
     path('about/', views.about, name='about'),
     path('admin/', admin.site.urls),
     #path('api/', include('api.urls', namespace='api')),
-    #path('blog/', include('blogs.urls', namespace='blog')),
+    path('blog/', include('blogs.urls', namespace='blog')),
     path('faq/', views.faq, name='faq'),
+    #path('dashboard/', include('dashboard.urls')),
+
+])
+
+urlpatterns +=[
+    path('i18n/', include('django.conf.urls.i18n')),
+    #path('api/', include('api.urls', namespace='api')),
+    #path('api/api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('privacy-policy/', views.privacy_policy, name="privacy-policy"),
     #path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
     path('terms-of-use/', views.terms_of_use, name="terms-of-use"),
