@@ -95,7 +95,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             item.forEach((value) => tds.push(element_utils.create_element_api({
                 element: "td",
                 options : {
-                    innerHTML : value
+                    innerText : value
                 }
             })));
             trs.push(element_utils.create_element_api({
@@ -112,7 +112,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             }
         }));
         let node = element_utils.create_element_api({
-            element: BLOCK_MAPPING[table.type],
+            element: table.type,
             options : {
                 id:table.id,
                 children : items
