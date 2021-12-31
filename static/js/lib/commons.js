@@ -28,6 +28,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         'paragraph': render_paragraph,
         'table': render_table,
         'list': render_list,
+        'linkTool': render_linkTool,
         'checklist': render_checklist,
         'quote': render_quote
     }
@@ -38,6 +39,19 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             options : {
                 id:header.id,
                 innerHTML: header.data.text
+            }
+        });
+        return node;
+    }
+
+    function render_linkTool(linkTool){
+        let node = element_utils.create_element_api({
+            element: "a",
+            options : {
+                id:linkTool.id,
+                cls:'mat-button mat-button-text',
+                href : linkTool.data.link,
+                innerText: linkTool.data.link
             }
         });
         return node;
