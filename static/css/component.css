@@ -56,6 +56,8 @@
 
 .editor-post input[name="title"]{
 	border: none !important;
+	font-size: 2em;
+	font-weight: bold;
 }
 
 .editor-post input[name="title"]::placeholder{
