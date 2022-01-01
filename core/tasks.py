@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 @shared_task
 def send_mail_task(email_context=None):
-    
+    logger.info("inside  send_mail_task")
     # TODO : make sending email based on Django Template System.
     if email_context is not None and isinstance(email_context, dict):
         try:
