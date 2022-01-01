@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 from django.utils.translation import ugettext_lazy as _
+import django.dispatch
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -60,6 +61,10 @@ DJANGO_WELCOME_EMAIL_TEMPLATE = "welcome_email_new.html"
 DJANGO_VALIDATION_EMAIL_TEMPLATE = "validation_email_new.html"
 DJANGO_PUBLISHED_CONFIRMATION_EMAIL_TEMPLATE = "tags/published_confirmation_email_new.html"
 
+SEND_USER_LOGGED_IN_SIGNAL = True
+SEND_USER_REGISTERED_SIGNAL = True
+SIGNA_USER_LOGGED_IN = django.dispatch.Signal()
+SIGNA_USER_REGISTERED = django.dispatch.Signal()
 
 ALLOWED_HOSTS = [os.getenv('JASIRI_ALLOWED_HOST')]
 SITE_HOST = os.getenv('JASIRI_HOST')
