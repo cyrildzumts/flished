@@ -703,14 +703,14 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             
             $('.js-uploaded-files-clear').on('click', this.clearImages.bind(this));
             
-            $("js-create-post-btn").on('click', function(e){
+            $(".js-create-post-btn").on('click', function(e){
                 e.preventDefault();
                 e.stopPropagation();
                 if(post_content){
                     self.upload();
                 }
             });
-            
+
             console.log("PostManager initialized");
         };
 
