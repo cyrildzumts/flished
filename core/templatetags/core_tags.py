@@ -8,11 +8,6 @@ import logging
 import re
 import json
 
-
-
-
-
-
 NAME_PATTERN = re.compile(r"[,.-_\\]")
 
 logger = logging.getLogger(__name__)
@@ -43,9 +38,11 @@ def replace_newline(value):
 @register.simple_tag
 @register.filter
 def render_post(post):
+    logger.info(f"rendering post from dict {post}")
     if not isinstance(post, dict):
+        logger.info(f"rendering post: Not a dict. Type : {type(post)}")
         return post
-    
+    logger.info(f"rendering html for post dict")
     return renderers.render_post(post)
 
 
