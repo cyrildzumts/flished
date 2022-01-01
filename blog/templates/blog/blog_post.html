@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %} 
 {% load static %}
+{% load core_tags %}
 
 {% block HEADER_BANNER %}
 <div class="actions">
@@ -15,6 +16,10 @@
         <li>{{blog_post.slug}}</li>
         <li>{{blog_post.content}}</li>
     </ul>
+
+    <div class="post">
+        {% render_post blog_post %}
+    </div>
   
   
 </div>

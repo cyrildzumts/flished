@@ -1,6 +1,7 @@
 from django import template
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
+from core import renderers
 from jasiri import utils
 
 import logging
@@ -31,6 +32,23 @@ def access_dict(_dict, key):
     return None
 
 
+@register.simple_tag
+@register.filter
+def replace_newline(value):
+    if not isinstance(value, str):
+        return value
+    
+    return value.replace("\\n","<br />\\n")
+
+@register.simple_tag
+@register.filter
+def render_post(post):
+    if not isinstance(post, dict):
+        return post
+    
+    return renderers.render_post(post)
+
+
 
 @register.simple_tag
 @register.filter
@@ -48,5 +66,9 @@ def json_ld(context, structured_data):
     dumped = json.dumps(structured_data, ensure_ascii=False, indent=True, sort_keys=True)
     script_tag = f"\n<script type=\"application/ld+json\">{indent}{dumped}{indent}</script>"
     return mark_safe(script_tag)
+
+
+def render_post(blocks):
+    pass
 
 

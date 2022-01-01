@@ -1,0 +1,26 @@
+<table id="{{table.id}}">
+{% if table.data.withHeadings %}
+    <thead>
+        <tr>
+            {% for th in table.data.content.0 %} <th>{{th}}</th> {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for tr in table.data.content %}
+        {% if not forloop.first %}
+        <tr>
+            {% for td in tr %} <td>{{td}}</td> {% endfor %}
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+{% else %}
+    <tbody>
+        {% for tr in table.data.content %}
+        <tr>
+            {% for td in tr %} <td>{{td}}</td> {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+{% endif %}
+</table>

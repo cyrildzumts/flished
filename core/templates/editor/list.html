@@ -1,0 +1,13 @@
+{% if list.data.style == 'ordered' %}
+<ol>
+    {% for item in list.data.items %}
+    <li>{{item}}</li>
+    {% endfor %}
+</ol>
+{% else %}
+<ul>
+    {% for item in list.data.items %}
+    <li>{{item}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
