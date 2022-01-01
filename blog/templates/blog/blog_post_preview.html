@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %} 
+{% load static %}
+
+{% block HEADER_BANNER %}
+<div class="actions">
+    <a href="{% url 'blog:blog-home' %}" class="mat-button mat-button-text"><span>{{UI_STRINGS_CONTEXT.UI_BLOG_HOME_LABEL}}</span></a>
+</div>
+{% endblock HEADER_BANNER %}
+
+{% block MAIN %}
+<div class="flex full">
+  <span>{{UI_STRINGS_CONTEXT.UI_BLOG_POST_PREVIEW}}</span>
+</div>
+<div class="full">
+  {{blog_post}}
+</div>
+{% endblock MAIN %}
+{% block FOOTER %}{% endblock FOOTER %}

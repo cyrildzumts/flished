@@ -53,7 +53,12 @@ ADMIN_EXTERNAL_EMAIL = os.environ.get("JASIRI_ADMIN_EXTERNAL_EMAIL")
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_BACKEND = os.environ.get('JASIRI_EMAIL_BACKEND')
-
+DJANGO_EMAIL_TEMPLATE = "tags/template_email_new.html"
+DJANGO_EMAIL_TO_ADMIN_TEMPLATE = "tags/admin_newuser_template_email.html"
+DJANGO_EMAIL_TEMPLATE_TXT = "tags/template_email.txt"
+DJANGO_WELCOME_EMAIL_TEMPLATE = "welcome_email_new.html"
+DJANGO_VALIDATION_EMAIL_TEMPLATE = "validation_email_new.html"
+DJANGO_PUBLISHED_CONFIRMATION_EMAIL_TEMPLATE = "tags/published_confirmation_email_new.html"
 
 
 ALLOWED_HOSTS = [os.getenv('JASIRI_ALLOWED_HOST')]
@@ -91,8 +96,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
     'core.apps.CoreConfig',
     'blog.apps.BlogConfig',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
