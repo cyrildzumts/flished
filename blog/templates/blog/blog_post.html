@@ -2,6 +2,7 @@
 {% load i18n %} 
 {% load static %}
 {% load core_tags %}
+{% load blog_tags %}
 
 {% block HEADER_BANNER %}
 <div class="actions">
@@ -10,18 +11,13 @@
 {% endblock HEADER_BANNER %}
 
 {% block MAIN %}
-<div class="full">
-    <ul>
-        <li>{{blog_post}}</li>
-        <li>{{blog_post.slug}}</li>
-        <li>{{blog_post.content}}</li>
-    </ul>
-
+<div class="container">
+    <div class="post-header">
+        <span>{{blog_post.author}}</span>|<span>{{blog_post.created_at}}</span>|<span>{{blog_post|post_status_value}}</span>
+    </div>
     <div class="post">
         {% render_post blog_post %}
     </div>
-  
-  
 </div>
 {% endblock MAIN %}
 {% block FOOTER %}{% endblock FOOTER %}
