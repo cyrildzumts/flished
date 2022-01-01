@@ -8,7 +8,7 @@
                 <input type="text" id="title" name="title" placeholder="{{UI_STRINGS_CONTEXT.UI_BLOG_INPUT_TITLE_PLACEHOLDER}}">
                 {% csrf_token %}
             </div>
-            <div id="editor" class="full mat-box editor padding full-h" data-action="create">
+            <div id="editor" class="full mat-box editor padding full-h" data-action="create" data-author="{{request.user.pk}}">
             </div>
         </div>
     </div>

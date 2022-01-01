@@ -26,7 +26,7 @@ def blog_home(request):
     return render(request, template_name, context)
 
 
-
+@login_required
 def new_post(request):
     template_name = "blog/new_blog_post.html"
     page_title = UI_STRINGS.UI_NEW_BLOG_POST

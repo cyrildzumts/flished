@@ -822,6 +822,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
             formData.append('title', title.value);
             formData.append('content', post_content);
+            formData.append('author', editor_element.dataset.author);
             let url = this.is_update_form() ? '/api/update-post/' + editor_element.dataset.post + '/' : '/api/create-post/';
             var options = {
                 //url : url,
