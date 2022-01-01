@@ -12,11 +12,13 @@
 
 {% block MAIN %}
 <div class="container">
-    <div class="post-header">
-        <span>{{blog_post.author}}</span>|<span>{{blog_post.created_at}}</span>|<span>{{blog_post|post_status_value}}</span>
-    </div>
-    <div class="post">
-        {% render_post blog_post %}
+    <div class="post-wrapper">
+        <div class="post-header uppercase">
+            <span>{{blog_post.author}}</span>|<span>{{blog_post.created_at}}</span>|<span>{{blog_post|post_status_value}}</span>
+        </div>
+        <div class="post">
+            {% render_post blog_post %}
+        </div>
     </div>
 </div>
 {% endblock MAIN %}

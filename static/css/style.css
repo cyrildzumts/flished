@@ -248,6 +248,9 @@
 .uppercase{
     text-transform: uppercase !important;
 }
+.lowercase{
+    text-transform: lowercase !important;
+}
 
 .docklet:hover .link{
     text-decoration: none;
