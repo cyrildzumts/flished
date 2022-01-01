@@ -12,7 +12,9 @@ def render_list(list_tool, template_name="editor/list.html"):
 
 def render_header(head, template_name="editor/head.html"):
     logger.info(f"rendering header : {head}")
-    return render_to_string(template_name, head)
+    header = render_to_string(template_name, head)
+    logger.info(f"rendering header string: {header}")
+    return header
 
 def render_checklist(checklist, template_name="editor/checklist.html"):
     return render_to_string(template_name, checklist)
