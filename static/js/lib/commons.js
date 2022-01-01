@@ -824,15 +824,30 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             formData.append('content', post_content);
             let url = this.is_update_form() ? '/api/update-post/' + editor_element.dataset.post + '/' : '/api/create-post/';
             var options = {
-                url : url,
+                //url : url,
                 type: 'POST',
+                method: 'POST',
                 enctype : 'multipart/form-data',
                 data : formData,
                 dataType : 'json',
-                processData : false,
-                cache : false,
-                contentType : false
             };
+            let fetch_options = {
+                method : 'POST',
+                body: formData
+            };
+            ajax_api.fetch_api(url, fetch_options).then(function(response){
+                var msg = {
+                    content : response.message,
+                    level : response.success
+                }
+                notify(msg);
+                self.onUploadResponse(response);
+            }, function(reason){
+                console.error("Files could not be uploaded.");
+                console.error(reason);
+                
+            });
+            /*
             ajax_api.ajax(options).then(function(response){
                 var msg = {
                     content : response.message,
@@ -848,6 +863,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 console.error(reason);
                 
             });
+            */
         };
 
         return PostManager;
