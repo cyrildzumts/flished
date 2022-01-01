@@ -19,7 +19,7 @@
 <div class="full">
   {% if recent_posts %}
     <ul>
-        {% for p in recent_posts %}<li><span>{{p.title}}</span></li>{% endfor %}
+        {% for p in recent_posts %}<li><a href="{% url 'blog:blog-post' p.slug %}" class="mat-button mat-button-text"><span>{{p.title}}</span></a></li>{% endfor %}
     </ul>
   {% else %}
   <p>{{UI_STRINGS_CONTEXT.UI_NO_BLOG_POSTS_HINT}}</p>

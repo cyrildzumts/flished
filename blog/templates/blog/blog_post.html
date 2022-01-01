@@ -10,7 +10,13 @@
 
 {% block MAIN %}
 <div class="full">
-  {{blog_post}}
+    <ul>
+        <li>{{blog_post}}</li>
+        <li>{{blog_post.slug}}</li>
+        <li>{{blog_post.content}}</li>
+    </ul>
+  
+  
 </div>
 {% endblock MAIN %}
 {% block FOOTER %}{% endblock FOOTER %}
