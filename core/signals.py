@@ -80,5 +80,5 @@ def generate_category_slug(sender, instance, *args, **kwargs):
     instance.slug = slugify(instance.name)
 
 @receiver(pre_save, sender=Post)
-def generate_product_slug(sender, instance, *args, **kwargs):
-    instance.slug = slugify(instance.name)
+def generate_post_slug(sender, instance, *args, **kwargs):
+    instance.slug = slugify( instance.title)
