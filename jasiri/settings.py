@@ -101,6 +101,7 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'rest_framework',
     'rest_framework.authtoken',
+    'accounts',
 ]
 
 MIDDLEWARE = [

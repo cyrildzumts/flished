@@ -1,0 +1,30 @@
+
+{% extends "template_email_new.html" %}
+{% load i18n %}
+
+
+{% block EMAIL_BODY %}
+<!-- START CENTERED WHITE CONTAINER -->
+<table role="presentation" class="main">
+
+    <!-- START MAIN CONTENT AREA -->
+    <tr>
+    <td class="wrapper">
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+            <p>Bonjour {{FULL_NAME}},</p>
+            <p>Nous sommes ravis que vous ayez décidé de créer un compte chez nous.</p>
+            <p>Il vous reste encore une étape avant de pouvoir créer des publications, vous devez confirmer votre adresse E-Mail.</p>
+            <p>Vous allez recevoir dans un instant un mail de confirmation.</p>
+            <p>À trés bientot sur {{SITE_NAME}}.</p>
+            </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+
+<!-- END MAIN CONTENT AREA -->
+</table>
+<!-- END CENTERED WHITE CONTAINER -->
+{% endblock EMAIL_BODY %}

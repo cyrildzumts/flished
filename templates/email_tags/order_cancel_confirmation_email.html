@@ -1,0 +1,100 @@
+{% extends "template_email.html" %}
+{% load i18n %}
+
+
+{% block EMAIL_BODY %}
+
+<tr><!--EMAIL_BODY-->
+    <td>
+        <table>
+            <tr>
+                <td><p>Confirmation de l'annulation de la commande</p></td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Merci pour vos achats chez LYSHOP!</h3>
+                    <p>Merci de faire vos achats chez LYSHOP,
+Nous avons bien reçu l'annulation de votre commande et nous vous confirmons son annulation. Voici les informations relatives à votre commande.</p>
+                    <p>Si votre commande a été déjà payé, alors vous serez renbourser dans les jours qui suivent.</p>
+
+                </td>
+            </tr>
+            <tr>
+                <td><p>Vos Informations</p></td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Numéro de commande :  {{REFERENCE_NUMBER}}</p>
+                    <p>Date de commande  : {{order.created_at|date:"F j, Y"}}</p>
+                    <p>Nom : {{FULL_NAME}}</p>
+                    <p>Méthode de paiement : {{order.payment_method}}</p>
+                    <p>Envoi : {{order.ship_mode}}</p>
+                    <p>Option de paiement : {{PAYMENT_OPTION}}</p>
+                    <p>Statut de la commande : {{ORDER_STATUS}}</p>
+                    <p>Adresse : {{ADDRESS}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Aperçu de la commande</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>{% trans "Image" %}</th>
+                                <th>Nr. Art.</th>
+                                <th>Article</th>
+                                <th>Attributs</th>
+                                <th>Quantité</th>
+                                <th>Prix</th>
+                                <th>Réduction</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in order_items %}
+                            <tr>
+                                <td><div class="col-xs-3 col-4"><img class="img-responsive" src="{{item.image}}" alt="{{item.display_name}}"></div></td>
+                                <td>{{item.product.product.article_number}}</td>
+                                <td>{{item.product.display_name}}</td>
+                                <td><div class="row">{% for attr in item.product.attributes.all %} <span>{{attr}} ; </span> {% endfor %}</div></td>
+                                <td>{{item.quantity}}</td>
+                                <td><span>{{item.unit_price}}</span> <span>{% trans CURRENCY %}</span></td>
+                                <td><span>{{item.promotion_price|floatformat:"-2"}}</span> <span>{% trans CURRENCY %}</span></td>
+                                <td><span>{{item.active_total_price|floatformat:"-2"}}</span> <span>{% trans CURRENCY %}</span></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Somme Totale : </td>
+                                <td>Frai d'envoi</td>
+                                <td>Grand Total</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td> {{AMOUNT|floatformat:"-2"}} {% trans CURRENCY %} : </td>
+                                <td>{{SHIPPING_PRICE|floatformat:"-2"}} {% trans CURRENCY %}</td>
+                                <td>{{TOTAL|floatformat:"-2"}} {% trans CURRENCY %}</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+{% endblock EMAIL_BODY %}

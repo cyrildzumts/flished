@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block SEARCH_BAR %}
+{% endblock SEARCH_BAR %}
+{% block HEADER_BANNER %}
+    <div class="container">
+        <div class="flex flex-column registration-success">
+            <h3>{% trans 'Registration successful' %}</h3>
+        </div>
+    </div>
+{% endblock HEADER_BANNER %}
+{% block CATEGORIES %}
+
+{% endblock CATEGORIES %}
+{% block MAIN %}
+<div class="container">
+    <div class="mat-box registration-success">
+        <p>{% trans "Your account has been successfully created, but it is not activated yet." %}</p>
+        <p>{% trans "You will be able to login your account after you have activated it." %}</p>
+        <p>{% trans "An activation link has been sent to your mailbox" %} {% if new_user %} : <span>{{new_user.email}}</span>{% endif %} </p>
+        <p>{% trans "Please open your mailbox and click on the activation link to activate your account." %}</p>
+        <p>{% trans "If you can't find the activation link in your mailbox, please also check your spam folder." %}</p>
+        <p class="bold">{% trans "Your account will be automatically deleted after 3 days if you don't activate it through the link we have just sent in your mailbox." %}</p>
+        <div class="actions"><a class="mat-button mat-button-default" href="{%url 'catalog:catalog-home' %}"><span>{{UI_STRINGS_CONTEXT.UI_DISCOVER_OUR_CATALOG}}</span></a></div>
+    </div>
+</div>
+        
+{% endblock MAIN %}
+{% block FOOTER_CONTENT %}{% endblock FOOTER_CONTENT %}

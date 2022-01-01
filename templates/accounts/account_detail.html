@@ -1,0 +1,77 @@
+{% extends "account_base.html"%}
+{% load i18n %}
+
+{% block MAIN %}
+<div class="container">
+  {% if user_has_pic %}
+    <section id="user-pic-wrapper" class="row">
+      <div class="col-m-12 col-4">
+        <img class="img mat-img" src="" alt="{%trans 'User Picture'%}">
+      </div>
+    </section>
+  {% endif %}
+
+  <section id="edit-user-bar" class="actions medium">
+    <button class="mat-button mat-button-default js-edit-form" data-target="#account-form" data-disable="#edit-user-bar"><i class="fas fa-pen"></i>{% trans 'Edit' %}</button>
+    <a class="mat-button mat-button-default" href="{% url 'accounts:password-change' %}"><i class="fas fa-pen"></i> <span>{% trans 'Change password'%}</span></a>
+    {% comment "" %}<a class="mat-button mat-button-default warn" href="#"><i class="fas fa-trash"></i> <span>{% trans 'Delete my Account'%}</span></a>{% endcomment %}
+  </section>
+  
+  <form id="account-form" class="form-non-edit" action="{% url 'accounts:update' account.account_uuid %}" method="post">{% csrf_token %}
+  <div class="mat-box">
+  <section id="user-infos" class="grid">
+
+    <div class="box">
+      <div class="mat-input">
+        <label for="username" >{% trans 'Username'%}</label>
+        <input id="username" class="js-non-editable non-editable" type="text" name="username" value="{{account.user.username}}" disabled>
+      </div>
+      <div class="mat-input">
+        <label for="firstname">{% trans 'Firstname'%}</label>
+        <input id="firstname" class="js-editable" type="text" name="first_name" value="{{account.user.first_name}}">
+      </div>
+      <div class="mat-input">
+        <label for="lastname">{% trans 'Lastname'%}</label>
+        <input id="lastname" class="js-editable" type="text" name="last_name" value="{{account.user.last_name}}">
+      </div>
+      
+      
+    </div>
+    <div class="box">
+      <div class="mat-input">
+        <label for="date_of_birth">{% trans 'Date of Birth'%}</label>
+        <input id="date_of_birth" class="js-editable" type="text" name="date_of_birth" value="{{account.date_of_birth|default_if_none:''}}">
+      </div>
+      <div class="mat-input">
+          <label for="telefon">{% trans 'Phone' %}</label>
+          <input id="telefon" class="js-editable" type="text" name="telefon" value="{{account.telefon|default_if_none:''}}">
+      </div>
+      <div class="mat-input">
+        <label for="email">{% trans 'Email'%}</label>
+        <input id="email" class="js-editable" type="text" name="email" value="{{account.user.email}}">
+      </div>
+      
+    </div>
+    <div class="box">
+      <div class="mat-input">
+          <label for="newsletter">{% trans 'Newsletter Subscribtion' %}</label>
+          <input id="newsletter" class="js-editable" type="checkbox" name="newsletter" value="{{account.newsletter}}" {% if account.newsletter %}checked {% endif %} disabled>
+      </div>
+      <div class="mat-input">
+          <label>{% trans 'Last login' %}</label>
+          <input type="text" value="{{account.user.last_login}}">
+      </div>
+      <div class="mat-input">
+          <label>{% trans 'Date joined' %}</label>
+          <input type="text" value="{{account.user.date_joined}}">
+      </div>
+    </div>
+  </section>
+    <div id="form-controls" class="actions">
+      <button type="button" class="mat-button mat-button-outline js-form-edit-cancel" data-target="#account-form" data-hide="#form-controls">{% trans 'Cancel' %}</button>
+      <button class="mat-button mat-button-default js-form-edit-send" type="submit">{% trans 'Send' %}</button>
+    </div>
+  </div>
+  </form>
+</div>
+{% endblock MAIN %}

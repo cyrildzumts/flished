@@ -1,0 +1,83 @@
+
+{% extends "base.html" %}
+{% load i18n %} 
+{% block HEADER_PANEL %}
+  <div class="header--panel">
+       <ul class="flex">
+        <li><a class="mat-button mat-button-text link logo" href="{%url 'home'%}"> {{site_name}} </a></li>
+       </ul>
+  </div>
+{% endblock HEADER_PANEL %}
+{% block SEARCH_BAR %}
+{% endblock SEARCH_BAR %}
+{% block HEADER_BANNER %}
+
+{% endblock HEADER_BANNER %}
+
+{% block CATEGORIES %}
+
+{% endblock CATEGORIES %}
+
+{% block MAIN %}
+
+  <div class="container user-registration">
+    <div class="hidden-xs col-6">
+        <div class="signup-hero"></div>
+    </div>
+    <div class="col-m-12 col-6">
+      <form class="signup-form full" action="{% url 'accounts:register'%}" method="POST">{% csrf_token %}
+            <div class="mat-box full">
+                <div class="mat-box-title center"><span class="bold text-gray">{%trans 'Sign up'%}</span></div>
+                <div class="mat-box-content">
+                      <div class="flex flex-left">
+                          <div class="form-group">
+                            <label for="username">{% trans "Username" %}</label>
+                            <input id="username" type="text" name="username">
+                            {{form.username.errors}}
+                          </div>
+                          <div class="form-group">
+                            <label for="email">{% trans "E-Mail" %}</label>
+                            <input id="email" type="text" name="email">
+                            {{form.email.errors}}
+                          </div>
+                      </div>
+                      <div class="flex flex-left">
+                          <div class="form-group">
+                              <label for="first_name">{% trans "Firstname" %}</label>
+                              <input id="first_name" type="text" name="first_name">
+                              {{form.first_name.errors}}
+                          </div>
+                          <div class="form-group">
+                              <label for="last_name">{% trans "Name" %}</label>
+                              <input id="last_name" type="text" name="last_name">
+                              {{form.last_name.errors}}
+                          </div>
+                      </div>
+                      <div class="flex flex-left">
+                          <div class="form-group">
+                              <label for="password1">{% trans "Password" %}</label>
+                              <input id="password1" type="password" name="password1" autcomplete="new-password">
+                              {{form.password1.errors}}
+                          </div>
+                          <div class="form-group">
+                              <label for="password2">{% trans "Repeat your password" %}</label>
+                              <input id="password2" type="password" name="password2" autcomplete="new-password">
+                              {{form.password2.errors}}
+                          </div>
+                      </div>
+                </div>
+                <div class="mat-box-actions">
+                    <div class="padding-1x"></div>
+                    <div class="actions padding-v">
+                      <button class="mat-button mat-button-default full" type="submit">{%trans 'Sign up'%} </button>
+                    </div>
+                    <div class="actions padding-v">
+                        <span class="register-hint">{% trans "Already have an account ?" %}</span><a class="mat-button mat-button-outline register-btn" href="{% url 'accounts:login' %}">{% trans "Sign In" %}</a>
+                    </div>
+                </div>
+            </div>
+      </form>
+     </div>
+  </div>
+{% endblock MAIN %}
+{% block FOOTER_CONTENT %}{% endblock FOOTER_CONTENT %}

@@ -1,0 +1,45 @@
+{% extends "template_email_new.html" %}
+{% load i18n %}
+
+{% block EMAIL_BODY %}
+<!-- START CENTERED WHITE CONTAINER -->
+<table role="presentation" class="main">
+
+    <!-- START MAIN CONTENT AREA -->
+    <tr>
+    <td class="wrapper">
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+            <p>Bonjour,</p>
+            <p>Votre compte a été crée avec succès.</p>
+            <p>Vous devez valider votre addresse E-Mail avant de pouvoir rediger des publications</p>
+            <p>Veuillez valider votre E-Mail en cliquant sur le button en dessous.</p>
+            <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+                <tbody>
+                <tr>
+                    <td align="left">
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                        <tr>
+                            <td> <a href="{{validation_url}}" target="_blank">Confirmer Mon E-Mail</a> </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <p>Si le bouton ne marche pas, copiez et collez le lien suivant dans votre navigateur<a  href="{{validation_url}}">{{validation_url}}</a></p>
+            <p>Si jamais vous n'avez pas essayé de creer un compte chez nous, alors veuillez simplement ignorer ce mail.</p>
+            <p>À trés bientot sur {{SITE_NAME}}.</p>
+            </td>
+        </tr>
+        </table>
+    </td>
+    </tr>
+
+<!-- END MAIN CONTENT AREA -->
+</table>
+<!-- END CENTERED WHITE CONTAINER -->
+{% endblock EMAIL_BODY %}
