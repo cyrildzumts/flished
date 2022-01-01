@@ -35,8 +35,8 @@ POST_STATUS_REVIEW_FAILED = 3
 
 POST_STATUS = (
     (POST_STATUS_DRAFT, _('draft')),
-    (POST_STATUS_PUBLISHED, _('published'))
-    (POST_STATUS_REVIEW, _('review'))
+    (POST_STATUS_PUBLISHED, _('published')),
+    (POST_STATUS_REVIEW, _('review')),
 )
 
 # QUERIES
