@@ -83,7 +83,7 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    user = models.ForeignKey(User, related_name='blog_posts', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name='blog_posts', on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     category = models.ForeignKey(Category,related_name='posts', on_delete=models.SET_NULL, blank=True, null=True)
     tags = models.ManyToManyField(Tag, related_name="tags")
@@ -95,8 +95,8 @@ class Post(models.Model):
     post_status = models.IntegerField(default=Contants.POST_STATUS_DRAFT, blank=True)
     view_count = models.IntegerField(default=0, blank=True, null=True)
     post_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
-    FORM_FIELDS = ['user', 'title', 'category', 'content']
-    SERIALIZER_FIELDS = ['user', 'title', 'category', 'content', 'post_uuid']
+    FORM_FIELDS = ['author', 'title', 'category', 'content']
+    SERIALIZER_FIELDS = ['author', 'title', 'category', 'content', 'post_uuid']
     SEARCH_FIELDS = ['title', 'content']
 
     def __str__(self) -> str:
