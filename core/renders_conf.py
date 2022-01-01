@@ -17,7 +17,6 @@ def render_checklist(checklist, template_name="editor/checklist.html"):
     return render_to_string(template_name, {'checklist:': checklist})
 
 def render_paragraph(paragraph, template_name="editor/paragraph.html"):
-    logger.info(f"rendering paragraph : {paragraph}")
     return render_to_string(template_name, {'paragraph': paragraph})
 
 def render_quote(quote, template_name="editor/quote.html"):
