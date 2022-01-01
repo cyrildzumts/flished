@@ -55,6 +55,7 @@ def send_validation_mail(sender, instance, created, **kwargs):
         if str(instance.user.username).startswith(settings.TEST_USER_PREFIX):
             logger.debug(f"sending validation mail for test user {instance.user.username} ...")
             return
+        logger.info("building email_context")
         email_context = {
             'template_name': settings.DJANGO_VALIDATION_EMAIL_TEMPLATE,
             'title': 'Validation de votre adresse mail',
@@ -67,7 +68,7 @@ def send_validation_mail(sender, instance, created, **kwargs):
                 'validation_url' : settings.SITE_HOST + instance.get_validation_url()
             }
         }
-        
+        logger.info("sending mail task async")
         send_mail_task.apply_async(
             args=[email_context],
             queue=settings.CELERY_OUTGOING_MAIL_QUEUE,
