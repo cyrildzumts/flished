@@ -51,7 +51,7 @@ def blog_post(request, post_slug):
         'page_title': page_title,
         'PAGE_TITLE': page_title,
         'recent_posts': recent_posts,
-        'blog_post': None
+        'blog_post': post
     }
     return render(request, template_name, context)
 
