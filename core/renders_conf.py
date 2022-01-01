@@ -1,5 +1,7 @@
 from django.template.loader import render_to_string
 
+import logging
+logger = logging.getLogger(__name__)
 
 def render_table(table, template_name="editor/table.html"):
     return render_to_string(template_name, table)
@@ -9,12 +11,14 @@ def render_list(list_tool, template_name="editor/list.html"):
 
 
 def render_header(head, template_name="editor/head.html"):
+    logger.info(f"rendering header : {head}")
     return render_to_string(template_name, head)
 
 def render_checklist(checklist, template_name="editor/checklist.html"):
     return render_to_string(template_name, checklist)
 
 def render_paragraph(paragraph, template_name="editor/paragraph.html"):
+    logger.info(f"rendering paragraph : {paragraph}")
     return render_to_string(template_name, paragraph)
 
 def render_quote(quote, template_name="editor/quote.html"):
