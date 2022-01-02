@@ -249,7 +249,7 @@ canvas{
   filter: invert(75%) sepia(83%) saturate(279%) hue-rotate(115deg) brightness(104%) contrast(98%);
 }
 .bordered{
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
 }
 .separator-ht{
 	margin: 0 16px;
@@ -1283,9 +1283,6 @@ input.editable{
 .chips span{
 	width: 100%;
 	text-align: center;
-}
-.bordered{
-	border: 1px solid #201c29;
 }
 .collapsible{
 	position: relative;

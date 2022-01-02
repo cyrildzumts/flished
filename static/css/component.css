@@ -255,7 +255,7 @@ canvas{
 }
 
 .bordered{
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
 }
 .separator-ht{
 	margin: 0 16px;
@@ -1537,9 +1537,6 @@ input.editable{
 	text-align: center;
 }
 
-.bordered{
-	border: 1px solid #201c29;
-}
 
 .collapsible{
 	position: relative;

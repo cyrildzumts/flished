@@ -145,7 +145,7 @@ class Comment(models.Model):
 
     author = models.ForeignKey(User, related_name='comments', on_delete=models.CASCADE)
     post = models.ForeignKey(Post,related_name='comments', on_delete=models.CASCADE)
-    comment = models.CharField(max_length=512)
+    comment = models.CharField(max_length=Contants.COMMENT_MAX_SIZE)
     flags = models.IntegerField(default=0, blank=True, null=True)
     comment_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     created_at = models.DateTimeField(auto_now_add=True, blank=False, null=False, editable=False)
