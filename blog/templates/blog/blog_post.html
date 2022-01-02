@@ -48,36 +48,42 @@
                         <span>{% trans "Comments" %}</span>|<span><i class="fas fa-comments icon"></i> 19</span>
                     </div>
                     <ul id="comments" class="comments box">
+                        {% for comment in blog_post.comments.all %}
                         <li>
                             <div class="comment mat-box">
                                 <div class="post-header">
-                                    <span class="bold">Cyrille Ngassam Nkwenga</span>|<span><i class="fas fa-comment icon"></i> {{blog_post.created_at}}</span>|<span class="js-report-comment" title="{% trans 'Signal this comment' %}"><i class="far fa-flag icon"></i></span>
+                                    <span class="bold">{{comment.author.get_full_name}}</span>|<span><i class="fas fa-comment icon"></i> {{comment.created_at}}</span>|<span class="js-report-comment" title="{% trans 'Signal this comment' %}"><i class="far fa-flag icon"></i></span>
                                 </div>
                                 <div>
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est neque modi laborum ad inventore in minima nulla veniam velit debitis. Deleniti odio praesentium veritatis reiciendis fugiat explicabo molestiae dolor odit.</p>
+                                    <p>{{comment.comment}}</p>
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <div class="comment mat-box">
-                                <div class="post-header">
-                                    <span class="bold">Cyrille Ngassam Nkwenga</span>|<span><i class="fas fa-comment icon"></i> {{blog_post.created_at}}</span>|<span class="js-report-comment" title="{% trans 'Signal this comment' %}"><i class="far fa-flag icon"></i></span>
+                        {% empty %}
+                        <li><span>{% trans "Be the first to comment" %}/span></li>
+                        {% endfor %}
+                        {% comment %}
+                            <li>
+                                <div class="comment mat-box">
+                                    <div class="post-header">
+                                        <span class="bold">Cyrille Ngassam Nkwenga</span>|<span><i class="fas fa-comment icon"></i> {{blog_post.created_at}}</span>|<span class="js-report-comment" title="{% trans 'Signal this comment' %}"><i class="far fa-flag icon"></i></span>
+                                    </div>
+                                    <div>
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est neque modi laborum ad inventore in minima nulla veniam velit debitis. Deleniti odio praesentium veritatis reiciendis fugiat explicabo molestiae dolor odit.</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est neque modi laborum ad inventore in minima nulla veniam velit debitis. Deleniti odio praesentium veritatis reiciendis fugiat explicabo molestiae dolor odit.</p>
+                            </li>
+                            <li>
+                                <div class="comment mat-box">
+                                    <div class="post-header">
+                                        <span class="bold">Cyrille Ngassam Nkwenga</span>|<span><i class="fas fa-comment icon"></i> {{blog_post.created_at}}</span>|<span class="js-report-comment" title="{% trans 'Signal this comment' %}"><i class="far fa-flag icon"></i></span>
+                                    </div>
+                                    <div>
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est neque modi laborum ad inventore in minima nulla veniam velit debitis. Deleniti odio praesentium veritatis reiciendis fugiat explicabo molestiae dolor odit.</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="comment mat-box">
-                                <div class="post-header">
-                                    <span class="bold">Cyrille Ngassam Nkwenga</span>|<span><i class="fas fa-comment icon"></i> {{blog_post.created_at}}</span>|<span class="js-report-comment" title="{% trans 'Signal this comment' %}"><i class="far fa-flag icon"></i></span>
-                                </div>
-                                <div>
-                                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est neque modi laborum ad inventore in minima nulla veniam velit debitis. Deleniti odio praesentium veritatis reiciendis fugiat explicabo molestiae dolor odit.</p>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+                        {% endcomment %}
                     </ul>
                 </div>
             </div>
