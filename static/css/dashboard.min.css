@@ -127,7 +127,7 @@ p{
 	font-size: 1.5em;
 }
 .post-sharing ul li{
-	padding-right: 1em;
+	padding-right: 0.5em;
 }
 .post-sharing ul li:last-child{
 	padding-right: 0;
