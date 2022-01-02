@@ -80,10 +80,13 @@ def get_post(post_uuid):
         return None
 
 def get_user_posts(user):
-    return Post.objects.filter(user=user)
+    return Post.objects.filter(author=user)
 
 def get_recent_posts():
     return Post.objects.all()[:utils.MAX_RECENTS]
+
+def get_user_recent_posts(user):
+    return Post.objects.filter(author=user)[:utils.MAX_RECENTS]
 
 def get_category(category_uuid):
     try:
