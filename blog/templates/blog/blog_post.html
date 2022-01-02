@@ -45,7 +45,7 @@
                         </form>
                     </div>
                     <div class="post-header">
-                        <span>{% trans "Comments" %}</span>|<span><i class="fas fa-comments icon"></i>blog_post.comments.count</span>
+                        <span>{% trans "Comments" %}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>
                     </div>
                     <ul id="comments" class="comments box">
                         {% for comment in blog_post.comments.all %}
