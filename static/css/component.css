@@ -66,10 +66,14 @@
 }
 .post-header span{
 	padding-right: 0.5em;
+	padding-left: 0.5em;
 }
 
-.post-header span:last-child{
+.post-header span:last{
 	padding-right: 0;
+}
+.post-header span:first{
+	padding-left: 0;
 }
 
 .editor-post input[name="title"]{
