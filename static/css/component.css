@@ -55,7 +55,7 @@
 }
 
 .post-wrapper{
-	padding: 1em;
+	padding: 1.5em;
 }
 
 .post-header, .post-footer{
@@ -82,7 +82,9 @@
 }
 
 .post-entry .link-wrapper a{
+	text-transform: none;
 	text-align: left;
+	font-size: 1.8em;
 	font-weight: 600;
 }
 
