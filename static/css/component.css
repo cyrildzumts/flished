@@ -144,6 +144,13 @@
 .editor-post p{
 	padding: 0 !important;
 }
+.editor .ce-toolbar__settings-btn{
+	background: #ccc;
+}
+
+.editor .ce-toolbar__settings-btn .icon{
+	width: 1em !important;
+}
 
 .coupon-wrapper{
 	width: 100%;
