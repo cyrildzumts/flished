@@ -120,14 +120,17 @@ p{
 	font-size: 1.8em;
 	font-weight: bold;
 	padding-bottom: 1em;
-	padding-top: 1.5em;
+	margin-top: 1em;
 }
 .post-sharing{
-	margin-top: 1.5em;
+	margin-bottom: 1.5em;
 	font-size: 1.5em;
 }
 .post-sharing ul li{
-	padding: 0 1em;
+	padding-right: 1em;
+}
+.post-sharing ul li:last-child{
+	padding-right: 0;
 }
 .post p{
 	padding: 0.5em 0;
