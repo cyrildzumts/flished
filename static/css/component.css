@@ -91,6 +91,12 @@
 	font-size: 1.8em;
 	font-weight: 600;
 }
+.post-title{
+	text-transform: none;
+	text-align: left;
+	font-size: 1.8em;
+	font-weight: bold;
+}
 
 .post p{
 	padding: 0.5em 0;
