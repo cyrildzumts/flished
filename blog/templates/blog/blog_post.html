@@ -18,6 +18,12 @@
         </div>
         <div class="post">
             <div class="post-title"><span>{{blog_post.title}}</span></div>
+            <div class="post-sharing">
+                <ul class="flex flex-left">
+                    <li><a href="#"><i class="fab fa-facebook icon"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter icon"></i></a></li>
+                </ul>
+            </div>
             {% render_post blog_post %}
         </div>
     </article>
