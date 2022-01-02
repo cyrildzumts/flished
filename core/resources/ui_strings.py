@@ -36,6 +36,7 @@ UI_DISCOVER_OUR_BLOG = _('Discover our Blog')
 UI_BLOG_POST_PREVIEW = _('Post Preview')
 UI_BLOG_INPUT_TITLE_PLACEHOLDER = _("Story's title ...")
 UI_NOT_FOUND = _('Not found')
+UI_WHATSAPP_SHARE_BODY = _("Hey, have a look on this article {POST_URL}. I think it is interesting, Thanks !")
 
 UI_STRINGS_CONTEXT = {
     'UI_NOT_FOUND': UI_NOT_FOUND,
