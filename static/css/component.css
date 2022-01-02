@@ -98,7 +98,7 @@
 .post-title{
 	text-transform: none;
 	text-align: left;
-	font-size: 1.8em;
+	font-size: 1.2em;
 	font-weight: bold;
 	padding-bottom: 0.5em;
 	margin-top: 1em;
@@ -123,12 +123,12 @@
 
 .editor-post input[name="title"]{
 	border: none !important;
-	font-size: 2em;
+	font-size: 1.2em;
 	font-weight: bold;
 }
 
 .editor-post input[name="title"]::placeholder{
-	font-size: 2em;
+	font-size: 1.2em;
 	border: none;
 }
 
