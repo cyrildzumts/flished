@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from core.resources import ui_strings as UI_STRINGS
 from django.contrib import messages
 from blog.models import Post, Category, Tag
-from blog import blog_service
+from blog import blog_service, constants as Constants
 from jasiri import utils, settings
 
 import logging
@@ -65,7 +65,8 @@ def blog_post(request, post_slug):
         'page_title': page_title,
         'PAGE_TITLE': page_title,
         'recent_posts': recent_posts,
-        'blog_post': post
+        'blog_post': post,
+        'DESCRIPTION_MAX_SIZE': Constants.DESCRIPTION_MAX_SIZE,
     }
     return render(request, template_name, context)
 
