@@ -39,7 +39,7 @@
                             {% endif %}
                             <input type="hidden" name="post" value="{{blog_post.pk}}">
                             <div class="flex flex-left flex-wrap full">
-                                <div class="form-group">
+                                <div class="form-group full">
                                     <label class="padding-bottom" for="new-comment">{% trans "Comment" %}</label>
                                     <textarea id="new-comment" class="limited-input bordered full" name="comment" cols="30" rows="10" data-target="#comment-counter" data-max-length="{{COMMENT_MAX_SIZE}}" placeholder="{% trans 'Post a comment' %}"></textarea>
                                 </div>
