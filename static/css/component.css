@@ -81,8 +81,8 @@
 }
 
 .post-entry{
-	padding: 1em;
-	box-shadow: var(--box-shadow);
+	padding: 0.5em;
+	border-bottom: 2px dotted #ccc;
 }
 
 .post-entry .link-wrapper a{
