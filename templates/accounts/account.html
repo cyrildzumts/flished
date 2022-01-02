@@ -21,11 +21,7 @@
    
    {% if recent_posts %}
    <div class="flex flex-left full padding-h medium"><h5>{% trans "Recent posts" %}</h5> <a href="{% url 'blog:blog-home' %}" class="mat-button mat-button-outline"><span class="small">{% trans "See all" %}</span><i class="fas fa-arrow-right icon"></i></a></div>
-   <div class="mat-box col-6">
-        <ul class="orderlist">
-        {% for post in recent_post %} <li>{{post}}</li>  {% endfor %}
-        </ul>
-   </div>
+   {% include "tags/blog_posts_tag.html" with blog_posts=recent_posts %}
    {% else %}
    <div class="mat-box">
     <p>{% trans "You have not published a story yet." %}</p>
