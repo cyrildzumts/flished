@@ -105,6 +105,7 @@ p{
 	box-shadow: var(--box-shadow);
 }
 .post-entry .link-wrapper a{
+	text-align: left;
 	font-weight: 600;
 	text-transform: lowercase;
 }

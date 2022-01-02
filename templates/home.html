@@ -17,10 +17,10 @@
       {% for blog_post in recent_posts %}
       <li>
         <div class="post-entry">
+          <div class="link-wrapper"><a href="{{blog_post.get_absolute_url}}"><span>{{blog_post.title}}</span></a></div>
           <div class="post-header">
             <span>{{blog_post.author.get_full_name}}</span>|<span>{{blog_post.created_at}}</span>
           </div>
-          <div class="link-wrapper"><a href="{{blog_post.get_absolute_url}}"><span>{{blog_post.title}}</span></a></div>
         </div>
       </li>
       {% endfor %}
