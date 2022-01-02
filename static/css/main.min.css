@@ -100,6 +100,9 @@ p{
 .post-header span:first-child{
 	padding-left: 0;
 }
+.post p{
+	padding: 0.5em 0;
+}
 .editor-post input[name="title"]{
 	border: none !important;
 	font-size: 2em;
