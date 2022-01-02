@@ -1,3 +1,4 @@
+
 from blog import forms as BLOG_FORMS
 from blog.models import Tag, Category, News, Post
 from blog import constants as Constants
@@ -7,6 +8,7 @@ from django.template.loader import render_to_string, get_template
 from django.contrib.postgres.search import SearchVector, SearchQuery
 from django.core.exceptions import ObjectDoesNotExist
 from core import core_tools
+from jasiri import utils
 import logging
 
 CACHE = cache
@@ -79,6 +81,9 @@ def get_post(post_uuid):
 
 def get_user_posts(user):
     return Post.objects.filter(user=user)
+
+def get_recent_posts():
+    return Post.objects.all()[:utils.MAX_RECENTS]
 
 def get_category(category_uuid):
     try:

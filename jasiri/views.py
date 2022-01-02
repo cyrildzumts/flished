@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from jasiri import settings
 from core.resources import ui_strings as UI_STRINGS
+from blog import blog_service
 import logging
 
 logger = logging.getLogger(__name__)
@@ -46,6 +47,7 @@ def home(request):
     context = {
         'page_title': PAGE_TITLE,
         'user_is_authenticated' : request.user.is_authenticated,
+        'recent_posts': blog_service.get_recent_posts(),
         #'META_KEYWORDS': META_KEYWORDS,
         #'META_DESCRIPTION': META_DESCRIPTION,
         'OG_TITLE' : PAGE_TITLE,

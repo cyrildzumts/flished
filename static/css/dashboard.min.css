@@ -100,6 +100,14 @@ p{
 .post-header span:first-child{
 	padding-left: 0;
 }
+.post-entry{
+	padding: 1em;
+	box-shadow: var(--box-shadow);
+}
+.post-entry .link-wrapper a{
+	font-weight: 600;
+	text-transform: lowercase;
+}
 .post p{
 	padding: 0.5em 0;
 }
