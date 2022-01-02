@@ -374,6 +374,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     function notify_init(wrapper, message_container){
     
         if(typeof wrapper === 'undefined'){
+            console.log("notification_wrapper undefined");
             return;
         }
 
@@ -383,6 +384,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
 
         wrapper.fadeIn().delay(fadeDelay).fadeOut('slow', function () {
             message_container.empty();
+            console.log("messages container emptied on init");
         });
     }
 
@@ -841,8 +843,8 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                     content : response.message,
                     level : response.success
                 }
-                notify(msg);
                 self.onUploadResponse(response);
+                notify(msg);
             }, function(reason){
                 console.error("Files could not be uploaded.");
                 console.error(reason);
