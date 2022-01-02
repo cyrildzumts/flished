@@ -46,6 +46,17 @@ def render_post(post):
     return renderers.render_post(post.content)
 
 
+@register.simple_tag
+@register.filter
+def render_post_summary(post):
+    logger.info(f"rendering post {post}")
+    if not hasattr(post, 'content') or not isinstance(post.content, dict):
+        logger.info(f"rendering post: submitted post has no content attr that is a dict")
+        return post
+    logger.info(f"rendering html for post dict")
+    return renderers.render_summary(post.content)
+
+
 
 @register.simple_tag
 @register.filter

@@ -84,7 +84,7 @@ p{
 .post-wrapper{
 	padding: 1em;
 }
-.post-header{
+.post-header, .post-footer{
 	text-transform: uppercase;
 	font-size: 0.7em;
 	font-weight: bold;
