@@ -26,16 +26,17 @@
                 </ul>
             </div>
             {% render_post blog_post %}
-            <div class="post-comments box">
-                <div class="post-header">
-                    <span>{% trans "Comments" %}</span>|<span><i class="fas fa-comments icon"></i> 19</span>
-                </div>
-                <div id="comments-wrapper" class="comments-wrapper">
+            <div class="post-comments">
+                
+                <div id="comments-wrapper" class="comments-wrapper box">
                     <div class="create-comment">
                         <textarea name="comment" id="new-comment" cols="30" rows="10" placeholder="{% trans 'Post a comment' %}"></textarea>
                         <div class="actions flex-right">
                             <button class="mat-button-default"><span>{% trans "Comment" %}</span></button>
                         </div>
+                    </div>
+                    <div class="post-header">
+                        <span>{% trans "Comments" %}</span>|<span><i class="fas fa-comments icon"></i> 19</span>
                     </div>
                     <ul id="comments" class="comments">
                         <li>
