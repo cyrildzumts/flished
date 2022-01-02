@@ -5,7 +5,7 @@
 {% block HEADER_BANNER %}
 <div class="banner">
     <div class="container banner-container">
-         <h1>{{SITE_NAME}} BLOG !</h1>
+         <h1>{{SITE_NAME}}</h1>
     </div>
 </div><!--End of Banner-->
 {% endblock HEADER_BANNER %}
@@ -13,7 +13,7 @@
 {% block MAIN %}
 <div class="container">
   <ul class="flex">
-      <li><a href="{% url 'blog:new-post' %}">{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</a></li>
+      <li><a href="{% url 'blog:create-post' %}">{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</a></li>
   </ul>
 </div>
 <div class="full">

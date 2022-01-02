@@ -1,19 +1,33 @@
 {% extends "base.html" %}
 {% load i18n %} 
 {% load static %}
+{% load core_tags %}
+{% load blog_tags %}
 
 {% block HEADER_BANNER %}
 <div class="actions">
-    <a href="{% url 'blog:blog-home' %}" class="mat-button mat-button-text"><span>{{UI_STRINGS_CONTEXT.UI_BLOG_HOME_LABEL}}</span></a>
+    <a href="{% url 'home' %}" class="mat-button mat-button-text"><span>{{UI_STRINGS_CONTEXT.UI_BLOG_HOME_LABEL}}</span></a>
 </div>
 {% endblock HEADER_BANNER %}
 
 {% block MAIN %}
-<div class="flex full">
-  <span>{{UI_STRINGS_CONTEXT.UI_BLOG_POST_PREVIEW}}</span>
-</div>
-<div class="full">
-  {{blog_post}}
+<div class="container">
+    <article class="post-wrapper">
+        <div class="post-header">
+            <span>{{blog_post.author.get_full_name}}</span>|<span>{{blog_post.created_at}}</span>|<span>{{blog_post.post_status|post_status_value}}</span>
+        </div>
+        <div class="post">
+            <div class="post-title"><span>{{blog_post.title}}</span></div>
+            <div class="post-sharing">
+                <ul class="flex flex-left">
+                    <li><a href="#"><i class="fab fa-facebook icon"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter icon"></i></a></li>
+                    <li><a class="js-action-abtest" data-action="13" href="https://api.whatsapp.com/send?text={{UI_WHATSAPP_SHARE_BODY|urlencode}}"><i class="fab fa-whatsapp icon"></i></a></li>
+                </ul>
+            </div>
+            {% render_post blog_post %}
+        </div>
+    </article>
 </div>
 {% endblock MAIN %}
 {% block FOOTER %}{% endblock FOOTER %}

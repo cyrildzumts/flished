@@ -29,15 +29,13 @@ def blog_home(request):
 
 
 @login_required
-def new_post(request):
+def create_post(request):
     template_name = "blog/new_blog_post.html"
     page_title = f"{UI_STRINGS.UI_NEW_BLOG_POST} | {settings.SITE_NAME}"
     if request.method == 'POST':
-        logger.info("Post request received")
-        utils.show_dict_contents(utils.get_postdata(request), "Blog Post Data")
+        instance = blog_service.create_post(utils.get_postdata(request))
         return redirect('blog:home')
 
-    recent_posts = []
     context = {
         'page_title': page_title,
         'PAGE_TITLE': page_title,
@@ -71,7 +69,7 @@ def blog_post(request, post_slug):
     return render(request, template_name, context)
 
 
-
+@login_required
 def post_preview(request, post_slug):
     template_name = "blog/blog_post_preview.html"
 

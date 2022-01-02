@@ -70,6 +70,7 @@
   </div>
     <ul class="site-panel">
         {% if request.user.is_authenticated %}
+        <li><a class="mat-button mat-button-text" href="{% url 'blog:create-post' %}"><span><i class="fas fa-edit icon"></i>{% trans "New post" %}</span></a></li>
         <li><a class="mat-button mat-button-text" href="{% url 'accounts:account' %}" title="{% trans 'Account' %}"><i class="fas fa-user"></i></a></li>
         <li><a class="signout-btn mat-button mat-button-text signout" href="{% url 'accounts:logout' %}" title="{% trans 'Logout' %}"><i class="fas fa-sign-out-alt icon"></i></a></li>
       {% else %}

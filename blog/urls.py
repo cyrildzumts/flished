@@ -7,9 +7,10 @@ app_name = "blog"
 
 blog_routes = [
     path('', views.blog_home, name='blog-home'),
-    path('new-post/', views.new_post, name="new-post"),
+    path('create-post/', views.create_post, name="create-post"),
     path('create-comment/<slug:post_slug>/', views.create_comment, name="create-comment"),
     path('<slug:post_slug>/', views.blog_post, name="blog-post"),
+    path('preview/<slug:post_slug>/', views.post_preview, name="post-preview"),
 ]
 
 urlpatterns = [
