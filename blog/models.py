@@ -149,7 +149,7 @@ class Comment(models.Model):
     flags = models.IntegerField(default=0, blank=True, null=True)
     comment_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     created_at = models.DateTimeField(auto_now_add=True, blank=False, null=False, editable=False)
-    FORM_FIELDS = ['author', 'content', 'post']
+    FORM_FIELDS = ['author', 'comment', 'post']
 
     class Meta:
         ordering = ['-created_at']
