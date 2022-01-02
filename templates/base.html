@@ -69,9 +69,9 @@
         </div>
   </div>
     <ul class="site-panel">
-        <li class="catalog-overlay-item js-action-abtest hidden-m" data-action="6"><label id="menu-overlay-label" for="catalog-overlay-toggle"><i class="fas fa-bars icon hidden"></i><span class="mat-button mat-button-text">{% trans "Account" %}</span></label></li>
         {% if request.user.is_authenticated %}
-                <li><a class="signout-btn mat-button mat-button-text signout" href="{% url 'accounts:logout' %}" title="{% trans 'Logout' %}"><i class="fas fa-sign-out-alt icon"></i></a></li>
+        <li><a class="mat-button mat-button-text" href="{% url 'accounts:account' %}" title="{% trans 'Account' %}"><i class="fas fa-user"></i></a></li>
+        <li><a class="signout-btn mat-button mat-button-text signout" href="{% url 'accounts:logout' %}" title="{% trans 'Logout' %}"><i class="fas fa-sign-out-alt icon"></i></a></li>
       {% else %}
         <li class="js-action-abtest" data-action="1"><a class="mat-button mat-button-text" href="{% url 'accounts:login' %}?next={{request.path}}" title="{% trans 'Login' %}"><i class="fas fa-sign-in-alt icon"></i></a></li>
       {% endif %}
