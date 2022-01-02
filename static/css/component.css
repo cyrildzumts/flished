@@ -58,6 +58,10 @@
 	padding: 1.5em;
 }
 
+.post-list-wrapper ul li{
+	margin: 0.2em 0;
+}
+
 .post-header, .post-footer{
 	text-transform: uppercase;
 	font-size: 0.7em;
