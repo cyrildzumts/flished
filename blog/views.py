@@ -66,7 +66,7 @@ def blog_post(request, post_slug):
         'PAGE_TITLE': page_title,
         'recent_posts': recent_posts,
         'blog_post': post,
-        'DESCRIPTION_MAX_SIZE': Constants.DESCRIPTION_MAX_SIZE,
+        'COMMENT_MAX_SIZE': Constants.COMMENT_MAX_SIZE,
     }
     return render(request, template_name, context)
 
