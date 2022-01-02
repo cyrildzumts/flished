@@ -18,7 +18,6 @@
 {% else %}
 <div class="flex flex-left full padding-h"><h4>{% trans "Overview" %}</h4></div>
 <div class="container">
-   
    {% if recent_posts %}
    <div class="flex flex-left full padding-h medium"><h5>{% trans "Recent posts" %}</h5> <a href="{% url 'blog:blog-home' %}" class="mat-button mat-button-outline"><span class="small">{% trans "See all" %}</span><i class="fas fa-arrow-right icon"></i></a></div>
    {% include "tags/blog_posts_tag.html" with blog_posts=recent_posts %}
