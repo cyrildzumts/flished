@@ -6,7 +6,7 @@ from core.resources import ui_strings as UI_STRINGS
 from django.contrib import messages
 from blog.models import Post, Category, Tag
 from blog import blog_service
-from jasiri import utils
+from jasiri import utils, settings
 
 import logging
 
@@ -59,7 +59,7 @@ def create_comment(request, post_slug):
 def blog_post(request, post_slug):
     template_name = "blog/blog_post.html"
     post = get_object_or_404(Post, slug=post_slug)
-    page_title = UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE
+    page_title = f"{post.title} - {settings.SITE_NAME}"
     recent_posts = Post.objects.all()[:utils.MAX_RECENTS]
     context = {
         'page_title': page_title,
@@ -74,8 +74,8 @@ def blog_post(request, post_slug):
 def post_preview(request, post_slug):
     template_name = "blog/blog_post_preview.html"
 
-    page_title = UI_STRINGS.UI_BLOG_POST_PREVIEW
     post = get_object_or_404(Post, slug=post_slug)
+    page_title = f"{post.title} - {UI_STRINGS.UI_BLOG_POST_PREVIEW} - {settings.SITE_NAME}"
     context = {
         'page_title': page_title,
         'PAGE_TITLE': page_title,
