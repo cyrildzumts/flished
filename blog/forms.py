@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
-from blog.models import Category, Post, News, Tag
+from blog.models import Category, Post, News, Tag, Comment
 
 
 class TagForm(forms.ModelForm):
@@ -17,7 +17,12 @@ class CategoryForm(forms.ModelForm):
         model = Category
         fields = Category.FORM_FIELDS
 
+class CommentForm(forms.ModelForm):
 
+    class Meta:
+        model = Comment
+        fields = Comment.FORM_FIELDS
+        
 
 class PostForm(forms.ModelForm):
 

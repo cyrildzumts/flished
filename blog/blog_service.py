@@ -1,6 +1,6 @@
 
 from blog import forms as BLOG_FORMS
-from blog.models import Tag, Category, News, Post
+from blog.models import Tag, Category, News, Post, Comment
 from blog import constants as Constants
 from django.core.cache import cache
 from django.db.models import Q, Count, F
@@ -35,6 +35,13 @@ def create_news(data):
         logger.info("News created")
     
     return news
+
+def create_comment(data):
+    instance = core_tools.create_instance(model=Comment, data=data)
+    if instance:
+        logger.info("Comment created")
+    
+    return instance
 
 def update_news(news, data):
     updated_news = core_tools.update_instance(model=News, instance=news, data=data)

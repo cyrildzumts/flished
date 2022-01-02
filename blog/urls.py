@@ -8,6 +8,7 @@ app_name = "blog"
 blog_routes = [
     path('', views.blog_home, name='blog-home'),
     path('new-post/', views.new_post, name="new-post"),
+    path('create-comment/<slug:post_slug>/', views.create_comment, name="create-comment"),
     path('<slug:post_slug>/', views.blog_post, name="blog-post"),
 ]
 

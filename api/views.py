@@ -7,7 +7,7 @@ from rest_framework import filters
 from rest_framework.generics import ListAPIView
 from django.contrib.auth.models import User
 from api import serializers
-from api.serializers import PostSerializer, UserSerializer
+from api.serializers import PostSerializer, UserSerializer, TagSerializer, CategorySerializer, CommentSerializer, NewsSerializer
 from jasiri import utils
 from blog import blog_service
 from core.resources import ui_strings as UI_STRINGS
@@ -63,6 +63,30 @@ def create_post(request):
             'success': True,
             'message': 'Post created',
             'post': serializer.data
+        }
+    
+    return Response(data=data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def create_comment(request):
+    logger.info(f"API: New post comment creation request from user {request.user.username}")
+    if request.method != 'POST':
+        return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
+    
+    instance = blog_service.create_comment(utils.get_postdata(request))
+    data = None
+    if instance is None:
+        data = {
+            'success': False,
+            'message': "Invalid data"
+        }
+    else:
+        serializer = CommentSerializer(instance)
+        data = {
+            'success': True,
+            'message': 'Comment created',
+            'comment': serializer.data
         }
     
     return Response(data=data, status=status.HTTP_200_OK)

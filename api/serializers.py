@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from blog.models import Post, Category, Tag, News
+from blog.models import Post, Category, Tag, News, Comment
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -35,3 +35,9 @@ class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = News
         fields = News.FORM_FIELDS
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = Comment.FORM_FIELDS

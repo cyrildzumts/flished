@@ -111,9 +111,6 @@ class Post(models.Model):
     
 
 
-
-
-
 class News(models.Model):
     title = models.CharField(max_length=128)
     content = models.CharField(max_length=256)
@@ -141,3 +138,28 @@ class News(models.Model):
 
     def get_update_url(self):
         return reverse("dashboard:news-update", kwargs={"news_uuid": self.news_uuid})"""
+
+
+
+class Comment(models.Model):
+
+    author = models.ForeignKey(User, related_name='comments', on_delete=models.CASCADE)
+    post = models.ForeignKey(Post,related_name='comments', on_delete=models.CASCADE)
+    comment = models.CharField(max_length=512)
+    flags = models.IntegerField(default=0, blank=True, null=True)
+    comment_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
+    created_at = models.DateTimeField(auto_now_add=True, blank=False, null=False, editable=False)
+    FORM_FIELDS = ['author', 'content', 'post']
+
+    class Meta:
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"Comment - {self.author.username} - {self.post.title}"
+    
+    def get_dashboard_url(self):
+        return reverse("dashboard:comment-detail", kwargs={"comment_uuid": self.comment_uuid})
+    
+
+    def get_delete_url(self):
+        return reverse("dashboard:tag-delete", kwargs={"comment_uuid": self.comment_uuid})
