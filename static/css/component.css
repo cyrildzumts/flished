@@ -69,10 +69,10 @@
 	padding-left: 0.5em;
 }
 
-.post-header span:last{
+.post-header span:last-child{
 	padding-right: 0;
 }
-.post-header span:first{
+.post-header span:first-child{
 	padding-left: 0;
 }
 
