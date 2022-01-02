@@ -649,6 +649,7 @@ a.button{
   align-items: center;
   text-align: center;
   padding-left: 1em;
+  font-size: 2em;
 }
 
 .logo .mat-button{
