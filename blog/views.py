@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 def blog_home(request):
     template_name = "blog/blog_home.html"
-    page_title = UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE
+    page_title = f"{UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE} | {settings.SITE_NAME}"
 
     recent_posts = Post.objects.all()[:utils.MAX_RECENTS]
     context = {
@@ -31,7 +31,7 @@ def blog_home(request):
 @login_required
 def new_post(request):
     template_name = "blog/new_blog_post.html"
-    page_title = UI_STRINGS.UI_NEW_BLOG_POST
+    page_title = f"{UI_STRINGS.UI_NEW_BLOG_POST} | {settings.SITE_NAME}"
     if request.method == 'POST':
         logger.info("Post request received")
         utils.show_dict_contents(utils.get_postdata(request), "Blog Post Data")
@@ -59,7 +59,7 @@ def create_comment(request, post_slug):
 def blog_post(request, post_slug):
     template_name = "blog/blog_post.html"
     post = get_object_or_404(Post, slug=post_slug)
-    page_title = f"{post.title} - {settings.SITE_NAME}"
+    page_title = f"{post.title} | {settings.SITE_NAME}"
     recent_posts = Post.objects.all()[:utils.MAX_RECENTS]
     context = {
         'page_title': page_title,
@@ -76,7 +76,7 @@ def post_preview(request, post_slug):
     template_name = "blog/blog_post_preview.html"
 
     post = get_object_or_404(Post, slug=post_slug)
-    page_title = f"{post.title} - {UI_STRINGS.UI_BLOG_POST_PREVIEW} - {settings.SITE_NAME}"
+    page_title = f"{post.title} - {UI_STRINGS.UI_BLOG_POST_PREVIEW} | {settings.SITE_NAME}"
     context = {
         'page_title': page_title,
         'PAGE_TITLE': page_title,

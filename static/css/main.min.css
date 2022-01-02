@@ -249,7 +249,7 @@ canvas{
   filter: invert(75%) sepia(83%) saturate(279%) hue-rotate(115deg) brightness(104%) contrast(98%);
 }
 .bordered{
-  border: 2px solid #ccc;
+  border: 2px solid #0a0a0a;
 }
 .separator-ht{
 	margin: 0 16px;

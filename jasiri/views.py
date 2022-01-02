@@ -31,8 +31,8 @@ def home(request):
     on the root template folder.
     """
     template_name = "home.html"
-    page_title = UI_STRINGS.HOME_PAGE_TITLE
-    PAGE_TITLE = UI_STRINGS.HOME_PAGE_TITLE
+    page_title = f"{settings.SITE_NAME}"
+    PAGE_TITLE = page_title
     #META_DESCRIPTION = UI_STRINGS.HOME_META_DESCRIPTION
     #META_KEYWORDS = UI_STRINGS.HOME_META_KEYWORDS
     
