@@ -26,7 +26,8 @@ body {
   padding: 0;
 }
 p{
-  padding: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   text-decoration: none;
   text-align: left;
 }
