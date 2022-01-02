@@ -99,6 +99,9 @@ class Post(models.Model):
     SERIALIZER_FIELDS = ['author', 'title', 'category', 'content', 'post_uuid']
     SEARCH_FIELDS = ['title', 'content']
 
+    class Meta:
+        ordering = ['-created_at']
+
     def __str__(self) -> str:
         return self.title
 
