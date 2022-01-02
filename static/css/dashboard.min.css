@@ -575,11 +575,12 @@ a.button{
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-left: 1em;
-  font-size: 2em;
+  
+  font-size: 1.5em;
 }
-.logo .mat-button{
-	margin: 0 16px;
+.logo .mat-button, .logo button{
+	margin: 0 0.2em;
+	min-width: none;
 }
 .nav-container{
 	width: 100%;
