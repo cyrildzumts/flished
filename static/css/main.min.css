@@ -89,7 +89,7 @@ p{
 	padding: 1.5em;
 }
 .post-list-wrapper{
-	width: 100%;
+	width: 900px;
 }
 .post-list-wrapper ul li{
 	margin: 0.2em 0;
@@ -2860,6 +2860,9 @@ li .order-tag{
 @media only screen and (max-width:40em){
 	.post-wrapper{
 		max-width: 100%;
+	}
+	.post-list-wrapper{
+		width: 100%;
 	}
 	.modal-container{
 		width: 90%;

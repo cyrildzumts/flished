@@ -63,7 +63,7 @@
 }
 
 .post-list-wrapper{
-	width: 100%;
+	width: 900px;
 }
 
 
@@ -3455,6 +3455,9 @@ li .order-tag{
 @media only screen and (max-width:40em){
 	.post-wrapper{
 		max-width: 100%;
+	}
+	.post-list-wrapper{
+		width: 100%;
 	}
 	.modal-container{
 		width: 90%;
