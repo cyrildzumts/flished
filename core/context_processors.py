@@ -4,7 +4,9 @@ from core.resources import ui_strings as UI_STRINGS
 
 
 def core_context(request):
-    recent_posts = blog_service.get_user_recent_posts(request.user)
+    recent_posts = []
+    if request.user.is_authenticated:
+        recent_posts = blog_service.get_user_recent_posts(request.user)
 
     context = {
         "UI_STRINGS": UI_STRINGS,
