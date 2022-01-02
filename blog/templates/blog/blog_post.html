@@ -13,8 +13,8 @@
 {% block MAIN %}
 <div class="container">
     <div class="post-wrapper">
-        <div class="post-header small uppercase bold">
-            <span>{{blog_post.author}}</span>|<span>{{blog_post.created_at}}</span>|<span>{{blog_post.post_status|post_status_value}}</span>
+        <div class="post-header">
+            <span>{{blog_post.author.get_full_name}}</span>|<span>{{blog_post.created_at}}</span>|<span>{{blog_post.post_status|post_status_value}}</span>
         </div>
         <div class="post">
             {% render_post blog_post %}

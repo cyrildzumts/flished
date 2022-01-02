@@ -81,6 +81,15 @@ p{
 					0px 1px 1px 0px rgba(0, 0, 0, 0.14),
 					0px 1px 3px 0px rgba(0,0,0,0.12);
 }
+.post-wrapper{
+	padding: 1em;
+}
+.post-header{
+	text-transform: uppercase;
+	font-size: 0.8em;
+	font-weight: bold;
+	padding-bottom: 1em;
+}
 .editor-post input[name="title"]{
 	border: none !important;
 	font-size: 2em;
