@@ -1732,7 +1732,7 @@ input.editable{
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
-	min-width: 64px;
+	/*min-width: 64px;*/
 	width: fit-content;
 	width: -moz-fit-content;
 	min-height: 32px !important;
@@ -1742,7 +1742,7 @@ input.editable{
 	font-size: 0.75em;
 	font-weight: 500;
 	letter-spacing: 0.15em;
-	padding: 0 16px;
+	/*padding: 0 16px;*/
 	margin: 8px;
 	border: none;
 }
