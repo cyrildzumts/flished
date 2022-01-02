@@ -88,9 +88,6 @@ p{
 .post-wrapper, .post-list-wrapper{
 	padding: 1.5em;
 }
-.post-list-wrapper{
-	width: 900px;
-}
 .post-list-wrapper ul li{
 	margin: 0.2em 0;
 }
