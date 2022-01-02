@@ -82,6 +82,9 @@ p{
 					0px 1px 1px 0px rgba(0, 0, 0, 0.14),
 					0px 1px 3px 0px rgba(0,0,0,0.12);
 }
+.post-wrapper{
+	max-width: 900px;
+}
 .post-wrapper, .post-list-wrapper{
 	padding: 1.5em;
 }
@@ -2849,6 +2852,9 @@ li .order-tag{
 	font-size: 1.2em;
 }
 @media only screen and (max-width:40em){
+	.post-wrapper{
+		max-width: 100%;
+	}
 	.modal-container{
 		width: 90%;
 	}
