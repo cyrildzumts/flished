@@ -274,7 +274,7 @@ def news_create(request):
         logger.warning("Dashboard : PermissionDenied to user %s for path %s", username, request.path)
         raise PermissionDenied
 
-    if not PermissionManager.user_can_add_product(request.user):
+    if not PermissionManager.user_can_add_post(request.user):
         logger.warning("PermissionDenied to user %s for path %s", username, request.path)
         raise PermissionDenied
     context = {
@@ -397,7 +397,7 @@ def post_create(request):
         logger.warning("Dashboard : PermissionDenied to user %s for path %s", username, request.path)
         raise PermissionDenied
 
-    if not PermissionManager.user_can_add_product(request.user):
+    if not PermissionManager.user_can_add_post(request.user):
         logger.warning("PermissionDenied to user %s for path %s", username, request.path)
         raise PermissionDenied
     context = {
