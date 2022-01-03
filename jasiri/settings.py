@@ -135,7 +135,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'core.context_processors.core_context',
-                'lyshop.context_processors.site_context',
+                'jasiri.context_processors.site_context',
             ],
         },
     },
