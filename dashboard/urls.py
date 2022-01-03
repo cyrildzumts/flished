@@ -5,7 +5,7 @@ from dashboard import views
 app_name = 'dashboard'
 
 
-users_patterns = [
+urlpatterns = [
     path('', views.dashboard, name='home'),
     path('categories/', views.categories, name='categories'),
     path('categories/detail/<uuid:category_uuid>/', views.category_detail, name='category-detail'),
