@@ -95,6 +95,13 @@ def get_recent_posts():
 def get_user_recent_posts(user):
     return Post.objects.filter(author=user)[:utils.MAX_RECENTS]
 
+
+def update_view_count(model, id):
+    try:
+        model.objects.filter(id=id).update(view_count=F('view_count') + 1)
+    except Exception as e:
+        logger.warn(f"Error on updating view count for instance of {model} with id \"{id}\"")
+
 def get_category(category_uuid):
     try:
         return Category.objects.get(category_uuid=category_uuid)
