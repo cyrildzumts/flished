@@ -1,0 +1,32 @@
+{% extends "dashboard_base.html"%}
+{% load i18n %}
+{% if not perms.blog.view_post %}
+<div class="access-error">
+  <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
+</div>
+{% else %}
+{% block SIDEBAR_CONTENT %}
+    <li><a class="mat-button mat-button-text" href="{% url 'dashboard:home'%}"><i class="fas fa-tachometer-alt icon"></i><span>{% trans "Dashboard" %}</span></a></li>
+    <li><a class="mat-button mat-button-text" href="{% url 'dashboard:posts'%}"><i class="fas fa-band-aid icon"></i><span>{% trans "Posts" %}</span></a></li>
+    <li><a class="mat-button mat-button-text" href="{% url 'dashboard:categories' %}"><i class="fas fa-sitemap icon"></i><span>{% trans "Categories" %}</span></a></li>
+    {% comment %}
+        {% if perms.blog.view_coupon %}<li><a class="mat-button mat-button-text" href="{% url 'dashboard:coupons'%}"><i class="fas fa-barcode icon"></i><span>{% trans "Coupons" %}</span></a></li>{% endif %}
+    {% endcomment %}
+    {% comment %}
+        <li><a class="mat-button mat-button-text" href="{% url 'dashboard:highlights'%}"><i class="fas fa-star icon"></i><span>{% trans "Highlights" %}</span></a></li>
+    {% endcomment %}
+    <li><a class="mat-button mat-button-text" href="{% url 'dashboard:news'%}"><i class="fas fa-newspaper icon"></i><span>{% trans "Infos" %}</span></a></li>
+{% endblock SIDEBAR_CONTENT %}
+
+{% block CONTENT %}
+
+    <div class="actions flex-left">
+        
+        {% block ACTIONS %}
+        {% endblock ACTIONS %}
+    </div><!--End of Banner-Actions-->
+    <div class="container">
+        {% block CONTENT_MAIN %}{% endblock CONTENT_MAIN %}
+    </div>
+{% endblock CONTENT %}
+{% endif %}

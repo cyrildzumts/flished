@@ -1,0 +1,107 @@
+{% extends "base.html"%}
+{% load static %}
+{% load i18n %} 
+{% block META_REDIRECT %}
+        
+{% endblock META_REDIRECT %}
+{% block GOOGLE_TAG %}
+{% endblock GOOGLE_TAG %}
+{% block GOOGLE_TAG_NOSCRIP %}
+{% endblock GOOGLE_TAG_NOSCRIP %}
+{% block STYLESHEET %}<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.min.css' %}" media="all" />{% endblock STYLESHEET %}
+{% block HEADER %}{% endblock HEADER%}
+{% block SEARCH_BAR %}
+{% endblock SEARCH_BAR %}
+{% block CATEGORIES %}
+
+{% endblock CATEGORIES %}
+{% block MAIN %}
+<div class="container">
+{% block SIDEBAR %}
+      <input type="checkbox" id="nav-toggle">
+      <div id="sidebar" class="sidebar">
+            <div class="sidebar-brand">
+                <h4><span>{{site_name}}</span></h4>
+                {% block SIDEBAR_BRAND_EXTRA %}{% endblock SIDEBAR_BRAND_EXTRA %}
+            </div>
+            
+            <div class="sidebar-menu">
+                <ul>
+                    {% block SIDEBAR_CONTENT %}
+                    <li><a class="mat-button mat-button-text active" href="{% url 'dashboard:home'%}"><i class="fas fa-tachometer-alt icon"></i><span>{% trans "Dashboard" %}</span></a></li>
+                    {% if perms.blog.view_blog %}
+                    <li><a class="mat-button mat-button-text" href="{% url 'dashboard:posts'%}"><i class="fas fa-gifts icon"></i><span>{% trans "Posts" %}</span></a></li>
+                    {% endif %}
+                    {% if perms.auth.view_user %}
+                    <li><a class="mat-button mat-button-text" href="{% url 'dashboard:users'%}"><i class="fas fa-user-circle icon"></i><span>{% trans "Users" %}</span></a></li>
+                    {% endif %}
+            
+                    <{% comment %}
+                        li><a class="mat-button mat-button-text" href="{% url 'dashboard:facebook-app'%}"><i class="fab fa-facebook icon"></i><span>{% trans "Facebook" %}</span></a></li>
+                        <li><a class="mat-button mat-button-text" href="{% url 'dashboard:abtests'%}"><i class="fas fa-vials icon"></i><span>{% trans "AB/TEST" %}</span></a></li>
+                        <li><a class="mat-button mat-button-text" href="{% url 'dashboard:reports' %}"><i class="fas fa-poll icon"></i><span>{% trans "Reports" %}</span></a></li>
+                    {% endcomment %}
+                    {% endblock SIDEBAR_CONTENT %}
+                    <li><a class="mat-button mat-button-text" href="{% url 'home'%}" target="_blank"><i class="fas fa-home icon"></i><span>{% trans "Visite The site" %}</span></a></li>
+                    <li><a class="mat-button mat-button-text" href="{% url 'accounts:logout'%}"><i class="fas fa-sign-out-alt icon"></i><span>{% trans "Logout" %}</span></a></li>
+                </ul>
+                
+            </div>
+            <div class="footer-wrapper">
+                    {% now "Y" as current_year %}
+                    <ul>
+                        <li><span>Copyright</span> <i class="fa fa-copyright icon"></i><span class="copyright-year padding-h">{{current_year}}</span> <span class="site">{{site_name}} - {%trans 'ONLINE SHOP' %} </span></li>
+                        <li>
+                            <div class="flex">
+                                <a class="mat-button mat-button-text" href="{% url 'about' %}"><i class="fas fa-info-circle icon"></i><span>{% trans "About us" %}</span></a>
+                                <a class="mat-button mat-button-text" href="{% url 'faq' %}"><i class="fas fa-question-circle icon"></i><span>{% trans "FAQ" %}</span></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+      </div>
+{% endblock SIDEBAR %}
+{% block DASH_CONTENT %}
+<div class="dash-main-content">
+    <div class="dashboard-header-wrapper">
+        <header class="dashboard-header">
+            <div class="row dashboard-header-title medium">
+                <div><label for="nav-toggle"><i class="fas fa-bars icon"></i></label></div><div class="bold small">{{content_title|default_if_none:'Dashboard'}}</div>
+            </div>
+            <div class="search-wrapper force-hidden">
+                <span class="fas fa-search icon"></span>
+                <input type="search" placeholder="{% trans 'Search' %}">
+            </div>
+            <div class="user-wrapper">
+                {% if user_pic %} <img class="user-image" src="{{user_pic.image_url}}" alt=""> {% endif %}
+                <div>
+                    <h5>{{request.user.username}}</h5>
+                    <small>{{UI_STRINGS_CONTEXT.UI_DASHBOARD_USER_ADMIN_TITLE}}</small>
+                </div>
+            </div>
+        </header>
+    </div>
+    <main>
+    {% block MAIN_CONTENT %}
+      {% block DASHBOARD_SUMMARY %}{% endblock DASHBOARD_SUMMARY %}
+        {% block CONTENT %}{% endblock CONTENT %}
+        {% block DASHBOARD_FOOTER %}
+        {% endblock DASHBOARD_FOOTER %}
+    {% endblock MAIN_CONTENT %}
+    </main>
+</div>
+{% endblock DASH_CONTENT %}
+</div>    
+{% endblock MAIN %}
+{% block FOOTER %}{% endblock FOOTER %}
+{% block BASE_SCRIPT %}
+<script  data-main="{% static 'js/dashboard.min' %}" src="{% static 'js/require.js' %}"></script>        
+{% endblock BASE_SCRIPT %}
+
+{% block SCRIPT %}     
+
+<script  type="application/javascript" src="{% static 'js/lib/validators.js' %}"></script>
+
+{% endblock SCRIPT %}
+
+{% block GOOGLE_ANALYTICS %}{% endblock GOOGLE_ANALYTICS %}

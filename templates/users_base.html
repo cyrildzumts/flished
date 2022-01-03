@@ -1,0 +1,30 @@
+{% extends "dashboard_base.html"%}
+{% load i18n %}
+{% if not perms.auth.view_user %}
+<div class="access-error">
+  <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
+</div>
+{% else %}
+{% block SIDEBAR_CONTENT %}
+    <li><a class="mat-button mat-button-text" href="{% url 'dashboard:home'%}"><i class="fas fa-tachometer-alt icon"></i><span>{% trans "Dashboard" %}</span></a></li>
+    <li><a class="mat-button mat-button-text" href="{% url 'dashboard:groups'%}"><i class="fas fa-users icon"></i><span>{% trans "Groups" %}</span></a></li>
+    <li><a class="mat-button mat-button-text" href="{% url 'dashboard:users'%}"><i class="fas fa-user-circle icon"></i><span>{% trans "Users" %}</span></a></li>
+    {% comment %}
+        <li><a class="mat-button mat-button-text" href="{% url 'dashboard:online-users'%}"><i class="fas fa-user-clock icon"></i><span>{% trans "Online Users" %}</span></a></li>
+    {% endcomment %}
+    <li><a class="mat-button mat-button-text" href="{% url 'dashboard:tokens' %}"><i class="fas fa-key icon"></i><span>{% trans "Tokens" %}</span></a></li>
+    <li><a class="mat-button mat-button-text" href="{% url 'dashboard:partner-tokens' %}"><i class="fas fa-fingerprint icon"></i><span>{% trans "Partner Tokens" %}</span></a></li>
+{% endblock SIDEBAR_CONTENT %}
+
+{% block CONTENT %}
+
+    <div class="actions flex-left">
+        
+        {% block ACTIONS %}
+        {% endblock ACTIONS %}
+    </div><!--End of Banner-Actions-->
+    <div class="container">
+        {% block CONTENT_MAIN %}{% endblock CONTENT_MAIN %}
+    </div>
+{% endblock CONTENT %}
+{% endif %}
