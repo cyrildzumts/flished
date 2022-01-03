@@ -23,19 +23,6 @@
                 <input type="text" id="seo-meta-keywords" class="full" name="seo_meta_keywords" maxlength="{{SEO_META_KEYWORDS_MAX_SIZE}}">
             </div>
         </div>
-        <div class="flex flex-left flex-wrap">
-            <div class="form-group">
-                <label for="code">{% trans "Code" %}</label>
-                <input id="code" type="text"  name="code">
-            </div>
-            <div class="form-group full">
-                    <label for="page_title_index">{% trans "Page title" %}</label>
-                    <select name="page_title_index" id="page_title_index">
-                        <option value="">{% trans "Select a page title" %}</option>
-                        {% for k,v in CATEGORIES %}<option value="{{k}}">{{v}}</option>{% endfor %}
-                    </select>
-            </div>
-        </div>
         {% if highlight_list %}
         <div class="flex flex-left flex-wrap">
             <div class="form-group">

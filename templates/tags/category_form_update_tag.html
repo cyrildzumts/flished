@@ -25,18 +25,6 @@
         </div>
         <div class="flex flex-left flex-wrap">
             <div class="form-group">
-                <label for="code">{% trans "Code" %}</label>
-                <input id="code" type="text"  name="code" value="{{category.code}}">
-            </div>
-             <div class="form-group full">
-                <label for="page_title_index">{% trans "Page title" %}</label>
-                <select name="page_title_index" id="page_title_index">
-                    {% for k,v in CATEGORIES %}<option value="{{k}}" {% if k == category.page_title_index %}selected{% endif %}>{{v}}</option>{% endfor %}
-                </select>
-            </div>
-        </div>
-        <div class="flex flex-left flex-wrap">
-            <div class="form-group">
                 <label for="highlight">{% trans "Highligh" %}</label>
                 <select name="highlight" id="highlight">
                 <option value="" selected><span class="key">{% trans "Select an Highlight" %}</span></option> 
