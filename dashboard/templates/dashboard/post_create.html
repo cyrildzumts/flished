@@ -1,0 +1,23 @@
+{% extends "post_base.html" %}
+{% load i18n %} 
+{% load static %}
+{% load core_tags %}
+{% load blog_tags %}
+
+{% block CONTENT_MAIN %}
+<div class="container">
+    <div class="actions">
+        <button class="mat-button mat-button-text js-clear-btn">{{UI_STRINGS_CONTEXT.UI_CLEAR_BTN_LABEL}}</button>
+        <button class="mat-button mat-button-text js-save-btn">{{UI_STRINGS_CONTEXT.UI_SAVE_BTN_LABEL}}</button>
+        <button class="mat-button mat-button-text js-publish-btn">{{UI_STRINGS_CONTEXT.UI_PUBLISH_BTN_LABEL}}</button>
+        <button class="mat-button mat-button-text js-create-post-btn">{{UI_STRINGS_CONTEXT.UI_CREATE_BTN_LABEL}}</button>
+        <a href="#" class="mat-button mat-button-text js-preview-post"><span>{{UI_STRINGS_CONTEXT.UI_BLOG_POST_PREVIEW}}</span></a>
+        <a href="{% url 'blog:blog-home' %}" class="mat-button mat-button-text"><span>{{UI_STRINGS_CONTEXT.UI_BLOG_HOME_LABEL}}</span></a>
+    </div>
+    <article class="post-wrapper">
+        <div class="full">
+            {% include "tags/editor.html" %}
+        </div>
+    </article>
+</div>
+{% endblock CONTENT_MAIN %}
