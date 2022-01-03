@@ -102,11 +102,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.postgres',
-    'core.apps.CoreConfig',
+    'accounts',
+    'api.apps.ApiConfig',
     'blog.apps.BlogConfig',
+    'core.apps.CoreConfig',
+    'dashboard.apps.DashboardConfig',
     'rest_framework',
     'rest_framework.authtoken',
-    'accounts',
 ]
 
 MIDDLEWARE = [

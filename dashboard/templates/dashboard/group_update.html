@@ -1,0 +1,12 @@
+{% extends "users_base.html"%}
+{% load i18n %}
+
+
+{% block CONTENT_MAIN %}
+<div class="container">
+    <div class="actions">
+        {% if perms.auth.add_group %}<a class="mat-button mat-button-default" href="{% url 'dashboard:group-create' %}"> <i class="fas fas-plus"></i> <span>{% trans "Create A Group" %}</span> </a>{% endif %}
+    </div><!--End of Banner-Actions-->
+    {% include "tags/group_update_form_new.html" %}
+</div>
+{% endblock CONTENT_MAIN %}

@@ -29,7 +29,7 @@ urlpatterns = i18n_patterns( * [
     path('accounts/', include('accounts.urls')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('faq/', views.faq, name='faq'),
-    #path('dashboard/', include('dashboard.urls')),
+    path('dashboard/', include('dashboard.urls')),
 
 ], prefix_default_language=False)
 

@@ -1,0 +1,42 @@
+{% extends "users_base.html"%}
+{% load i18n %}
+
+
+{% block CONTENT_MAIN %}
+
+{% if perms.authtoken.view_token %}
+<div class="actions flex-left">
+    {% if perms.authtoken.add_token %}
+    <a class="mat-button mat-button-default" href="{% url 'dashboard:generate-token' %}"><i class="fas fa-plus icon"></i><span>{% trans "Add Token" %}</span></a>
+    {% endif %}
+</div><!--End of Actions-->
+{% if token_list %}
+    <div class="container">
+        <div class="mat-list-wrapper">
+            <div class="mat-list-header full">
+                <span class="title">{% trans "Token List" %}</span>
+            </div>
+            <ul class="box">
+                {% for token in token_list %}
+                <li class="mat-list-item entry">
+                        <span class="key">{{token.user.username}}</span><span class="value"> Token {{token.key}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            {% include "tags/pagination.html" with page_set=token_list %}
+        </div>
+    </div>
+
+    {% else %}
+    <p> {% trans "There are  no Token generated yet." %}.</p>
+
+    {% endif %}
+    </div>
+</div>
+
+{% else %}
+<div class="access-error">
+  <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
+</div>
+{% endif %}
+{% endblock CONTENT_MAIN %}

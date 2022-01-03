@@ -1,0 +1,29 @@
+{% extends "users_base.html"%}
+{% load i18n %}
+
+
+{% block CONTENT_MAIN %}
+{% if not perms.authtoken.add_token %}
+ {% include "tags/unauthorized.html" %}
+{% else %}
+<div class="container">
+        <div class="row">
+            <h3>{% trans "Token Generation For User" %}</h3>
+        </div>
+        <div class="row">
+            <form action="{% url 'dashboard:generate-token' %}" method="POST">{% csrf_token %}
+                {% include "tags/search_user_snipet.html" with target="#user" target_name="#user-search" fieldname="User Name" %}
+                <div class="flex flex-left">
+                    <div class="form-group">
+                        <input id="user" type="hidden" name="user">
+                    </div>
+                </div>
+                <div class="actions flex-right">
+                    <a class="mat-button mat-button-outline" href="{% url 'dashboard:home' %}">{% trans "Cancel" %}</a>
+                    <button class="mat-button mat-button-default" type="submit">{% trans "Generate Token" %}</button>
+                </div>
+            </form>
+        </div>
+</div>
+{% endif %}
+{% endblock CONTENT_MAIN %}

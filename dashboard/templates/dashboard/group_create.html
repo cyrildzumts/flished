@@ -1,0 +1,12 @@
+{% extends "users_base.html"%}
+{% load i18n %}
+
+{% block CONTENT_MAIN %}
+<div class="container">
+    <div class="actions flex-left">
+        <a class="mat-button mat-button-outline" href="{%url 'dashboard:groups'%}">{% trans "Groups" %}</a>
+        <a class="mat-button mat-button-outline" href="{% url 'dashboard:groups'%}"><i class="fas fa-list icon"></i><span>{% trans "Groups" %}</span></a> 
+    </div><!--End of Actions-->
+    {% include "tags/group_form_new.html" %}
+</div>
+{% endblock CONTENT_MAIN %}

@@ -1,0 +1,11 @@
+{% extends "product_base.html"%}
+{% load i18n %}
+{% block ACTIONS %}
+<a class="mat-button mat-button-outline" href="{%url 'dashboard:categories' %}"><i class="fas fa-list icon"></i><span>{% trans "Categories" %}</span></a>
+{% endblock ACTIONS %}
+
+{% block CONTENT_MAIN %}
+
+{% include "tags/category_form_tag.html" %}
+
+{% endblock CONTENT_MAIN %}

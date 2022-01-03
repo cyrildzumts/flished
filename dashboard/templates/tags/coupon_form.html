@@ -1,0 +1,59 @@
+{% load i18n %} 
+
+{% if can_add_coupon %}
+
+    <div class="container">
+        
+        <div class="mat-box">
+    
+                <form class="form" name="add-coupon" onsubmit="return coupon_validation(this);" action="{% url 'dashboard:coupon-create' %}" method="POST">{% csrf_token %}
+                    <input type="hidden" name="added_by" value="{{request.user.pk}}">
+                    <div class="container">
+                    
+                        <div class="form-group">
+                            <label for="name">{% trans "Name" %}</label>
+                            <input id="name" type="text"  name="name" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="reduction">{% trans "Reduction" %}</label>
+                            <input id="reduction" type="text"  name="reduction" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="max-usage">{% trans "Max Usage" %}</label>
+                            <input id="max-usage" type="text"  name="max_usage" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="seller">{% trans "Seller" %}</label>
+                            <select name="seller" id="seller">
+                                {% for seller in sellers %}<option value="{{seller.id}}">{{seller.username}}</option>{% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="begin-at">{% trans "Start on" %}</label>
+                            <input id="begin-at" type="Date"  name="begin_at" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="expire-at">{% trans "Expire on" %}</label>
+                            <input id="expire-at" type="Date"  name="expire_at" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="is-active">{% trans "Is Active" %}</label>
+                            <input id="is-active" type="checkbox"  name="is_active">
+                        </div>
+                    
+                    </div><!-- End of container-->
+
+                    <div class="actions">
+                            <a class="mat-button mat-button-text js-cancel" href="{% url 'dashboard:coupons' %}">{% trans "Cancel" %}</a>
+                            <button class="mat-button mat-button-default" type="submit">{% trans "Create" %}</button>
+                    </div>
+                    
+                </form>
+            </div>
+    </div>          
+
+{% else %}
+<div class="access-error">
+  <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
+</div>
+{% endif %}

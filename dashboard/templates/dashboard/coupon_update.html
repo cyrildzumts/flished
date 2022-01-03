@@ -1,0 +1,15 @@
+{% extends "post_base.html"%}
+{% load i18n %}
+
+{% block CONTENT_MAIN %}
+    {% if perms.cart.change_coupon  %}
+    <div class="container">
+        {% include "tags/coupon_form_update_tag.html" %}
+    </div>
+    {% else %}
+    <div class="access-error">
+    <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
+    </div>
+    {% endif %}
+
+{% endblock CONTENT_MAIN %}

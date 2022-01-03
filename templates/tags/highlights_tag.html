@@ -1,0 +1,42 @@
+{% load i18n %}
+{% load catalog_tags %}
+
+<div class="container">
+    
+        <form action="{% url HIGHLIGHTS_DELETE_URL %}" method="POST">{% csrf_token %}
+                
+                <div class="actions flex-left">
+                        <a class="mat-button mat-button-default" href="{% url HIGHLIGHT_CREATE_URL %}"> <i class="fas fa-plus icon"></i><span>{% trans "Highlight" %}</span></a>
+                        {% if perms.catalog.delete_highlight %}
+                        <button class="js-activable mat-button mat-button-outlined" disabled><i class="fas fa-trash icon"></i><span>{% trans "Delete Selected" %}</span></button>
+                        {% endif %}
+                </div>
+                
+                <div class="mat-table-wrapper">
+                        <div class="mat-table-title padding-v">{% trans "Highlights" %}</div>
+                        <table id="brand-list" class="mat-table js-filter-table">
+                                <thead>
+                                        <tr>
+                                                <th scope="col" class="th-checkbox"><label><input id="filter-select-all" class="js-select-all" type="checkbox" name="allselected" title="{% trans 'Select all' %}"></label></th>
+                                                <th scope="col">{% trans "Highlight" %}</th>
+                                                <th scope="col">{% trans "Status" %}</th>
+                                                <th scope="col" class="th-actions">{% trans "Details" %}</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {% for highlight in highlight_list  %}
+                                        <tr>
+                                        <td scope="row" data-label="" class="checkbox"><label><input class="js-selectable" type="checkbox" name="brands" value="{{highlight.pk}}"><span class="checkbox-label"></span></label></td>
+                                        <td data-label="{% trans 'Highlight' %}"><span>{{highlight.display_name}}</span></td>
+                                        <td data-label="{% trans 'Status' %}"><span><i class="fas fa-circle icon {% if highlight.is_active %}success{% else %}warning{% endif %}"></i>{{highlight.is_active|yesno:_('active,inactive')}}</span></td>
+                                        <td data-label="{% trans 'Details' %}"><a class="mat-button mat-button-default" href="{% url HIGHLIGHT_URL highlight.highlight_uuid %}"><span><i class="fas fa-info"></i>{% trans "Details" %}</span></a></td>
+                                        </tr>
+                                        {% endfor %}
+                                        
+                                </tbody>
+                        </table>
+                </div><!--End of Table Wrapper-->
+        </form>
+    {% include "tags/pagination.html" with page_set=highlight_list %}
+    
+</div>

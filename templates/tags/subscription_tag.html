@@ -1,0 +1,71 @@
+{% load i18n %}
+{% load catalog_tags %}
+{% load core_tags %}
+<div class="grid">
+    <div class="mat-box full">
+        <div class="box create-form">
+            <div class="flex flex-left flex-wrap">
+                <div class="form-group">
+                    <label for="name">{% trans "Name" %}</label>
+                    <input id="name" type="text"  name="name" value="{{subscription.name}}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="title">{% trans "Title" %}</label>
+                    <input id="title" type="text"  name="title" value="{{subscription.title}}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="subtitle">{% trans "Subtitle" %}</label>
+                    <input id="subtitle" type="text"  name="subtitle" value="{{subscription.subtitle}}" disabled>
+                </div>
+            </div>
+            <div class="flex flex-left">
+                <div class="form-group">
+                    <label for="fee">{% trans "Fee" %}</label>
+                    <input id="fee" type="text"  name="fee" value="{{subscription.fee|floatformat:'-2'}} {% trans CURRENCY %}" disabled>
+                </div>
+                
+            </div>
+            <div class="flex flex-left">
+                <div class="form-group">
+                    <label for="added_by">{% trans "Created By" %}</label>
+                    <input id="added_by" type="text"  name="added_by" value="{{subscription.added_by.username}}" disabled>
+                </div>
+                <div class="form-group">
+                        <span class="padding-bottom">{% trans "Status" %}</span>
+                        <div class="row"><span class="padding"><input id="is_active" type="checkbox"  name="is_active" {% if subscription.is_active %}checked{% endif %} disabled><label for="is_active">{% trans "Active" %}</label></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if attributes %}
+    <div class="">
+        <div class="mat-table-wrapper">
+            <div class="mat-table-title">{% trans "Attributes" %}</div>
+            <ul>
+                {% for attr in attributes %}
+                    <li><div class="entry"><span>{% trans attr.display_name %}</span><span>{% core_trans attr.value %}</span></div></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+    {% if available_attributes %}
+    <div class="">
+        <div class="mat-table-wrapper">
+            <div class="mat-table-title">{% trans "Available Attributes" %}</div>
+            <form class="form" action="{% url 'dashboard:subscription-attributes-add' subscription.subscription_uuid %}" method="post"> {% csrf_token %}
+                <ul id="available-attrs" class="mat-list">
+                {% for attr in available_attributes %}
+                    <li class="mat-list-item"><div class="entry"><span class="key">{{attr.display_name}}</span><span class="value">{% core_trans attr.value %}<span><input type="checkbox" name="attributes" value="{{attr.pk}}"></span></span></div></li>
+                {% endfor %}
+                </ul>
+                <div class="actions flex-right">
+                    <span class="mat-button mat-button-outline" data-target="attr-dialog">{% trans "Cancel" %}</span>
+                    <button class="mat-button mat-button-default">{% trans "Add Attributes" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+
+</div><!-- End of container-->

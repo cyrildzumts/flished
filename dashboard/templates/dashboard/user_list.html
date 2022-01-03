@@ -1,0 +1,57 @@
+{% extends "users_base.html"%}
+{% load i18n %}
+
+{% block CONTENT_MAIN %}
+
+{% if perms.auth.view_user %}
+
+<div class="container">
+    
+        <form action="{% url 'dashboard:users-delete' %}" method="POST">{% csrf_token %}
+        <div class="actions flex-left">
+              {% if perms.auth.add_user %}
+              <a class="mat-button mat-button-default" href="{% url 'dashboard:create-user' %}"> <i class="fas fa-user-plus icon"></i><span>{% trans "New User" %}</span></a>
+              {% endif %}
+              <button class="js-activable mat-button mat-button-outline" disabled><i class="fas fa-trash icon"></i><span>{% trans "Delete" %}</span></button>
+        </div>
+        <div class="mat-table-wrapper">
+        <div class="mat-table-title padding-v">{% trans "Users" %}</div>
+        <table id="user-list" class="mat-table js-filter-table">
+          
+          <thead>
+                  <tr>
+                          <th class="th-checkbox"><input id="filter-select-all" class="js-select-all" type="checkbox" name="allselected" title="{% trans 'Select all' %}"></th>
+                          <th scope="col">{% trans "Username" %}</th>
+                          <th scope="col">{% trans "Name" %}</th>
+                          <th scope="col">{% trans "Is Active" %}</th>
+                          <th scope="col">{% trans "Date Joined" %}</th>
+                          <th scope="col">{% trans "Last Login" %}</th>
+                          <th scope="col" class="th-actions">{% trans "Details" %}</th>
+                  </tr>
+          </thead>
+          <tbody>
+                  {% for u in users  %}
+                  <tr>
+                    <td class="checkbox"><input class="js-selectable" type="checkbox" name="users" value="{{u.pk}}"></td>
+                    <td scope="row" data-label="{% trans 'Username' %}"><span>{{u.username}}</span></td>
+                    <td data-label="{% trans 'Name' %}"><span>{{u.get_full_name}}</span></td>
+                    <td data-label="{% trans 'Is Active' %}"><span><i class="fas fa-circle icon {% if u.is_active %}success{% else %}error{% endif %}"></i>{{u.is_active|yesno:_('active,inactive')}}</span></td>
+                    <td data-label="{% trans 'Date Joined' %}"><span>{{u.date_joined|date:"F j, Y H:i:s"}}</span></td>
+                    <td data-label="{% trans 'Last Login' %}"><span>{{u.last_login|date:"F j, Y H:i:s"}}</span></td>
+                    <td data-label="{% trans 'Details' %}"><a class="mat-button mat-button-default" href="{% url 'dashboard:user-detail' u.pk %}">{% trans "More" %} </a></td>
+                  </tr>
+                  {% endfor %}
+          </tbody>
+    </table>
+     {% include "tags/pagination.html" with page_set=users %}
+    </div><!--End of Table Wrapper-->
+    </form>
+   
+</div>
+
+{% else %}
+<div class="access-error">
+  <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
+</div>
+{% endif %}
+{% endblock CONTENT_MAIN %}

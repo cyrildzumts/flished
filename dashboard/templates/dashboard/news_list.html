@@ -1,0 +1,45 @@
+{% extends "post_base.html"%}
+{% load i18n %}
+{% load tz %}
+
+
+{% block CONTENT_MAIN %}
+<div class="container">
+        <form action="{% url 'dashboard:news-bulk-delete' %}" method="POST">{% csrf_token %}
+        <div class="actions flex-left">
+            <a class="mat-button mat-button-default" href="{% url 'dashboard:news-create'%}"> <i class="fas fa-plus icon"></i><span>{% trans "New Info" %}</span></a>
+            <button id="js-delete-all-btn" class="mat-button mat-button-outline js-activable" disabled><i class="fas fa-trash icon"></i><span>{% trans "Delete" %}</span></button>
+        </div>
+        <div class="mat-table-wrapper">
+            <div class="mat-table-title">{% trans "News List" %}</div>
+            <table id="news-list" class="mat-table js-filter-table">
+            <thead>
+                    
+                    <tr>
+                            <th scope="col" class="th-checkbox"><label><input id="filter-select-all" class="js-select-all" type="checkbox" name="allselected" title="{% trans 'Select all' %}"></label></th>
+                            <th scope="col">{% trans "Title" %}</th>
+                            <th scope="col">{% trans "Start" %}</th>
+                            <th scope="col">{% trans "Active" %}</th>
+                            <th scope="col">{% trans "Date of creation" %}</th>
+                            <th scope="col" class="th-actions">{% trans "Details" %}</th>
+                    </tr>
+            </thead>
+            <tbody>
+                    {% for news in news_list  %}
+                    <tr>
+                    <td scope="row" class="checkbox"><label><input class="js-selectable" type="checkbox" name="news-list" value="{{news.pk}}"><span class="checkbox-label"></span></label></td>
+                    <td data-label="{% trans 'Title' %}"><span>{{news.title}}</span></td>
+                    <td data-label="{% trans 'Start' %}"><span></span></td>
+                    <td data-label="{% trans 'Active' %}"><span><i class="fas fa-circle {% if niews.is_active %}success {% else %} warning {% endif %} icon"></i>{{news.is_active|yesno:_('active,inactive')}}</span></td>
+                    <td data-label="{% trans 'Date of Creation' %}"><span>{{news.created_at|date:"F j, Y"}}</span></td>
+                    <td data-label="{% trans 'Details' %}"><a class="mat-button mat-button-default" href="{{news.get_absolute_url}}"><span><i class="fas fa-info icon"></i>{% trans "Details" %}</span></a></td>
+                    </tr>
+                    {% endfor %}
+                    
+            </tbody>
+            </table>
+            {% include "tags/pagination.html" with page_set=news_list %}
+        </div><!--End of Table Wrapper-->
+        </form>
+</div>
+{% endblock CONTENT_MAIN %}

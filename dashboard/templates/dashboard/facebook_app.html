@@ -1,0 +1,96 @@
+{% extends "dashboard_base.html"%}
+{% load i18n %}
+{% load core_tags %}
+
+{% block CONTENT %}
+
+<div class="container">
+    <div class="actions flex-left">
+        <a class="mat-button mat-button-default" href="{% url 'dashboard:facebook-fetch-groups'%}"><i class="fas fa-sync icon"></i>{% trans "Fetch Groups" %}</a>
+    </div>
+    <div class="mat-box">
+        <div class="mat-box-title">Facebook APP</div>
+        {% if fb_app %}
+        <div class="facebook-app box full">
+            <div class="entry">
+                <span>{% trans "Name" %}</span><span>{{fb_app.name}}</span>
+            </div>
+            <div class="entry">
+                <span>{% trans "Client ID" %}</span><span>{{fb_app.client_id}}</span>
+            </div>
+            <div class="entry">
+                <span>{% trans "client Secret" %}</span><span>{{fb_app.client_secret}}</span>
+            </div>
+            <div class="entry">
+                <span>{% trans "request Path" %}</span><span>{{fb_app.request_path}}</span>
+            </div>
+            <div class="entry">
+                <span>{% trans "User Access Token" %}</span><span>{{fb_app.user_access_token}}</span>
+            </div>
+            <div class="entry">
+                <span>{% trans "Access Token" %}</span><span>{{fb_app.access_token}}</span>
+            </div>
+            <div class="entry">
+                <span>{% trans "Page Access Token" %}</span><span>{{fb_app.page_access_token}}</span>
+            </div>
+            <div class="entry">
+                <span>{% trans "Page ID" %}</span><span>{{fb_app.page_id}}</span>
+            </div>
+            <div class="entry">
+                <span>{% trans "Token Type" %}</span><span>{{fb_app.token_type}}</span>
+            </div>
+            <div class="entry">
+                <span>{% trans "Expires In" %}</span><span>{{fb_app.expires_in}}</span>
+            </div>
+            <div class="entry">
+                <span>{% trans "Created at" %}</span><span>{{fb_app.created_at}}</span>
+            </div>
+            <div class="entry">
+                <span>{% trans "Last Changes" %}</span><span>{{fb_app.last_changed_at}}</span>
+            </div>
+        </div>
+        {% else %}
+        <div class="mat-box-content">
+            <p>{% trans "No Facebook App available" %}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    {% if facebook_groups %}
+    <div class="mat-table-wrapper">
+        <div class="mat-table-title">
+            <span>{% trans "Facebook Groups" %}</span>
+        </div>
+        <form action="{% url 'dashboard:facebook-groups-changes' %}" method="POST">{% csrf_token %}
+        {% if GROUP_ACTIONS %}
+        <ul class="flex flex-left flex-wrap">
+        {% for k,v in GROUP_ACTIONS %}<li><input id="action-{{k}}" type="radio" name="action" value="{{k}}"><label for="action-{{k}}">{% trans v %}</label></li>{% endfor %}
+        <li><button type="submit" class="js-activable mat-button mat-button-outlined" disabled><i class="fas fa-trash icon"></i><span>{% trans "APPLY" %}</span></button></li>
+        </ul>
+        {% endif %}
+        <table class="mat-table">
+            <thead>
+                <tr>
+                    <th scope="col" style="width:24px;"><label><input id="filter-select-all" class="js-select-all" type="checkbox" name="allselected" title="{% trans 'Select all' %}"></label></th>
+                    <th><span>{% trans "ID" %}</span></th>
+                    <th><span>{% trans "Name" %}</span></th>
+                    <th><span>{% trans "Status" %}</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for g in facebook_groups %}
+                <tr>
+                    <td scope="row" class="checkbox"><label><input class="js-selectable" type="checkbox" name="groups" value="{{g.pk}}" {{CHECKED|default_if_none:'' }}><span class="checkbox-label"></span></label></td>
+                    <td data-label="{% trans 'ID' %}"><span>{{g.group_id}}</span></td>
+                    <td data-label="{% trans 'Name' %}"><span class="bold">{{g.name}}</span></td>
+                    <td data-label="{% trans 'Status' %}"><span><i class="fas fa-circle {% if g.is_active %}success {% else %} warning {% endif %} icon"></i>{{g.is_active|yesno:_('active,inactive')}}</span></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </form>
+    </div>
+    {% endif %} 
+</div>
+
+{% endblock CONTENT %}

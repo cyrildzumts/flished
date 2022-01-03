@@ -1,0 +1,115 @@
+{% extends "dashboard_base.html"%}
+{% load i18n %}
+{% load order_tag %}
+{% load catalog_tags %}
+{% load core_tags %}
+{% if not perms.dashboard.can_view_dashboard %}
+{% include "tags/unauthorized.html" %}
+{% else %}
+
+
+
+
+<div class="main-content">
+{% block DASHBOARD_SUMMARY %}
+        {% comment %}
+                {% include "tags/dashboard_summary.html" %}
+        {% endcomment %}
+{% endblock DASHBOARD_SUMMARY %}
+
+{% block CONTENT %}
+{% if sessions %}
+<div class="mat-list-wrapper">
+        {% csrf_token %}
+        <div class="actions"><button class="mat-button js-clear-session-btn">{% trans "Clear Sessions" %}</button></div>
+        <div id="session-warning" class="hidden"><span class="warn">{% trans "Sessions not cleared" %}</span></div>
+        <ul id="session-list" class="mat-list">
+                {% for s in sessions %}
+                <li><div class="entry"><span class="key">{% trans "Session Key" %}</span><span class="value">{{s.session_key}}</span> - <span class="value">{{s.get_decoded}}</span></div></li>
+                {% endfor %}
+        </ul>
+</div>
+{% endif %}
+
+<div class="mat-table-wrapper">
+                <div class="mat-table-title flex flex-left align-baseline label"><span class="medium">{% trans "New Users" %}</span> <a href="{% url 'dashboard:users' %}" class="mat-button mat-button-text"><span class="small">{% trans "See all" %}</span><i class="fas fa-arrow-right icon"></i></a></div>
+                <table id="user-list" class="mat-table">
+                        <thead>
+                                <tr>
+                                        <th scope="col" class="padding-h">{% trans "Name" %}</th>
+                                        <th scope="col">{% trans "Status" %}</th>
+                                        <th scope="col">{% trans "Date Joined" %}</th>
+                                        <th scope="col">{% trans "Last Login" %}</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                {% for u in user_list  %}
+                                <tr>
+                                        <td data-label="{% trans 'Name' %}"><span>{{u.get_full_name}}</span></td>
+                                        <td data-label="{% trans 'Status' %}"><span><i class="fas fa-circle {% if u.is_active %}success {% else %} warning {% endif %} icon"></i>{{u.is_active|yesno:_('active,inactive')}}</span></td>
+                                        <td data-label="{% trans 'Date Joined' %}"><span>{{u.date_joined|date:"F j, Y H:i:s"}}</span></td>
+                                        <td data-label="{% trans 'Last Login' %}"><span>{{u.last_login|date:"F j, Y H:i:s"}}</span></td>
+                                </tr>
+                                {% endfor %}
+                                
+                        </tbody>
+                </table>
+                
+</div> <!--End of Table Wrapper-->
+
+<div class="mat-table-wrapper">
+        <h4><i class="fas fa-eye icon"></i><span>{% trans "Most Views Post" %}</span></h4>
+        <table id="ost-list" class="mat-table">
+                <thead>
+                        <tr>
+                                <th scope="col">{% trans "Post" %}</th>
+                                <th scope="col">{% trans "Author" %}</th>
+                                <th scope="col">{% trans "Views" %}</th>
+                                <th scope="col">{% trans 'Added Date' %}</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        {% for post in top_10_list  %}
+                        <tr>
+                        <td data-label="{% trans 'Article' %}"><span>{{post.title}}</span></td>
+                        <td data-label="{% trans 'Author' %}"><span>{{post.author.get_full_name}}</span></td>
+                        <td data-label="{% trans 'Views' %}"><span class="bold"><i class="fas fa-eye icon"></i> {{post.view_count}}</span></td>
+                        <td scope="row" data-label="{% trans 'Added Date' %}"><span>{{post.created_at|date:"F j, Y H:i:s"}}</span></td>
+                        </tr>
+                        {% endfor %}
+                        
+                </tbody>
+
+        </table>
+</div>
+
+<div class="mat-table-wrapper">
+        <div class="flex flex-left align-baseline label"><span>{% trans "Last added Post" %}</span> <a href="{% url 'dashboard:posts' %}" class="mat-button mat-button-text"><span class="small">{% trans "See all" %}</span><i class="fas fa-arrow-right icon"></i></a></div>
+        <table id="ost-list" class="mat-table">
+                <thead>
+                        <tr>
+                                <th scope="col">{% trans "Post" %}</th>
+                                <th scope="col">{% trans "Author" %}</th>
+                                <th scope="col">{% trans "Views" %}</th>
+                                <th scope="col">{% trans 'Added Date' %}</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        {% for post in recent_posts  %}
+                        <tr>
+                        <td data-label="{% trans 'Article' %}"><span>{{post.title}}</span></td>
+                        <td data-label="{% trans 'Author' %}"><span>{{post.author.get_full_name}}</span></td>
+                        <td data-label="{% trans 'Views' %}"><span class="bold"><i class="fas fa-eye icon"></i> {{post.view_count}}</span></td>
+                        <td scope="row" data-label="{% trans 'Added Date' %}"><span>{{post.created_at|date:"F j, Y H:i:s"}}</span></td>
+                        </tr>
+                        {% endfor %}
+                        
+                </tbody>
+
+        </table>
+</div>
+{% endblock CONTENT %}
+</div>
+
+
+{% endif %}

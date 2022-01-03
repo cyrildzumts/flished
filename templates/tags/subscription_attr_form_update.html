@@ -1,0 +1,13 @@
+{% load i18n %}
+
+
+<div class="container">
+    <form class="form" action="{% url 'dashboard:subscription-attribute-update' attribute.attribute_uuid %}" method="POST">{% csrf_token %}
+        {% include 'tags/subscription_attribute_tag.html' %}
+        <div class="actions flex-right">
+            <a class="mat-button mat-button-outline js-cancel" href="{%url 'dashboard:subscription-attribute-detail' attribute.attribute_uuid %}">{% trans "Cancel" %}</a>
+            <button class="mat-button mat-button-default">{% trans "Update" %}</button>
+        </div>
+    </form>
+
+</div>

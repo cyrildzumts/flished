@@ -1,0 +1,96 @@
+{% load i18n %}
+
+<form class="form" name="category" action="{{category.get_update_url}}" method="POST">{% csrf_token %}
+<div class="mat-box container">
+<div class="col-xs-12">
+    <div class="box create-form">
+        <input id="added_by" type="hidden"  name="added_by" value="{{category.added_by.pk}}">
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group">
+                <label for="name">{% trans "Name" %}</label>
+                <input id="name" type="text"  name="name" value="{{category.name}}">
+            </div>
+            <div class="form-group">
+                <label for="display_name">{% trans "Display Name" %}</label>
+                <input id="display_name" type="text"  name="display_name" value="{{category.display_name}}">
+            </div>
+            <div class="form-group">
+                <label for="seo-page-title">{% trans "SEO Page Title" %}</label>
+                <input type="text" id="seo-page-title" class="full" name="seo_page_title" value="{{category.seo_page_title|default_if_none:''}}" maxlength="{{SEO_PAGE_TITLE_MAX_SIZE}}">
+            </div>
+            <div class="form-group">
+                <label for="seo-meta-keywords">{% trans "SEO Meta Keywords" %}</label>
+                <input type="text" id="seo-meta-keywords" class="full" name="seo_meta_keywords" value="{{category.seo_meta_keywords|default_if_none:''}}" maxlength="{{SEO_META_KEYWORDS_MAX_SIZE}}">
+            </div>
+        </div>
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group">
+                <label for="code">{% trans "Code" %}</label>
+                <input id="code" type="text"  name="code" value="{{category.code}}">
+            </div>
+             <div class="form-group full">
+                <label for="page_title_index">{% trans "Page title" %}</label>
+                <select name="page_title_index" id="page_title_index">
+                    {% for k,v in CATEGORIES %}<option value="{{k}}" {% if k == category.page_title_index %}selected{% endif %}>{{v}}</option>{% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group">
+                <label for="highlight">{% trans "Highligh" %}</label>
+                <select name="highlight" id="highlight">
+                <option value="" selected><span class="key">{% trans "Select an Highlight" %}</span></option> 
+                {% for h in highlight_list %} 
+                        <option value="{{h.pk}}" {% if category.highlight == h %}selected{% endif %}><span class="key">{{h}}</span></option>  
+                {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group">
+                <label for="parent">{% trans "Parent Category" %}</label>
+                <select name="parent" id="parent">
+
+                <option value="" selected><span class="key">{% trans "Select Parent category" %}</span></option> 
+                {% for c in category_list %} 
+                        <option value="{{c.pk}}" {% if category.parent == c %}selected{% endif %}><span class="key">{{c.name}}-{{c.display_name}}</span></option>  
+                {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                    <span class="padding-bottom">{% trans "Status" %}</span>
+                    <div class="row"><span class="padding"><input id="is_active" type="checkbox"  name="is_active" {% if category.is_active %}checked{% endif %}><label for="is_active">{% trans "Active" %}</label></span></div>
+            </div>
+        </div>
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group">
+                <label class="padding-bottom" for="description">{% trans "Description" %}</label>
+                <textarea id="description" class="limited-input bordered" name="description" cols="30" rows="10" data-target="#description-counter" data-max-length="{{DESCRIPTION_MAX_SIZE}}">{{category.description}}</textarea>
+            </div>
+            
+            <div class="row padding-l"> <span id="description-counter" class="char-counter">{{category.parent.description|length}}</span><span class="text-max-length">/{{DESCRIPTION_MAX_SIZE}}</span></div>
+        </div>
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group full">
+                <label class="padding-bottom" for="seo-description">{% trans "SEO Description" %}</label>
+                <textarea id="seo-description" class="limited-input bordered" name="seo_description" cols="30" rows="10" data-target="#seo-description-counter" data-max-length="{{SEO_DESCRIPTION_MAX_SIZE}}">{{category.seo_description|default_if_none:''}}</textarea>
+            </div>
+            
+            <div class="row padding-l"> <span id="seo-description-counter" class="char-counter">{{category.seo_description|default_if_none:''|length}}</span><span class="text-max-length">/{{SEO_DESCRIPTION_MAX_SIZE}}</span></div>
+        </div>
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group full">
+                <label class="padding-bottom" for="fb-description">{% trans "FACEBOOK Description" %}</label>
+                <textarea id="fb-description" class="limited-input bordered" name="facebook_description" cols="30" rows="10" data-target="#fb-description-counter" data-max-length="{{FACEBOOK_DESCRIPTION_MAX_SIZE}}">{{category.facebook_description|default_if_none:''}}</textarea>
+            </div>
+            
+            <div class="row padding-l"> <span id="fb-description-counter" class="char-counter">{{category.facebook_description|default_if_none:''|length}}</span><span class="text-max-length">/{{FACEBOOK_DESCRIPTION_MAX_SIZE}}</span></div>
+        </div>
+        <div class="actions flex-right">
+            <a class="mat-button mat-button-outline js-cancel" href="{{category.get_dashboard_url}}">{% trans "Cancel" %}</a>
+            <button class="mat-button mat-button-default" type="submit">{% trans "Update" %}</button>
+        </div>
+    </div>
+</div>
+</div><!-- End of container-->
+</form>

@@ -1,0 +1,58 @@
+{% extends "post_base.html"%}
+{% load i18n %}
+{% load tz %}
+
+{% block CONTENT_MAIN %}
+{% if perms.cart.view_coupon %}
+<div class="container">
+    
+        <form action="{% url 'dashboard:coupons-delete' %}" method="POST">{% csrf_token %}
+        
+        <div class="actions flex-left">
+                <a class="mat-button mat-button-default" href="{% url 'dashboard:coupon-create'%}"> <i class="fas fa-plus icon"></i><span>{% trans "New Coupon" %}</span></a>
+                {% if perms.cart.delete_coupon %}
+                <button class="js-activable mat-button mat-button-outline" disabled><i class="fas fa-trash icon"></i><span>{% trans "Delete" %}</span></button>
+                {% endif %}
+        </div>
+        
+        <div class="mat-table-wrapper">
+                <div class="mat-table-title padding-v">{% trans "Coupons" %}</div>
+                <table id="coupon-list" class="mat-table js-filter-table">
+                        <thead>
+                                <tr>
+                                        <th scope="col" class="th-checkbox"><label><input id="filter-select-all" class="js-select-all" type="checkbox" name="allselected" title="{% trans 'Select all' %}"></label></th>
+                                        <th scope="col">{% trans "Name" %}</th>
+                                        <th scope="col">{% trans "Reduction" %}</th>
+                                        <th scope="col">{% trans "Date of creation" %}</th>
+                                        <th scope="col">{% trans "Seller" %}</th>
+                                        <th scope="col">{% trans "Status" %}</th>
+                                        <th scope="col">{% trans "Details" %}</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                {% for coupon in coupon_list  %}
+                                <tr>
+                                <td scope="row" class="checkbox"><label><input class="js-selectable" type="checkbox" name="coupons" value="{{coupon.pk}}"><span class="checkbox-label"></span></label></td>
+                                <td data-label="{% trans 'Name' %}"><span>{{coupon.name}}</span></td>
+                                <td data-label="{% trans 'Reduction' %}"><span>{{coupon.reduction}}</span></td>
+                                <td data-label="{% trans 'Date of Creation' %}"><span>{{coupon.created_at|date:"F j, Y"}}</span></td>
+                                <td data-label="{% trans 'Seller' %}"><span>{% if coupon.seller %}{{coupon.seller.username}}{% else %}-{% endif %}</span></td>
+                                <td data-label="{% trans 'Status' %}"><span><i class="fas fa-circle {% if coupon.is_active %}success {% else %} warning {% endif %} icon"></i>{{coupon.is_active|yesno:_('active,inactive')}}</span></td>
+                                <td data-label="{% trans 'Details' %}"><a class="mat-button mat-button-outline" href="{{coupon.get_dashboard_url}}"> <span><i class="fas fa-info icon"></i>{% trans "Details" %}</span></a></td>
+                                
+                                </tr>
+                                {% endfor %}
+                                
+                        </tbody>
+                </table>
+        </div><!--End of Table Wrapper-->
+        </form>
+    {% include "tags/pagination.html" with page_set=coupon_list %}
+    
+</div>
+{% else %}
+<div class="access-error">
+  <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
+</div>
+{% endif %}
+{% endblock CONTENT_MAIN %}

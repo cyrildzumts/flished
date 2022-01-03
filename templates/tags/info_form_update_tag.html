@@ -1,0 +1,43 @@
+{% load i18n %}
+
+<form class="form full" name="update-info"  action="{{news.get_update_url}}" method="POST">{% csrf_token %}
+<div class="mat-box full">
+<div class="col-xs-12 col-7">
+    <div class="box create-form">
+        <input type="hidden" name="added_by" value="{{request.user.pk}}">
+        <div class="flex flex-left">
+            <div class="form-group">
+                <label for="title">{% trans "Title" %}</label>
+                <input id="title" type="text"  name="title" value="{{news.title}}">
+            </div>
+            <div class="form-group">
+                <label for="content">{% trans "Content" %}</label>
+                <input id="content" type="text"  name="content" value="{{news.content}}">
+            </div>
+        </div>
+        <div class="flex flex-left">
+            <div class="form-group">
+                <label for="begin-at">{% trans "Start" %}</label>
+                <input id="begin-at" type="Date"  name="start_at" value="{{news.start_at|date:'Y-m-d'}}">
+            </div>
+            <div class="form-group">
+                <label for="end_at-at">{% trans "Expire" %}</label>
+                <input id="end_at-at" type="Date"  name="end_at" value="{{news.end_at|date:'Y-m-d'}}">
+            </div>
+        </div>
+        <div class="flex flex-left">
+            <div class="form-group">
+                <span class="padding-bottom">{% trans "Status" %}</span>
+                <div class="row"><span class="padding"><input id="is_active" type="checkbox"  name="is_active" {% if news.is_active %}checked{% endif %}><label for="is_active">{% trans "Active" %}</label></span></div>
+            </div>
+        </div>
+
+        <div class="actions flex-right">
+                <a class="mat-button mat-button-outline js-cancel" href="{{news.get_update_url}}">{% trans "Cancel" %}</a>
+                <button class="mat-button mat-button-default" type="submit">{% trans "Update" %}</button>
+        </div>
+    </div>
+</div>
+</div><!-- End of container-->
+    
+</form>

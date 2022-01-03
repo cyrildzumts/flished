@@ -1,0 +1,81 @@
+{% extends "post_base.html"%}
+{% load i18n %}
+{% block ACTIONS %}
+<a class="mat-button mat-button-default" href="{% url 'dashboard:coupon-create'%}"><i class="fas fa-plus icon"></i>{% trans "New Coupon" %}</a>
+<a class="mat-button mat-button-outline" href="{{coupon.get_update_url}}"><i class="fas fa-pen icon"></i>{% trans "Edit" %}</a>
+<a class="mat-button mat-button-outline" href="{{coupon.get_dashboard_delete_url}}"><i class="fas fa-trash icon"></i>{% trans "Delete" %}</a>
+<a class="mat-button mat-button-outline" href="{% url 'dashboard:coupons' %}"><i class="fas fa-list icon"></i><span>{% trans "Coupons" %}</span></a>
+
+{% endblock ACTIONS %}
+
+{% block CONTENT_MAIN %}
+
+{% if perms.cart.view_coupon %}
+<div class="container">
+        <div class="mat-box full">
+          <div class="grid">
+            <div class="box">
+                <div class="entry">
+                  <span class="key">{% trans "Name" %}</span> <span class="value">{{coupon.name}}</span>
+                </div>
+                <div class="entry">
+                  <span class="key">{% trans "Reduction" %}</span> <span class="value">{{coupon.reduction}}</span>
+                </div>
+                
+                <div class="entry">
+                  <span class="key">{% trans "Active" %}</span> <span class="value">{{coupon.is_active|yesno}}</span>
+                </div>
+                 {% if coupon.seller %}
+                <div class="entry">
+                  <span class="key">{% trans "Merchant" %}</span> <span class="value">{{coupon.seller.username}}</span>
+                </div>
+                {% endif %}
+                
+            </div>
+            
+            <div class="box">
+                <div class="entry">
+                  <span class="key">{% trans "Create at" %}</span> <span class="value">{{coupon.created_at|date:"F j, Y"}}</span>
+                </div>
+                <div class="entry">
+                  <span class="key">{% trans "Begin at" %}</span> <span class="value">{{coupon.begin_at|date:"F j, Y"}}</span>
+                </div>
+                <div class="entry">
+                  <span class="key">{% trans "Expire at" %}</span> <span class="value">{{coupon.expire_at|date:"F j, Y"}}</span>
+                </div>
+                <div class="entry">
+                  <span class="key">{% trans "Activated at" %}</span> <span class="value">{{coupon.activated_at|date:"F j, Y"}}</span>
+                </div>
+            </div>
+            <div class="box">
+                <div class="entry">
+                  <span class="key">{% trans "Usage" %}</span> <span class="value">{{coupon.usage|default_if_none:"0"}}</span>
+                </div>
+                <div class="entry">
+                  <span class="key">{% trans "Max Usage" %}</span> <span class="value">{{coupon.max_usage|default_if_none:"-"}}</span>
+                </div>
+                <div class="entry">
+                  <span class="key">{% trans "Expire at" %}</span> <span class="value">{{coupon.expire_at|date:"F j, Y"}}</span>
+                </div>
+                <div class="entry">
+                  <span class="key">{% trans "Activated at" %}</span> <span class="value">{{coupon.activated_at|date:"F j, Y"}}</span>
+                </div>
+            </div>
+            <div class="box">
+               
+                <div class="entry">
+                  <span class="key">{% trans "Added by" %}</span> <span class="value">{{coupon.added_by.username}}</span>
+                </div>
+                <div class="entry">
+                  <span class="key">{% trans "Activated by" %}</span> <span class="value">{{coupon.activated_by.username}}</span>
+                </div>
+            </div>
+          </div><!--End of title-->
+        </div><!--End of mat-box-->
+</div>
+{% else %}
+<div class="access-error">
+  <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
+</div>
+{% endif %}
+{% endblock CONTENT_MAIN %}

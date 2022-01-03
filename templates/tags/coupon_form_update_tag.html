@@ -1,0 +1,59 @@
+{% load i18n %}
+
+<form class="form full" name="add-coupon" onsubmit="return coupon_validation(this);" action="{% url COUPON_UPDATE_URL coupon.coupon_uuid %}" method="POST">{% csrf_token %}
+<div class="mat-box container">
+<div class="col-xs-12 col-7">
+    <div class="box create-form">
+        <input type="hidden" name="added_by" value="{{request.user.pk}}">
+        <div class="flex flex-left">
+            <div class="form-group">
+                <label for="name">{% trans "Name" %}</label>
+                <input id="name" type="text"  name="name" value="{{coupon.name}}">
+            </div>
+            <div class="form-group">
+                <label for="reduction">{% trans "Reduction" %}</label>
+                <input id="reduction" type="text"  name="reduction" value="{{coupon.reduction}}">
+            </div>
+        </div>
+        <div class="flex flex-left">
+            <div class="flex">
+                <label class="padding-bottom" for="sold_by">{% trans "Merchant" %}</label>
+                <select name="seller" id="sold-by">
+                {% if IS_SELLER %}
+                <option value="{{coupon.pk}}" selected>{{coupon.seller.username}}</option>
+                {% else %}
+                {% for u in sellers %} <option value="{{u.pk}}" {% if u.pk == coupon.seller.pk %}selected{% endif %}>{{u.username}}</option> {% endfor %}
+                {% endif %}
+                </select>
+            </div>
+        </div>
+        <div class="flex flex-left">
+            <div class="form-group">
+                <label for="begin-at">{% trans "Start on" %}</label>
+                <input id="begin-at" type="Date"  name="begin_at" value="{{coupon.begin_at|date:'Y-m-d'}}">
+            </div>
+            <div class="form-group">
+                <label for="expire-at">{% trans "Expire on" %}</label>
+                <input id="expire-at" type="Date"  name="expire_at" value="{{coupon.expire_at|date:'Y-m-d'}}">
+            </div>
+        </div>
+        <div class="flex flex-left">
+            <div class="form-group">
+                <label for="max-usage">{% trans "Max Usage" %}</label>
+                <input id="max-usage" type="text"  name="max_usage" value="{{coupon.max_usage}}">
+            </div>
+            <div class="form-group">
+                <span class="padding-bottom">{% trans "Status" %}</span>
+                <div class="row"><span class="padding"><input id="is_active" type="checkbox"  name="is_active" {% if coupon.is_active %}checked="checked"{% endif %}><label for="is_active">{% trans "Active" %}</label></span></div>
+            </div>
+        </div>
+
+        <div class="actions flex-right">
+                <a class="mat-button mat-button-outline js-cancel" href="{% url COUPON_URL coupon.coupon_uuid %}">{% trans "Cancel" %}</a>
+                <button class="mat-button mat-button-default" type="submit">{% trans "Create" %}</button>
+        </div>
+    </div>
+</div>
+</div><!-- End of container-->
+    
+</form>

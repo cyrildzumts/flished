@@ -1,0 +1,12 @@
+{% extends "post_base.html"%}
+{% load i18n %}
+
+{% block ACTIONS %}
+<a class="mat-button mat-button-default" href="{% url 'dashboard:category-create'%}"><i class="fas fa-plus icon"></i> <span>{% trans "New Category" %}</span></a>
+{% endblock ACTIONS %}
+
+{% block CONTENT_MAIN %}
+
+{% include "tags/category_form_update_tag.html" %}
+
+{% endblock CONTENT_MAIN %}

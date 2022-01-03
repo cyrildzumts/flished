@@ -1,0 +1,13 @@
+{% extends "product_base.html"%}
+{% load i18n %}
+{% load catalog_tags %}
+
+{% block ACTIONS %}
+<a class="mat-button mat-button-outline js-cancel" href="{{highlight.get_dashboard_url}}">{% trans "Highlight" %}</a>
+<a class="mat-button mat-button-outline" href="{% url 'dashboard:highlights' %}"><i class="fas fa-list icon"></i><span>{% trans "Highlights" %}</span></a>
+{% endblock ACTIONS %}
+
+
+{% block CONTENT_MAIN %}
+{% include 'tags/highlight_update_form_tag.html' %}
+{% endblock CONTENT_MAIN %}

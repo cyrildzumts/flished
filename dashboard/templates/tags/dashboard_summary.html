@@ -1,0 +1,26 @@
+{% load i18n %}
+
+<div class="dashboard-metrics">
+        <div id="metrics" class="flex flex-wrap">
+                <div id="metric-orders" class="metric mat-box" data-index="0">
+                        <h4 class="metric-value">{{orders_count|default_if_none:'0'}}</h4>
+                        <span class="metric-title"><i class="fas fa-shopping-bag icon"></i>{% trans "Orders" %}</span>
+                </div>
+                <div id="metric-products" class="metric mat-box" data-index="1">
+                        <h4 class="metric-value">{{products_count|default_if_none:'0'}}</h4>
+                        <span class="metric-title"><i class="fas fa-gifts icon"></i>{% trans "Products" %}</span>
+                </div>
+                <div id="metric-current-orders" class="metric mat-box" data-index="2">
+                        <h4 class="metric-value">{{montly_order_count|default_if_none:'0'}}</h4>
+                        <span class="metric-title"><i class="fas fa-shopping-bag icon"></i>{% trans "Month Orders" %}</span>
+                </div>
+                <div id="metric-users" class="metric mat-box" data-index="3">
+                        <h4 class="metric-value">{{users_count|default_if_none:'0'}}</h4>
+                        <span class="metric-title"><i class="fas fa-users icon"></i>{% trans "Users" %}</span>
+                </div>
+                <div id="metric-users" class="metric mat-box" data-index="4">
+                        <h4 class="metric-value">{{online_users.hits|default_if_none:'0'}}</h4>
+                        <span class="metric-title"><i class="fas fa-users icon"></i>{% trans "Online Users" %}</span>
+                </div>
+        </div>
+  </div>

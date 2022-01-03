@@ -1,0 +1,41 @@
+{% extends "product_base.html"%}
+{% load i18n %}
+{% load catalog_tags %}
+{% block ACTIONS %}
+{% if perms.catalog.add_category %}
+<a class="mat-button mat-button-default" href="{% url 'dashboard:category-create' %}"> <i class="fas fa-plus icon"></i> <span>{% trans "New Category" %}</span></a>
+<a class="mat-button mat-button-outline" href="{{category.get_update_url}}"> <i class="fas fa-edit icon"></i><span>{% trans "Edit" %}</span></a>
+<a class="mat-button mat-button-outline" href="{{category.get_delete_url}}"> <i class="fas fa-trash icon"></i><span>{% trans "Delete" %}</span> </a>
+<a class="mat-button mat-button-outline" href="{% url 'dashboard:category-manage-product' category.category_uuid %}"> <i class="fas fa-edit icon"></i><span>{% trans "Manage Products" %}</span></a>
+<a class="mat-button mat-button-outline" href="{% url 'dashboard:categories' %}"> <i class="fas fa-list icon"></i><span>{% trans "Categories" %}</span></a>
+{% endif %}
+{% endblock ACTIONS %}
+
+{% block CONTENT_MAIN %}
+
+<div class="container">
+  
+  {% include 'tags/category_tag.html' %}
+  <div class="mat-table-wrapper">
+            <div class="mat-table-title">{% trans "Sub Categories" %}</div>
+            <table id="subcategory-list" class="mat-table js-filter-table">
+                  <thead>
+                          <tr>
+                                <th scope="col">{% trans "Display Name" %}</th>
+                                <th scope="col">{% trans "Views" %}</th>
+                                <th scope="col">{% trans "Details" %}</th>
+                          </tr>
+                  </thead>
+                  <tbody>
+                          {% for c in subcategory_list %}
+                          <tr>
+                                <td scope="row" data-label="{% trans 'Display Name' %}"><span>{{c.display_name}}</span></td>
+                                <td data-label="{% trans 'Views' %}"><span>{{c.view_count}}</span></td>
+                                <td data-label="{% trans 'Details' %}"><a class="mat-button mat-button-text" href="{{c.get_dashboard_url}}"><span><i class="fas fa-info icon"></i> {% trans "Details" %}</span></a></td>
+                          </tr>
+                          {% endfor %}
+                  </tbody>
+            </table>
+  </div><!--End of Table Wrapper-->
+</div>
+{% endblock CONTENT_MAIN %}

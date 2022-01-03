@@ -1,0 +1,48 @@
+{% extends "users_base.html"%}
+{% load i18n %}
+
+{% block CONTENT_MAIN %}
+{% if perms.payment.view_partnertoken %}
+<div class="actions flex-left">
+    <a class="mat-button mat-button-outline" href="{{p_token.get_update_url}}"><i class="fas fa-pen icon"></i><span>{% trans "Update" %}</span></a>
+</div>
+{% endif %}
+
+<div class="padding">
+    <div class="mat-box">
+            <div class="entry">
+                <span class="key">{% trans "Partner" %}</span><span class="value">{{p_token.partner.get_full_name}}</span>
+            </div>
+            <div class="entry">
+                <span class="key">{% trans "Name" %}</span><span class="value">{{p_token.name}}</span>
+            </div>
+            <div class="entry">
+                <span class="key">{% trans "Token" %}</span><span class="value">{{p_token.token}}</span>
+            </div>
+            <div class="entry">
+                <span class="key">{% trans "Valid Until" %}</span><span class="value">{{p_token.valid_until|default_if_none:''|date}}</span>
+            </div>
+            <div class="entry">
+                <span class="key">{% trans "Payment Request url" %}</span><span class="value">{{p_token.payment_request_url|default_if_none:''}}</span>
+            </div>
+            <div class="entry">
+                <span class="key">{% trans "Payment Fetch url" %}</span><span class="value">{{p_token.payment_fetch_url|default_if_none:''}}</span>
+            </div>
+            <div class="entry">
+                <span class="key">{% trans "Payment Cancel url" %}</span><span class="value">{{p_token.cancel_payment_request_url|default_if_none:''}}</span>
+            </div>
+            <div class="entry">
+                <span class="key">{% trans "Status" %}</span><span class="value">{{ p_token.is_active|yesno:_('active,inactive')}}</span>
+            </div>
+            <div class="entry">
+                <span class="key">{% trans "Date of creation" %}</span><span class="value">{{p_token.created_at}}</span>
+            </div>
+            <div class="entry">
+                <span class="key">{% trans "Last changed" %}</span><span class="value">{{p_token.updated_at}}</span>
+            </div>
+            <div class="entry">
+                <span class="key">{% trans "Changed" %}</span><span class="value">{{p_token.changed_by}}</span>
+            </div>
+    </div>
+</div>
+{% endblock CONTENT_MAIN %}

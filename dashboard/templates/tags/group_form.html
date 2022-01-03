@@ -1,0 +1,144 @@
+{% load i18n %} 
+
+{% if perms.auth.add_group %}
+
+<div class="col-m-12 col-8">
+<div class="container">
+    <form id="group-form" class="group-form form" name="group" action="{% url 'dashboard:group-create' %}" method="POST">{% csrf_token %}
+        <select id="selected-permission-list" name="permissions" class="hidden" multiple>
+        </select>
+        <select name="users" id="selected-user-list" class="hidden" multiple>
+        </select>
+        <div class="actions">
+            <a class="mat-button mat-button-outline js-cancel" href="{%url 'dashboard:groups'%}">{% trans "Cancel" %}</a>
+            <button class="mat-button mat-button-default" type="submit">{% trans "Create Group" %}</button>
+        </div>
+        <div class="flex flex-left">
+            <div class="form-group">
+                <label for="name">{% trans "Name" %} :</label>
+                <input type="text" name="name" id="name"> 
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-m-12 col-6">
+                    <div class="container padding">
+                        <div class="mat-list-wrapper">
+                            <div class="mat-list-header">
+                                <span class="list-title">{% trans "Select Permissions to add" %}</span>
+                            </div>
+                            <div class="collapsible padding-v">
+                                <div class="collapsible-toggle open">
+                                    <span class="padding-h">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
+                                </div>
+                                <div class="collapse-content">
+                                    <input class="js-jsfilter-input" type="text" data-element=".mat-list-item" data-target="#available-permission-list" placeholder="{% trans 'Enter the term to filter' %}">
+                                </div>
+                            </div>
+                            <div class="collapsible padding-v">
+                                <div class="collapsible-toggle open">
+                                    <span class="padding-h">{% trans "Permission" %}<i class="fas fa-angle-down padding-h"></i></span>
+                                </div>
+                                <div class="collapse-content">
+                                    <ul class="mat-list" id="available-permission-list" data-target="#selected-permission-list" data-element="option">
+                                        {% for p in available_permissions %}
+                                        <li class="mat-list-item" data-value="{{p.pk}}">{{p.name}} - {{p.codename}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-m-12 col-6">
+                    <div class="container padding">
+                        <div class="mat-list-wrapper">
+                            <div class="mat-list-header">
+                                <span class="list-title">{% trans "Selected Permissions" %}</span>
+                            </div>
+                            <div class="collapsible padding-v">
+                                <div class="collapsible-toggle open">
+                                    <span class="padding-h">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
+                                </div>
+                                <div class="collapse-content">
+                                    <input class="js-jsfilter-input" type="text" data-element=".mat-list-item" data-target="#permission-list" placeholder="{% trans 'Enter the term to filter' %}">
+                                </div>
+                            </div>
+                            <ul class="mat-list" id="permission-list">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-m-12 col-6">
+                    <div class="container padding">
+                        <div class="mat-list-wrapper">
+                            <div class="mat-list-header">
+                                <span class="list-title">{% trans "Select Users to add" %}</span>
+                            </div>
+                            <div class="collapsible padding-v">
+                                <div class="collapsible-toggle open">
+                                    <span class="padding-h">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
+                                </div>
+                                <div class="collapse-content">
+                                    <input class="js-jsfilter-input" type="text" data-element=".mat-list-item" data-target="#available-user-list" placeholder="{% trans 'Enter the term to filter' %}">
+                                </div>
+                            </div>
+                            <div class="collapsible padding-v">
+                                <div class="collapsible-toggle open">
+                                    <span class="padding-h">{% trans "Available Users" %}<i class="fas fa-angle-down padding-h"></i></span>
+                                </div>
+                                <div class="collapse-content">
+                                    <ul class="mat-list" id="available-user-list" data-target="#user-list" data-element="option">
+                                        {% for u in available_users %}
+                                        <li class="mat-list-item" data-value="{{u.pk}}">{{u.get_full_name}}[{{u.username}}]</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-m-12 col-6">
+                    <div class="container padding">
+                        <div class="mat-list-wrapper">
+                            <div class="mat-list-header">
+                                <span class="list-title">{% trans "Selected Users" %}</span>
+                            </div>
+                            <div class="collapsible padding-v">
+                                <div class="collapsible-toggle open">
+                                    <span class="padding-h">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
+                                </div>
+                                <div class="collapse-content">
+                                    <input class="js-jsfilter-input" type="text" data-element=".mat-list-item" data-target="#user-list" placeholder="{% trans 'Enter the term to filter' %}">
+                                </div>
+                            </div>
+                            <div class="collapsible padding-v">
+                                <div class="collapsible-toggle open">
+                                    <span class="padding-h">{% trans "Selected Users" %}<i class="fas fa-angle-down padding-h"></i></span>
+                                </div>
+                                <div class="collapse-content">
+                                    <ul class="mat-list" id="user-list" data-target="#available_user-list">
+                                
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+
+{% else %}
+<div class="col-m-12 col-8 access-error">
+  <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
+</div>
+{% endif %}

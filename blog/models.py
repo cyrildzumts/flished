@@ -70,6 +70,7 @@ class Category(models.Model):
     
     def get_slug_url(self):
         return reverse("blog:category-detail", kwargs={"slug": self.slug})
+    """
     
     def get_dashboard_url(self):
         return reverse("dashboard:category-detail", kwargs={"category_uuid": self.category_uuid})
@@ -78,7 +79,7 @@ class Category(models.Model):
         return reverse("dashboard:category-update", kwargs={"category_uuid": self.category_uuid})
     
     def get_delete_url(self):
-        return reverse("dashboard:category-delete", kwargs={"category_uuid": self.category_uuid})"""
+        return reverse("dashboard:category-delete", kwargs={"category_uuid": self.category_uuid})
     
 
 
@@ -109,8 +110,11 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("blog:blog-post", kwargs={"post_slug": self.slug})
     
-    """def get_dashboard_url(self):
-        return reverse("dashboard:blog-post", kwargs={"slug": self.slug})"""
+    def get_dashboard_url(self):
+        return reverse("dashboard:post", kwargs={"post_uuid": self.post_uuid})
+    
+    def get_update_url(self):
+        return reverse("dashboard:post-update", kwargs={"post_uuid": self.post_uuid})
     
 
 

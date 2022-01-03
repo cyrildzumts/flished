@@ -1,0 +1,48 @@
+{% extends "post_base.html"%}
+{% load i18n %}
+
+{% block CONTENT_MAIN %}
+
+
+    <div class="container">
+
+        <form action="{% url 'dashboard:categories-delete' %}" method="POST">{% csrf_token %}
+        
+        <div class="actions flex-left">
+                <a class="mat-button mat-button-default" href="{% url 'dashboard:category-create'%}"> <i class="fas fa-plus icon"></i> <span>{% trans "New Category" %}</span> </a>
+                {% if perms.catalog.delete_category %}
+                <button class="js-activable mat-button mat-button-outline" disabled><i class="fas fa-trash icon"></i><span>{% trans "Delete" %}</span></button>
+                {% endif %}
+        </div>
+        
+        <div class="mat-table-wrapper">
+                <div class="mat-table-title padding-v">{% trans "Categories" %}</div>
+                <table id="available-category-list" class="mat-table js-filter-table">
+                
+                <thead>
+                        <tr>
+                                <th class="th-checkbox"><label><input id="filter-select-all" class="js-select-all" type="checkbox" name="allselected" title="{% trans 'Select all' %}"></label></th>
+                                <th scope="col">{% trans "Name" %}</th>
+                                <th scope="col">{% trans "Display Name" %}</th>
+                                <th scope="col">{% trans "Views" %}</th>
+                                <th scope="col">{% trans "Details" %}</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        {% for category in category_list  %}
+                        <tr>
+                        <td scope="row" class="checkbox"><input class="js-selectable" type="checkbox" name="categories" value="{{category.pk}}"></td>
+                        <td data-label="{% trans 'Name' %}"><span>{{category.name}}</span></td>
+                        <td data-label="{% trans 'Display Name' %}"><span>{{category.display_name}}</span></td>
+                        <td data-label="{% trans 'Views' %}"><span>{{category.view_count}}</span></td>
+                        <td data-label="{% trans 'Details' %}"><a class="mat-button mat-button-outline" href="{{category.get_dashboard_url}}"><span><i class="fas fa-info icon"></i>{% trans "Details" %}</span></a></td>
+                        </tr>
+                        {% endfor %}
+                        
+                </tbody>
+                </table>
+        </div>
+        </form>
+    {% include "tags/pagination.html" with page_set=category_list %}
+    </div><!--End of Table Wrapper-->
+{% endblock CONTENT_MAIN %}

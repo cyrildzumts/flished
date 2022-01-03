@@ -1,0 +1,53 @@
+{% extends "users_base.html"%}
+{% load i18n %}
+
+
+{% block CONTENT_MAIN %}
+
+{% if perms.auth.view_user %}
+<div class="actions flex-left">
+<a class="mat-button mat-button-default" href="{%url 'dashboard:partner-token-create' %}"><i class="fas fa-key icon"></i><span>{% trans "New Token" %}</span></a>
+</div>
+
+{% if token_list %}
+
+
+<div class="container">
+    <div class="mat-table-wrapper">
+        <div class="mat-table-title">{% trans "Partner Tokens" %}</div>
+        <table id="token-list" class="mat-table js-filter-table">
+          <thead>
+                  <tr>
+                          <!--<th><input id="filter-select-all" type="checkbox" name="allselected"></th>-->
+                          <th scope="col">{% trans "Name" %}</th>
+                          <th scope="col">{% trans "Status" %}</th>
+                          <th scope="col">{% trans "Token" %}</th>
+                          <th scope="col">{% trans "Details" %}</th>
+                  </tr>
+          </thead>
+          <tbody>
+                  {% for token in token_list  %}
+                  <tr>
+                    <!--<td class="checkbox"><input type="checkbox" name="selected-service"></td>-->
+                    <td scope="row" data-label="{% trans 'Name' %}"><span>{{token.name}}</span></td>
+                    <td data-label="{% trans 'Status' %}"><span><i class="fas fa-circle icon {% if token.is_active %}success{% else %}warning{% endif %}"></i>{{token.is_active|yesno:_('active,inactive')}}</span></td>
+                    <td data-label="{% trans 'Token' %}"><span class="">{{token.token}}</span></td>
+                    <td data-label="{% trans 'Details' %}"><a class="mat-button mat-button-outline" href="{{token.get_dashboard_url}}"><span>{% trans "Details" %}</span></a></td>
+
+                  </tr>
+                  {% endfor %}
+                  
+          </tbody>
+    </table>
+    {% include "tags/pagination.html" with page_set=token_list %}
+    </div><!--End of Table Wrapper-->
+</div>
+{% else %}
+<div>{% trans "No Token" %}</div>
+{% endif %}
+{% else %}
+<div class="access-error">
+  <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
+</div>
+{% endif %}
+{% endblock CONTENT_MAIN %}

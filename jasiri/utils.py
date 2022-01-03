@@ -6,6 +6,7 @@ import random
 
 logger = logging.getLogger(__name__)
 MAX_RECENTS = 5
+TOP_VIEWS_MAX = 10
 
 PAGINATED_BY = 30
 PAGE_PAGINATION = 10

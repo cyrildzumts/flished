@@ -1,0 +1,133 @@
+{% load i18n %} 
+
+{% if perms.auth.change_group %}
+
+<div class="container">
+    <form id="group-form" class="group-form form" name="group" action="{% url 'dashboard:group-update' group.pk %}" method="POST">{% csrf_token %}
+        <div class="actions flex-right">
+            <a class="mat-button mat-button-outline js-cancel" href="{%url 'dashboard:group-detail' group.pk%}">{% trans "Cancel" %}</a>
+            <button class="mat-button mat-button-default" type="submit">{% trans "Update Group" %}</button>
+        </div>
+        <div class="flex flex-left">
+            <div class="form-group">
+                <label for="name">{% trans "Name" %} :</label>
+                <input type="text" name="name" id="name" value="{{group.name}}"> 
+            </div>
+        </div>
+        <div class="container">
+            <div class="mat-list-wrapper">
+                <div class="mat-list-header">
+                    <span class="list-title">{% trans "Selected Permissions" %}</span>
+                </div>
+                <div class="collapsible padding-v">
+                    <div class="collapsible-toggle open">
+                        <span class="padding-h">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
+                    </div>
+                    <div class="collapse-content">
+                        <input class="js-jsfilter-input" type="text" data-element=".mat-list-item" data-target="#permission-list" placeholder="{% trans 'Enter the term to filter' %}">
+                    </div>
+                </div>
+                <div class="collapsible padding-v">
+                    <div class="collapsible-toggle open">
+                        <span class="padding-h">{% trans "Permissions" %}<i class="fas fa-angle-down padding-h"></i></span>
+                    </div>
+                    <div class="collapse-content">
+                        <ul class="mat-list" id="permission-list">
+                            {% for p in permissions %}
+                            <li class="mat-list-item" data-value="{{p.pk}}"><div class="flex"><input type="checkbox" name="permissions" id="perm-{{p.pk}}" value="{{p.pk}}" checked><label for="perm-{{p.pk}}">{{p.name}} - {{p.codename}}</label></div></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="mat-list-wrapper">
+                <div class="mat-list-header">
+                    <span class="list-title">{% trans "Available Permissions" %}</span>
+                </div>
+                <div class="collapsible padding-v">
+                    <div class="collapsible-toggle open">
+                        <span class="padding-h">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
+                    </div>
+                    <div class="collapse-content">
+                        <input class="js-jsfilter-input" type="text" data-element=".mat-list-item" data-target="#available-permission-list" placeholder="{% trans 'Enter the term to filter' %}">
+                    </div>
+                </div>
+                <div class="collapsible padding-v">
+                    <div class="collapsible-toggle open">
+                        <span class="padding-h">{% trans "Permissions" %}<i class="fas fa-angle-down padding-h"></i></span>
+                    </div>
+                    <div class="collapse-content">
+                        <ul class="mat-list" id="available-permission-list">
+                            {% for p in available_permissions %}
+                            <li class="mat-list-item" data-value="{{p.pk}}"><div class="flex"><input type="checkbox" name="permissions" id="perm-{{p.pk}}" value="{{p.pk}}"><label for="perm-{{p.pk}}">{{p.name}} - {{p.codename}}</label></div></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="mat-list-wrapper">
+                <div class="mat-list-header">
+                    <span class="list-title">{% trans "Selected Users" %}</span>
+                </div>
+                <div class="collapsible padding-v">
+                    <div class="collapsible-toggle open">
+                        <span class="padding-h">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
+                    </div>
+                    <div class="collapse-content">
+                        <input class="js-jsfilter-input" type="text" data-element=".mat-list-item" data-target="#users-list" placeholder="{% trans 'Enter the term to filter' %}">
+                    </div>
+                </div>
+                <div class="collapsible padding-v">
+                    <div class="collapsible-toggle open">
+                        <span class="padding-h">{% trans "Users" %}<i class="fas fa-angle-down padding-h"></i></span>
+                    </div>
+                    <div class="collapse-content">
+                        <ul class="mat-list" id="users-list">
+                            {% for u in users %}
+                            <li class="mat-list-item" data-value="{{u.pk}}"><div class="flex"><input type="checkbox" name="users" id="user-{{u.pk}}" value="{{u.pk}}" checked><label for="user-{{u.pk}}">{{u.get_full_name}}[{{u.username}}]</label></div></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="mat-list-wrapper">
+                <div class="mat-list-header">
+                    <span class="list-title">{% trans "Select Users to add" %}</span>
+                </div>
+                <div class="collapsible padding-v">
+                    <div class="collapsible-toggle open">
+                        <span class="padding-h">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
+                    </div>
+                    <div class="collapse-content">
+                        <input class="js-jsfilter-input" type="text" data-element=".mat-list-item" data-target="#available-users-list" placeholder="{% trans 'Enter the term to filter' %}">
+                    </div>
+                </div>
+                <div class="collapsible padding-v">
+                    <div class="collapsible-toggle open">
+                        <span class="padding-h">{% trans "Users" %}<i class="fas fa-angle-down padding-h"></i></span>
+                    </div>
+                    <div class="collapse-content">
+                        <ul class="mat-list" id="available-users-list">
+                            {% for u in available_users %}
+                            <li class="mat-list-item" data-value="{{u.pk}}"><div class="flex"><input type="checkbox" name="users" id="user-{{u.pk}}" value="{{u.pk}}"><label for="user-{{u.pk}}">{{u.get_full_name}}[{{u.username}}]</label></div></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div> 
+            </div>
+
+
+        </div>
+    </form>
+</div>
+
+{% else %}
+<div class="col-m-12 col-8 access-error">
+  <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
+</div>
+{% endif %}

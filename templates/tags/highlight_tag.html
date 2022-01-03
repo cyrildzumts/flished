@@ -1,0 +1,97 @@
+{% load i18n %}
+{% load catalog_tags %}
+
+<div class="container">
+    <div class="mat-box full">
+    {% if highlight.image %}
+    <div class="img-wrapper col-4">
+        <img class="img-responsive" src="{{highlight.get_image_url}}" alt="{{highlight.display_name}}">
+    </div>
+    {% endif %}
+    <div class="box create-form">
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group">
+                <label for="name">{% trans "Name" %}</label>
+                <input id="name" type="text"  name="name" value="{{highlight.name}}">
+            </div>
+            <div class="form-group">
+                <label for="display_name">{% trans "Display Name" %}</label>
+                <input id="display_name" type="text"  name="display_name" value="{{highlight.display_name}}">
+            </div>
+        </div>
+        <div class="flex flex-left flex-wrap">
+            <div class="form-group">
+                <label for="slug">{% trans "Slug" %}</label>
+                <input id="slug" type="text"  name="slug" value="{{highlight.slug}}">
+            </div>
+            <div class="form-group">
+                <label for="category">{% trans "Category" %}</label>
+                <input id="category" type="text"  name="category" value="{{highlight.category|default_if_none:'-/-'}}">
+            </div>
+            <div class="form-group">
+                <label for="view_count">{% trans "Views" %}</label>
+                <input id="view_count" type="text"  name="view_count" value="{{highlight.view_count}}">
+            </div>
+        </div>
+        <div class="flex flex-left">
+            <div class="form-group">
+                <span class="padding-bottom">{% trans "Gender" %}</span>
+                <div class="row">
+                    {% for k,v in GENDER %} 
+                    <span class="padding"><input id="gender-{{v}}" class="js-input-gender" type="radio" name="gender" value="{{k}}" {% if k == highlight.gender %}checked{% endif %}> <label for="gender-{{v}}">{{v}}</label></span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="form-group">
+                <span class="padding-bottom">{% trans "Status" %}</span>
+                <div class="row"><span class="padding"><input id="is_active" type="checkbox"  name="is_active" {% if highlight.is_active %}checked{% endif %}><label for="is_active">{% trans "Active" %}</label></span></div>
+            </div>
+        </div>
+        
+        <div class="flex flex-left flex-wrap">
+                <div class="form-group">
+                    <label class="padding-bottom" for="description">{% trans "Description" %}</label>
+                    <textarea id="description" class="limited-input bordered" name="description" cols="30" rows="10" data-target="#description-counter" data-max-length="{{DESCRIPTION_MAX_SIZE}}">{{highlight.description|default_if_none:''}}</textarea>
+                </div>
+                <div class="row padding-l"> <span id="description-counter" class="char-counter">{{highlight.description|length}}</span><span class="text-max-length">/{{DESCRIPTION_MAX_SIZE}}</span></div>
+        </div>
+    </div><!--End of box-->
+    </div>
+    <div class="mat-box full">
+        <h5> {% trans "Highlight Products" %}</h5>
+        <div class="mat-table-wrapper">
+            <table id="item-list" class="mat-table">
+                <thead>
+                        <tr>
+                                <th></th>
+                                <th>{% trans "Article" %}</th>
+                                <th>{% trans "Price" %}</th>
+                                <th>{% trans "Promotion Price" %}</th>
+                                <th>{% trans "Details" %}</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        {% for item in highlighted_products  %}
+                        <tr>
+                            <td><div class="col-xs-3 col-4"><img class="img-responsive" src="{{item.image}}" alt="{{item.display_name}}"></div></td>
+                            <td>{{item.display_name}}</td>
+                            <td><span>{{item.price|floatformat:"-2"}}</span> <span>{% trans CURRENCY %}</span></td>
+                            <td><span>{{item.promotion_price|floatformat:"-2"}}</span> <span>{% trans CURRENCY %}</span></td>
+                            <td><a class="mat-button mat-button-default" href="{% url PRODUCT_URL item.product_uuid %}"> <i class="fas fa-info icon"></i><span>{% trans "Product Details" %}</span></a></td>
+                        </tr>
+                        {% endfor %}
+                        
+                </tbody>
+
+            </table>
+        </div><!--End of Table Wrapper-->
+    </div><!--End mat-box-->
+
+    <div class="mat-box full">
+        <h5> {% trans "Products" %}</h5>
+        <div class="mat-box-content">
+            {% url HIGHLIGHT_ADD_PRODUCTS_URL highlight.highlight_uuid as ACTIONS_URL%}
+            {% include 'tags/dashboard_products_snippet.html' with ADD_SELECTION=True product_list=products %} 
+        </div><!--End mat-box-content-->
+    </div><!--End mat-box-->
+</div>

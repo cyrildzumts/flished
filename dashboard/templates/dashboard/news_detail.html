@@ -1,0 +1,67 @@
+{% extends "post_base.html"%}
+{% load i18n %}
+
+{% block ACTIONS %}
+<a class="mat-button mat-button-default" href="{% url 'dashboard:news-create'%}"><i class="fas fa-plus icon"></i>{% trans "New Info" %}</a>
+<a class="mat-button mat-button-outline" href="{{news.get_update_url}}"><i class="fas fa-pen icon"></i>{% trans "Edit" %}</a>
+<a class="mat-button mat-button-outline warn" href="{{news.get_delete_url}}"><i class="fas fa-trash icon"></i>{% trans "Delete" %}</a>
+<a class="mat-button mat-button-outline" href="{% url 'dashboard:news' %}"><i class="fas fa-list icon"></i></span>{% trans "Infos" %}</a>
+{% endblock ACTIONS %}
+{% block CONTENT_MAIN %}
+
+
+<div class="container">
+<div class="mat-box full">
+<div class="col-xs-12 col-7">
+    <div class="box create-form">
+        <div class="flex flex-left">
+            <div class="form-group">
+                <label for="title">{% trans "Title" %}</label>
+                <input id="title" type="text"  name="title" value="{{news.title}}">
+            </div>
+            <div class="form-group">
+                <label for="content">{% trans "Content" %}</label>
+                <input id="content" type="text"  name="content" value="{{news.content}}">
+            </div>
+        </div>
+        <div class="flex flex-left">
+            <div class="form-group">
+                <label for="begin-at">{% trans "Start" %}</label>
+                <input id="begin-at" type="Date"  name="begin_at" value="{{news.start_at|date:'Y-m-d'}}">
+            </div>
+            <div class="form-group">
+                <label for="end_at-at">{% trans "Expire" %}</label>
+                <input id="end_at-at" type="Date"  name="end_at" value="{{news.end_at|date:'Y-m-d'}}">
+            </div>
+        </div>
+        <div class="flex flex-left">
+            <div class="form-group">
+                <label for="created_at">{% trans "Create at" %}</label>
+                <input id="created_at" type="Date"  name="created_at" value="{{news.created_at|date:'Y-m-d'}}">
+            </div>
+            <div class="form-group">
+                <label for="changed_at">{% trans "Last changed" %}</label>
+                <input id="changed_at" type="Date"  name="changed_at" value="{{news.changed_at|date:'Y-m-d'}}">
+            </div>
+        </div>
+        <div class="flex flex-left">
+            <div class="form-group">
+                <label for="changed_by">{% trans "Added by" %}</label>
+                <input id="added_by" type="text"  name="added_by" value="{{news.added_by.username}}">
+            </div>
+            <div class="form-group">
+                <label for="changed_by">{% trans "Last changed by" %}</label>
+                <input id="changed_by" type="text"  name="changed_by" value="{{news.changed_by.username}}">
+            </div>
+        </div>
+        <div class="flex flex-left">
+            <div class="form-group">
+                <span class="padding-bottom">{% trans "Status" %}</span>
+                <div class="row"><span class="padding"><input id="is_active" type="checkbox"  name="is_active" {% if news.is_active %}checked{% endif %}><label for="is_active">{% trans "Active" %}</label></span></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div><!-- End of container-->
+</div>
+{% endblock CONTENT_MAIN %}

@@ -1,0 +1,30 @@
+{% extends "dashboard_base.html"%}
+{% load i18n %}
+{% load core_tags %}
+
+
+{% block CONTENT %}
+
+<div class="container">
+    <div class="mat-table-wrapper">
+        <div class="mat-table-title">{% trans "AB/TEST" %}</div>
+        <table class="mat-table">
+            <thead>
+                <tr>
+                    <th>{% trans "Action" %}</th><th>{% trans "Hits" %}</th><th>{% trans "Last changed" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for track in trackings %}
+                    <tr>
+                        <td><span class="text-gray">{{track.action|action_value}}</span></td>
+                        <td><span class="text-gray">{{track.hits}}</span></td>
+                        <td><span class="text-gray">{{track.modified_at}}</span></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock CONTENT %}
