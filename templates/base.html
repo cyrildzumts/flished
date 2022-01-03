@@ -69,6 +69,9 @@
         </div>
   </div>
     <ul class="site-panel">
+        {% if is_dashboard_allowed %}
+       <li><a class="mat-button mat-button-text" href="{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i><span class="hidden-m">{% trans "Dashboard" %}</span></a></li>
+      {% endif %}
         {% if request.user.is_authenticated %}
         <li><a class="mat-button mat-button-text" href="{% url 'blog:create-post' %}"><span><i class="fas fa-edit icon"></i><span class="hidden-xs">{% trans "New post" %}</span></span></a></li>
         <li><a class="mat-button mat-button-text" href="{% url 'accounts:account' %}" title="{% trans 'Account' %}"><i class="fas fa-user"></i></a></li>
