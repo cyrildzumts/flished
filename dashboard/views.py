@@ -367,7 +367,7 @@ def news_bulk_delete(request):
 ##########
 @login_required
 def posts(request):
-    template_name = "dashboard/news_list.html"
+    template_name = "dashboard/post_list.html"
     username = request.user.username
     context = {
         'content_title' : UI_STRINGS.DASHBOARD_POSTS_TITLE

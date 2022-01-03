@@ -1,16 +1,10 @@
-{% extends "base.html" %}
+{% extends "post_base.html" %}
 {% load i18n %} 
 {% load static %}
 {% load core_tags %}
 {% load blog_tags %}
 
-{% block HEADER_BANNER %}
-<div class="actions">
-    <a href="{% url 'blog:blog-home' %}" class="mat-button mat-button-text"><span>{{UI_STRINGS_CONTEXT.UI_BLOG_HOME_LABEL}}</span></a>
-</div>
-{% endblock HEADER_BANNER %}
-
-{% block MAIN %}
+{% block CONTENT_MAIN %}
 <div class="container">
     <article class="post-wrapper">
         <div class="post-header">
@@ -29,27 +23,6 @@
             <div class="post-comments">
                 
                 <div id="comments-wrapper" class="comments-wrapper">
-                    <div class="create-comment">
-                        {% if not request.user.is_authenticated %}
-                        <div class="hint">{% trans "Only members can comment" %}</div>
-                        {% endif %}
-                        <form action="{% url 'blog:create-comment' blog_post.slug %}"  class="form" method="POST">{% csrf_token %}
-                            {% if request.user.is_authenticated %}
-                            <input type="hidden" name="author" value="{{request.user.pk}}">
-                            {% endif %}
-                            <input type="hidden" name="post" value="{{blog_post.pk}}">
-                            <div class="flex flex-left flex-wrap full">
-                                <div class="form-group full">
-                                    <label class="padding-bottom" for="new-comment">{% trans "Comment" %}</label>
-                                    <textarea id="new-comment" class="limited-input bordered full" name="comment" cols="30" rows="10" data-target="#comment-counter" data-max-length="{{COMMENT_MAX_SIZE}}" placeholder="{% trans 'Post a comment' %}"></textarea>
-                                </div>
-                                <div class="row padding-l"> <span id="comment-counter" class="char-counter">0</span><span class="text-max-length">/{{COMMENT_MAX_SIZE}}</span></div>
-                            </div>
-                            <div class="actions flex-right">
-                                <button class="mat-button-default" {% if not request.user.is_authenticated %}disabled{% endif %}><span>{% trans "Comment" %}</span></button>
-                            </div>
-                        </form>
-                    </div>
                     <div class="post-header">
                         <span>{% trans "Comments" %}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>
                     </div>
@@ -66,7 +39,7 @@
                             </div>
                         </li>
                         {% empty %}
-                        <li><span class="bold">{% trans "Be the first to comment" %}</span></li>
+                        <li><span class="bold">{% trans "No comments" %}</span></li>
                         {% endfor %}
                         
                     </ul>
@@ -75,5 +48,4 @@
         </div>
     </article>
 </div>
-{% endblock MAIN %}
-{% block FOOTER %}{% endblock FOOTER %}
+{% endblock CONTENT_MAIN %}
