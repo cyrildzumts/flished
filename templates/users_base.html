@@ -13,7 +13,9 @@
         <li><a class="mat-button mat-button-text" href="{% url 'dashboard:online-users'%}"><i class="fas fa-user-clock icon"></i><span>{% trans "Online Users" %}</span></a></li>
     {% endcomment %}
     <li><a class="mat-button mat-button-text" href="{% url 'dashboard:tokens' %}"><i class="fas fa-key icon"></i><span>{% trans "Tokens" %}</span></a></li>
-    <li><a class="mat-button mat-button-text" href="{% url 'dashboard:partner-tokens' %}"><i class="fas fa-fingerprint icon"></i><span>{% trans "Partner Tokens" %}</span></a></li>
+    {% comment %}
+        <li><a class="mat-button mat-button-text" href="{% url 'dashboard:partner-tokens' %}"><i class="fas fa-fingerprint icon"></i><span>{% trans "Partner Tokens" %}</span></a></li>
+    {% endcomment %}
 {% endblock SIDEBAR_CONTENT %}
 
 {% block CONTENT %}
