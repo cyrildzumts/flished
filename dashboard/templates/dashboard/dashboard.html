@@ -1,7 +1,6 @@
 {% extends "dashboard_base.html"%}
 {% load i18n %}
-{% load order_tag %}
-{% load catalog_tags %}
+{% load blog_tags %}
 {% load core_tags %}
 {% if not perms.dashboard.can_view_dashboard %}
 {% include "tags/unauthorized.html" %}
@@ -32,28 +31,28 @@
 {% endif %}
 
 <div class="mat-table-wrapper">
-                <div class="mat-table-title flex flex-left align-baseline label"><span class="medium">{% trans "New Users" %}</span> <a href="{% url 'dashboard:users' %}" class="mat-button mat-button-text"><span class="small">{% trans "See all" %}</span><i class="fas fa-arrow-right icon"></i></a></div>
-                <table id="user-list" class="mat-table">
-                        <thead>
-                                <tr>
-                                        <th scope="col" class="padding-h">{% trans "Name" %}</th>
-                                        <th scope="col">{% trans "Status" %}</th>
-                                        <th scope="col">{% trans "Date Joined" %}</th>
-                                        <th scope="col">{% trans "Last Login" %}</th>
-                                </tr>
-                        </thead>
-                        <tbody>
-                                {% for u in user_list  %}
-                                <tr>
-                                        <td data-label="{% trans 'Name' %}"><span>{{u.get_full_name}}</span></td>
-                                        <td data-label="{% trans 'Status' %}"><span><i class="fas fa-circle {% if u.is_active %}success {% else %} warning {% endif %} icon"></i>{{u.is_active|yesno:_('active,inactive')}}</span></td>
-                                        <td data-label="{% trans 'Date Joined' %}"><span>{{u.date_joined|date:"F j, Y H:i:s"}}</span></td>
-                                        <td data-label="{% trans 'Last Login' %}"><span>{{u.last_login|date:"F j, Y H:i:s"}}</span></td>
-                                </tr>
-                                {% endfor %}
-                                
-                        </tbody>
-                </table>
+        <div class="mat-table-title flex flex-left align-baseline label"><span class="medium">{% trans "New Users" %}</span> <a href="{% url 'dashboard:users' %}" class="mat-button mat-button-text"><span class="small">{% trans "See all" %}</span><i class="fas fa-arrow-right icon"></i></a></div>
+        <table id="user-list" class="mat-table">
+                <thead>
+                        <tr>
+                                <th scope="col" class="padding-h">{% trans "Name" %}</th>
+                                <th scope="col">{% trans "Status" %}</th>
+                                <th scope="col">{% trans "Date Joined" %}</th>
+                                <th scope="col">{% trans "Last Login" %}</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        {% for u in user_list  %}
+                        <tr>
+                                <td data-label="{% trans 'Name' %}"><span>{{u.get_full_name}}</span></td>
+                                <td data-label="{% trans 'Status' %}"><span><i class="fas fa-circle {% if u.is_active %}success {% else %} warning {% endif %} icon"></i>{{u.is_active|yesno:_('active,inactive')}}</span></td>
+                                <td data-label="{% trans 'Date Joined' %}"><span>{{u.date_joined|date:"F j, Y H:i:s"}}</span></td>
+                                <td data-label="{% trans 'Last Login' %}"><span>{{u.last_login|date:"F j, Y H:i:s"}}</span></td>
+                        </tr>
+                        {% endfor %}
+                        
+                </tbody>
+        </table>
                 
 </div> <!--End of Table Wrapper-->
 
