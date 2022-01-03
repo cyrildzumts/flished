@@ -12,8 +12,8 @@ urlpatterns = [
     path('categories/delete/<uuid:category_uuid>/', views.category_delete, name='category-delete'),
     path('categories/delete/', views.categories_delete, name='categories-delete'),
     path('categories/update/<uuid:category_uuid>/', views.category_update, name='category-update'),
+     path('categories/create/', views.category_create, name='category-create'),
 
-    path('create-account/',views.create_account, name='create-account'),
     path('create-account/',views.create_account, name='create-account'),
     path('generate-token/', views.generate_token, name='generate-token'),
     path('group-create/',views.group_create, name='group-create'),
