@@ -38,6 +38,47 @@ UI_BLOG_INPUT_TITLE_PLACEHOLDER = _("Story's title ...")
 UI_NOT_FOUND = _('Not found')
 UI_WHATSAPP_SHARE_BODY = _("Hey, have a look on this article {POST_URL}. I think it is interesting, Thanks !")
 
+DASHBOARD_POSTS_TITLE = _('Posts')
+DASHBOARD_POST_TITLE = _('Post')
+DASHBOARD_POST_UPDATE_TITLE = _('Post Update')
+DASHBOARD_POST_CREATE_TITLE = _('New Post')
+
+DASHBOARD_DASHBOARD_TITLE = _('Dashboard')
+DASHBOARD_COUPONS_TITLE                 = _('Coupons')
+DASHBOARD_COUPON_TITLE                  = _('Coupon')
+DASHBOARD_COUPON_CREATE_TITLE           = _('New Coupon')
+DASHBOARD_COUPON_UPDATE_TITLE           = _('Coupon Update')
+
+DASHBOARD_INFOS_TITLE                 = _('Infos')
+DASHBOARD_INFO_TITLE                  = _('Info')
+DASHBOARD_INFO_CREATE_TITLE           = _('New Info')
+DASHBOARD_INFO_UPDATE_TITLE           = _('Info Update')
+
+DASHBOARD_GROUPS_TITLE                 = _('Groups')
+DASHBOARD_GROUP_TITLE                  = _('Group')
+DASHBOARD_GROUP_CREATE_TITLE           = _('New Group')
+DASHBOARD_GROUP_UPDATE_TITLE           = _('Group Update')
+
+
+DASHBOARD_HIGHLIGHTS_TITLE                  = _('Highlights')
+DASHBOARD_HIGHLIGHT_TITLE                 = _('Highlight')
+DASHBOARD_HIGHLIGHT_UPDATE_TITLE           = _('Highlight Update')
+DASHBOARD_HIGHLIGHT_CREATE_TITLE           = _('New Highlight')
+DASHBOARD_USERS_TITLE = _('Users')
+DASHBOARD_CUSTOMERS_TITLE = _('Customers')
+DASHBOARD_SELLERS_TITLE = _('Sellers')
+DASHBOARD_USER_TITLE = _('User')
+DASHBOARD_USER_UPDATE_TITLE = _('User Update')
+DASHBOARD_USER_CREATE_TITLE = _('New User')
+
+
+DASHBOARD_TOKENS_TITLE = _('Tokens')
+DASHBOARD_PARTNER_TOKENS_TITLE = _('Partner Tokens')
+DASHBOARD_TOKEN_CREATE_TITLE = _('New Token')
+DASHBOARD_SUBSCRIPTION_PAYMENT_TITLE = _('Subscription Payment')
+DASHBOARD_SUBSCRIPTION_PAYMENTS_TITLE = _('Subscription Payments')
+DASHBOARD_SUBSCRIPTION__CREATE_PAYMENT_TITLE = _('Create Subscription Payment')
+
 UI_STRINGS_CONTEXT = {
     'UI_NOT_FOUND': UI_NOT_FOUND,
     'UI_BLOG_INPUT_TITLE_PLACEHOLDER': UI_BLOG_INPUT_TITLE_PLACEHOLDER,
