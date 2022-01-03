@@ -111,7 +111,7 @@ class Post(models.Model):
         return reverse("blog:blog-post", kwargs={"post_slug": self.slug})
     
     def get_dashboard_url(self):
-        return reverse("dashboard:post", kwargs={"post_uuid": self.post_uuid})
+        return reverse("dashboard:post-detail", kwargs={"post_uuid": self.post_uuid})
     
     def get_update_url(self):
         return reverse("dashboard:post-update", kwargs={"post_uuid": self.post_uuid})
