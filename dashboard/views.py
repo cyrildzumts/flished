@@ -426,7 +426,7 @@ def post_detail(request, post_uuid=None):
     instance = get_object_or_404(Post, post_uuid=post_uuid)
     context = {
         'page_title': page_title,
-        'post': instance,
+        'blog_post': instance,
         'content_title' : UI_STRINGS.DASHBOARD_POST_TITLE
     }
     return render(request,template_name, context)
