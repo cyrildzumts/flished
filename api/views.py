@@ -10,6 +10,7 @@ from api import serializers
 from api.serializers import PostSerializer, UserSerializer, TagSerializer, CategorySerializer, CommentSerializer, NewsSerializer
 from jasiri import utils
 from blog import blog_service
+from core import load_credentials
 from core.resources import ui_strings as UI_STRINGS
 
 import logging
@@ -201,6 +202,16 @@ def authenticate(request):
     utils.show_dict_contents(postdata, "API Athenticate Header")
     token = uuid.uuid4()
     return Response(data={"tokenType": 'Bearer', 'accessToken': token}, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+@permission_classes([])
+@authentication_classes([])
+def get_credentials(request):
+    logger.debug("Received credential request")
+    postdata = request.POST.copy()
+    credential = load_credentials.load_unsplash_credentials()
+    return Response(data=credential, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])

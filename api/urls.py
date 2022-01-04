@@ -13,6 +13,7 @@ urlpatterns = [
     path('api-token-auth/', drf_api_views.obtain_auth_token, name='api-token-auth'),
     path('authenticate/', views.authenticate, name='authenticate'),
     path('current-user/', views.get_current_user, name='current-user'),
+    path('fetch-credentials/', views.get_credentials, name='fetch-credentials'),
     #path('clear-sessions/', views.clear_sessions, name="clear-sessions"),
     path('create-post/', views.create_post, name='create-post'),
     path('create-tag/', views.create_tag, name='create-tag'),

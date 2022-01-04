@@ -1,6 +1,7 @@
 define(['require','ajax_api', 'element_utils', 'editor/editor', 
     'editor/plugins/header.min','editor/plugins/list.min', 'editor/plugins/link.min',
-    'editor/plugins/checklist.min', 'editor/plugins/quote.min', 'editor/plugins/table.min'
+    'editor/plugins/checklist.min', 'editor/plugins/quote.min', 'editor/plugins/table.min',
+    'editor/plugins/inline-image'
     ], function(require,ajax_api, element_utils,EditorJS) {
     'use strict';
 
@@ -10,6 +11,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     const Checklist = require('editor/plugins/checklist.min');
     const Quote = require('editor/plugins/quote.min');
     const Table = require('editor/plugins/table.min');
+    const InlineImage = require('editor/plugins/inline-image');
     
     let fileUpload;
     let postManager;
@@ -32,7 +34,8 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         'list': render_list,
         'linkTool': render_linkTool,
         'checklist': render_checklist,
-        'quote': render_quote
+        'quote': render_quote,
+        'inlineImage': render_inlineImage
     }
 
     function render_header(header){
@@ -54,6 +57,17 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 cls:'mat-button mat-button-text',
                 href : linkTool.data.link,
                 innerText: linkTool.data.link
+            }
+        });
+        return node;
+    }
+
+    function render_inlineImage(inlineImage){
+        let node = element_utils.create_element_api({
+            element: "img",
+            options : {
+                id:inlineImage.id,
+                cls:'img-responsive',
             }
         });
         return node;

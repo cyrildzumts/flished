@@ -1,6 +1,8 @@
 
-
-
+UNSPLASH_CREDENTIALS_KEY = "unsplash"
+UNSPLASH_CACHE_KEY = f"credentials.{UNSPLASH_CREDENTIALS_KEY}"
+UNSPLASH_ACCESS_KEY = "access_key"
+UNSPLASH_SECRET_KEY = "secret_key"
 
 headers = ["", "h1","h2", "h3", "h4", "h5", "h6"]
 LIST_TYPE_MAPPING = {
@@ -17,3 +19,4 @@ LIST_TYPE_MAPPING = {
         'checklist': render_checklist,
         'quote': render_quote
 }"""
+

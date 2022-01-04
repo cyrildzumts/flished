@@ -27,6 +27,8 @@ SITE_NAME           =  os.environ.get('JASIRI_SITE_NAME', 'JASIRI')
 CELERY_BROKER_URL   = os.environ.get('JASIRI_CELERY_BROKER_URL')
 CELERY_BACKEND      = os.environ.get('JASIRI_CELERY_BACKEND')
 
+CREDENTIALS_FILE = os.environ.get('JASIRI_CREDENTIALS_FILE', "credentials.json")
+
 CELERY_DEFAULT_QUEUE = "jasiri-default"
 CELERY_DEFAULT_EXCHANGE = "jasiri-default"
 CELERY_DEFAULT_ROUTING_KEY = "jasiri-default"
