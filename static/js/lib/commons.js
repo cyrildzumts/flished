@@ -39,7 +39,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         'linkTool': render_linkTool,
         'checklist': render_checklist,
         'quote': render_quote,
-        'inlineImage': render_inlineImage
+        'image': render_inlineImage
     };
 
     function render_header(header){
@@ -71,6 +71,8 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             element: "img",
             options : {
                 id:inlineImage.id,
+                src: inlineImage.data.url,
+                title: inlineImage.data.caption,
                 cls:'img-responsive',
             }
         });
