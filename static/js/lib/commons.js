@@ -27,6 +27,10 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         checklist: 'ul'
 
     };
+    let unsplash_config = {
+        appName: "",
+        clientId: ""
+    };
     let BLOCK_MAPPING = {
         'header': render_header,
         'paragraph': render_paragraph,
@@ -36,7 +40,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         'checklist': render_checklist,
         'quote': render_quote,
         'inlineImage': render_inlineImage
-    }
+    };
 
     function render_header(header){
         let node = element_utils.create_element_api({
@@ -290,14 +294,41 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         }
     }
 
+    function fetch_credential(callback){
+        let csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]');
+        let url = '/api/fetch-credentials/';
+        let formData = new FormData();
+        formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
+        let fetch_options = {
+            method : 'POST',
+            body: formData
+        };
+        ajax_api.fetch_api(url, fetch_options).then((response)=>{
+            editor = callback({appName : response.appName, clientId : response.access_key});
+        }, function(reason){
+            console.error("Error on fetching unsplash credentials.");
+            console.error(reason);
+            
+        });
+    }
 
-    function editor_init(){
+    function editor_init(unsplash_conf){
         editor = new EditorJS({
             holder:'editor',
             tools: {
                 header : {
                     class : Header,
                     inlineToolbar : true
+                },
+                image: {
+                    class : InlineImage,
+                    inlineToolbar : true,
+                    config: {
+                        embed : {
+                            display: true
+                        },
+                        unsplash : unsplash_conf
+                    }
                 },
                 list: {
                     class: List,
@@ -348,6 +379,11 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         console.log("Editor loaded");
 
         return editor;
+    }
+
+
+    function create_editor(){
+        fetch_credential(editor_init);
     }
 
     function clean_form_before_submit(form){
@@ -896,7 +932,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         if(window){
             window.notify = notify;
         }
-        editor = editor_init();
+        create_editor();
         notification_wrapper = $('#notifications-wrapper');
         messages = $('#messages', notification_wrapper);
         //onDragInit();
