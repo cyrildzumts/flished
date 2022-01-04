@@ -298,6 +298,9 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
 
     function fetch_credential(callback){
         let csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]');
+        if(csrfmiddlewaretoken == null){
+            return;
+        }
         let url = '/api/fetch-credentials/';
         let formData = new FormData();
         formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
