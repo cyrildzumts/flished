@@ -23,6 +23,7 @@ logs
 */js-minify/*
 static/build
 *.log
+credentials.json
 toxrequirements.txt
 celerybeat-schedule
 media
