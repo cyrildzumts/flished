@@ -2,7 +2,7 @@ from django import template
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 from core import renderers
-from jasiri import utils
+from flished import utils
 
 import logging
 import re

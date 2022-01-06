@@ -1,6 +1,6 @@
 from django.core.cache import cache
 from core import constants
-from jasiri import settings
+from flished import settings
 import json
 
 import logging

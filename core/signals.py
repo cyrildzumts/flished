@@ -5,7 +5,7 @@ from django.utils.text import slugify
 from blog.models import Category, Post
 from core.tasks import send_mail_task
 from accounts.models import Account
-from jasiri import settings, utils
+from flished import settings, utils
 import logging
 import copy
 

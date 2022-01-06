@@ -1,4 +1,4 @@
-from jasiri import settings, utils
+from flished import settings, utils
 from blog import blog_service
 from core.resources import ui_strings as UI_STRINGS
 

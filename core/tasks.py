@@ -5,7 +5,7 @@ from celery import shared_task
 from django.template.loader import render_to_string
 from django.utils import timezone
 from blog.models import Category, Post
-from jasiri import settings, utils
+from flished import settings, utils
 
 import logging
 

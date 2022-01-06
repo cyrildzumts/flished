@@ -9,7 +9,7 @@ from django.forms import modelform_factory
 from django.forms import formset_factory, modelformset_factory
 from django.utils.text import slugify
 from blog.models import Category, Tag, Post, News
-from jasiri import utils, settings
+from flished import utils, settings
 from xhtml2pdf import pisa
 import logging
 import datetime
