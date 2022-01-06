@@ -1,9 +1,9 @@
 
-import os
 from kombu import Exchange, Queue
 from flished import settings
 from celery import Celery
 from celery.schedules import crontab
+import os
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'flished.settings')
 app = Celery(settings.SITE_NAME)
