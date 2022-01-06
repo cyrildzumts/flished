@@ -1,8 +1,8 @@
-define(['require','ajax_api', 'element_utils', 'editor/editor', 
+define(['require','filters','ajax_api', 'element_utils', 'editor/editor', 
     'editor/plugins/header.min','editor/plugins/list.min', 'editor/plugins/link.min',
     'editor/plugins/checklist.min', 'editor/plugins/quote.min', 'editor/plugins/table.min',
     'editor/plugins/inline-image'
-    ], function(require,ajax_api, element_utils,EditorJS) {
+    ], function(require,Filter,ajax_api, element_utils,EditorJS) {
     'use strict';
 
     const Header = require('editor/plugins/header.min');
@@ -479,7 +479,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
 
     var ListFilter = (function(){
         function ListFilter(){
-            this.init();
+            //this.init();
             console.log("ListFilter instance created");
         };
 
@@ -947,6 +947,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         //onDragInit();
         notify_init(notification_wrapper, messages);
         var listfilter = new ListFilter();
+        Filter.init();
         fileUpload = new FileUpload();
         postManager = new PostManager();
         postManager.init();

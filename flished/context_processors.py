@@ -1,4 +1,4 @@
-from jasiri import settings
+from flished import settings
 from django.contrib.auth.models import User
 
 from core.resources import ui_strings as UI_STRINGS

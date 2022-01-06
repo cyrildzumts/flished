@@ -19,7 +19,7 @@ from accounts import account_services
 from dashboard.forms import GroupFormCreation, TokenForm
 from blog import blog_service, constants as BLOG_CONSTANTS
 from blog.models import Post, Comment, Category, News
-from jasiri import settings, utils
+from flished import settings, utils
 from core.resources import ui_strings as UI_STRINGS
 
 import json

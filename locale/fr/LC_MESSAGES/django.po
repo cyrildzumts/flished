@@ -116,11 +116,11 @@ msgstr ""
 msgid "Discover our Blog"
 msgstr ""
 
-#: jasiri/settings.py:250
+#: flished/settings.py:250
 msgid "French"
 msgstr ""
 
-#: jasiri/settings.py:251
+#: flished/settings.py:251
 msgid "English"
 msgstr ""
 

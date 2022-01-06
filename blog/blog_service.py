@@ -8,7 +8,7 @@ from django.template.loader import render_to_string, get_template
 from django.contrib.postgres.search import SearchVector, SearchQuery
 from django.core.exceptions import ObjectDoesNotExist
 from core import core_tools
-from jasiri import utils
+from flished import utils
 import logging
 
 CACHE = cache

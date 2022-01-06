@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from jasiri import settings
+from flished import settings
 from core.resources import ui_strings as UI_STRINGS
 from blog import blog_service
 import logging

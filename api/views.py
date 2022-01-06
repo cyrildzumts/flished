@@ -8,7 +8,7 @@ from rest_framework.generics import ListAPIView
 from django.contrib.auth.models import User
 from api import serializers
 from api.serializers import PostSerializer, UserSerializer, TagSerializer, CategorySerializer, CommentSerializer, NewsSerializer
-from jasiri import utils
+from flished import utils
 from blog import blog_service
 from core import load_credentials
 from core.resources import ui_strings as UI_STRINGS

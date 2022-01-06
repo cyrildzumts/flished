@@ -1,4 +1,4 @@
-"""jasiri URL Configuration
+"""flished URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -18,7 +18,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.urls import path
 from django.conf.urls import url, include
 from django.conf.urls.static import static
-from jasiri import views, settings
+from flished import views, settings
 
 
 urlpatterns = i18n_patterns( * [

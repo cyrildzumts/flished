@@ -14,8 +14,8 @@ translation_tools
 .vscode
 */migrations/*
 */__pycache__/*
-jasiri_site*.conf
-jasiri_site*.conf.backup
+flished_site*.conf
+flished_site*.conf.backup
 robots.txt
 log
 logs

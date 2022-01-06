@@ -1,11 +1,11 @@
 
 import os
 from kombu import Exchange, Queue
-from jasiri import settings
+from flished import settings
 from celery import Celery
 from celery.schedules import crontab
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jasiri.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'flished.settings')
 app = Celery(settings.SITE_NAME)
 app.config_from_object('django.conf:settings', namespace=settings.CELERY_NAMESPACE)
 app.conf.task_queues = (
