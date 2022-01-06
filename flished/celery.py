@@ -1,4 +1,8 @@
 
+import logging
+logger = logging.getLogger(__name__)
+
+logger.info("flished celery.py file")
 from kombu import Exchange, Queue
 from flished import settings
 from celery import Celery
