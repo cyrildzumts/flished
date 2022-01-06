@@ -27,10 +27,6 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         checklist: 'ul'
 
     };
-    let unsplash_config = {
-        appName: "",
-        clientId: ""
-    };
     let BLOCK_MAPPING = {
         'header': render_header,
         'paragraph': render_paragraph,
@@ -381,7 +377,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         $(".js-clear-btn").on('click', (event)=>{
             console.log("Clearing editor content not implemented yet ");
         });
-        console.log("Editor loaded");
+        console.log("Editor loaded", editor);
 
         return editor;
     }
