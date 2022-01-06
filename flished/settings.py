@@ -4,9 +4,15 @@ from pathlib import Path
 from django.utils.translation import ugettext_lazy as _
 import django.dispatch
 import os
+import logging
 
+logger = logging.getLogger(__name__)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+logger.debug("Environment before loading .inv file")
+logger.debug(os.environ)
 load_dotenv()
+logger.debug("Environment after loading .inv file")
+logger.debug(os.environ)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY          =  os.environ['FLISHED_SECRET_KEY']
