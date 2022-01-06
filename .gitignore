@@ -10,6 +10,7 @@ static_root/*
 *.jpeg
 *.ico
 *.csv
+.inv
 translation_tools
 .vscode
 */migrations/*
