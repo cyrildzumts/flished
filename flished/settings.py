@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY          =  os.environ['FLISHED_SECRET_KEY']
+SECRET_KEY          =  os.environ.get('FLISHED_SECRET_KEY')
 SITE_NAME           =  os.environ.get('FLISHED_SITE_NAME', 'FLISHED')
 CELERY_BROKER_URL   = os.environ.get('FLISHED_CELERY_BROKER_URL')
 CELERY_BACKEND      = os.environ.get('FLISHED_CELERY_BACKEND')
