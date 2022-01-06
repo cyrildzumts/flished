@@ -1,18 +1,13 @@
-
-from dotenv import load_dotenv
 from pathlib import Path
 from django.utils.translation import ugettext_lazy as _
 import django.dispatch
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-print("Environment before loading .inv file")
+print(" ########### Environment after loading .inv file  ########### ")
 for k,v in os.environ.items():
     print(f"{k} : {v}\n")
-load_dotenv()
-print("Environment after loading .inv file")
-for k,v in os.environ.items():
-    print(f"{k} : {v}\n")
+print(" ########### Environment after loading .inv file  ########### ")
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY          =  os.environ['FLISHED_SECRET_KEY']

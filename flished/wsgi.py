@@ -6,12 +6,10 @@ It exposes the WSGI callable as a module-level variable named ``application``.
 For more information on this file, see
 https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/
 """
-
+from dotenv import load_dotenv
 import os
-
 from django.core.wsgi import get_wsgi_application
 
-print("running wsgi.py file")
+load_dotenv()
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'flished.settings')
-print("setting default settings module from wsgi.py file")
 application = get_wsgi_application()
