@@ -14,6 +14,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 logger.info("running wsgi.py file")
+print("running wsgi.py file")
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'flished.settings')
 logger.info("setting default settings module from wsgi.py file")
 application = get_wsgi_application()
