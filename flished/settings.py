@@ -7,10 +7,12 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 print("Environment before loading .inv file")
-print(os.environ)
+for k,v in os.environ.items():
+    print(f"{k} : {v}\n")
 load_dotenv()
 print("Environment after loading .inv file")
-print(os.environ)
+for k,v in os.environ.items():
+    print(f"{k} : {v}\n")
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY          =  os.environ['FLISHED_SECRET_KEY']

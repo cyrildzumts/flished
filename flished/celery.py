@@ -1,9 +1,3 @@
-
-import logging
-logger = logging.getLogger(__name__)
-
-print("flished celery.py file")
-logger.info("flished celery.py file")
 from kombu import Exchange, Queue
 from flished import settings
 from celery import Celery
