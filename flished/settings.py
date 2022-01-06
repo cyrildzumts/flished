@@ -4,10 +4,6 @@ import django.dispatch
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-print(" ########### Environment after loading .inv file  ########### ")
-for k,v in os.environ.items():
-    print(f"{k} : {v}\n")
-print(" ########### Environment after loading .inv file  ########### ")
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY          =  os.environ['FLISHED_SECRET_KEY']
