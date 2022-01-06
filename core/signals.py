@@ -20,13 +20,14 @@ def send_welcome_mail(sender, instance, created, **kwargs):
         if str(instance.username).startswith(settings.TEST_USER_PREFIX):
             logger.debug(f"sending welcome mail for test user {instance.username}...")
             return
+        title = f'Bienvenu sur {settings.SITE_NAME}'
         email_context = {
             'template_name': settings.DJANGO_WELCOME_EMAIL_TEMPLATE,
-            'title': 'Bienvenu sur JASIRI',
+            'title': title,
             'recipient_email': instance.email,
             
             'context':{
-                'MAIL_TITLE': 'Bienvenu sur JASIRI',
+                'MAIL_TITLE': title,
                 'SITE_NAME': settings.SITE_NAME,
                 'SITE_HOST': settings.SITE_HOST,
                 'FULL_NAME': instance.get_full_name()
