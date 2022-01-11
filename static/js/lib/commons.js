@@ -286,6 +286,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         console.log("Saving editor new content ...:");
         console.log("Api : ", api);
         console.log("Event : ", event);
+        notify({level:'info', content:'Editor content changed ...'});
     }
 
     function fetch_credential(callback){
