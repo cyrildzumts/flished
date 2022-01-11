@@ -286,6 +286,9 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         console.log("Saving editor new content ...:");
         console.log("Api : ", api);
         console.log("Event : ", event);
+        api.saver.save().then(on_editor_save).catch((error)=>{
+            console.log("Error on saving editor content after changes : ", error);
+        });
         notify({level:'info', content:'Editor content changed ...'});
     }
 
