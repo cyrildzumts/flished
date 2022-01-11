@@ -13,6 +13,9 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     const Table = require('editor/plugins/table.min');
     const InlineImage = require('editor/plugins/inline-image');
     
+    const SAVE_DRAFT_INTERVAL = 10000; // 10s
+    const EDITOR_CHANGE_TIMEOUT = 1000; // 1s
+    let AUTO_SAVE_TIMER;
     let fileUpload;
     let postManager;
     let messages;
@@ -279,6 +282,12 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         }
     }
 
+    function on_editor_change(api, event){
+        console.log("Saving editor new content ...:");
+        console.log("Api : ", api);
+        console.log("Event : ", event);
+    }
+
     function fetch_credential(callback){
         let csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]');
         if(csrfmiddlewaretoken == null){
@@ -352,8 +361,12 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
             onReady: function(){
                 console.log("Editor is ready" , editor);
             },
-            onChange: () =>{
-                console.log("Editor has changed");
+            onChange: (api, event) =>{
+                if(AUTO_SAVE_TIMER){
+                    console.log("Clearing AUTO_SAVE_TIMER");
+                    clearTimeout(AUTO_SAVE_TIMER);
+                }
+                AUTO_SAVE_TIMER = setTimeout(on_editor_change, EDITOR_CHANGE_TIMEOUT);
             }
         });
         $(".js-save-btn").on('click', function(event){
