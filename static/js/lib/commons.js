@@ -14,7 +14,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     const InlineImage = require('editor/plugins/inline-image');
     
     const SAVE_DRAFT_INTERVAL = 10000; // 10s
-    const EDITOR_CHANGE_TIMEOUT = 1000; // 1s
+    const EDITOR_CHANGE_TIMEOUT = 3000; // 1s
     let AUTO_SAVE_TIMER;
     let fileUpload;
     let postManager;
@@ -367,7 +367,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                     console.log("Clearing AUTO_SAVE_TIMER");
                     clearTimeout(AUTO_SAVE_TIMER);
                 }
-                AUTO_SAVE_TIMER = setTimeout(on_editor_change, EDITOR_CHANGE_TIMEOUT);
+                AUTO_SAVE_TIMER = setTimeout(on_editor_change, EDITOR_CHANGE_TIMEOUT, api, event);
             }
         });
         $(".js-save-btn").on('click', function(event){
