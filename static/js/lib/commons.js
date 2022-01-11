@@ -289,7 +289,6 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         api.saver.save().then(on_editor_save).catch((error)=>{
             console.log("Error on saving editor content after changes : ", error);
         });
-        notify({level:'info', content:'Editor content changed ...'});
     }
 
     function fetch_credential(callback){
