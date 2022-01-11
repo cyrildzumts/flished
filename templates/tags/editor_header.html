@@ -1,0 +1,29 @@
+{% load i18n %} 
+{% load static %}
+
+{% block HEADER_PANEL %}
+<div class="header--panel">
+  <div class="col-xs-12">
+        <div class="row">
+                <button class="js-menu js-action-abtest menu-button" data-action="0"><i class="btn-icon fas fa-bars"></i></button>
+                <button class="js-menu-close js-action-abtest menu-close menu-button" data-action="0"><i class="btn-icon fas fa-times"></i></button>
+                <ul class="logo">
+                        <li class="js-action-abtest" data-action="3"><a class="mat-button mat-button-text" href="{%url 'home'%}">{{site_name}}</a></li>
+                </ul>
+        </div>
+  </div>
+    <ul class="site-panel">
+        {% if is_dashboard_allowed %}
+       <li><a class="mat-button mat-button-text" href="{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i><span class="hidden-m">{% trans "Dashboard" %}</span></a></li>
+      {% endif %}
+        <li><button class="mat-button mat-button-text js-save-btn">{{UI_STRINGS_CONTEXT.UI_SAVE_BTN_LABEL}}</button></li>
+        <li><button class="mat-button mat-button-text publish-btn js-publish-btn">{{UI_STRINGS_CONTEXT.UI_PUBLISH_BTN_LABEL}}</button></li>
+        <li><a href="#" class="mat-button mat-button-text js-preview-post"><span>{{UI_STRINGS_CONTEXT.UI_BLOG_POST_PREVIEW}}</span></a></li>
+        <li><a class="mat-button mat-button-text" href="{% url 'accounts:account' %}" title="{% trans 'Account' %}"><i class="fas fa-user"></i></a></li>
+        <li><a class="signout-btn mat-button mat-button-text signout" href="{% url 'accounts:logout' %}" title="{% trans 'Logout' %}"><i class="fas fa-sign-out-alt icon"></i></a></li>
+      <li>
+        {% include "tags/language.html" %}
+      </li>
+    </ul> 
+</div>
+{% endblock HEADER_PANEL %}

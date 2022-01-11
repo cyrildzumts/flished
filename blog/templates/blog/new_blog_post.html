@@ -2,15 +2,10 @@
 {% load i18n %} 
 {% load static %}
 
+{% include "tags/editor_header.html" %}
+
 {% block HEADER_BANNER %}
-<div class="actions">
-    <button class="mat-button mat-button-text js-clear-btn">{{UI_STRINGS_CONTEXT.UI_CLEAR_BTN_LABEL}}</button>
-    <button class="mat-button mat-button-text js-save-btn">{{UI_STRINGS_CONTEXT.UI_SAVE_BTN_LABEL}}</button>
-    <button class="mat-button mat-button-text js-publish-btn">{{UI_STRINGS_CONTEXT.UI_PUBLISH_BTN_LABEL}}</button>
-    <button class="mat-button mat-button-text js-create-post-btn">{{UI_STRINGS_CONTEXT.UI_CREATE_BTN_LABEL}}</button>
-    <a href="#" class="mat-button mat-button-text js-preview-post"><span>{{UI_STRINGS_CONTEXT.UI_BLOG_POST_PREVIEW}}</span></a>
-    <a href="{% url 'blog:blog-home' %}" class="mat-button mat-button-text"><span>{{UI_STRINGS_CONTEXT.UI_BLOG_HOME_LABEL}}</span></a>
-</div>
+
 {% endblock HEADER_BANNER %}
 
 {% block MAIN %}
