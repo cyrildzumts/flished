@@ -525,8 +525,6 @@ h1, h2, h3, h4, h5, h6{
 input{
 	/*height: 32px;*/
 	border: var(--input-border);
-	padding: 16px 8px;
-	margin: 4px;
 }
 
 input.range-input{
@@ -1059,8 +1057,6 @@ input[type="text"],
 input[type="url"], select{
 	font-family: inherit;
 	outline: 0;
-
-	padding: 8px 1rem;
 	border-radius: 4px;
 }
 
@@ -1292,7 +1288,6 @@ List Cards
 */
 
 .form-group input, .form-group textarea, .form-group select{
-	padding: 1em ;
 	margin : 0;
 }
 
@@ -1884,13 +1879,6 @@ a.mat-button{
 }
 .mat-list-item.language{
 	border-bottom: none !important;
-}
-
-.mat-list-item > input {
-	padding-left: 4px;
-	padding-right: 4px;
-	margin-left: 4px;
-	margin-right: 4px;
 }
 
 .mat-list-item:last-child{
@@ -2763,34 +2751,6 @@ label.nav-label::after{
 .menu-close{
 	display: none;
 }
-
-.custom-input{
-	display: flex;
-	width: 100%;
-	height: 32px;
-	align-items: center;
-	justify-content: center;
-}
-.custom-input .input-value{
-	display: inline-block;
-	width: 100%;
-}
-.custom-input input{
-	min-width: 20px;
-	max-width: 50px;
-	text-align: center;
-	border: 2px solid #ccc;
-	padding: 0;
-	margin: 0 0.5em;
-}
-.custom-input .input-edit-wrapper{
-	display: none;
-}
-
-
-.custom-input:hover .input-edit-wrapper{
-	display: block;
-}
 .search-form-wrapper{
 	padding: 1em;
 }
@@ -2826,14 +2786,6 @@ label.nav-label::after{
 	font-weight: 300;
 }
 
-/*
-.custom-input input:not([display=none]){
-	border: none !important;
-}
-.custom-input .input-edit-close{
-	display: none;
-}
-*/
 .category-nav{
 	width: 100%;
 	padding: 1em;
