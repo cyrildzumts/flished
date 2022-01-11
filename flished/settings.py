@@ -19,9 +19,9 @@ CELERY_DEFAULT_ROUTING_KEY = "flished-default"
 
 CELERY_LOGGER_HANDLER_NAME = "async"
 CELERY_LOGGER_NAME = "async"
-CELERY_LOGGER_QUEUE = "lyshop-logger"
-CELERY_LOGGER_EXCHANGE = "lyshop-logger"
-CELERY_LOGGER_ROUTING_KEY = "lyshop-logger"
+CELERY_LOGGER_QUEUE = "flished-logger"
+CELERY_LOGGER_EXCHANGE = "flished-logger"
+CELERY_LOGGER_ROUTING_KEY = "flished-logger"
 
 CELERY_OUTGOING_MAIL_QUEUE = "flished-outgoing-mails"
 CELERY_OUTGOING_MAIL_EXCHANGE = "flished-mail"
