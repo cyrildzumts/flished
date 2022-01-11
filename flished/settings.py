@@ -17,6 +17,12 @@ CELERY_DEFAULT_QUEUE = "flished-default"
 CELERY_DEFAULT_EXCHANGE = "flished-default"
 CELERY_DEFAULT_ROUTING_KEY = "flished-default"
 
+CELERY_LOGGER_HANDLER_NAME = "async"
+CELERY_LOGGER_NAME = "async"
+CELERY_LOGGER_QUEUE = "lyshop-logger"
+CELERY_LOGGER_EXCHANGE = "lyshop-logger"
+CELERY_LOGGER_ROUTING_KEY = "lyshop-logger"
+
 CELERY_OUTGOING_MAIL_QUEUE = "flished-outgoing-mails"
 CELERY_OUTGOING_MAIL_EXCHANGE = "flished-mail"
 CELERY_OUTGOING_MAIL_ROUTING_KEY = "flished.mail.outgoing"
@@ -190,9 +196,21 @@ LOGGING = {
             'format': '{asctime} {levelname} {module} {message}',
             'style': '{',
         },
+        'async': {
+            'format': '{message}',
+            'style': '{',
+        },
     },
 
     'handlers': {
+        'async':{
+            'level': 'INFO',
+            'class': 'core.logging.handlers.AsyncLoggingHandler',
+            'formatter': 'async',
+            'queue': CELERY_LOGGER_QUEUE,
+            'routing_key': CELERY_LOGGER_ROUTING_KEY,
+            'exchange': CELERY_LOGGER_EXCHANGE
+        },
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
@@ -213,26 +231,31 @@ LOGGING = {
     'loggers': {
         '' : {
             'level': 'DEBUG',
-            'handlers': ['console', 'file'],
+            'handlers': ['console', 'async'],
             'propagate': False,
+        },
+        'async':{
+            'level': 'INFO',
+            'handlers': ['file'],
+            'propagate': False
         },
         'django': {
             'level': 'WARNING',
-            'handlers': ['file'],
+            'handlers': ['async'],
             'propagate': True,
         },
         'django.request': {
-            'handlers': ['mail_admins', 'file'],
+            'handlers': ['mail_admins', 'async'],
             'level': 'WARNING',
             'propagate': False,
         },
         'django.template': {
-            'handlers': ['console', 'file'],
+            'handlers': ['console', 'async'],
             'level': 'WARNING',
             'propagate': True,
         },
         'PIL':{
-            'handlers': ['console', 'file'],
+            'handlers': ['console'],
             'level': 'WARNING',
             'propagate': False,
         }

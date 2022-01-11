@@ -10,6 +10,16 @@ LIST_TYPE_MAPPING = {
     'checklist': 'ul'
 }
 
+CELERY_LOGGER_HANDLER_NAME = "async"
+CELERY_LOGGER_NAME = "async"
+CELERY_FILE_HANDLER_CONF = {
+    'level': 'INFO',
+    'class': 'logging.handlers.TimedRotatingFileHandler',
+    'formatter': 'file',
+    'filename':'logs/flished.log',
+    'when' : 'midnight'
+}
+
 """BLOCK_MAPPING = {
         'header': render_header,
         'paragraph': render_paragraph,

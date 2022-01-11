@@ -11,6 +11,7 @@ app.conf.task_queues = (
     Queue(settings.CELERY_DEFAULT_QUEUE, Exchange(settings.CELERY_DEFAULT_EXCHANGE), routing_key=settings.CELERY_DEFAULT_ROUTING_KEY),
     Queue(settings.CELERY_OUTGOING_MAIL_QUEUE, Exchange(settings.CELERY_OUTGOING_MAIL_EXCHANGE), routing_key=settings.CELERY_OUTGOING_MAIL_ROUTING_KEY),
     Queue(settings.CELERY_IDENTIFICATION_QUEUE, Exchange(settings.CELERY_IDENTIFICATION_EXCHANGE), routing_key=settings.CELERY_IDENTIFICATION_ROUTING_KEY),
+    Queue(settings.CELERY_LOGGER_QUEUE, Exchange(settings.CELERY_LOGGER_EXCHANGE), routing_key=settings.CELERY_LOGGER_ROUTING_KEY),
 )
 app.conf.task_default_queue = settings.CELERY_DEFAULT_QUEUE
 app.conf.task_default_exchange_type = settings.CELERY_DEFAULT_EXCHANGE_TYPE
