@@ -17,7 +17,7 @@
        <li><a class="mat-button mat-button-text" href="{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i><span class="hidden-m">{% trans "Dashboard" %}</span></a></li>
       {% endif %}
         <li><button class="mat-button mat-button-text js-save-btn" title="{{UI_STRINGS_CONTEXT.UI_SAVE_BTN_LABEL}}"><span><i class="fas fa-save"></i></span></button></li>
-        <li><a href="#" class="mat-button mat-button-text js-preview-post" title="{{UI_STRINGS_CONTEXT.UI_BLOG_POST_PREVIEW}}"><span><i class="fas fa-eye"></i></span></a></li>
+        <li><button class="mat-button mat-button-text js-preview-post" title="{{UI_STRINGS_CONTEXT.UI_BLOG_POST_PREVIEW}}" type="button"><span><i class="fas fa-eye"></i></span></button></li>
         <li><button class="mat-button mat-button-text publish-btn js-publish-btn"><span>{{UI_STRINGS_CONTEXT.UI_PUBLISH_BTN_LABEL}}</span></button></li>
         <li><a class="mat-button mat-button-text" href="{% url 'accounts:account' %}" title="{% trans 'Account' %}"><i class="fas fa-user"></i></a></li>
     </ul> 
