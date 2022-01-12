@@ -871,7 +871,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
             let self = this;
             let csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]');
             let title = document.getElementById('title');
-            let editor_element = document.getElementById('#editor');
+            let editor_element = document.getElementById('editor');
             let formData = new FormData();
             formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
             formData.append('title', title.value);
