@@ -75,11 +75,13 @@ def blog_post(request, post_slug):
 
 @login_required
 def post_preview(request):
+    logger.info("previewing post ...")
     template_name = "blog/blog_post_preview.html"
     if request.method != 'POST':
         raise BadRequest()
     form = PostForm(utils.get_postdata(request))
     if not form.is_valid():
+        logger.warning(f"Preview Post Error : Invalid form : {form.errors}")
         raise BadRequest()
     post = form.cleaned_data()
     page_title = f"{post.get('title')} - {UI_STRINGS.UI_BLOG_POST_PREVIEW} | {settings.SITE_NAME}"
