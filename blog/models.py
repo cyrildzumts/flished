@@ -108,7 +108,7 @@ class Post(models.Model):
 
     
     def get_absolute_url(self):
-        return reverse("blog:blog-post", kwargs={"post_slug": self.slug})
+        return reverse("blog:blog-post", kwargs={"post_slug": self.slug, 'author': self.author.username})
     
     def get_dashboard_url(self):
         return reverse("dashboard:post-detail", kwargs={"post_uuid": self.post_uuid})
