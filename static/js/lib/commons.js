@@ -782,7 +782,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                     self.upload();
                 }
             });
-            $(".js-publish-btn").on('click', function(e){
+            $(".js-preview-post").on('click', function(e){
                 e.preventDefault();
                 e.stopPropagation();
                 if(post_content){
