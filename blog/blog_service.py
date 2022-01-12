@@ -90,7 +90,7 @@ def get_user_posts(user):
     return Post.objects.filter(author=user)
 
 def get_recent_posts():
-    return Post.objects.all()[:utils.MAX_RECENTS]
+    return Post.objects.filter(status=Constants.POST_STATUS_PUBLISHED)[:utils.MAX_RECENTS]
 
 def get_user_recent_posts(user):
     return Post.objects.filter(author=user)[:utils.MAX_RECENTS]

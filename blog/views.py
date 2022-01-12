@@ -22,7 +22,7 @@ def blog_home(request):
     template_name = "blog/blog_home.html"
     page_title = f"{UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE} | {settings.SITE_NAME}"
 
-    recent_posts = Post.objects.all()[:utils.MAX_RECENTS]
+    recent_posts = Post.objects.filter(status=Constants.POST_STATUS_PUBLISHED)[:utils.MAX_RECENTS]
     context = {
         'page_title': page_title,
         'PAGE_TITLE': page_title,
@@ -47,19 +47,19 @@ def create_post(request):
 
 
 @login_required
-def create_comment(request, post_slug):
+def create_comment(request,author, post_slug):
     logger.info(f"New post comment creation request from user {request.user.username}")
     if request.method != 'POST':
         raise BadRequest()
-    post = get_object_or_404(Post, slug=post_slug)
+    post = get_object_or_404(Post, slug=post_slug, author__username=author)
     instance = blog_service.create_comment(utils.get_postdata(request))
 
     return redirect(post.get_absolute_url())
 
 
-def blog_post(request, post_slug):
+def blog_post(request, author, post_slug):
     template_name = "blog/blog_post.html"
-    post = get_object_or_404(Post, slug=post_slug)
+    post = get_object_or_404(Post, slug=post_slug, author__username=author)
     page_title = f"{post.title} | {settings.SITE_NAME}"
     recent_posts = Post.objects.all()[:utils.MAX_RECENTS]
     blog_service.update_view_count(Post, post.id)
