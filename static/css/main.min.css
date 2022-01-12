@@ -2175,7 +2175,7 @@ label.nav-label::after{
 .site-panel .catalog-overlay-item label{
 	padding: 0;
 }
-.highlight, .scroll{
+.highlight, .scroll-compoment{
 	display: flex;
 	position: relative;
 	width: 100%;
@@ -2190,13 +2190,6 @@ label.nav-label::after{
 }
 .highlight-wrapper{
 	width: 100%;
-}
-.scroll::-webkit-scrollbar{
-	display: none;
-}
-.scroll{
-	-ms-overflow-style: none;
-	scrollbar-width: none;
 }
 .highlight-wrapper .highlight-info{
     padding: 2em 1em;
