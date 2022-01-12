@@ -1,10 +1,10 @@
 from core.renders_conf import BLOCK_MAPPING, SUMMARY_TAG
 from django.utils.safestring import mark_safe
-from django.template.defaultfilters import urlencode
+from django.template.defaultfilters import urlencode, escape
 
 def render_post(post_dict):
     html_blocks = [BLOCK_MAPPING[block.get('type')](block) for block in post_dict.get('blocks')]
-    return mark_safe("".join(html_blocks))
+    return escape(mark_safe("".join(html_blocks)))
 
 
 def render_summary(post_dict):
