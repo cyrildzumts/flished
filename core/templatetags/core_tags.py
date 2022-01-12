@@ -1,6 +1,7 @@
 from django import template
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
+from blog.models import Post
 from core import renderers
 from flished import utils
 
@@ -39,7 +40,9 @@ def replace_newline(value):
 @register.filter
 def render_post(post):
     logger.info(f"rendering post {post}")
-    if not hasattr(post, 'content') or not isinstance(post.content, dict):
+    if isinstance(post, dict):
+        return renderers.render_post(post['content'])
+    elif not hasattr(post, 'content') or not isinstance(post.content, dict):
         logger.info(f"rendering post: submitted post has no content attr that is a dict")
         return post
     logger.info(f"rendering html for post dict")
@@ -76,7 +79,5 @@ def json_ld(context, structured_data):
     return mark_safe(script_tag)
 
 
-def render_post(blocks):
-    pass
 
 
