@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from core.resources import ui_strings as UI_STRINGS
 from django.contrib import messages
+from blog.forms import PostForm
 from blog.models import Post, Category, Tag
 from blog import blog_service, constants as Constants
 from flished import utils, settings
@@ -73,11 +74,15 @@ def blog_post(request, post_slug):
 
 
 @login_required
-def post_preview(request, post_slug):
+def post_preview(request):
     template_name = "blog/blog_post_preview.html"
-
-    post = get_object_or_404(Post, slug=post_slug)
-    page_title = f"{post.title} - {UI_STRINGS.UI_BLOG_POST_PREVIEW} | {settings.SITE_NAME}"
+    if request.method != 'POST':
+        raise BadRequest()
+    form = PostForm(utils.get_postdata(request))
+    if not form.is_valid():
+        raise BadRequest()
+    post = form.cleaned_data()
+    page_title = f"{post.get('title')} - {UI_STRINGS.UI_BLOG_POST_PREVIEW} | {settings.SITE_NAME}"
     context = {
         'page_title': page_title,
         'PAGE_TITLE': page_title,

@@ -1,0 +1,7 @@
+
+<form id="preview-form" class="force-hidden" action="{% url 'blog:post-preview' %}" method="POST" target="_blank">{% csrf_token %}
+    <input id="author" type="hidden" name="author" value="{{request.user.pk}}">
+    <input id="category" type="hidden" name="category">
+    <input id="preview-title" type="hidden"  name="title">
+    <input id="content" type="hidden" name="content">
+</form>

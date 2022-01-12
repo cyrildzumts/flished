@@ -4,6 +4,7 @@
     <div class="full">
         <div id="editor-wrapper" class="editor-wrapper full padding full-h">
             <div class="flex flex-left padding-v full">
+                {% include "tags/preview_form.html" %}
                 <input type="text" id="title" name="title" placeholder="{{UI_STRINGS_CONTEXT.UI_BLOG_INPUT_TITLE_PLACEHOLDER}}">
                 {% csrf_token %}
             </div>
