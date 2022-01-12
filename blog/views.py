@@ -83,7 +83,7 @@ def post_preview(request):
     if not form.is_valid():
         logger.warning(f"Preview Post Error : Invalid form : {form.errors}")
         raise BadRequest()
-    post = form.cleaned_data()
+    post = form.cleaned_data
     page_title = f"{post.get('title')} - {UI_STRINGS.UI_BLOG_POST_PREVIEW} | {settings.SITE_NAME}"
     context = {
         'page_title': page_title,
