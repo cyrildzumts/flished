@@ -1,3 +1,4 @@
+{% autoescape off %}
 <table id="{{table.id}}">
 {% if table.data.withHeadings %}
     <thead>
@@ -24,3 +25,4 @@
     </tbody>
 {% endif %}
 </table>
+{% endautoescape %}

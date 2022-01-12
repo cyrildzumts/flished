@@ -1,13 +1,17 @@
 {% if list.data.style == 'ordered' %}
+{% autoescape off %}
 <ol>
     {% for item in list.data.items %}
     <li>{{item}}</li>
     {% endfor %}
 </ol>
+{% endautoescape %}
 {% else %}
+{% autoescape off %}
 <ul>
     {% for item in list.data.items %}
     <li>{{item}}</li>
     {% endfor %}
 </ul>
+{% endautoescape %}
 {% endif %}
