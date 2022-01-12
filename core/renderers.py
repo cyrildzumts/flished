@@ -4,7 +4,7 @@ from django.template.defaultfilters import urlencode
 
 def render_post(post_dict):
     html_blocks = [BLOCK_MAPPING[block.get('type')](block) for block in post_dict.get('blocks')]
-    return urlencode("".join(html_blocks))
+    return mark_safe(urlencode("".join(html_blocks)))
 
 
 def render_summary(post_dict):
