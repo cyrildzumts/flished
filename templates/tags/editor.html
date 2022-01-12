@@ -1,23 +1,12 @@
 {% load i18n %} 
 
-<div class="flex flex-center  flex-wrap full editor-post">
-    <div class="full">
-        <div id="editor-wrapper" class="editor-wrapper full padding full-h">
-            <div class="flex flex-left padding-v full">
-                {% include "tags/preview_form.html" %}
-                <input type="text" id="title" name="title" placeholder="{{UI_STRINGS_CONTEXT.UI_BLOG_INPUT_TITLE_PLACEHOLDER}}">
-                {% csrf_token %}
-            </div>
-            <div id="editor" class="full mat-box editor padding full-h" data-action="create" data-author="{{request.user.pk}}">
-            </div>
-        </div>
+<div class="flex flex-center  flex-wrap full editor-post editor-wrapper full padding">
+    <div class="flex flex-left padding-v full">
+        {% include "tags/preview_form.html" %}
+        <input type="text" id="title" name="title" placeholder="{{UI_STRINGS_CONTEXT.UI_BLOG_INPUT_TITLE_PLACEHOLDER}}">
+        {% csrf_token %}
     </div>
-    <div class="full">
-        <div class="flex flex-left full padding">
-            <div id="editor-content" class="editor-content full">
-                
-            </div>
-        </div>
+    <div id="editor" class="full mat-box editor padding full-h" data-action="create" data-author="{{request.user.pk}}">
     </div>
 </div>
     

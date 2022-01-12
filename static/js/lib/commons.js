@@ -260,32 +260,10 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     }
 
     function on_editor_save(saved_data){
-        console.log("Saving editor data : ", saved_data);
         post_content = saved_data;
-        let editor_content = document.querySelector('#editor-content');
-        if (editor_content){
-            try {
-                let content = element_utils.create_element_api({
-                    element:"div",
-                    options : {
-                        cls:"content full",
-                        children : render_content(saved_data.blocks)
-                    }
-                });
-                if(content){
-                    editor_content_clear(editor_content);
-                    editor_content.appendChild(content);  
-                }
-            } catch (error) {
-                console.log("Content data not saved",error);
-            }
-        }
     }
 
     function on_editor_change(api, event){
-        console.log("Saving editor new content ...:");
-        console.log("Api : ", api);
-        console.log("Event : ", event);
         api.saver.save().then(on_editor_save).catch((error)=>{
             console.log("Error on saving editor content after changes : ", error);
         });
@@ -366,7 +344,6 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
             },
             onChange: (api, event) =>{
                 if(AUTO_SAVE_TIMER){
-                    console.log("Clearing AUTO_SAVE_TIMER");
                     clearTimeout(AUTO_SAVE_TIMER);
                 }
                 AUTO_SAVE_TIMER = setTimeout(on_editor_change, EDITOR_CHANGE_TIMEOUT, api, event);
@@ -395,7 +372,6 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     }
 
     function preview_post(){
-        console.log("previewing post started ...");
         let form = document.getElementById('preview-form');
         let preview_title = document.getElementById('preview-title');
         let title = document.getElementById('title');
@@ -403,7 +379,6 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         content.value = JSON.stringify(post_content);
         preview_title.value = title.value;
         form.submit();
-        console.log("previewing post finished ...");
     }
 
     function clean_form_before_submit(form){
@@ -921,29 +896,12 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                     level : response.success
                 }
                 self.onUploadResponse(response);
-                notify(msg);
             }, function(reason){
                 console.error("Files could not be uploaded.");
                 console.error(reason);
                 
             });
-            /*
-            ajax_api.ajax(options).then(function(response){
-                var msg = {
-                    content : response.message,
-                    level : response.success
-                }
-                notify(msg);
-                self.onUploadResponse(response);
-                
-                
 
-            }, function(reason){
-                console.error("Files could not be uploaded.");
-                console.error(reason);
-                
-            });
-            */
         };
 
         return PostManager;
