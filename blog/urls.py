@@ -10,7 +10,7 @@ blog_routes = [
     path('create-post/', views.create_post, name="create-post"),
     path('create-comment/<slug:post_slug>/', views.create_comment, name="create-comment"),
     path('preview/', views.post_preview, name="post-preview"),
-    path('stories/<slug:author>/<slug:post_slug>/', views.blog_post, name="blog-post"),
+    path('<slug:author>/<slug:post_slug>/', views.blog_post, name="blog-post"),
 ]
 
 urlpatterns = [
