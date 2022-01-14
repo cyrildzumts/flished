@@ -19,6 +19,7 @@ from django.urls import path
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from flished import views, settings
+from blog import views as blog_views
 
 
 urlpatterns = i18n_patterns( * [
@@ -28,6 +29,7 @@ urlpatterns = i18n_patterns( * [
     #path('api/', include('api.urls', namespace='api')),
     path('accounts/', include('accounts.urls')),
     path('stories/', include('blog.urls', namespace='blog')),
+    path('me/',blog_views.my_stories,name='my-stories'),
     path('faq/', views.faq, name='faq'),
     path('dashboard/', include('dashboard.urls')),
 
