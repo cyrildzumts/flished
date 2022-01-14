@@ -2,25 +2,25 @@
 {% load i18n %} 
 {% load static %}
 
-{% block HEADER_BANNER %}
-<div class="banner">
-    <div class="container banner-container">
-         <h1>{{SITE_NAME}}</h1>
-    </div>
-</div><!--End of Banner-->
-{% endblock HEADER_BANNER %}
+{% comment %}
+  {% block HEADER_BANNER %}
+  <div class="banner">
+      <div class="container banner-container">
+           <h1>{{SITE_NAME}}</h1>
+      </div>
+  </div><!--End of Banner-->
+  {% endblock HEADER_BANNER %}
+{% endcomment %}
 
 {% block MAIN %}
-<div class="container">
-  <ul class="flex">
-      <li><a href="{% url 'blog:create-post' %}">{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</a></li>
-  </ul>
-</div>
 <div class="full">
-  {% if recent_posts %}
+  {% if story_list %}
+  <div class="story-wrapper">
     <ul>
-        {% for p in recent_posts %}<li><a href="{% url 'blog:blog-post' p.slug %}" class="mat-button mat-button-text"><span>{{p.title}}</span></a></li>{% endfor %}
+        {% for p in story_list %}<li><a href="{% url 'blog:blog-post' p.author.username p.slug %}" class="mat-button mat-button-text"><span>{{p.title}}</span></a></li>{% endfor %}
     </ul>
+    {% include "tags/pagination" with page_set=story_list %}
+  </div>
   {% else %}
   <p>{{UI_STRINGS_CONTEXT.UI_NO_BLOG_POSTS_HINT}}</p>
   {% endif %}

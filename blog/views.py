@@ -9,7 +9,7 @@ from django.contrib import messages
 from blog.forms import PostForm
 from blog.models import Post, Category, Tag
 from blog import blog_service, constants as Constants
-from flished import utils, settings
+from flished import utils, settings, conf as GLOBAL_CONF
 
 import logging
 
@@ -18,15 +18,65 @@ logger = logging.getLogger(__name__)
 # Create your views here.
 
 
-def blog_home(request):
+def stories(request):
     template_name = "blog/blog_home.html"
     page_title = f"{UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE} | {settings.SITE_NAME}"
 
-    recent_posts = Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED)[:utils.MAX_RECENTS]
+    queryset = Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(queryset, GLOBAL_CONF.PAGINATED_BY)
+    try:
+        list_set = paginator.page(page)
+    except PageNotAnInteger:
+        list_set = paginator.page(1)
+    except EmptyPage:
+        list_set = paginator.page(1)
     context = {
         'page_title': page_title,
         'PAGE_TITLE': page_title,
-        'recent_posts': recent_posts
+        'story_list': list_set
+    }
+    return render(request, template_name, context)
+
+
+def author_stories(request,author):
+    template_name = "blog/blog_home.html"
+    page_title = f"{UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE} | {settings.SITE_NAME}"
+
+    queryset = Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED, author__username=author)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(queryset, GLOBAL_CONF.PAGINATED_BY)
+    try:
+        list_set = paginator.page(page)
+    except PageNotAnInteger:
+        list_set = paginator.page(1)
+    except EmptyPage:
+        list_set = paginator.page(1)
+    context = {
+        'page_title': page_title,
+        'PAGE_TITLE': page_title,
+        'story_list': list_set
+    }
+    return render(request, template_name, context)
+
+@login_required
+def my_stories(request):
+    template_name = "blog/blog_home.html"
+    page_title = f"{UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE} | {settings.SITE_NAME}"
+
+    queryset = Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED, author=request.user)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(queryset, GLOBAL_CONF.PAGINATED_BY)
+    try:
+        list_set = paginator.page(page)
+    except PageNotAnInteger:
+        list_set = paginator.page(1)
+    except EmptyPage:
+        list_set = paginator.page(1)
+    context = {
+        'page_title': page_title,
+        'PAGE_TITLE': page_title,
+        'story_list': list_set
     }
     return render(request, template_name, context)
 
@@ -61,7 +111,7 @@ def blog_post(request, author, post_slug):
     template_name = "blog/blog_post.html"
     post = get_object_or_404(Post, slug=post_slug, author__username=author)
     page_title = f"{post.title} | {settings.SITE_NAME}"
-    recent_posts = Post.objects.all()[:utils.MAX_RECENTS]
+    recent_posts = Post.objects.all()[:GLOBAL_CONF.MAX_RECENT]
     blog_service.update_view_count(Post, post.id)
     context = {
         'page_title': page_title,
@@ -110,7 +160,7 @@ def category_detail_slug(request, slug=None):
     blog_service.update_view_count(Category, category.id)
     
     page = request.GET.get('page', 1)
-    paginator = Paginator(queryset, utils.PAGINATED_BY)
+    paginator = Paginator(queryset, GLOBAL_CONF.PAGINATED_BY)
     try:
         list_set = paginator.page(page)
     except PageNotAnInteger:

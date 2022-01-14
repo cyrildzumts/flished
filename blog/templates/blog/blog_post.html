@@ -14,7 +14,7 @@
 <div class="container">
     <article class="post-wrapper">
         <div class="post-header">
-            <span>{{blog_post.author.get_full_name}}</span>|<span>{{blog_post.created_at}}</span>|<span>{{blog_post.post_status|post_status_value}}</span>
+            <a href="{% url 'blog:author-stories' p.author.username %}" class="mat-button mat-button-text"><span>{{blog_post.author.get_full_name}}</span></a>|<span>{{blog_post.created_at}}</span>|<span>{{blog_post.post_status|post_status_value}}</span>
         </div>
         <div class="post">
             <div class="post-title"><span>{{blog_post.title}}</span></div>
@@ -33,7 +33,7 @@
                         {% if not request.user.is_authenticated %}
                         <div class="hint">{% trans "Only members can comment" %}</div>
                         {% endif %}
-                        <form action="{% url 'blog:create-comment' blog_post.slug %}"  class="form" method="POST">{% csrf_token %}
+                        <form action="{% url 'blog:create-comment' blog_post.author.username blog_post.slug %}"  class="form" method="POST">{% csrf_token %}
                             {% if request.user.is_authenticated %}
                             <input type="hidden" name="author" value="{{request.user.pk}}">
                             {% endif %}
