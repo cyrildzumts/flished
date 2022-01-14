@@ -14,7 +14,7 @@
 <div class="container">
     <article class="post-wrapper">
         <div class="post-header">
-            <a href="{% url 'blog:author-stories' p.author.username %}" class="mat-button mat-button-text"><span>{{blog_post.author.get_full_name}}</span></a>|<span>{{blog_post.created_at}}</span>|<span>{{blog_post.post_status|post_status_value}}</span>
+            <a href="{% url 'blog:author-stories' blog_post.author.username %}" class="mat-button mat-button-text"><span>{{blog_post.author.get_full_name}}</span></a>|<span>{{blog_post.created_at}}</span>|<span>{{blog_post.post_status|post_status_value}}</span>
         </div>
         <div class="post">
             <div class="post-title"><span>{{blog_post.title}}</span></div>
