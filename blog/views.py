@@ -117,6 +117,7 @@ def blog_post(request, author, post_slug):
         'page_title': page_title,
         'PAGE_TITLE': page_title,
         'recent_posts': recent_posts,
+        'POST_STATUS_DRAFT': Constants.POST_STATUS_DRAFT,
         'blog_post': post,
         'COMMENT_MAX_SIZE': Constants.COMMENT_MAX_SIZE,
     }
