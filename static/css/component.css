@@ -141,14 +141,14 @@
 }
 .editor .ce-toolbar__settings-btn{
     display: inline-flex;
-    height: 1.5em;
-    width: 1.5em;
+    height: 1.3em;
+    width: 1.3em;
 	background: #ccc;
 }
 
 .editor .icon{
-	width: 1em;
-    height: 1em;
+	width: 1.2em;
+    height: 1.2em;
 }
 
 .coupon-wrapper{
