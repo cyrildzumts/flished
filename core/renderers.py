@@ -1,6 +1,5 @@
 from core.renders_conf import BLOCK_MAPPING, SUMMARY_TAG
 from django.utils.safestring import mark_safe
-from django.template.defaultfilters import urlencode, escape
 
 def render_post(post_dict):
     html_blocks = [BLOCK_MAPPING[block.get('type')](block) for block in post_dict.get('blocks')]

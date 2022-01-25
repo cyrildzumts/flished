@@ -8,7 +8,7 @@ def render_table(table, template_name="editor/table.html"):
     return render_to_string(template_name, {'table': table})
 
 def render_list(list_tool, template_name="editor/list.html"):
-    return render_to_string(template_name, {'list_tool': list_tool})
+    return render_to_string(template_name, {'list': list_tool})
 
 
 def render_header(head, template_name="editor/head.html"):
