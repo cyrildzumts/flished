@@ -154,10 +154,14 @@ p{
 	padding: 0 !important;
 }
 .editor .ce-toolbar__settings-btn{
+    display: inline-flex;
+    height: 1.5em;
+    width: 1.5em;
 	background: #ccc;
 }
-.editor .ce-toolbar__settings-btn .icon{
-	width: 1em !important;
+.editor .icon{
+	width: 1em;
+    height: 1em;
 }
 .coupon-wrapper{
 	width: 100%;
