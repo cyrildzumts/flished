@@ -22,7 +22,11 @@
     <form action="">{% csrf_token %}
       <input id="content" type="hidden" name="content" value="{{post.content_json_str|default_if_none:''}}">
     </form>
-    <div id="editor" class="full mat-box editor padding full-h" data-post="{{post.post_uuid}}" data-action="update" data-author="{{request.user.pk}}" data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}">
+    <div id="editor" class="full mat-box editor padding full-h" 
+                      data-post="{{post.post_uuid}}" 
+                      data-action="update" 
+                      data-author="{{request.user.pk}}" 
+                      data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}">
     </div>
   </div>
 </div>
