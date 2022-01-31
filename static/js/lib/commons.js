@@ -15,6 +15,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     
     const SAVE_DRAFT_INTERVAL = 10000; // 10s
     const EDITOR_CHANGE_TIMEOUT = 1000; // 1s
+    const POST_STATUS_PUBLISH = 1
     let AUTO_SAVE_TIMER;
     let fileUpload;
     let postManager;
@@ -736,6 +737,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
             this.created_post_container = undefined;
             this.created_post_link = undefined;
             this.supported_formats = ['jpg', 'jpeg', 'png', 'webp'];
+            this.post_status = 0;
         };
         PostManager.prototype.init = function(){
             var self = this;
@@ -777,6 +779,14 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 e.stopPropagation();
                 if(post_content){
                     preview_post();
+                }
+            });
+            $(".js-publish-post").on('click', function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                if(post_content){
+                    self.post_status = POST_STATUS_PUBLISH;
+                    self.upload();
                 }
             });
 
@@ -892,6 +902,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
             formData.append('title', title.value);
             formData.append('content', JSON.stringify(post_content));
             formData.append('author', editor_element.dataset.author);
+            formData.append('post_status', this.post_status);
             let url = this.is_update_form() ? '/api/update-post/' + editor_element.dataset.post + '/' : '/api/create-post/';
             var options = {
                 //url : url,
