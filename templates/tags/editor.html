@@ -1,15 +1,7 @@
 {% load i18n %} 
 
 <div class="flex flex-center  flex-wrap full editor-post editor-wrapper full padding">
-    <div id="post-link-container hidden">
-        <span>{{UI_STRINGS_CONTEXT.UI_POST_PUBLISHED_LABEL}}</span>
-        <a id="post-link" href="">{{UI_STRINGS_CONTEXT.UI_OPEN_POST_LINK_LABEL}}</a>
-    </div>
-    <div class="flex flex-left padding-v full">
-        {% include "tags/preview_form.html" %}
-        <input type="text" id="title" class="full" name="title" placeholder="{{UI_STRINGS_CONTEXT.UI_BLOG_INPUT_TITLE_PLACEHOLDER}}">
-        {% csrf_token %}
-    </div>
+    {% include "tags/post_published_tag.html" %}
     <div id="editor" class="full mat-box editor padding full-h" 
                      data-action="create" data-author="{{request.user.pk}}" 
                      data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}">
