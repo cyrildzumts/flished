@@ -12,12 +12,6 @@
         {% endblock HEADER_BANNER_TITLE %}
         
         <div class="padding-v">
-            {% if is_seller %}
-            <div class="balance-info">
-                <div class="row flex-left"><h5>{% trans "Posts" %}</h5></div>
-                <div class="row flex-left balance"><span>15</span></div>
-            </div><!--End of Balance-->
-            {% endif %}
             <ul class="medium no-child-padding no-child-margin">
                     <li><a class="mat-button mat-button-text" href="{{account.get_absolute_url}}"><i class="fas fa-user icon"></i><span>{% trans "Account Details" %}</span></a></li>
             </ul><!--End of Banner-Actions-->

@@ -61,7 +61,7 @@ def author_stories(request,author):
 
 @login_required
 def my_stories(request):
-    template_name = "blog/blog_home.html"
+    template_name = "blog/me.html"
     page_title = f"{UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE} | {settings.SITE_NAME}"
 
     queryset = Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED, author=request.user)
