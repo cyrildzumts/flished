@@ -25,8 +25,6 @@ from blog import views as blog_views
 urlpatterns = i18n_patterns( * [
     path('', views.home, name="home"),
     path('about/', views.about, name='about'),
-    path('admin/', admin.site.urls),
-    #path('api/', include('api.urls', namespace='api')),
     path('accounts/', include('accounts.urls')),
     path('stories/', include('blog.urls', namespace='blog')),
     path('me/',blog_views.my_stories,name='my-stories'),

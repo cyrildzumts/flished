@@ -14,7 +14,7 @@
 <div class="container">
     <article class="post-wrapper">
         <div class="post-header">
-            <a href="{% url 'blog:author-stories' blog_post.author.username %}"><span>{{blog_post.author.get_full_name}}</span> </a>|<span>{{blog_post.created_at}}</span>{% if blog_post.post_status == POST_STATUS_DRAFT %}|<span>{{blog_post.post_status|post_status_value}}</span>{% endif %}
+            <a href="{% url 'blog:author-stories' blog_post.author.username %}"><span>{{blog_post.author.get_full_name}}</span> </a>|<span>{{blog_post.created_at}}</span>{% if blog_post.post_status == POST_STATUS_DRAFT %}|<span>{{blog_post.post_status|post_status_value}}</span>{% endif %}{% if blog_post.author == request.user %} | <a href="{{blog_post.get_update_url}}" title="{{UI_STRINGS_CONTEXT.UI_UPDATE_BLOG_POST}}"><i class="fas fa-pen icon"></i></a>{% endif %}
         </div>
         <div class="post">
             <div class="post-title"><span>{{blog_post.title}}</span></div>
@@ -31,7 +31,7 @@
                 <div id="comments-wrapper" class="comments-wrapper">
                     <div class="create-comment">
                         {% if not request.user.is_authenticated %}
-                        <div class="hint">{% trans "Only members can comment" %}</div>
+                        <div class="hint">{{UI_STRINGS_CONTEXT.UI_COMMENT_LOGIN_REQUIRED_HINT}}</div>
                         {% endif %}
                         <form action="{% url 'blog:create-comment' blog_post.author.username blog_post.slug %}"  class="form" method="POST">{% csrf_token %}
                             {% if request.user.is_authenticated %}
@@ -40,18 +40,18 @@
                             <input type="hidden" name="post" value="{{blog_post.pk}}">
                             <div class="flex flex-left flex-wrap full">
                                 <div class="form-group full">
-                                    <label class="padding-bottom" for="new-comment">{% trans "Comment" %}</label>
-                                    <textarea id="new-comment" class="limited-input bordered full" name="comment" cols="30" rows="10" data-target="#comment-counter" data-max-length="{{COMMENT_MAX_SIZE}}" placeholder="{% trans 'Post a comment' %}"></textarea>
+                                    <label class="padding-bottom" for="new-comment">{{UI_STRINGS_CONTEXT.UI_COMMENT_LABEL}}</label>
+                                    <textarea id="new-comment" class="limited-input bordered full" name="comment" cols="30" rows="10" data-target="#comment-counter" data-max-length="{{COMMENT_MAX_SIZE}}" placeholder="{{UI_STRINGS_CONTEXT.UI_POST_NEW_COMMENT_PLACEHOLDER}}"></textarea>
                                 </div>
                                 <div class="row padding-l"> <span id="comment-counter" class="char-counter">0</span><span class="text-max-length">/{{COMMENT_MAX_SIZE}}</span></div>
                             </div>
                             <div class="actions flex-right">
-                                <button class="mat-button-default" {% if not request.user.is_authenticated %}disabled{% endif %}><span>{% trans "Comment" %}</span></button>
+                                <button class="mat-button-default" {% if not request.user.is_authenticated %}disabled{% endif %}><span>{{UI_STRINGS_CONTEXT.UI_COMMENT_LABEL}}</span></button>
                             </div>
                         </form>
                     </div>
                     <div class="post-header">
-                        <span>{% trans "Comments" %}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>
+                        <span>{{UI_STRINGS_CONTEXT.UI_COMMENT_LIST_LABEL}}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>
                     </div>
                     <ul id="comments" class="comments box">
                         {% for comment in blog_post.comments.all %}
@@ -66,7 +66,7 @@
                             </div>
                         </li>
                         {% empty %}
-                        <li><span class="bold">{% trans "Be the first to comment" %}</span></li>
+                        <li><span class="bold">{{UI_STRINGS_CONTEXT.UI_EDITOR_FIRST_COMMENT_HINT}}</span></li>
                         {% endfor %}
                         
                     </ul>

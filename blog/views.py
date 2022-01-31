@@ -97,6 +97,23 @@ def create_post(request):
 
 
 @login_required
+def update_post(request, post_slug):
+    template_name = "blog/blog_post_update.html"
+    post = get_object_or_404(Post, slug=post_slug, author=request.user)
+    page_title = f"{post.title} | {UI_STRINGS.UI_UPDATE_BLOG_POST} | {settings.SITE_NAME}"
+    if request.method == 'POST':
+        instance = blog_service.update_post(utils.get_postdata(request))
+        return redirect('blog:home')
+
+    context = {
+        'page_title': page_title,
+        'PAGE_TITLE': page_title,
+        'post': post
+    }
+    return render(request, template_name, context)
+
+
+@login_required
 def create_comment(request,author, post_slug):
     logger.info(f"New post comment creation request from user {request.user.username}")
     if request.method != 'POST':

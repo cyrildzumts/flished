@@ -1,3 +1,4 @@
+import json
 from django.db import models
 from django.shortcuts import reverse
 from django.contrib.auth.models import User
@@ -89,6 +90,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category,related_name='posts', on_delete=models.SET_NULL, blank=True, null=True)
     tags = models.ManyToManyField(Tag, related_name="tags")
     slug = models.SlugField(max_length=250, blank=True, null=True)
+    content_draft = models.JSONField(blank=True, null=True)
     content = models.JSONField()
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -97,7 +99,7 @@ class Post(models.Model):
     view_count = models.IntegerField(default=0, blank=True, null=True)
     post_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     FORM_FIELDS = ['author', 'title', 'category', 'content']
-    SERIALIZER_FIELDS = ['author', 'title', 'category', 'content', 'post_uuid']
+    SERIALIZER_FIELDS = ['author', 'title', 'category', 'content', 'content_draft', 'post_uuid']
     SEARCH_FIELDS = ['title', 'content']
 
     class Meta:
@@ -106,6 +108,11 @@ class Post(models.Model):
     def __str__(self) -> str:
         return self.title
 
+    @property
+    def content_json_str(self):
+        if self.content is None:
+            return None
+        return json.dumps(self.content)
     
     def get_absolute_url(self):
         return reverse("blog:blog-post", kwargs={"post_slug": self.slug, 'author': self.author.username})
@@ -114,7 +121,7 @@ class Post(models.Model):
         return reverse("dashboard:post-detail", kwargs={"post_uuid": self.post_uuid})
     
     def get_update_url(self):
-        return reverse("dashboard:post-update", kwargs={"post_uuid": self.post_uuid})
+        return reverse("blog:update-post", kwargs={"post_slug": self.slug})
     
 
 

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %} 
+{% load static %}
+
+{% block HEADER_PANEL %}
+{% include "tags/editor_header.html" %}
+{% endblock HEADER_PANEL %}
+
+{% block HEADER_BANNER %}
+
+{% endblock HEADER_BANNER %}
+
+{% block MAIN %}
+<div class="full">
+  <div class="flex flex-center  flex-wrap full editor-post editor-wrapper full padding">
+    <div class="flex flex-left padding-v full">
+        {% include "tags/preview_form.html" %}
+        <input type="text" id="title" name="title" placeholder="{{UI_STRINGS_CONTEXT.UI_BLOG_INPUT_TITLE_PLACEHOLDER}}" value="{{post.title}}">
+        
+    </div>
+    <form action="">{% csrf_token %}
+      <input id="content" type="hidden" name="content" value="{{post.content_json_str|default_if_none:''}}">
+    </form>
+    <div id="editor" class="full mat-box editor padding full-h" data-action="update" data-author="{{request.user.pk}}" data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}">
+    </div>
+</div>
+</div>
+{% endblock MAIN %}
+{% block FOOTER %}{% endblock FOOTER %}

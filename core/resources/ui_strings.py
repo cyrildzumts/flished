@@ -1,13 +1,13 @@
 from django.utils.translation import ugettext_lazy as _
 
 HOME_META_DESCRIPTION = "Votre Blog actuel"
-HOME_META_KEYWORDS = "jasiri"
-HOME_PAGE_TITLE = "JASIRI Blog"
+HOME_META_KEYWORDS = "flished"
+HOME_PAGE_TITLE = "FLISHED"
 UI_BLOG_HOME_PAGE_TITLE = _("Blog")
-UI_SITE_CONDITIONS = "Protection de données & Conditions"
-UI_PRIVACY_POLICY = 'Vie privée'
-UI_ABOUT_US = 'A propos'
-UI_FAQ = 'FAQ'
+UI_SITE_CONDITIONS = _("Terms of use")
+UI_PRIVACY_POLICY = _("Privacy")
+UI_ABOUT_US = _('About us')
+UI_FAQ = _('FAQ')
 UI_FOOTER_MENTION = _('Publication Plateforme')
 UI_TERMS_OF_USE = 'Conditions'
 UI_NO_SEARCH_RESULT_TITLE = _('No article found')
@@ -28,6 +28,7 @@ UI_CONTACT_LABEL = _('Contact us')
 UI_CLEAR_BTN_LABEL = _('Clear')
 UI_BLOG_HOME_LABEL = _('Blog Home')
 UI_NEW_BLOG_POST = _('New Post')
+UI_UPDATE_BLOG_POST = _('Edit Post')
 UI_NO_BLOG_POSTS_HINT = _("There no posts currently. Feel free to create an new one")
 UI_INVALID_USER_REQUEST = _('Invalid user request')
 UI_RESOURCE_NOT_FOUND_TITLE = _('Resource not found !')
@@ -37,6 +38,15 @@ UI_BLOG_POST_PREVIEW = _('Post Preview')
 UI_BLOG_INPUT_TITLE_PLACEHOLDER = _("Story's title ...")
 UI_NOT_FOUND = _('Not found')
 UI_WHATSAPP_SHARE_BODY = _("Hey, have a look on this article {POST_URL}. I think it is interesting, Thanks !")
+
+UI_EDITOR_PLACEHOLDER = _("Start typing here ...")
+UI_EDITOR_FIRST_COMMENT_HINT = _("Be the first to comment")
+UI_POST_NEW_COMMENT_PLACEHOLDER = _("Post a comment")
+UI_COMMENT_LOGIN_REQUIRED_HINT = _("Only members can comment. Please an account to comment")
+UI_COMMENT_LABEL = _("Comment")
+UI_COMMENT_LIST_LABEL = _("Comments")
+UI_ACCOUNT_LABEL = _("Account")
+UI_DASHBOARD_LABEL = _("Dashboard")
 
 DASHBOARD_POSTS_TITLE = _('Posts')
 DASHBOARD_POST_TITLE = _('Post')
@@ -80,6 +90,14 @@ DASHBOARD_SUBSCRIPTION_PAYMENTS_TITLE = _('Subscription Payments')
 DASHBOARD_SUBSCRIPTION__CREATE_PAYMENT_TITLE = _('Create Subscription Payment')
 
 UI_STRINGS_CONTEXT = {
+    'UI_COMMENT_LABEL': UI_COMMENT_LABEL,
+    'UI_COMMENT_LIST_LABEL': UI_COMMENT_LIST_LABEL,
+    'UI_ACCOUNT_LABEL': UI_ACCOUNT_LABEL,
+    'UI_DASHBOARD_LABEL': UI_DASHBOARD_LABEL,
+    'UI_POST_NEW_COMMENT_PLACEHOLDER': UI_POST_NEW_COMMENT_PLACEHOLDER,
+    'UI_COMMENT_LOGIN_REQUIRED_HINT': UI_COMMENT_LOGIN_REQUIRED_HINT,
+    'UI_EDITOR_FIRST_COMMENT_HINT': UI_EDITOR_FIRST_COMMENT_HINT,
+    'UI_EDITOR_PLACEHOLDER': UI_EDITOR_PLACEHOLDER,
     'UI_NOT_FOUND': UI_NOT_FOUND,
     'UI_BLOG_INPUT_TITLE_PLACEHOLDER': UI_BLOG_INPUT_TITLE_PLACEHOLDER,
     'UI_BLOG_POST_PREVIEW': UI_BLOG_POST_PREVIEW,
@@ -113,6 +131,7 @@ UI_STRINGS_CONTEXT = {
     'UI_PUBLISH_BTN_LABEL': UI_PUBLISH_BTN_LABEL,
     'UI_BLOG_HOME_LABEL': UI_BLOG_HOME_LABEL,
     'UI_NEW_BLOG_POST': UI_NEW_BLOG_POST,
+    'UI_UPDATE_BLOG_POST': UI_UPDATE_BLOG_POST,
     'UI_NO_BLOG_POSTS_HINT': UI_NO_BLOG_POSTS_HINT,
 
 

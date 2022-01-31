@@ -24,11 +24,12 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     let filter_form;
     let editor;
     let post_content;
+    let json_input;
     let headers = [null, "h1","h2", "h3", "h4", "h5", "h6"];
     let LIST_TYPE_MAPPING = {
         ordered: 'ol',
+        unordered:'ul',
         checklist: 'ul'
-
     };
     let BLOCK_MAPPING = {
         'header': render_header,
@@ -291,6 +292,17 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     }
 
     function editor_init(unsplash_conf){
+        let editor_tag = document.getElementById('editor');
+        let init_data = {};
+        if(json_input && json_input.value.length){   
+            try {
+                init_data = JSON.parse(json_input.value);
+            } catch (error) {
+                console.warn("error on parsing json data from description_json value : %s", json_input.value);
+                console.error(error);
+                init_data = {};
+            }
+        }
         editor = new EditorJS({
             holder:'editor',
             tools: {
@@ -338,7 +350,8 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                     },
                   },
             },
-            placeholder: 'Start typing here ...',
+            data: init_data,
+            placeholder: editor_tag.dataset.placeholder,
             onReady: function(){
                 console.log("Editor is ready" , editor);
             },
@@ -365,7 +378,8 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
 
     function create_editor(){
         let editor_tag = document.getElementById('editor');
-        if( !editor_tag){
+        json_input = document.getElementById('content');
+        if( !editor_tag ){
             return;
         }
         fetch_credential(editor_init);

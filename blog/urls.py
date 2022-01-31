@@ -9,8 +9,9 @@ blog_routes = [
     path('', views.stories, name='blog-home'),
     path('create-post/', views.create_post, name="create-post"),
     path('preview/', views.post_preview, name="post-preview"),
-    path('<slug:author>/', views.author_stories, name="author-stories"),
+    path('update-post/<slug:post_slug>/', views.update_post, name="update-post"),
     path('create-comment/<slug:author>/<slug:post_slug>/', views.create_comment, name="create-comment"),
+    path('<slug:author>/', views.author_stories, name="author-stories"),
     path('<slug:author>/<slug:post_slug>/', views.blog_post, name="blog-post"),
 ]
 
