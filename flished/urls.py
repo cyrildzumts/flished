@@ -27,7 +27,7 @@ urlpatterns = i18n_patterns( * [
     path('about/', views.about, name='about'),
     path('accounts/', include('accounts.urls')),
     path('stories/', include('blog.urls', namespace='blog')),
-    path('me/',blog_views.my_stories,name='my-stories'),
+    path('me/',blog_views.my_stories,name='me'),
     path('faq/', views.faq, name='faq'),
     path('dashboard/', include('dashboard.urls')),
 
