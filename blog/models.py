@@ -98,7 +98,7 @@ class Post(models.Model):
     post_status = models.IntegerField(default=Contants.POST_STATUS_DRAFT, blank=True)
     view_count = models.IntegerField(default=0, blank=True, null=True)
     post_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
-    FORM_FIELDS = ['author', 'title', 'category', 'content']
+    FORM_FIELDS = ['author', 'title', 'category', 'content','post_status']
     SERIALIZER_FIELDS = ['author', 'title', 'category', 'content', 'post_uuid', 'post_status']
     SEARCH_FIELDS = ['title', 'content']
 
