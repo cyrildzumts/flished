@@ -297,6 +297,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         if(json_input && json_input.value.length){   
             try {
                 init_data = JSON.parse(json_input.value);
+                post_content = init_data;
             } catch (error) {
                 console.warn("error on parsing json data from description_json value : %s", json_input.value);
                 console.error(error);
