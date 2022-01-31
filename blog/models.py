@@ -90,7 +90,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category,related_name='posts', on_delete=models.SET_NULL, blank=True, null=True)
     tags = models.ManyToManyField(Tag, related_name="tags")
     slug = models.SlugField(max_length=250, blank=True, null=True)
-    content_draft = models.JSONField(blank=True, null=True)
+    #content_draft = models.JSONField(blank=True, null=True)
     content = models.JSONField()
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -99,7 +99,7 @@ class Post(models.Model):
     view_count = models.IntegerField(default=0, blank=True, null=True)
     post_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     FORM_FIELDS = ['author', 'title', 'category', 'content']
-    SERIALIZER_FIELDS = ['author', 'title', 'category', 'content', 'content_draft', 'post_uuid']
+    SERIALIZER_FIELDS = ['author', 'title', 'category', 'content', 'post_uuid']
     SEARCH_FIELDS = ['title', 'content']
 
     class Meta:
