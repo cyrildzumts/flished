@@ -879,14 +879,14 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         PostManager.prototype.onUploadResponse = function(data){
             
             if(!data.success){
-                var msg = {
-                    content : data.message,
-                    level : data.success
-                }
-                notify(msg);
+                
                 return;
             }
             let editor_element = document.querySelector('#editor');
+            let link_container = document.getElementById('post-link-container');
+            let link = link_container.querySelector('#post-link');
+            link.href = data.url;
+            link_container.classList.remove('hidden');
             editor_element.dataset.action = "update";
             editor_element.dataset['post'] = data.post.post_uuid;
             
@@ -917,10 +917,11 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 body: formData
             };
             ajax_api.fetch_api(url, fetch_options).then(function(response){
-                var msg = {
-                    content : response.message,
-                    level : response.success
+                let msg = {
+                    content : data.message,
+                    level : data.success
                 }
+                notify(msg);
                 self.onUploadResponse(response);
             }, function(reason){
                 console.error("Files could not be uploaded.");

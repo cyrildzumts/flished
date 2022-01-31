@@ -63,7 +63,8 @@ def create_post(request):
         data = {
             'success': True,
             'message': 'Post created',
-            'post': serializer.data
+            'post': serializer.data,
+            'url': instance.get_absolute_url()
         }
     
     return Response(data=data, status=status.HTTP_200_OK)
@@ -114,7 +115,8 @@ def update_post(request, post_uuid):
         data = {
             'success': True,
             'message': 'Post created',
-            'post': serializer.data
+            'post': serializer.data,
+            'url': instance.get_absolute_url()
         }
     return Response(data=data, status=status.HTTP_200_OK)
 

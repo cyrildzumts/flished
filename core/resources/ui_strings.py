@@ -29,6 +29,8 @@ UI_CLEAR_BTN_LABEL = _('Clear')
 UI_BLOG_HOME_LABEL = _('Blog Home')
 UI_NEW_BLOG_POST = _('New Post')
 UI_UPDATE_BLOG_POST = _('Edit Post')
+UI_POST_PUBLISHED_LABEL = _('Your story has been published')
+UI_OPEN_POST_LINK_LABEL = _('Open your story')
 UI_NO_BLOG_POSTS_HINT = _("There no posts currently. Feel free to create an new one")
 UI_INVALID_USER_REQUEST = _('Invalid user request')
 UI_RESOURCE_NOT_FOUND_TITLE = _('Resource not found !')
@@ -90,6 +92,8 @@ DASHBOARD_SUBSCRIPTION_PAYMENTS_TITLE = _('Subscription Payments')
 DASHBOARD_SUBSCRIPTION__CREATE_PAYMENT_TITLE = _('Create Subscription Payment')
 
 UI_STRINGS_CONTEXT = {
+    'UI_POST_PUBLISHED_LABEL': UI_POST_PUBLISHED_LABEL,
+    'UI_OPEN_POST_LINK_LABEL': UI_OPEN_POST_LINK_LABEL,
     'UI_COMMENT_LABEL': UI_COMMENT_LABEL,
     'UI_COMMENT_LIST_LABEL': UI_COMMENT_LIST_LABEL,
     'UI_ACCOUNT_LABEL': UI_ACCOUNT_LABEL,
