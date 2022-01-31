@@ -389,7 +389,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         let form = document.getElementById('preview-form');
         let preview_title = document.getElementById('preview-title');
         let title = document.getElementById('title');
-        let content = document.getElementById('content');
+        let content = document.getElementById('preview-content');
         content.value = JSON.stringify(post_content);
         preview_title.value = title.value;
         form.submit();
