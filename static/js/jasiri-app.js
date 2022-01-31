@@ -9,5 +9,5 @@ requirejs.config({
 });
 
 requirejs(['ajax_api', 'commons'], function(ajax_api){
-    console.log("jasiri app ready");
+    console.log("flished app ready");
 });
