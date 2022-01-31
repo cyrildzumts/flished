@@ -15,7 +15,7 @@
   <div class="flex flex-center  flex-wrap full editor-post editor-wrapper full padding">
     <div class="flex flex-left padding-v full">
         {% include "tags/preview_form.html" %}
-        <input type="text" id="title" name="title" placeholder="{{UI_STRINGS_CONTEXT.UI_BLOG_INPUT_TITLE_PLACEHOLDER}}" value="{{post.title}}">
+        <input type="text" id="title" class="full" name="title" placeholder="{{UI_STRINGS_CONTEXT.UI_BLOG_INPUT_TITLE_PLACEHOLDER}}" value="{{post.title}}">
         
     </div>
     <form action="">{% csrf_token %}
