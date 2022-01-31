@@ -301,12 +301,6 @@ ul, nav, .nav{
 	margin: 0;
 }
 
-li a{
-	display: block;
-	text-align: center;
-	text-decoration: none;
-}
-
 .big-menu, .catalog-overlay{
 	width: 100%;
 	position: relative;
