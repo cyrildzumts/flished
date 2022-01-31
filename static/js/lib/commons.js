@@ -918,8 +918,8 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
             };
             ajax_api.fetch_api(url, fetch_options).then(function(response){
                 let msg = {
-                    content : data.message,
-                    level : data.success
+                    content : response.message,
+                    level : response.success
                 }
                 notify(msg);
                 self.onUploadResponse(response);
