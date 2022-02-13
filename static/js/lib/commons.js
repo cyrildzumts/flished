@@ -1,7 +1,7 @@
 define(['require','filters','ajax_api', 'element_utils', 'editor/editor', 
     'editor/plugins/header.min','editor/plugins/list.min', 'editor/plugins/link.min',
     'editor/plugins/checklist.min', 'editor/plugins/quote.min', 'editor/plugins/table.min',
-    'editor/plugins/inline-image'
+    'editor/plugins/inline-image','editor/plugins/editor-emoji.min'
     ], function(require,Filter,ajax_api, element_utils,EditorJS) {
     'use strict';
 
@@ -10,6 +10,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     const Link = require('editor/plugins/link.min');
     const Checklist = require('editor/plugins/checklist.min');
     const Quote = require('editor/plugins/quote.min');
+    const Emoji = require('editor/plugins/editor-emoji.min');
     const Table = require('editor/plugins/table.min');
     const InlineImage = require('editor/plugins/inline-image');
     
@@ -40,8 +41,13 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         'linkTool': render_linkTool,
         'checklist': render_checklist,
         'quote': render_quote,
-        'image': render_inlineImage
+        'image': render_inlineImage,
+        'emoji': render_emoji
     };
+    function render_emoji(emoji){
+        console.log(emoji);
+        return emoji.data.text;
+    }
 
     function render_header(header){
         let node = element_utils.create_element_api({
@@ -328,6 +334,10 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 },
                 linkTool: {
                     class: Link,
+                    inlineToolbar: true
+                },
+                emoji: {
+                    class:Emoji,
                     inlineToolbar: true
                 },
                 checklist: {
