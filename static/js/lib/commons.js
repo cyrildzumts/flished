@@ -338,7 +338,6 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 },
                 emoji: {
                     class:Emoji,
-                    inlineToolbar: true
                 },
                 checklist: {
                     class:Checklist,
