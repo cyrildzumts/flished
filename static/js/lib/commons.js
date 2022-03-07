@@ -348,8 +348,8 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                     inlineToolbar:true,
                     shortcut: 'CMD+SHIFT+Q',
                     config: {
-                        quotePlaceholder: 'Enter a quote',
-                        captionPlaceholder: 'Quote\'s author',
+                        quotePlaceholder: editor_tag.dataset.quotePlaceholder,
+                        captionPlaceholder: editor_tag.dataset.captionPlaceholder,
                     },
                 },
                 table: {

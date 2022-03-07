@@ -43,6 +43,8 @@ UI_NOT_FOUND = _('Not found')
 UI_WHATSAPP_SHARE_BODY = _("Hey, have a look on this article {POST_URL}. I think it is interesting, Thanks !")
 
 UI_EDITOR_PLACEHOLDER = _("Start typing here ...")
+UI_QUOTE_PLACEHOLDER = _('Enter a quote')
+UI_CAPTION_PLACEHOLDER = _('Quote\'s author')
 UI_EDITOR_FIRST_COMMENT_HINT = _("Be the first to comment")
 UI_POST_NEW_COMMENT_PLACEHOLDER = _("Post a comment")
 UI_COMMENT_LOGIN_REQUIRED_HINT = _("Only members can comment. Please log in or create an account to comment")
@@ -93,6 +95,9 @@ DASHBOARD_SUBSCRIPTION_PAYMENTS_TITLE = _('Subscription Payments')
 DASHBOARD_SUBSCRIPTION__CREATE_PAYMENT_TITLE = _('Create Subscription Payment')
 
 UI_STRINGS_CONTEXT = {
+    'UI_CAPTION_PLACEHOLDER': UI_CAPTION_PLACEHOLDER,
+    'UI_QUOTE_PLACEHOLDER': UI_QUOTE_PLACEHOLDER,
+    'UI_EDITOR_PLACEHOLDER': UI_EDITOR_PLACEHOLDER,
     'UI_POST_PUBLISHED_LABEL': UI_POST_PUBLISHED_LABEL,
     'UI_OPEN_POST_LINK_LABEL': UI_OPEN_POST_LINK_LABEL,
     'UI_COMMENT_LABEL': UI_COMMENT_LABEL,

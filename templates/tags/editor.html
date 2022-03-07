@@ -8,8 +8,10 @@
         {% csrf_token %}
     </div>
     <div id="editor" class="full mat-box editor padding full-h" 
-                     data-action="create" data-author="{{request.user.pk}}" 
-                     data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}">
+                    data-action="create" data-author="{{request.user.pk}}" 
+                    data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}" 
+                    data-quote-placeholder="{{UI_STRINGS_CONTEXT.UI_QUOTE_PLACEHOLDER}}" 
+                    data-caption-placeholder="{{UI_STRINGS_CONTEXT.UI_CAPTION_PLACEHOLDER}}">
     </div>
 </div>
     
