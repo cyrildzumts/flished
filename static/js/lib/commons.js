@@ -17,6 +17,8 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     const SAVE_DRAFT_INTERVAL = 10000; // 10s
     const EDITOR_CHANGE_TIMEOUT = 1000; // 1s
     const POST_STATUS_PUBLISH = 1
+    const CAROUSEL_INTERVAL = 5000;
+    const LOGIN_REQUIRED_KEY = "login_required";
     let AUTO_SAVE_TIMER;
     let fileUpload;
     let postManager;
