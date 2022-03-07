@@ -944,6 +944,65 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
 
     })();
 
+    var Modal = (function(){
+        function Modal(options){
+            this.modal = {};
+            this.init();
+        }
+        Modal.prototype.init = function(){
+            let that = this;
+
+            $(".js-open-modal").click(function(event){
+                if((LOGIN_REQUIRED_KEY in this.dataset) && this.dataset[LOGIN_REQUIRED_KEY] == "1" ){
+                    event.stopPropagation();
+                    event.preventDefault();
+                    notify({"level": "info", "content": this.dataset.message});
+                    return false;
+                }
+                let modal = document.getElementById(this.dataset.target);
+                that.modal = modal;
+                
+                modal.style.display = "flex";
+                if(window){
+                    $(window).click(function(eventModal){
+                        if(eventModal.target == modal){
+                            modal.style.display = "none";
+                            that.modal = undefined;
+                            let inputs = modal.querySelectorAll("input:not([name='csrfmiddlewaretoken']):not([type='hidden'])");
+                            if(inputs){
+                                inputs.forEach(function(el,index){
+                                    el.value = "";
+                                    el.dataset.update = "";
+                                    if(el.type =="file"){
+                                        el.files = null;
+                                    }
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+    
+            $(".js-close-modal").click(function(event){
+                event.stopPropagation();
+                let modal = document.getElementById(this.dataset.target);
+                modal.style.display = "none";
+                that.modal = undefined;
+                let inputs = modal.querySelectorAll("input:not([name='csrfmiddlewaretoken']):not([type='hidden'])");
+                if(inputs){
+                    inputs.forEach(function(el,index){
+                        el.value = "";
+                        el.dataset.update = "";
+                        if(el.type =="file"){
+                            el.files = null;
+                        }
+                    });
+                }
+            });
+        }
+        return Modal;
+    })();
+
     function kiosk_update(event){
         document.getElementById('main-image').src = event.target.src;
         $(".kiosk-image").removeClass('active').filter(event.target).addClass("active");
@@ -953,6 +1012,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         if(window){
             window.notify = notify;
         }
+        let modal = new Modal();
         create_editor();
         notification_wrapper = $('#notifications-wrapper');
         messages = $('#messages', notification_wrapper);
