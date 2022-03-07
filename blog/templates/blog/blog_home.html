@@ -16,9 +16,9 @@
 <div class="full">
   {% if story_list %}
   <div class="story-wrapper">
-    <ul>
-        {% for p in story_list %}<li><a href="{% url 'blog:blog-post' p.author.username p.slug %}" class="mat-button mat-button-text"><span>{{p.title}}</span></a></li>{% endfor %}
-    </ul>
+    <div class="container">
+      {% include "tags/blog_posts_tag.html" with blog_posts=story_list %}
+    </div>
     {% include "tags/pagination" with page_set=story_list %}
   </div>
   {% else %}
