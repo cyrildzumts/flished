@@ -79,9 +79,11 @@
       {% else %}
         <li class="js-action-abtest" data-action="1"><a class="mat-button mat-button-text" href="{% url 'accounts:login' %}?next={{request.path}}" title="{% trans 'Login' %}"><i class="fas fa-sign-in-alt icon"></i></a></li>
       {% endif %}
-      <li>
-        {% include "tags/language.html" %}
-      </li>
+      {% comment %}
+              <li>
+                {% include "tags/language.html" %}
+              </li>
+      {% endcomment %}
 
       {% if dev_mode %}
         {% block GRID %}
