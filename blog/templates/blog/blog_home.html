@@ -19,7 +19,7 @@
     <div class="container">
       {% include "tags/blog_posts_tag.html" with blog_posts=story_list %}
     </div>
-    {% include "tags/pagination" with page_set=story_list %}
+    {% include "tags/pagination.html" with page_set=story_list %}
   </div>
   {% else %}
   <p>{{UI_STRINGS_CONTEXT.UI_NO_BLOG_POSTS_HINT}}</p>
