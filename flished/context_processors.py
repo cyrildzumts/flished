@@ -21,7 +21,7 @@ def site_context(request):
         'META_DESCRIPTION': UI_STRINGS.HOME_META_DESCRIPTION,
         'redirect_to' : '/',
         'is_dashboard_allowed' : is_dashboard_allowed,
-        'dev_mode' : settings.DEV_MODE,
+        'dev_mode' : settings.DEBUG,
         'ALLOW_GOOGLE_ANALYTICS' : settings.ALLOW_GOOGLE_ANALYTICS,
         'next_url' : request.path,
     }

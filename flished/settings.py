@@ -162,9 +162,8 @@ DATABASES = {
 }
 DEFAULT_DATABASE = os.environ.get('DJANGO_DATABASE', 'dev')
 DATABASES['default'] = DATABASES[DEFAULT_DATABASE]
-DEV_MODE = DEFAULT_DATABASE == 'dev'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = DEV_MODE
+DEBUG = os.environ.get(f"{SITE_NAME}_DEBUG",'false') == 'true'
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
