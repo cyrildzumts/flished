@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-30 17:08+0100\n"
+"POT-Creation-Date: 2022-03-07 22:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,109 +18,1449 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: core/resources/ui_strings.py:6
-msgid "Blog"
-msgstr ""
+#: blog/constants.py:38
+msgid "draft"
+msgstr "brouillon"
 
-#: core/resources/ui_strings.py:13
-msgid "No article found"
-msgstr ""
+#: blog/constants.py:39
+msgid "published"
+msgstr "publié"
+
+#: blog/constants.py:40
+msgid "review"
+msgstr "en examen"
+
+#: blog/templates/blog/blog_post.html:62
+#: dashboard/templates/dashboard/post_detail.html:34
+#: dashboard/templates/dashboard/post_update.html:34
+msgid "Signal this comment"
+msgstr "Signalez ce commentaire"
+
+#: blog/templates/blog/me.html:6 templates/accounts/account.html:19
+msgid "Overview"
+msgstr "Aperçu"
+
+#: blog/templates/blog/me.html:9 templates/accounts/account.html:22
+msgid "Recent posts"
+msgstr "Publications récentes"
+
+#: blog/templates/blog/me.html:9
+#: dashboard/templates/dashboard/dashboard.html:35
+#: dashboard/templates/dashboard/dashboard.html:87
+#: templates/accounts/account.html:22 templates/tags/navigations.html:17
+msgid "See all"
+msgstr "Voir tout"
+
+#: blog/templates/blog/me.html:13 templates/accounts/account.html:26
+msgid "You have not published a story yet."
+msgstr "Vous n'avez pas encore publié de story."
+
+#: core/resources/ui_strings.py:6 core/resources/ui_strings.py:30
+msgid "Stories"
+msgstr "Stories"
+
+#: core/resources/ui_strings.py:7
+msgid "Blog"
+msgstr "Blog"
+
+#: core/resources/ui_strings.py:8
+msgid "Terms of use"
+msgstr "Conditions d'utilisation"
+
+#: core/resources/ui_strings.py:9
+msgid "Privacy"
+msgstr "Vie privée"
+
+#: core/resources/ui_strings.py:10 templates/about.html:6
+#: templates/dashboard_base.html:57
+msgid "About us"
+msgstr "À propos de nous"
+
+#: core/resources/ui_strings.py:11 templates/dashboard_base.html:58
+msgid "FAQ"
+msgstr "FAQ"
+
+#: core/resources/ui_strings.py:12
+msgid "Publication Plateform"
+msgstr "Plateforme de publication"
 
 #: core/resources/ui_strings.py:14
-msgid "Your research has no results"
-msgstr ""
+msgid "No article found"
+msgstr "Aucun article trouvé"
 
 #: core/resources/ui_strings.py:15
-msgid "Search"
-msgstr ""
+msgid "Your research has no results"
+msgstr "Votre recherche n'a pas de résultats"
 
-#: core/resources/ui_strings.py:16
-msgid "Your search term"
-msgstr ""
+#: core/resources/ui_strings.py:16 templates/dashboard_base.html:74
+msgid "Search"
+msgstr "Recherche"
 
 #: core/resources/ui_strings.py:17
-msgid "Search results for"
-msgstr ""
+msgid "Your search term"
+msgstr "Votre terme de recherche"
 
 #: core/resources/ui_strings.py:18
-msgid "Back"
-msgstr ""
+msgid "Search results for"
+msgstr "Résultats de recherche pour"
 
 #: core/resources/ui_strings.py:19
-msgid "Create"
-msgstr ""
+msgid "Back"
+msgstr "Retour"
 
 #: core/resources/ui_strings.py:20
-msgid "Update"
-msgstr ""
+#: dashboard/templates/dashboard/highlight_create.html:54
+#: dashboard/templates/dashboard/new_user.html:17
+#: dashboard/templates/tags/category_creation_form.html:47
+#: dashboard/templates/tags/coupon_form.html:48
+#: templates/tags/category_form_tag.html:78
+#: templates/tags/coupon_form_tag.html:53
+#: templates/tags/coupon_form_update_tag.html:53
+#: templates/tags/info_form_tag.html:37
+#: templates/tags/subscription_form_tag.html:35
+#: templates/tags/subscription_payment_form_tag.html:43
+msgid "Create"
+msgstr "Créer"
 
 #: core/resources/ui_strings.py:21
-msgid "Cancel"
-msgstr ""
+#: dashboard/templates/dashboard/highlight_detail.html:8
+#: dashboard/templates/dashboard/partner_token_details.html:7
+#: dashboard/templates/tags/category_update_form.html:49
+#: dashboard/templates/tags/coupon_form_update.html:53
+#: templates/tags/category_form_update_tag.html:79
+#: templates/tags/info_form_update_tag.html:37
+#: templates/tags/subscription_attr_form_update.html:9
+#: templates/tags/subscription_form_update_tag.html:51
+msgid "Update"
+msgstr "Actualiser"
 
 #: core/resources/ui_strings.py:22
-msgid "Reset"
-msgstr ""
+#: dashboard/templates/dashboard/create_user.html:31
+#: dashboard/templates/dashboard/group_list.html:17
+#: dashboard/templates/dashboard/highlight_create.html:53
+#: dashboard/templates/dashboard/new_user.html:16
+#: dashboard/templates/dashboard/partner_token_create.html:63
+#: dashboard/templates/dashboard/token_generate.html:22
+#: dashboard/templates/tags/category_creation_form.html:46
+#: dashboard/templates/tags/category_update_form.html:48
+#: dashboard/templates/tags/coupon_form.html:47
+#: dashboard/templates/tags/coupon_form_update.html:52
+#: dashboard/templates/tags/group_form.html:13
+#: dashboard/templates/tags/group_form_new.html:8
+#: dashboard/templates/tags/group_update_form_new.html:8
+#: templates/accounts/account_detail.html:71
+#: templates/accounts/registration/vendor_register.html:45
+#: templates/registration/register.html:46
+#: templates/registration/vendor_register.html:45
+#: templates/tags/category_form_tag.html:77
+#: templates/tags/category_form_update_tag.html:78
+#: templates/tags/coupon_form_tag.html:52
+#: templates/tags/coupon_form_update_tag.html:52
+#: templates/tags/info_form_tag.html:36
+#: templates/tags/info_form_update_tag.html:36
+#: templates/tags/subscription_attr_form_update.html:8
+#: templates/tags/subscription_form_tag.html:34
+#: templates/tags/subscription_form_update_tag.html:50
+#: templates/tags/subscription_payment_form_tag.html:42
+#: templates/tags/subscription_tag.html:63
+msgid "Cancel"
+msgstr "Annuler"
 
 #: core/resources/ui_strings.py:23
-msgid "Close"
-msgstr ""
+msgid "Reset"
+msgstr "Réinitialiser"
 
 #: core/resources/ui_strings.py:24
-msgid "Send"
-msgstr ""
+msgid "Close"
+msgstr "Fermer"
 
-#: core/resources/ui_strings.py:25
-msgid "Save"
-msgstr ""
+#: core/resources/ui_strings.py:25 templates/accounts/account_detail.html:72
+msgid "Send"
+msgstr "Envoyer"
 
 #: core/resources/ui_strings.py:26
-msgid "Publish"
-msgstr ""
+msgid "Save"
+msgstr "Sauvegarder"
 
 #: core/resources/ui_strings.py:27
-msgid "Contact us"
-msgstr ""
+msgid "Publish"
+msgstr "Publier"
 
 #: core/resources/ui_strings.py:28
-msgid "Clear"
-msgstr ""
+msgid "Contact us"
+msgstr "Nous contacter"
 
 #: core/resources/ui_strings.py:29
-msgid "Blog Home"
-msgstr ""
+msgid "Clear"
+msgstr "Effacer"
 
-#: core/resources/ui_strings.py:30
+#: core/resources/ui_strings.py:31 core/resources/ui_strings.py:59
+#: dashboard/templates/dashboard/post_list.html:12 dashboard/views.py:394
 msgid "New Post"
-msgstr ""
-
-#: core/resources/ui_strings.py:31
-msgid "There no posts currently. Feel free to create an new one"
-msgstr ""
+msgstr "Nouvelle Publication"
 
 #: core/resources/ui_strings.py:32
-msgid "Invalid user request"
-msgstr ""
+msgid "Edit Post"
+msgstr "Modifier la publication"
 
 #: core/resources/ui_strings.py:33
-msgid "Resource not found !"
-msgstr ""
+msgid "Your story has been published"
+msgstr "Votre story a été publiée"
 
 #: core/resources/ui_strings.py:34
+msgid "Open your story"
+msgstr "Ouvrir votre story"
+
+#: core/resources/ui_strings.py:35
+#, fuzzy
+#| msgid "There no posts currently. Feel free to create a new one"
+msgid "There no posts currently. Feel free to create an new one"
+msgstr ""
+"Il n'y a pas de publication actuellement. N'hésitez pas à en créer une "
+"nouvelle"
+
+#: core/resources/ui_strings.py:36
+msgid "Invalid user request"
+msgstr "Demande d'utilisateur invalide"
+
+#: core/resources/ui_strings.py:37
+msgid "Resource not found !"
+msgstr "Ressource introuvable !"
+
+#: core/resources/ui_strings.py:38
 msgid ""
 "The resource you requested does not exist or is no longer available. Visit "
 "our blog to discover other blos posts."
 msgstr ""
 
-#: core/resources/ui_strings.py:35
+#: core/resources/ui_strings.py:39
 msgid "Discover our Blog"
+msgstr "Découvrir notre Blog"
+
+#: core/resources/ui_strings.py:40
+msgid "Post Preview"
+msgstr "Aperçu de la publication"
+
+#: core/resources/ui_strings.py:41
+msgid "Story's title ..."
+msgstr "Titre de la story ..."
+
+#: core/resources/ui_strings.py:42
+msgid "Not found"
+msgstr "Pas trouvé"
+
+#: core/resources/ui_strings.py:43
+#, python-brace-format
+msgid ""
+"Hey, have a look on this article {POST_URL}. I think it is interesting, "
+"Thanks !"
+msgstr ""
+"Salut, jetez un œil à cet article {POST_URL}. Je pense que c'est "
+"intéressant, merci !"
+
+#: core/resources/ui_strings.py:45
+msgid "Start typing here ..."
+msgstr "Commencez à écrire ici..."
+
+#: core/resources/ui_strings.py:46
+msgid "Enter a quote"
+msgstr "Saisissez une citation"
+
+#: core/resources/ui_strings.py:47
+msgid "Quote's author"
+msgstr "Auteur de la citation"
+
+#: core/resources/ui_strings.py:48
+msgid "Be the first to comment"
+msgstr "Soyez le premier à commenter"
+
+#: core/resources/ui_strings.py:49
+msgid "Post a comment"
+msgstr "Poste un commentaire"
+
+#: core/resources/ui_strings.py:50
+msgid "Only members can comment. Please log in or create an account to comment"
+msgstr ""
+"Seuls les membres peuvent commenter. S'il vous plaît, connectez-vous ou "
+"créez un compte pour commenter"
+
+#: core/resources/ui_strings.py:51
+msgid "Comment"
+msgstr "Commenter"
+
+#: core/resources/ui_strings.py:52
+#: dashboard/templates/dashboard/post_detail.html:27
+#: dashboard/templates/dashboard/post_update.html:27
+msgid "Comments"
+msgstr "Commentaires"
+
+#: core/resources/ui_strings.py:53
+#: dashboard/templates/dashboard/user_detail.html:53 templates/base.html:79
+msgid "Account"
+msgstr "Compte"
+
+#: core/resources/ui_strings.py:54 core/resources/ui_strings.py:61
+#: templates/base.html:75 templates/dashboard_base.html:31
+#: templates/post_base.html:9 templates/users_base.html:9
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: core/resources/ui_strings.py:56
+#: dashboard/templates/dashboard/post_list.html:19
+#: templates/dashboard_base.html:33 templates/post_base.html:10
+msgid "Posts"
+msgstr "Publications"
+
+#: core/resources/ui_strings.py:57
+#: dashboard/templates/dashboard/dashboard.html:65
+#: dashboard/templates/dashboard/dashboard.html:91 dashboard/views.py:424
+msgid "Post"
+msgstr "Publication"
+
+#: core/resources/ui_strings.py:58 dashboard/views.py:439
+msgid "Post Update"
+msgstr "Actualiser la publication"
+
+#: core/resources/ui_strings.py:62
+#: dashboard/templates/dashboard/coupon_create.html:4
+#: dashboard/templates/dashboard/coupon_detail.html:7
+#: dashboard/templates/dashboard/coupon_list.html:19
+msgid "Coupons"
+msgstr "Coupons"
+
+#: core/resources/ui_strings.py:63
+msgid "Coupon"
+msgstr "Coupon"
+
+#: core/resources/ui_strings.py:64
+#: dashboard/templates/dashboard/coupon_detail.html:4
+#: dashboard/templates/dashboard/coupon_list.html:12
+msgid "New Coupon"
 msgstr ""
 
-#: flished/settings.py:250
+#: core/resources/ui_strings.py:65
+msgid "Coupon Update"
+msgstr ""
+
+#: core/resources/ui_strings.py:67
+#: dashboard/templates/dashboard/news_create.html:4
+#: dashboard/templates/dashboard/news_detail.html:8 dashboard/views.py:253
+#: templates/post_base.html:20
+msgid "Infos"
+msgstr ""
+
+#: core/resources/ui_strings.py:68
+#: dashboard/templates/dashboard/news_update.html:4 dashboard/views.py:301
+msgid "Info"
+msgstr ""
+
+#: core/resources/ui_strings.py:69
+#: dashboard/templates/dashboard/news_detail.html:5
+#: dashboard/templates/dashboard/news_list.html:10
+msgid "New Info"
+msgstr ""
+
+#: core/resources/ui_strings.py:70 dashboard/views.py:316
+msgid "Info Update"
+msgstr ""
+
+#: core/resources/ui_strings.py:72
+#: dashboard/templates/dashboard/group_create.html:7
+#: dashboard/templates/dashboard/group_create.html:8
+#: dashboard/templates/dashboard/group_detail.html:14
+#: dashboard/templates/dashboard/group_list.html:39
+#: templates/users_base.html:10
+msgid "Groups"
+msgstr ""
+
+#: core/resources/ui_strings.py:73
+#: dashboard/templates/dashboard/user_detail.html:98
+msgid "Group"
+msgstr ""
+
+#: core/resources/ui_strings.py:74
+#: dashboard/templates/dashboard/group_list.html:29
+msgid "New Group"
+msgstr ""
+
+#: core/resources/ui_strings.py:75
+msgid "Group Update"
+msgstr ""
+
+#: core/resources/ui_strings.py:78
+#: dashboard/templates/dashboard/highlight_create.html:5
+#: dashboard/templates/dashboard/highlight_detail.html:9
+#: dashboard/templates/dashboard/highlight_list.html:19
+#: dashboard/templates/dashboard/highlight_update.html:7
+#: templates/tags/highlights_tag.html:16
+msgid "Highlights"
+msgstr ""
+
+#: core/resources/ui_strings.py:79
+#: dashboard/templates/dashboard/highlight_list.html:12
+#: dashboard/templates/dashboard/highlight_list.html:24
+#: dashboard/templates/dashboard/highlight_list.html:34
+#: dashboard/templates/dashboard/highlight_update.html:6
+#: templates/tags/category_form_tag.html:29 templates/tags/category_tag.html:58
+#: templates/tags/highlights_tag.html:9 templates/tags/highlights_tag.html:21
+#: templates/tags/highlights_tag.html:30
+msgid "Highlight"
+msgstr ""
+
+#: core/resources/ui_strings.py:80
+msgid "Highlight Update"
+msgstr ""
+
+#: core/resources/ui_strings.py:81
+#: dashboard/templates/dashboard/highlight_detail.html:7
+msgid "New Highlight"
+msgstr ""
+
+#: core/resources/ui_strings.py:82
+#: dashboard/templates/dashboard/new_user.html:11
+#: dashboard/templates/dashboard/user_detail.html:16
+#: dashboard/templates/dashboard/user_list.html:18
+#: dashboard/templates/tags/dashboard_summary.html:19
+#: dashboard/templates/tags/group_form_new.html:58
+#: dashboard/templates/tags/group_update_form_new.html:86
+#: dashboard/templates/tags/group_update_form_new.html:112
+#: templates/dashboard_base.html:36 templates/users_base.html:11
+msgid "Users"
+msgstr ""
+
+#: core/resources/ui_strings.py:83
+msgid "Customers"
+msgstr ""
+
+#: core/resources/ui_strings.py:84
+msgid "Sellers"
+msgstr ""
+
+#: core/resources/ui_strings.py:85
+msgid "User"
+msgstr ""
+
+#: core/resources/ui_strings.py:86
+msgid "User Update"
+msgstr ""
+
+#: core/resources/ui_strings.py:87
+#: dashboard/templates/dashboard/user_list.html:13 dashboard/views.py:763
+msgid "New User"
+msgstr ""
+
+#: core/resources/ui_strings.py:90 templates/users_base.html:16
+msgid "Tokens"
+msgstr ""
+
+#: core/resources/ui_strings.py:91
+#: dashboard/templates/dashboard/partner_token_list.html:17
+msgid "Partner Tokens"
+msgstr ""
+
+#: core/resources/ui_strings.py:92
+#: dashboard/templates/dashboard/partner_token_list.html:9
+msgid "New Token"
+msgstr ""
+
+#: core/resources/ui_strings.py:93
+msgid "Subscription Payment"
+msgstr ""
+
+#: core/resources/ui_strings.py:94
+msgid "Subscription Payments"
+msgstr ""
+
+#: core/resources/ui_strings.py:95
+msgid "Create Subscription Payment"
+msgstr ""
+
+#: dashboard/templates/dashboard/abtesting.html:10 dashboard/views.py:499
+msgid "AB/TEST"
+msgstr ""
+
+#: dashboard/templates/dashboard/abtesting.html:14
+msgid "Action"
+msgstr ""
+
+#: dashboard/templates/dashboard/abtesting.html:14
+msgid "Hits"
+msgstr ""
+
+#: dashboard/templates/dashboard/abtesting.html:14
+#: dashboard/templates/dashboard/news_detail.html:43
+#: dashboard/templates/dashboard/partner_token_details.html:41
+msgid "Last changed"
+msgstr ""
+
+#: dashboard/templates/dashboard/category_create.html:4
+#: dashboard/templates/dashboard/category_detail.html:9
+#: dashboard/templates/dashboard/category_list.html:19 dashboard/views.py:107
+#: templates/post_base.html:11
+msgid "Categories"
+msgstr ""
+
+#: dashboard/templates/dashboard/category_detail.html:6
+#: dashboard/templates/dashboard/category_list.html:12
+#: dashboard/templates/dashboard/category_update.html:5 dashboard/views.py:83
+#: dashboard/views.py:86
+msgid "New Category"
+msgstr ""
+
+#: dashboard/templates/dashboard/category_detail.html:7
+#: dashboard/templates/dashboard/coupon_detail.html:5
+#: dashboard/templates/dashboard/group_detail.html:11
+#: dashboard/templates/dashboard/news_detail.html:6
+#: templates/accounts/account_detail.html:15
+msgid "Edit"
+msgstr ""
+
+#: dashboard/templates/dashboard/category_detail.html:8
+#: dashboard/templates/dashboard/category_list.html:14
+#: dashboard/templates/dashboard/coupon_detail.html:6
+#: dashboard/templates/dashboard/coupon_list.html:14
+#: dashboard/templates/dashboard/group_detail.html:12
+#: dashboard/templates/dashboard/group_list.html:18
+#: dashboard/templates/dashboard/group_list.html:32
+#: dashboard/templates/dashboard/news_detail.html:7
+#: dashboard/templates/dashboard/news_list.html:11
+#: dashboard/templates/dashboard/post_list.html:14
+#: dashboard/templates/dashboard/user_detail.html:10
+#: dashboard/templates/dashboard/user_list.html:15
+msgid "Delete"
+msgstr ""
+
+#: dashboard/templates/dashboard/category_detail.html:19
+msgid "Sub Categories"
+msgstr ""
+
+#: dashboard/templates/dashboard/category_detail.html:23
+#: dashboard/templates/dashboard/category_detail.html:31
+#: dashboard/templates/dashboard/category_list.html:26
+#: dashboard/templates/dashboard/category_list.html:36
+#: dashboard/templates/dashboard/highlight_create.html:26
+#: dashboard/templates/tags/category_creation_form.html:18
+#: dashboard/templates/tags/category_update_form.html:16
+#: templates/tags/category_form_tag.html:14
+#: templates/tags/category_form_update_tag.html:14
+#: templates/tags/category_tag.html:13
+#: templates/tags/highlight_form_tag.html:13
+#: templates/tags/highlight_tag.html:18
+#: templates/tags/highlight_update_form_tag.html:20
+#: templates/tags/subscription_attribute_tag.html:13
+msgid "Display Name"
+msgstr ""
+
+#: dashboard/templates/dashboard/category_detail.html:24
+#: dashboard/templates/dashboard/category_detail.html:32
+#: dashboard/templates/dashboard/category_list.html:27
+#: dashboard/templates/dashboard/category_list.html:37
+#: dashboard/templates/dashboard/dashboard.html:67
+#: dashboard/templates/dashboard/dashboard.html:76
+#: dashboard/templates/dashboard/dashboard.html:93
+#: dashboard/templates/dashboard/dashboard.html:102
+#: dashboard/templates/dashboard/highlight_list.html:36
+#: dashboard/templates/dashboard/post_list.html:27
+#: dashboard/templates/dashboard/post_list.html:37
+#: templates/tags/category_tag.html:51 templates/tags/highlight_tag.html:32
+msgid "Views"
+msgstr ""
+
+#: dashboard/templates/dashboard/category_detail.html:25
+#: dashboard/templates/dashboard/category_detail.html:33
+#: dashboard/templates/dashboard/category_list.html:28
+#: dashboard/templates/dashboard/category_list.html:38
+#: dashboard/templates/dashboard/coupon_list.html:29
+#: dashboard/templates/dashboard/coupon_list.html:41
+#: dashboard/templates/dashboard/group_list.html:48
+#: dashboard/templates/dashboard/group_list.html:58
+#: dashboard/templates/dashboard/highlight_list.html:27
+#: dashboard/templates/dashboard/highlight_list.html:37
+#: dashboard/templates/dashboard/news_list.html:24
+#: dashboard/templates/dashboard/news_list.html:35
+#: dashboard/templates/dashboard/partner_token_list.html:25
+#: dashboard/templates/dashboard/partner_token_list.html:35
+#: dashboard/templates/dashboard/post_list.html:28
+#: dashboard/templates/dashboard/post_list.html:38
+#: dashboard/templates/dashboard/user_list.html:29
+#: dashboard/templates/dashboard/user_list.html:41
+#: templates/tags/highlight_tag.html:70 templates/tags/highlights_tag.html:23
+#: templates/tags/highlights_tag.html:32
+msgid "Details"
+msgstr ""
+
+#: dashboard/templates/dashboard/category_list.html:24
+#: dashboard/templates/dashboard/coupon_list.html:23
+#: dashboard/templates/dashboard/facebook_app.html:74
+#: dashboard/templates/dashboard/highlight_list.html:23
+#: dashboard/templates/dashboard/news_list.html:19
+#: dashboard/templates/dashboard/post_list.html:24
+#: dashboard/templates/dashboard/user_list.html:23
+#: templates/tags/highlights_tag.html:20
+msgid "Select all"
+msgstr ""
+
+#: dashboard/templates/dashboard/category_list.html:25
+#: dashboard/templates/dashboard/category_list.html:35
+#: dashboard/templates/dashboard/coupon_detail.html:19
+#: dashboard/templates/dashboard/coupon_list.html:24
+#: dashboard/templates/dashboard/coupon_list.html:36
+#: dashboard/templates/dashboard/dashboard.html:39
+#: dashboard/templates/dashboard/dashboard.html:48
+#: dashboard/templates/dashboard/facebook_app.html:16
+#: dashboard/templates/dashboard/facebook_app.html:76
+#: dashboard/templates/dashboard/facebook_app.html:85
+#: dashboard/templates/dashboard/group_list.html:55
+#: dashboard/templates/dashboard/highlight_create.html:22
+#: dashboard/templates/dashboard/partner_token_create.html:10
+#: dashboard/templates/dashboard/partner_token_details.html:17
+#: dashboard/templates/dashboard/partner_token_list.html:22
+#: dashboard/templates/dashboard/partner_token_list.html:32
+#: dashboard/templates/dashboard/user_list.html:25
+#: dashboard/templates/dashboard/user_list.html:37
+#: dashboard/templates/tags/category_creation_form.html:14
+#: dashboard/templates/tags/category_update_form.html:12
+#: dashboard/templates/tags/coupon_form.html:14
+#: dashboard/templates/tags/coupon_form_update.html:12
+#: dashboard/templates/tags/group_form.html:18
+#: dashboard/templates/tags/group_form_new.html:13
+#: dashboard/templates/tags/group_update_form_new.html:13
+#: templates/accounts/registration/register.html:51
+#: templates/tags/category_form_tag.html:10
+#: templates/tags/category_form_update_tag.html:10
+#: templates/tags/category_tag.html:9 templates/tags/coupon_form_tag.html:10
+#: templates/tags/coupon_form_update_tag.html:10
+#: templates/tags/highlight_form_tag.html:9
+#: templates/tags/highlight_tag.html:14
+#: templates/tags/highlight_update_form_tag.html:16
+#: templates/tags/subscription_attribute_tag.html:9
+#: templates/tags/subscription_form_tag.html:10
+#: templates/tags/subscription_form_update_tag.html:10
+#: templates/tags/subscription_tag.html:9
+msgid "Name"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_detail.html:22
+#: dashboard/templates/dashboard/coupon_list.html:25
+#: dashboard/templates/dashboard/coupon_list.html:37
+#: dashboard/templates/tags/coupon_form.html:18
+#: dashboard/templates/tags/coupon_form_update.html:16
+#: templates/tags/coupon_form_tag.html:14
+#: templates/tags/coupon_form_update_tag.html:14
+msgid "Reduction"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_detail.html:26
+#: dashboard/templates/dashboard/highlight_create.html:41
+#: dashboard/templates/dashboard/news_detail.html:60
+#: dashboard/templates/dashboard/news_list.html:22
+#: dashboard/templates/dashboard/news_list.html:33
+#: templates/tags/category_form_tag.html:49
+#: templates/tags/category_form_update_tag.html:50
+#: templates/tags/category_tag.html:70 templates/tags/coupon_form_tag.html:47
+#: templates/tags/coupon_form_update_tag.html:47
+#: templates/tags/highlight_form_tag.html:28
+#: templates/tags/highlight_tag.html:47
+#: templates/tags/highlight_update_form_tag.html:39
+#: templates/tags/info_form_tag.html:31
+#: templates/tags/info_form_update_tag.html:31
+#: templates/tags/subscription_form_tag.html:29
+#: templates/tags/subscription_form_update_tag.html:32
+#: templates/tags/subscription_tag.html:35
+msgid "Active"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_detail.html:30
+#: templates/tags/coupon_form_tag.html:20
+#: templates/tags/coupon_form_update_tag.html:20
+msgid "Merchant"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_detail.html:38
+#: dashboard/templates/dashboard/news_detail.html:39
+#: templates/tags/subscription_payment_tag.html:27
+msgid "Create at"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_detail.html:41
+msgid "Begin at"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_detail.html:44
+#: dashboard/templates/dashboard/coupon_detail.html:58
+msgid "Expire at"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_detail.html:47
+#: dashboard/templates/dashboard/coupon_detail.html:61
+msgid "Activated at"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_detail.html:52
+msgid "Usage"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_detail.html:55
+#: dashboard/templates/tags/coupon_form.html:22
+#: dashboard/templates/tags/coupon_form_update.html:32
+#: templates/tags/coupon_form_tag.html:42
+#: templates/tags/coupon_form_update_tag.html:42
+msgid "Max Usage"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_detail.html:67
+#: dashboard/templates/dashboard/news_detail.html:49
+msgid "Added by"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_detail.html:70
+msgid "Activated by"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_detail.html:78
+#: dashboard/templates/dashboard/coupon_list.html:55
+#: dashboard/templates/dashboard/coupon_update.html:11
+#: dashboard/templates/dashboard/group_detail.html:50
+#: dashboard/templates/dashboard/group_list.html:75
+#: dashboard/templates/dashboard/new_user.html:24
+#: dashboard/templates/dashboard/partner_token_list.html:50
+#: dashboard/templates/dashboard/token_list.html:39
+#: dashboard/templates/dashboard/user_list.html:54
+#: dashboard/templates/tags/coupon_form.html:57
+#: dashboard/templates/tags/coupon_form_update.html:62
+#: dashboard/templates/tags/group_form.html:142
+#: dashboard/templates/tags/group_form_new.html:75
+#: dashboard/templates/tags/group_update_form_new.html:131
+#: templates/post_base.html:5 templates/users_base.html:5
+msgid ""
+"The page you requested could not be found or you are not allowed to access "
+"this page."
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_list.html:26
+#: dashboard/templates/dashboard/news_list.html:23
+#: dashboard/templates/dashboard/partner_token_details.html:38
+msgid "Date of creation"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_list.html:27
+#: dashboard/templates/dashboard/coupon_list.html:39
+#: dashboard/templates/tags/coupon_form.html:26
+#: dashboard/templates/tags/coupon_form_update.html:20
+#: templates/tags/subscription_payment_tag.html:10
+msgid "Seller"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_list.html:28
+#: dashboard/templates/dashboard/coupon_list.html:40
+#: dashboard/templates/dashboard/dashboard.html:40
+#: dashboard/templates/dashboard/dashboard.html:49
+#: dashboard/templates/dashboard/facebook_app.html:77
+#: dashboard/templates/dashboard/facebook_app.html:86
+#: dashboard/templates/dashboard/highlight_create.html:40
+#: dashboard/templates/dashboard/highlight_list.html:25
+#: dashboard/templates/dashboard/highlight_list.html:35
+#: dashboard/templates/dashboard/news_detail.html:59
+#: dashboard/templates/dashboard/partner_token_details.html:35
+#: dashboard/templates/dashboard/partner_token_list.html:23
+#: dashboard/templates/dashboard/partner_token_list.html:33
+#: templates/tags/category_form_tag.html:48
+#: templates/tags/category_form_update_tag.html:49
+#: templates/tags/category_tag.html:69 templates/tags/coupon_form_tag.html:46
+#: templates/tags/coupon_form_update_tag.html:46
+#: templates/tags/highlight_form_tag.html:27
+#: templates/tags/highlight_tag.html:46
+#: templates/tags/highlight_update_form_tag.html:38
+#: templates/tags/highlights_tag.html:22 templates/tags/highlights_tag.html:31
+#: templates/tags/info_form_tag.html:30
+#: templates/tags/info_form_update_tag.html:30
+#: templates/tags/subscription_form_tag.html:28
+#: templates/tags/subscription_form_update_tag.html:31
+#: templates/tags/subscription_tag.html:34
+msgid "Status"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_list.html:38
+#: dashboard/templates/dashboard/news_list.html:34
+msgid "Date of Creation"
+msgstr ""
+
+#: dashboard/templates/dashboard/coupon_list.html:40
+#: dashboard/templates/dashboard/dashboard.html:49
+#: dashboard/templates/dashboard/facebook_app.html:86
+#: dashboard/templates/dashboard/highlight_list.html:35
+#: dashboard/templates/dashboard/news_list.html:33
+#: dashboard/templates/dashboard/partner_token_details.html:35
+#: dashboard/templates/dashboard/partner_token_list.html:33
+#: dashboard/templates/dashboard/user_list.html:38
+#: templates/tags/highlights_tag.html:31
+msgid "active,inactive"
+msgstr ""
+
+#: dashboard/templates/dashboard/create_user.html:22
+#: templates/accounts/registration/vendor_register.html:22
+#: templates/registration/vendor_register.html:22
+msgid "Registration"
+msgstr ""
+
+#: dashboard/templates/dashboard/create_user.html:32
+msgid "Create User Account"
+msgstr ""
+
+#: dashboard/templates/dashboard/dashboard.html:24
+msgid "Clear Sessions"
+msgstr ""
+
+#: dashboard/templates/dashboard/dashboard.html:25
+msgid "Sessions not cleared"
+msgstr ""
+
+#: dashboard/templates/dashboard/dashboard.html:28
+msgid "Session Key"
+msgstr ""
+
+#: dashboard/templates/dashboard/dashboard.html:35
+msgid "New Users"
+msgstr ""
+
+#: dashboard/templates/dashboard/dashboard.html:41
+#: dashboard/templates/dashboard/dashboard.html:50
+#: dashboard/templates/dashboard/user_list.html:27
+#: dashboard/templates/dashboard/user_list.html:39
+msgid "Date Joined"
+msgstr ""
+
+#: dashboard/templates/dashboard/dashboard.html:42
+#: dashboard/templates/dashboard/dashboard.html:51
+#: dashboard/templates/dashboard/user_list.html:28
+#: dashboard/templates/dashboard/user_list.html:40
+msgid "Last Login"
+msgstr ""
+
+#: dashboard/templates/dashboard/dashboard.html:61
+msgid "Most Views Post"
+msgstr ""
+
+#: dashboard/templates/dashboard/dashboard.html:66
+#: dashboard/templates/dashboard/dashboard.html:75
+#: dashboard/templates/dashboard/dashboard.html:92
+#: dashboard/templates/dashboard/dashboard.html:101
+#: dashboard/templates/dashboard/post_list.html:26
+#: dashboard/templates/dashboard/post_list.html:36
+msgid "Author"
+msgstr ""
+
+#: dashboard/templates/dashboard/dashboard.html:68
+#: dashboard/templates/dashboard/dashboard.html:77
+#: dashboard/templates/dashboard/dashboard.html:94
+#: dashboard/templates/dashboard/dashboard.html:103
+msgid "Added Date"
+msgstr ""
+
+#: dashboard/templates/dashboard/dashboard.html:74
+#: dashboard/templates/dashboard/dashboard.html:100
+#: templates/tags/highlight_tag.html:67
+msgid "Article"
+msgstr ""
+
+#: dashboard/templates/dashboard/dashboard.html:87
+msgid "Last added Post"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:9
+msgid "Fetch Groups"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:19
+msgid "Client ID"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:22
+msgid "client Secret"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:25
+msgid "request Path"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:28
+msgid "User Access Token"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:31
+msgid "Access Token"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:34
+msgid "Page Access Token"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:37
+msgid "Page ID"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:40
+msgid "Token Type"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:43
+msgid "Expires In"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:46
+msgid "Created at"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:49
+msgid "Last Changes"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:54
+msgid "No Facebook App available"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:62
+msgid "Facebook Groups"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:68
+msgid "APPLY"
+msgstr ""
+
+#: dashboard/templates/dashboard/facebook_app.html:75
+#: dashboard/templates/dashboard/facebook_app.html:84
+msgid "ID"
+msgstr ""
+
+#: dashboard/templates/dashboard/group_detail.html:21
+#: dashboard/templates/dashboard/group_list.html:46
+#: dashboard/templates/dashboard/group_list.html:56
+#: dashboard/templates/tags/group_update_form_new.html:32
+#: dashboard/templates/tags/group_update_form_new.html:59
+msgid "Permissions"
+msgstr ""
+
+#: dashboard/templates/dashboard/group_detail.html:35
+#: dashboard/templates/dashboard/group_list.html:47
+#: dashboard/templates/dashboard/group_list.html:57
+msgid "Members"
+msgstr ""
+
+#: dashboard/templates/dashboard/group_list.html:10
+msgid "Group Delete Confirmation"
+msgstr ""
+
+#: dashboard/templates/dashboard/group_list.html:13
+msgid "Do you really want to delete this Group ? "
+msgstr ""
+
+#: dashboard/templates/dashboard/group_list.html:14
+msgid "This action is irreversible."
+msgstr ""
+
+#: dashboard/templates/dashboard/group_list.html:45
+msgid "Group Name"
+msgstr ""
+
+#: dashboard/templates/dashboard/group_list.html:58
+msgid "Detail"
+msgstr ""
+
+#: dashboard/templates/dashboard/group_list.html:70
+msgid "There is currently no Group"
+msgstr ""
+
+#: dashboard/templates/dashboard/group_update.html:8
+msgid "Create A Group"
+msgstr ""
+
+#: dashboard/templates/dashboard/highlight_create.html:32
+#: templates/tags/highlight_form_tag.html:19
+#: templates/tags/highlight_tag.html:38
+#: templates/tags/highlight_update_form_tag.html:30
+msgid "Gender"
+msgstr ""
+
+#: dashboard/templates/dashboard/highlight_create.html:47
+#: dashboard/templates/tags/category_creation_form.html:28
+#: dashboard/templates/tags/category_update_form.html:27
+#: templates/tags/category_form_tag.html:54
+#: templates/tags/category_form_update_tag.html:55
+#: templates/tags/category_tag.html:75
+#: templates/tags/highlight_form_tag.html:34
+#: templates/tags/highlight_tag.html:53
+#: templates/tags/highlight_update_form_tag.html:45
+#: templates/tags/subscription_attribute_tag.html:31
+msgid "Description"
+msgstr ""
+
+#: dashboard/templates/dashboard/highlight_list.html:14
+#: templates/tags/highlights_tag.html:11
+msgid "Delete Selected"
+msgstr ""
+
+#: dashboard/templates/dashboard/highlight_list.html:26
+msgid " Views"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_detail.html:19
+#: dashboard/templates/dashboard/news_list.html:20
+#: dashboard/templates/dashboard/news_list.html:31
+#: dashboard/templates/dashboard/post_list.html:25
+#: dashboard/templates/dashboard/post_list.html:35
+#: templates/tags/info_form_tag.html:10
+#: templates/tags/info_form_update_tag.html:10
+#: templates/tags/subscription_form_tag.html:14
+#: templates/tags/subscription_form_update_tag.html:14
+#: templates/tags/subscription_tag.html:13
+msgid "Title"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_detail.html:23
+#: templates/tags/info_form_tag.html:14
+#: templates/tags/info_form_update_tag.html:14
+msgid "Content"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_detail.html:29
+#: dashboard/templates/dashboard/news_list.html:21
+#: dashboard/templates/dashboard/news_list.html:32
+#: templates/tags/info_form_tag.html:20
+#: templates/tags/info_form_update_tag.html:20
+msgid "Start"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_detail.html:33
+#: templates/tags/info_form_tag.html:24
+#: templates/tags/info_form_update_tag.html:24
+msgid "Expire"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_detail.html:53
+msgid "Last changed by"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_list.html:14
+msgid "News List"
+msgstr ""
+
+#: dashboard/templates/dashboard/partner_token_create.html:16
+#: dashboard/templates/dashboard/partner_token_details.html:14
+msgid "Partner"
+msgstr ""
+
+#: dashboard/templates/dashboard/partner_token_create.html:18
+msgid "Select a partner"
+msgstr ""
+
+#: dashboard/templates/dashboard/partner_token_create.html:27
+#: dashboard/templates/dashboard/partner_token_details.html:20
+#: dashboard/templates/dashboard/partner_token_list.html:24
+#: dashboard/templates/dashboard/partner_token_list.html:34
+msgid "Token"
+msgstr ""
+
+#: dashboard/templates/dashboard/partner_token_create.html:33
+msgid "Payment Request Url"
+msgstr ""
+
+#: dashboard/templates/dashboard/partner_token_create.html:39
+msgid "Fetch Url"
+msgstr ""
+
+#: dashboard/templates/dashboard/partner_token_create.html:45
+msgid "Cancel Url"
+msgstr ""
+
+#: dashboard/templates/dashboard/partner_token_create.html:51
+msgid "Valid until"
+msgstr ""
+
+#: dashboard/templates/dashboard/partner_token_create.html:57
+#: dashboard/templates/dashboard/user_list.html:26
+#: dashboard/templates/dashboard/user_list.html:38
+#: dashboard/templates/tags/category_creation_form.html:23
+#: dashboard/templates/tags/category_update_form.html:22
+#: dashboard/templates/tags/coupon_form.html:40
+#: dashboard/templates/tags/coupon_form_update.html:45
+msgid "Is Active"
+msgstr ""
+
+#: dashboard/templates/dashboard/partner_token_create.html:64
+msgid "Create Token"
+msgstr ""
+
+#: dashboard/templates/dashboard/partner_token_details.html:23
+msgid "Valid Until"
+msgstr ""
+
+#: dashboard/templates/dashboard/partner_token_details.html:26
+msgid "Payment Request url"
+msgstr ""
+
+#: dashboard/templates/dashboard/partner_token_details.html:29
+msgid "Payment Fetch url"
+msgstr ""
+
+#: dashboard/templates/dashboard/partner_token_details.html:32
+msgid "Payment Cancel url"
+msgstr ""
+
+#: dashboard/templates/dashboard/partner_token_details.html:44
+msgid "Changed"
+msgstr ""
+
+#: dashboard/templates/dashboard/partner_token_list.html:46
+msgid "No Token"
+msgstr ""
+
+#: dashboard/templates/dashboard/post_detail.html:42
+#: dashboard/templates/dashboard/post_update.html:42
+msgid "No comments"
+msgstr ""
+
+#: dashboard/templates/dashboard/token_generate.html:11
+msgid "Token Generation For User"
+msgstr ""
+
+#: dashboard/templates/dashboard/token_generate.html:23
+msgid "Generate Token"
+msgstr ""
+
+#: dashboard/templates/dashboard/token_list.html:10
+msgid "Add Token"
+msgstr ""
+
+#: dashboard/templates/dashboard/token_list.html:17
+msgid "Token List"
+msgstr ""
+
+#: dashboard/templates/dashboard/token_list.html:31
+msgid "There are  no Token generated yet."
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:11
+msgid "Send Welcome Mail"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:13
+#: templates/accounts/account.html:14
+msgid "Send Validation Link"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:20
+msgid "User Information"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:24
+#: dashboard/templates/dashboard/user_list.html:24
+#: dashboard/templates/dashboard/user_list.html:36
+#: templates/accounts/account_detail.html:26
+#: templates/accounts/registration/login.html:40
+#: templates/accounts/registration/register.html:34
+#: templates/registration/login.html:30
+msgid "Username"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:27
+#: templates/accounts/account_detail.html:34
+msgid "Lastname"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:30
+#: templates/accounts/account_detail.html:30
+#: templates/accounts/registration/register.html:46
+msgid "Firstname"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:33
+#: templates/accounts/registration/register.html:39
+msgid "E-Mail"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:36
+msgid "User is Active"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:44
+msgid "Country"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:47
+msgid "City"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:50
+msgid "Telefon"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:56
+msgid "Email is Validated"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:59
+msgid "Account is Active"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:62
+msgid "Customer ID"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:69
+#: templates/accounts/account_detail.html:65
+msgid "Date joined"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:72
+#: templates/accounts/account_detail.html:61
+msgid "Last login"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:80
+msgid "Create Access Token"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:91
+msgid "User Groups"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:99
+msgid "Group Permissions"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:111
+msgid "User Permissions"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_list.html:41
+msgid "More"
+msgstr ""
+
+#: dashboard/templates/tags/category_creation_form.html:7
+#: dashboard/templates/tags/category_update_form.html:5 dashboard/views.py:134
+#: templates/tags/highlight_tag.html:28
+msgid "Category"
+msgstr ""
+
+#: dashboard/templates/tags/category_creation_form.html:36
+#: dashboard/templates/tags/category_update_form.html:35
+#: templates/tags/category_form_update_tag.html:39
+msgid "Parent Category"
+msgstr ""
+
+#: dashboard/templates/tags/category_creation_form.html:38
+#: templates/tags/category_form_tag.html:42
+msgid "Select a parent Category"
+msgstr ""
+
+#: dashboard/templates/tags/category_update_form.html:38
+#: templates/tags/category_form_update_tag.html:42
+msgid "Select Parent category"
+msgstr ""
+
+#: dashboard/templates/tags/coupon_form.html:32
+#: dashboard/templates/tags/coupon_form_update.html:36
+#: templates/tags/coupon_form_tag.html:32
+#: templates/tags/coupon_form_update_tag.html:32
+msgid "Start on"
+msgstr ""
+
+#: dashboard/templates/tags/coupon_form.html:36
+#: dashboard/templates/tags/coupon_form_update.html:40
+#: templates/tags/coupon_form_tag.html:36
+#: templates/tags/coupon_form_update_tag.html:36
+msgid "Expire on"
+msgstr ""
+
+#: dashboard/templates/tags/dashboard_summary.html:7
+msgid "Orders"
+msgstr ""
+
+#: dashboard/templates/tags/dashboard_summary.html:11
+#: templates/tags/highlight_tag.html:91
+msgid "Products"
+msgstr ""
+
+#: dashboard/templates/tags/dashboard_summary.html:15
+msgid "Month Orders"
+msgstr ""
+
+#: dashboard/templates/tags/dashboard_summary.html:23
+msgid "Online Users"
+msgstr ""
+
+#: dashboard/templates/tags/group_form.html:14
+#: dashboard/templates/tags/group_form_new.html:9
+msgid "Create Group"
+msgstr ""
+
+#: dashboard/templates/tags/group_form.html:29
+#: dashboard/templates/tags/group_form_new.html:20
+msgid "Select Permissions to add"
+msgstr ""
+
+#: dashboard/templates/tags/group_form.html:33
+#: dashboard/templates/tags/group_form.html:63
+#: dashboard/templates/tags/group_form.html:85
+#: dashboard/templates/tags/group_form.html:114
+#: dashboard/templates/tags/group_form_new.html:24
+#: dashboard/templates/tags/group_form_new.html:50
+#: dashboard/templates/tags/group_update_form_new.html:24
+#: dashboard/templates/tags/group_update_form_new.html:51
+#: dashboard/templates/tags/group_update_form_new.html:78
+#: dashboard/templates/tags/group_update_form_new.html:104
+#: templates/tags/list_filter_tag.html:3
+msgid "Filter"
+msgstr ""
+
+#: dashboard/templates/tags/group_form.html:36
+#: dashboard/templates/tags/group_form.html:66
+#: dashboard/templates/tags/group_form.html:88
+#: dashboard/templates/tags/group_form.html:117
+#: dashboard/templates/tags/group_form_new.html:27
+#: dashboard/templates/tags/group_form_new.html:53
+#: dashboard/templates/tags/group_update_form_new.html:27
+#: dashboard/templates/tags/group_update_form_new.html:54
+#: dashboard/templates/tags/group_update_form_new.html:81
+#: dashboard/templates/tags/group_update_form_new.html:107
+msgid "Enter the term to filter"
+msgstr ""
+
+#: dashboard/templates/tags/group_form.html:41
+#: dashboard/templates/tags/group_form_new.html:32
+msgid "Permission"
+msgstr ""
+
+#: dashboard/templates/tags/group_form.html:59
+#: dashboard/templates/tags/group_update_form_new.html:20
+msgid "Selected Permissions"
+msgstr ""
+
+#: dashboard/templates/tags/group_form.html:81
+#: dashboard/templates/tags/group_form_new.html:46
+#: dashboard/templates/tags/group_update_form_new.html:100
+msgid "Select Users to add"
+msgstr ""
+
+#: dashboard/templates/tags/group_form.html:93
+msgid "Available Users"
+msgstr ""
+
+#: dashboard/templates/tags/group_form.html:110
+#: dashboard/templates/tags/group_form.html:122
+#: dashboard/templates/tags/group_update_form_new.html:74
+msgid "Selected Users"
+msgstr ""
+
+#: dashboard/templates/tags/group_update_form_new.html:9
+msgid "Update Group"
+msgstr ""
+
+#: dashboard/templates/tags/group_update_form_new.html:47
+msgid "Available Permissions"
+msgstr ""
+
+#: dashboard/views.py:76
+msgid "New Category created"
+msgstr ""
+
+#: dashboard/views.py:80
+msgid "Error when creating new category"
+msgstr ""
+
+#: dashboard/views.py:104
+msgid "Category List"
+msgstr ""
+
+#: dashboard/views.py:165
+msgid "Edit Category"
+msgstr ""
+
+#: dashboard/views.py:178
+msgid "Category updated"
+msgstr ""
+
+#: dashboard/views.py:182
+msgid "Error when updating category"
+msgstr ""
+
+#: dashboard/views.py:271
+msgid "New Infos"
+msgstr ""
+
+#: dashboard/views.py:288
+#, python-brace-format
+msgid "Info {news} created"
+msgstr ""
+
+#: dashboard/views.py:292
+msgid "Info not created"
+msgstr ""
+
+#: dashboard/views.py:327
+msgid "News updated"
+msgstr ""
+
+#: dashboard/views.py:331
+msgid "News not updated"
+msgstr ""
+
+#: dashboard/views.py:344
+msgid "News deleted"
+msgstr ""
+
+#: dashboard/views.py:411
+#, python-brace-format
+msgid "Post {instance} created"
+msgstr ""
+
+#: dashboard/views.py:415
+msgid "Post not created"
+msgstr ""
+
+#: dashboard/views.py:450
+msgid "Post updated"
+msgstr ""
+
+#: dashboard/views.py:454
+msgid "Post not updated"
+msgstr ""
+
+#: dashboard/views.py:467
+msgid "Post deleted"
+msgstr ""
+
+#: dashboard/views.py:779
+#, python-brace-format
+msgid "User {name} created"
+msgstr ""
+
+#: dashboard/views.py:810
+msgid "User Token Generation"
+msgstr ""
+
+#: dashboard/views.py:822
+#, python-brace-format
+msgid "Token successfully generated for user {username}"
+msgstr ""
+
+#: dashboard/views.py:826
+msgid "The submitted form is not valid"
+msgstr ""
+
+#: dashboard/views.py:848
+msgid "Dashboard Users Tokens"
+msgstr ""
+
+#: dashboard/views.py:880
+msgid "Dashboard Users"
+msgstr ""
+
+#: flished/settings.py:276
 msgid "French"
 msgstr ""
 
-#: flished/settings.py:251
+#: flished/settings.py:277
 msgid "English"
 msgstr ""
 
@@ -160,377 +1500,435 @@ msgstr ""
 msgid "Our technicians are working on the problem."
 msgstr ""
 
-#: templates/about.html:6
-msgid "About LYSHOP"
-msgstr ""
-
 #: templates/about.html:8
-msgid "We are selling products like :"
+msgid "We are a publishing plateforme"
 msgstr ""
 
-#: templates/about.html:13
-msgid "accessoires"
+#: templates/about.html:12
+msgid "Coming soon"
 msgstr ""
 
-#: templates/about.html:14
-msgid "clothes"
+#: templates/accounts/account.html:10
+msgid "You have not yet validated your email address."
 msgstr ""
 
-#: templates/about.html:15
-msgid "electronics"
+#: templates/accounts/account.html:11
+msgid "We have already sent you a validation link to your email address."
 msgstr ""
 
-#: templates/about.html:16
-msgid "parfums"
+#: templates/accounts/account.html:12
+msgid "Please click on the validation link sent to you."
 msgstr ""
 
-#: templates/about.html:17
-msgid "shoes"
+#: templates/accounts/account.html:13
+msgid "Click on the link below to receive a new activation link."
 msgstr ""
 
-#: templates/about.html:19
-msgid "Product quality"
+#: templates/accounts/account_detail.html:9
+msgid "User Picture"
 msgstr ""
 
-#: templates/about.html:21
+#: templates/accounts/account_detail.html:16
+msgid "Change password"
+msgstr ""
+
+#: templates/accounts/account_detail.html:17
+msgid "Delete my Account"
+msgstr ""
+
+#: templates/accounts/account_detail.html:42
+msgid "Date of Birth"
+msgstr ""
+
+#: templates/accounts/account_detail.html:46
+msgid "Phone"
+msgstr ""
+
+#: templates/accounts/account_detail.html:50
+#: templates/accounts/registration/password_reset_form.html:30
+#: templates/registration/password_reset_form.html:30
+msgid "Email"
+msgstr ""
+
+#: templates/accounts/account_detail.html:57
+msgid "Newsletter Subscribtion"
+msgstr ""
+
+#: templates/accounts/registration/email_validation.html:7
+#: templates/accounts/registration/registration_complete.html:8
+#: templates/registration/email_validation.html:7
+#: templates/registration/registration_complete.html:8
+msgid "Registration successful"
+msgstr ""
+
+#: templates/accounts/registration/email_validation.html:18
+#: templates/registration/email_validation.html:18
 msgid ""
-"We pay attention to the quality of the products we sell. We are only selling "
-"original articles"
+"Great! Your email address has been verified. You can now log to your account."
 msgstr ""
 
-#: templates/about.html:26
-msgid "Trust"
+#: templates/accounts/registration/email_validation.html:19
+#: templates/registration/email_validation.html:19
+msgid "Go to your Account by following this link"
 msgstr ""
 
-#: templates/about.html:28
+#: templates/accounts/registration/email_validation.html:20
+#: templates/registration/email_validation.html:20
+msgid "My Account"
+msgstr ""
+
+#: templates/accounts/registration/email_validation.html:22
+#: templates/registration/email_validation.html:22
+msgid "Sorry! Your email address could not be verified."
+msgstr ""
+
+#: templates/accounts/registration/email_validation.html:23
+#: templates/registration/email_validation.html:23
+msgid "Click on this link to get a new activation link"
+msgstr ""
+
+#: templates/accounts/registration/email_validation.html:24
+#: templates/registration/email_validation.html:24
+msgid "Send me a Validation link"
+msgstr ""
+
+#: templates/accounts/registration/login.html:32
+#: templates/accounts/registration/login.html:49
+#: templates/accounts/registration/password_reset_complete.html:15
+#: templates/base.html:82 templates/registration/login.html:41
+#: templates/registration/password_reset_complete.html:16
+msgid "Login"
+msgstr ""
+
+#: templates/accounts/registration/login.html:44
+#: templates/accounts/registration/register.html:58
+#: templates/registration/login.html:34
+msgid "Password"
+msgstr ""
+
+#: templates/accounts/registration/login.html:52
+#: templates/registration/login.html:38
+msgid "Forgot your password ?"
+msgstr ""
+
+#: templates/accounts/registration/login.html:55
+#: templates/registration/login.html:44
+msgid "New here ?"
+msgstr ""
+
+#: templates/accounts/registration/login.html:55
+msgid "Create your Account"
+msgstr ""
+
+#: templates/accounts/registration/password_change.html:9
+#: templates/registration/password_change.html:9
+msgid "CHANGE PASSWORD"
+msgstr ""
+
+#: templates/accounts/registration/password_change.html:23
+#: templates/registration/password_change.html:23
 msgid ""
-"We understand your concern about trustability. Our business is based on "
-"trust. If you pay for an order, rest assured that your order will be "
-"delivered."
+"Your password should not be too similar to your other personal information"
 msgstr ""
 
-#: templates/about.html:34
-msgid "Our Location"
+#: templates/accounts/registration/password_change.html:24
+#: templates/registration/password_change.html:24
+msgid "Your password must contain at least 8 characters"
 msgstr ""
 
-#: templates/about.html:36
+#: templates/accounts/registration/password_change.html:25
+#: templates/registration/password_change.html:25
+msgid "Your password cannot be a commonly used password"
+msgstr ""
+
+#: templates/accounts/registration/password_change.html:26
+#: templates/registration/password_change.html:26
+msgid "Your password must not be entirely numeric"
+msgstr ""
+
+#: templates/accounts/registration/password_change.html:31
+#: templates/registration/password_change.html:31
+msgid "Old password"
+msgstr ""
+
+#: templates/accounts/registration/password_change.html:34
+#: templates/accounts/registration/password_reset_confirm.html:23
+#: templates/registration/password_change.html:34
+#: templates/registration/password_reset_confirm.html:23
+msgid "New password"
+msgstr ""
+
+#: templates/accounts/registration/password_change.html:37
+#: templates/accounts/registration/password_reset_confirm.html:27
+#: templates/registration/password_change.html:37
+#: templates/registration/password_reset_confirm.html:27
+msgid "Confirm password"
+msgstr ""
+
+#: templates/accounts/registration/password_change_done.html:9
+#: templates/registration/password_change_done.html:9
+msgid "PASSWORD CHANGED"
+msgstr ""
+
+#: templates/accounts/registration/password_change_done.html:20
+#: templates/registration/password_change_done.html:20
+msgid "Your password has been changed successfully"
+msgstr ""
+
+#: templates/accounts/registration/password_change_done.html:21
+#: templates/accounts/registration/password_reset_complete.html:8
+#: templates/registration/password_change_done.html:21
+#: templates/registration/password_reset_complete.html:9
+msgid "Back to home page"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_complete.html:7
+#: templates/registration/password_reset_complete.html:8
+msgid "Password changed"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_confirm.html:6
+#: templates/registration/password_reset_confirm.html:6
+msgid "Password reset confirmation"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_confirm.html:8
+#: templates/accounts/registration/password_reset_done.html:10
+#: templates/registration/password_reset_confirm.html:8
+#: templates/registration/password_reset_done.html:10
+msgid "Confirmation"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_confirm.html:20
+#: templates/registration/password_reset_confirm.html:20
+msgid "Please enter your new password twice."
+msgstr ""
+
+#: templates/accounts/registration/password_reset_confirm.html:37
+#: templates/registration/password_reset_confirm.html:37
 msgid ""
-"We are currently based at Libreville and Port-Gentil. We will expand the "
-"region where we can deliver our product as soon as possible."
+"The reset password link is invalid. Make a new request if you want to reset "
+"your password"
 msgstr ""
 
-#: templates/about.html:42
-msgid "Issues report"
+#: templates/accounts/registration/password_reset_done.html:8
+#: templates/accounts/registration/password_reset_subject.txt:2
+#: templates/registration/password_reset_done.html:8
+#: templates/registration/password_reset_subject.txt:2
+msgid "Password reset"
 msgstr ""
 
-#: templates/about.html:44
+#: templates/accounts/registration/password_reset_done.html:11
+#: templates/registration/password_reset_done.html:11
+msgid "Home page"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_done.html:21
+#: templates/registration/password_reset_done.html:21
 msgid ""
-"In case you have any issue with your order, please contact at the following "
-"address:"
+"We have sent you an email with instructions on how to reset your password."
 msgstr ""
 
-#: templates/about.html:48
-msgid "Send Mail"
+#: templates/accounts/registration/password_reset_done.html:22
+#: templates/registration/password_reset_done.html:22
+msgid "You should receive it in a moment."
 msgstr ""
 
-#: templates/about.html:51
-msgid "Refund"
+#: templates/accounts/registration/password_reset_done.html:24
+#: templates/registration/password_reset_done.html:24
+msgid ""
+"Check that you have given the correct email address, the one with which you "
+"registered with us."
 msgstr ""
 
-#: templates/about.html:54
-msgid "It is possible to get a refund. You must meet the following conditions:"
+#: templates/accounts/registration/password_reset_done.html:26
+#: templates/registration/password_reset_done.html:26
+msgid "Also check your spam."
 msgstr ""
 
-#: templates/about.html:59
-msgid "The order must have been paid"
+#: templates/accounts/registration/password_reset_email.html:5
+#: templates/registration/password_reset_email.html:5
+msgid ""
+"You are receiving this email because you requested to reset your password"
 msgstr ""
 
-#: templates/about.html:60
-msgid "You have successfully returned the ordered items"
+#: templates/accounts/registration/password_reset_email.html:7
+#: templates/registration/password_reset_email.html:7
+msgid "Please follow this link and choose a new password"
 msgstr ""
 
-#: templates/about.html:61
-msgid "The returned ordered items are intact and has not been used."
+#: templates/accounts/registration/password_reset_email.html:10
+#: templates/registration/password_reset_email.html:10
+msgid "Your username, in case you forgot it"
 msgstr ""
 
-#: templates/about.html:62
-msgid "The ordered items have been returned on time."
+#: templates/accounts/registration/password_reset_email.html:12
+#: templates/registration/password_reset_email.html:12
+msgid "Thank you for using our site!"
 msgstr ""
 
-#: templates/about.html:62
-msgid "max. 7 days after delivery"
+#: templates/accounts/registration/password_reset_email.html:14
+#: templates/registration/password_reset_email.html:14
+msgid "Sincerely"
 msgstr ""
 
-#: templates/base.html:74
-msgid "Catalog"
+#: templates/accounts/registration/register.html:30
+#: templates/accounts/registration/register.html:72
+#: templates/registration/register.html:27
+msgid "Sign up"
 msgstr ""
 
-#: templates/base.html:79
+#: templates/accounts/registration/register.html:63
+msgid "Repeat your password"
+msgstr ""
+
+#: templates/accounts/registration/register.html:75
+#: templates/registration/register.html:50
+msgid "Already have an account ?"
+msgstr ""
+
+#: templates/accounts/registration/register.html:75
+#: templates/accounts/registration/vendor_register.html:49
+#: templates/registration/register.html:50
+#: templates/registration/vendor_register.html:49
+msgid "Sign In"
+msgstr ""
+
+#: templates/accounts/registration/registration_complete.html:18
+#: templates/registration/registration_complete.html:18
+msgid ""
+"Your account has been successfully created, but it is not activated yet."
+msgstr ""
+
+#: templates/accounts/registration/registration_complete.html:19
+#: templates/registration/registration_complete.html:19
+msgid "You will be able to login your account after you have activated it."
+msgstr ""
+
+#: templates/accounts/registration/registration_complete.html:20
+#: templates/registration/registration_complete.html:20
+msgid "An activation link has been sent to your mailbox"
+msgstr ""
+
+#: templates/accounts/registration/registration_complete.html:21
+#: templates/registration/registration_complete.html:21
+msgid ""
+"Please open your mailbox and click on the activation link to activate your "
+"account."
+msgstr ""
+
+#: templates/accounts/registration/registration_complete.html:22
+#: templates/registration/registration_complete.html:22
+msgid ""
+"If you can't find the activation link in your mailbox, please also check "
+"your spam folder."
+msgstr ""
+
+#: templates/accounts/registration/registration_complete.html:23
+#: templates/registration/registration_complete.html:23
+msgid ""
+"Your account will be automatically deleted after 3 days if you don't "
+"activate it through the link we have just sent in your mailbox."
+msgstr ""
+
+#: templates/accounts/registration/vendor_register.html:33
+#: templates/registration/register.html:35
+#: templates/registration/vendor_register.html:33
+msgid "Account type"
+msgstr ""
+
+#: templates/accounts/registration/vendor_register.html:35
+#: templates/registration/register.html:37
+#: templates/registration/vendor_register.html:35
+msgid "Select an Account Type"
+msgstr ""
+
+#: templates/accounts/registration/vendor_register.html:46
+#: templates/registration/register.html:47
+#: templates/registration/vendor_register.html:46
+msgid "Create My Account"
+msgstr ""
+
+#: templates/accounts/registration/vendor_register.html:49
+#: templates/registration/vendor_register.html:49
+msgid "Already have an account ? "
+msgstr ""
+
+#: templates/base.html:80 templates/dashboard_base.html:47
+msgid "Logout"
+msgstr ""
+
+#: templates/base.html:93
 msgid "Enable Grid"
 msgstr ""
 
-#: templates/faq.html:11
-msgid "LYSHOP FAQ"
+#: templates/dashboard_base.html:46
+msgid "Visite The site"
+msgstr ""
+
+#: templates/dashboard_base.html:54
+msgid "ONLINE SHOP"
+msgstr ""
+
+#: templates/email_tags/order_cancel_confirmation_email.html:47
+#: templates/email_tags/order_confirmation_email.html:46
+msgid "Image"
 msgstr ""
 
 #: templates/faq.html:13
 msgid "This FAQ collects the commons questions you may be looking for answers."
 msgstr ""
 
-#: templates/faq.html:19
-msgid "How do I pay my bills ?"
+#: templates/registration/login.html:44
+msgid "Register"
 msgstr ""
 
-#: templates/faq.html:20
-msgid "As of now, we support the following payment method"
+#: templates/site_account_base.html:11
+msgid "Hello"
 msgstr ""
 
-#: templates/faq.html:22
-msgid "Other payments methods will be added when available"
+#: templates/site_account_base.html:16
+msgid "Account Details"
 msgstr ""
 
-#: templates/faq.html:26
-msgid "The payment methods don't suit me, how can I get your products ?"
+#: templates/tags/category_form_tag.html:18
+#: templates/tags/category_form_update_tag.html:18
+#: templates/tags/category_tag.html:27
+msgid "SEO Page Title"
 msgstr ""
 
-#: templates/faq.html:27
-msgid "Please, get in touch with us. will see if we find a solution."
+#: templates/tags/category_form_tag.html:22
+#: templates/tags/category_form_update_tag.html:22
+#: templates/tags/category_tag.html:31
+msgid "SEO Meta Keywords"
 msgstr ""
 
-#: templates/faq.html:28
-msgid "You can contact us through the following channels"
+#: templates/tags/category_form_tag.html:31
+msgid "Select a Highlight"
 msgstr ""
 
-#: templates/faq.html:32
-msgid "How do I add an Item in the Cart ?"
+#: templates/tags/category_form_tag.html:40 templates/tags/category_tag.html:65
+msgid "Parent"
 msgstr ""
 
-#: templates/faq.html:33
-msgid "To add an item into your cart follow the step below"
+#: templates/tags/category_form_tag.html:62
+#: templates/tags/category_form_update_tag.html:63
+#: templates/tags/category_tag.html:80
+msgid "SEO Description"
 msgstr ""
 
-#: templates/faq.html:35
-msgid "From our website, open the article you want to buy"
+#: templates/tags/category_form_tag.html:70
+#: templates/tags/category_form_update_tag.html:71
+#: templates/tags/category_tag.html:88
+msgid "FACEBOOK Description"
 msgstr ""
 
-#: templates/faq.html:36
-msgid "From the product page, click on the Add to Cart button"
+#: templates/tags/category_form_update_tag.html:28
+msgid "Highligh"
 msgstr ""
 
-#: templates/faq.html:37
-msgid "The article is added to your cart"
-msgstr ""
-
-#: templates/faq.html:41
-msgid "How can I place an Order ?"
-msgstr ""
-
-#: templates/faq.html:42
-msgid "To place an order, please follow the steps below"
-msgstr ""
-
-#: templates/faq.html:44
-msgid "Add items in your cart"
-msgstr ""
-
-#: templates/faq.html:45
-msgid "From your cart page, click on the Checkout button"
-msgstr ""
-
-#: templates/faq.html:46
-msgid "From there on, follow the displayed steps"
-msgstr ""
-
-#: templates/faq.html:50
-msgid "I have placed an order. What now ?"
-msgstr ""
-
-#: templates/faq.html:52
-msgid ""
-"Once we receive your order's payment, your order will be processed and "
-"shipped to you at the registered address you gave."
-msgstr ""
-
-#: templates/faq.html:54
-msgid ""
-"You have 3 days to pay your order before we can ship it. After this delay "
-"your order will be automatically cancelled."
-msgstr ""
-
-#: templates/faq.html:58
-msgid "I placed an order, but didn't get a confirmation mail"
-msgstr ""
-
-#: templates/faq.html:60
-msgid ""
-"It may be due to network error, or a technical issue from our side. Please "
-"get in touch with us through one of the following channels."
-msgstr ""
-
-#: templates/faq.html:65
-msgid "I place an order, but the order was not delivered"
-msgstr ""
-
-#: templates/faq.html:66
-msgid ""
-"Make sure you have paid your order before the delay. After the payment delay "
-"timeout, your order will be automatically cancelled. Please contact us with "
-"the evidence of your payment so that we proceed to a refund. Get in touch "
-"with us through one of the following channels."
-msgstr ""
-
-#: templates/faq.html:71
-msgid "How can I cancel my order ?"
-msgstr ""
-
-#: templates/faq.html:72
-msgid "To cancel your order, please follow steps described below"
-msgstr ""
-
-#: templates/faq.html:74
-msgid "From your account page, click on the Orders button"
-msgstr ""
-
-#: templates/faq.html:75
-msgid "open the order you want to cancel"
-msgstr ""
-
-#: templates/faq.html:76
-msgid "click on the Cancel Order button"
-msgstr ""
-
-#: templates/faq.html:77
-msgid ""
-"please, check the order status. A shipped Order can no longer be cancelled."
-msgstr ""
-
-#: templates/faq.html:81
-msgid "How long does it take to be delivered ?"
-msgstr ""
-
-#: templates/faq.html:82
-msgid "Standard shipping can take up to 5 days to be delivered"
-msgstr ""
-
-#: templates/faq.html:83
-msgid "If you are in a  hurry, please consider the Express shipping option"
-msgstr ""
-
-#: templates/faq.html:84
-msgid "What are the available payment methods ?"
-msgstr ""
-
-#: templates/faq.html:85
-msgid "The available payment methods are"
-msgstr ""
-
-#: templates/faq.html:89
-msgid "I place an Order, but it got cancelled after some days"
-msgstr ""
-
-#: templates/faq.html:91
-msgid ""
-"All unpaid orders get automatically cancelled after 3 days from the day you "
-"placed the order."
-msgstr ""
-
-#: templates/faq.html:93
-msgid "Make sure you pay your order on time"
-msgstr ""
-
-#: templates/faq.html:96
-msgid "What is an 'On Demand article' ?"
-msgstr ""
-
-#: templates/faq.html:97
-msgid ""
-"An On Demand article is an article that not available immediately in our "
-"store in Gabon."
-msgstr ""
-
-#: templates/faq.html:98
-msgid ""
-"Those articles need to be first sent in Gabon before the customer get it "
-"delivered to him/her"
-msgstr ""
-
-#: templates/faq.html:101
-msgid "How to buy an 'On Demand' article ?"
-msgstr ""
-
-#: templates/faq.html:102
-msgid ""
-"You simply place your order like usually. The only difference is that you "
-"have to pay for the first half of the article price."
-msgstr ""
-
-#: templates/faq.html:103
-msgid ""
-"Once we get the first half of the article price, we will process your order."
-msgstr ""
-
-#: templates/faq.html:104
-msgid ""
-"You have 3 days to pay the first half of the price. After that delay your "
-"order will be cancelled."
-msgstr ""
-
-#: templates/faq.html:107
-msgid ""
-"Can I place an order that contain both immediately available and On Demand "
-"articles ?"
-msgstr ""
-
-#: templates/faq.html:108
-msgid ""
-"Yes, you can. The article that are available immediately will be delivered "
-"on time."
-msgstr ""
-
-#: templates/faq.html:109
-msgid "On Demand articles will be delivered later when they arrived in Gabon."
-msgstr ""
-
-#: templates/faq.html:110
-msgid ""
-"For the payment you will pay for the total price of immediately available "
-"article plus the half of the On Demand articles."
-msgstr ""
-
-#: templates/faq.html:111
-msgid "Here an example : "
-msgstr ""
-
-#: templates/faq.html:112
-msgid ""
-"You order 4 articles. 2 are available immediately and cost in 10000 XAF and "
-"15000 XAF each.  The 2 other are On Demand article , 10000 XAF and 20000 XAF "
-"each."
-msgstr ""
-
-#: templates/faq.html:113
-msgid ""
-"The total for the immediately available article is 25000 XAF. The total for "
-"the On Demand article is 30000 XAF. At the moment you place your order, you "
-"have to pay a total of 40000 XAF."
-msgstr ""
-
-#: templates/faq.html:114
-msgid "That is : "
-msgstr ""
-
-#: templates/faq.html:115
-msgid ""
-"You will pay the 15000 XAF left when the On Demand articles are available in "
-"Gabon."
-msgstr ""
-
-#: templates/tags/category_tag.html:9
-msgid "Name"
-msgstr ""
-
-#: templates/tags/category_tag.html:13
-msgid "Display Name"
+#: templates/tags/category_form_update_tag.html:30
+msgid "Select an Highlight"
 msgstr ""
 
 #: templates/tags/category_tag.html:19
@@ -541,15 +1939,7 @@ msgstr ""
 msgid "Page title"
 msgstr ""
 
-#: templates/tags/category_tag.html:27
-msgid "SEO Page Title"
-msgstr ""
-
-#: templates/tags/category_tag.html:31
-msgid "SEO Meta Keywords"
-msgstr ""
-
-#: templates/tags/category_tag.html:37
+#: templates/tags/category_tag.html:37 templates/tags/subscription_tag.html:30
 msgid "Created By"
 msgstr ""
 
@@ -557,40 +1947,25 @@ msgstr ""
 msgid "Creation"
 msgstr ""
 
-#: templates/tags/category_tag.html:47
+#: templates/tags/category_tag.html:47 templates/tags/highlight_tag.html:24
+#: templates/tags/highlight_update_form_tag.html:24
 msgid "Slug"
 msgstr ""
 
-#: templates/tags/category_tag.html:51
-msgid "Views"
+#: templates/tags/highlight_tag.html:61
+msgid "Highlight Products"
 msgstr ""
 
-#: templates/tags/category_tag.html:58
-msgid "Highlight"
+#: templates/tags/highlight_tag.html:68
+msgid "Price"
 msgstr ""
 
-#: templates/tags/category_tag.html:65
-msgid "Parent"
+#: templates/tags/highlight_tag.html:69
+msgid "Promotion Price"
 msgstr ""
 
-#: templates/tags/category_tag.html:69
-msgid "Status"
-msgstr ""
-
-#: templates/tags/category_tag.html:70
-msgid "Active"
-msgstr ""
-
-#: templates/tags/category_tag.html:75
-msgid "Description"
-msgstr ""
-
-#: templates/tags/category_tag.html:80
-msgid "SEO Description"
-msgstr ""
-
-#: templates/tags/category_tag.html:88
-msgid "FACEBOOK Description"
+#: templates/tags/highlight_tag.html:80
+msgid "Product Details"
 msgstr ""
 
 #: templates/tags/images_uploader.html:5
@@ -609,10 +1984,77 @@ msgstr ""
 msgid "no images"
 msgstr ""
 
+#: templates/tags/language.html:14
+msgid "Current language : "
+msgstr ""
+
+#: templates/tags/language.html:16
+msgid "Select language : "
+msgstr ""
+
 #: templates/tags/navigations.html:6
 msgid "Shop"
 msgstr ""
 
-#: templates/tags/navigations.html:17
-msgid "See all"
+#: templates/tags/pagination.html:19
+msgid "current"
+msgstr ""
+
+#: templates/tags/subscription_attribute_tag.html:19
+msgid "Value"
+msgstr ""
+
+#: templates/tags/subscription_attribute_tag.html:23
+msgid "Type"
+msgstr ""
+
+#: templates/tags/subscription_attribute_tag.html:39
+#: templates/tags/subscription_payment_form_tag.html:34
+#: templates/tags/subscription_payment_tag.html:18
+msgid "Subscription"
+msgstr ""
+
+#: templates/tags/subscription_form_tag.html:18
+#: templates/tags/subscription_form_update_tag.html:18
+#: templates/tags/subscription_tag.html:17
+msgid "Subtitle"
+msgstr ""
+
+#: templates/tags/subscription_form_tag.html:24
+#: templates/tags/subscription_form_update_tag.html:24
+#: templates/tags/subscription_tag.html:23
+msgid "Fee"
+msgstr ""
+
+#: templates/tags/subscription_form_update_tag.html:38
+#: templates/tags/subscription_tag.html:43
+msgid "Attributes"
+msgstr ""
+
+#: templates/tags/subscription_payment_form_tag.html:12
+#: templates/tags/subscription_payment_tag.html:21
+msgid "Month"
+msgstr ""
+
+#: templates/tags/subscription_payment_form_tag.html:16
+#: templates/tags/subscription_payment_tag.html:7
+msgid "Amount"
+msgstr ""
+
+#: templates/tags/subscription_payment_form_tag.html:20
+#: templates/tags/subscription_payment_tag.html:13
+msgid "Subscription fee"
+msgstr ""
+
+#: templates/tags/subscription_payment_form_tag.html:26
+#: templates/tags/subscription_payment_tag.html:24
+msgid "Payment Mode"
+msgstr ""
+
+#: templates/tags/subscription_tag.html:55
+msgid "Available Attributes"
+msgstr ""
+
+#: templates/tags/subscription_tag.html:64
+msgid "Add Attributes"
 msgstr ""
