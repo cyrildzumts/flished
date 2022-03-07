@@ -55,9 +55,11 @@
                             </form>
                         </div>
                     </div>
-                    <div class="post-header">
-                        <span>{{UI_STRINGS_CONTEXT.UI_COMMENT_LIST_LABEL}}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>
-                    </div>
+                    {% comment %}
+                        <div class="post-header">
+                            <span>{{UI_STRINGS_CONTEXT.UI_COMMENT_LIST_LABEL}}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>
+                        </div>
+                    {% endcomment %}
                     <ul id="comments" class="comments box">
                         {% for comment in blog_post.comments.all %}
                         <li>
