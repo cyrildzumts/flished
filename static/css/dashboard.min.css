@@ -111,6 +111,9 @@ p{
 	padding: 0.5em;
 	border-bottom: 2px dotted #ccc;
 }
+.status-entry{
+	font-size: 1em;
+}
 .post-entry .link-wrapper a{
 	text-transform: none;
 	text-align: left;
