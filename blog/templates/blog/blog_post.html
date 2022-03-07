@@ -28,6 +28,9 @@
                 </div>
             {% endcomment %}
             {% render_post blog_post %}
+            <div class="status-entry post-header">
+                <span class="padding-h" title="{{UI_STRINGS_CONTEXT.UI_POST_REPLY}}"><i class="far fa-comment"></i>{{blog_post.comments.count}}</span><span class="padding-h"><i class="fas fa-heart"></i><span>{{LIKES}}</span></span>
+            </div>
             <div class="post-comments">
                 
                 <div id="comments-wrapper" class="comments-wrapper">

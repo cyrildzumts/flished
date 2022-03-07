@@ -29,10 +29,12 @@ UI_CONTACT_LABEL = _('Contact us')
 UI_CLEAR_BTN_LABEL = _('Clear')
 UI_BLOG_HOME_LABEL = _('Stories')
 UI_NEW_BLOG_POST = _('New Post')
+UI_POST_REPLY = _('Reply')
+UI_POST_LIKE = _('Like')
 UI_UPDATE_BLOG_POST = _('Edit Post')
 UI_POST_PUBLISHED_LABEL = _('Your story has been published')
 UI_OPEN_POST_LINK_LABEL = _('Open your story')
-UI_NO_BLOG_POSTS_HINT = _("There no posts currently. Feel free to create an new one")
+UI_NO_BLOG_POSTS_HINT = _("There no posts currently. Feel free to create a new one")
 UI_INVALID_USER_REQUEST = _('Invalid user request')
 UI_RESOURCE_NOT_FOUND_TITLE = _('Resource not found !')
 UI_RESOURCE_NOT_FOUND = _('The resource you requested does not exist or is no longer available. Visit our blog to discover other blos posts.')
@@ -95,6 +97,8 @@ DASHBOARD_SUBSCRIPTION_PAYMENTS_TITLE = _('Subscription Payments')
 DASHBOARD_SUBSCRIPTION__CREATE_PAYMENT_TITLE = _('Create Subscription Payment')
 
 UI_STRINGS_CONTEXT = {
+    'UI_POST_REPLY': UI_POST_REPLY,
+    'UI_POST_LIKE': UI_POST_LIKE,
     'UI_CAPTION_PLACEHOLDER': UI_CAPTION_PLACEHOLDER,
     'UI_QUOTE_PLACEHOLDER': UI_QUOTE_PLACEHOLDER,
     'UI_EDITOR_PLACEHOLDER': UI_EDITOR_PLACEHOLDER,
