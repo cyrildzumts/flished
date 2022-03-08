@@ -473,8 +473,8 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         }else{
             target.innerText = "";
         }
-        target.classList.toggle("danger", len <= 0);
-        target.classList.toggle("warning", (len > 0 && ( MAX_COMMENT_TEXT_LEN - len) <= MIN_LEN_WARNING));
+        target.classList.toggle("danger", (MAX_COMMENT_TEXT_LEN - len) <= 0);
+        target.classList.toggle("warning", ((MAX_COMMENT_TEXT_LEN - len) > 0 && (MAX_COMMENT_TEXT_LEN - len) <= MIN_LEN_WARNING));
     }
 
     function track_action(track_element){
