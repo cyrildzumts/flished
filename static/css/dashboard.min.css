@@ -1487,6 +1487,7 @@ input.editable{
 	letter-spacing: 0.15em;
 	padding: 0 0.5em;
 	margin: 8px;
+	border-radius: 3em;
 	border: none;
 }
 a.mat-button{
