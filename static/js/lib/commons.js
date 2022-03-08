@@ -461,13 +461,13 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     }
 
     function input_check_max_limit(input){
-        var $input = $(input);
-        var max_len = parseInt($input.data('max-length'));
-        var len = $input.val().length;
-        var target = $($input.data('target'));
-        var max_len_reached = len > max_len;
-        $input.toggleClass("warning", max_len_reached);
-        target.toggleClass("danger", max_len_reached).text(len);
+        let max_len = parseInt(input.dataset.maxLength);
+        let len = input.value.length;
+        let target = document.getElementById(input.dataset.target);
+        let max_len_reached = len > max_len;
+        //$input.toggleClass("warning", max_len_reached);
+        target.innerText = max_len - len;
+        target.classList.toggle("danger", max_len_reached);
     }
 
     function track_action(track_element){

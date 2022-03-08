@@ -125,6 +125,16 @@
 	padding: 0.5em 0;
 }
 
+.char-counter{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2em;
+	height: 2em;
+	border-radius: 50%;
+	border: 1px solid #1abc9c;
+	color: #1abc9c;
+}
 .editor-post input[name="title"]{
 	border: none !important;
 	font-size: 1.2em;
