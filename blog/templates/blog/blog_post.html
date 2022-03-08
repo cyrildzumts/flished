@@ -46,11 +46,13 @@
                                         <label class="padding-bottom" for="new-comment">{{UI_STRINGS_CONTEXT.UI_COMMENT_LABEL}}</label>
                                         <textarea id="new-comment" class="limited-input bordered full" name="comment" cols="30" rows="10" data-target="comment-counter" data-max-length="{{COMMENT_MAX_SIZE}}" placeholder="{% if not request.user.is_authenticated %}{{UI_STRINGS_CONTEXT.UI_COMMENT_LOGIN_REQUIRED_HINT}}{% else %}{{UI_STRINGS_CONTEXT.UI_POST_NEW_COMMENT_PLACEHOLDER}}{% endif %}" {% if not request.user.is_authenticated %}disabled{% endif %}></textarea>
                                     </div>
-                                    <div class="row padding-l"><span id="comment-counter" class="char-counter" data-max_size="{{COMMENT_MAX_SIZE}}">{{COMMENT_MAX_SIZE}}</span></div>
-                                </div>
-                                <div class="actions flex-right">
-                                    <span class="mat-button mat-button-outline js-close-modal" data-target="create-comment-dialog">{{UI_STRINGS_CONTEXT.UI_CANCEL_BTN_LABEL}}</span>
-                                    <button class="mat-button-default" {% if not request.user.is_authenticated %}disabled{% endif %}><span>{{UI_STRINGS_CONTEXT.UI_COMMENT_LABEL}}</span></button>
+                                    <div class="flex space-around">
+                                        <span id="comment-counter" class="char-counter" data-max_size="{{COMMENT_MAX_SIZE}}">{{COMMENT_MAX_SIZE}}</span>
+                                        <div class="actions flex-right">
+                                            <span class="mat-button mat-button-outline js-close-modal" data-target="create-comment-dialog">{{UI_STRINGS_CONTEXT.UI_CANCEL_BTN_LABEL}}</span>
+                                            <button class="mat-button-default" {% if not request.user.is_authenticated %}disabled{% endif %}><span>{{UI_STRINGS_CONTEXT.UI_COMMENT_LABEL}}</span></button>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>
