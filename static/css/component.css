@@ -133,8 +133,9 @@
 	height: 1em;
 	padding: 1em;
 	border-radius: 50%;
-	border: 1px solid #1abc9c;
-	color: #1abc9c;
+	font-size: 0.8em;
+	border: 1px solid #1a1a1a;
+	color: #1a1a1a;
 }
 .create-comment .modal-container{
 	width: 24em;
@@ -142,7 +143,7 @@
 }
 .comment-editor{
 	width: 22em;
-	padding: 0;
+	padding: 0 !important;
 }
 .comment-editor textarea{
 	width: 20em;
