@@ -158,7 +158,10 @@ p{
 }
 .comment-editor{
 	width: 22em;
-	height: 10em;
+}
+.comment-editor textarea{
+	width: 20em;
+	max-height: 10em;
 }
 .editor-post input[name="title"]{
 	border: none !important;
