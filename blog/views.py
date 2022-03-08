@@ -1,6 +1,7 @@
 from django.core.exceptions import BadRequest, SuspiciousOperation
 from django.shortcuts import render
 from django.utils.translation import ugettext as _
+from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -124,10 +125,15 @@ def create_comment(request,author, post_slug):
     return redirect(post.get_absolute_url())
 
 
+
+
 def blog_post(request, author, post_slug):
     template_name = "blog/blog_post.html"
     post = get_object_or_404(Post, slug=post_slug, author__username=author)
     page_title = f"{post.title} | {settings.SITE_NAME}"
+    liked = False
+    if request.user.is_authenticated:
+        liked = post.likes.filter(id=request.user.pk).exists()
     recent_posts = Post.objects.all()[:GLOBAL_CONF.MAX_RECENT]
     blog_service.update_view_count(Post, post.id)
     context = {
@@ -136,6 +142,8 @@ def blog_post(request, author, post_slug):
         'recent_posts': recent_posts,
         'POST_STATUS_DRAFT': Constants.POST_STATUS_DRAFT,
         'blog_post': post,
+        'LIKED': liked,
+        'LIKES': post.likes.count(),
         'COMMENT_MAX_SIZE': Constants.COMMENT_MAX_SIZE,
     }
     return render(request, template_name, context)

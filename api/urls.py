@@ -26,7 +26,10 @@ urlpatterns = [
     #path('update-address/<uuid:address_uuid>/', views.update_address, name='update-address'),
     #path('update-campaign/<uuid:campaign_uuid>/', views.update_campaign, name='api-update-campaign'),
     #path('update-highlight/<uuid:highlight_uuid>/', views.update_highlight, name='api-update-highlight'),
+    path('add-like/<int:post_id>/', views.add_like, name='add-like'),
+    path('remove-like/<int:post_id>/', views.remove_like, name='remove-like'),
     path('update-post/<uuid:post_uuid>/', views.update_post, name='update-post'),
+
     path('update-tag/<uuid:tag_uuid>/', views.update_tag, name='update-tag'),
     path('update-category/<uuid:category_uuid>/', views.update_category, name='update-category'),
     path('user-search/', views.UserSearchView.as_view(), name="user-search"),

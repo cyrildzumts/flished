@@ -807,6 +807,12 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                     self.upload();
                 }
             });
+            $('.js-post-like').on('click', function(e){
+                e.stopPropagation();
+                let post = this.dataset.post;
+                let liked = this.dataset.liked;
+                self.add_like(liked, post);
+            });
 
             console.log("PostManager initialized");
         };
@@ -947,6 +953,38 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 
             });
 
+        };
+
+        PostManager.prototype.onAddLikeResponse = function(data){
+            let post_like = document.querySelector('.post-like');
+            let post_like_count = document.querySelector('.post-like-count');
+            if(!post_like || !post_like_count){
+                return;
+            }
+            post_like_count.innerText = data.likes;
+            post_like.dataset.liked = data.liked ? "true" : 'false';
+            post_like.dataset.likes = data.likes;
+            post_like.classList.toggle('liked', data.liked);
+            post_like.classList.toggle('unliked', !data.liked);
+            
+        };
+
+        PostManager.prototype.add_like = function(liked, post_id){
+            let self = this;
+            let csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]');
+            let formData = new FormData();
+            formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
+            let url = liked == "liked" ? '/api/add-like/': '/api/remove-like/' + post_id + '/';
+            let fetch_options = {
+                method : 'POST',
+                body: formData
+            };
+            ajax_api.fetch_api(url, fetch_options).then(function(response){
+                self.onAddLikeResponse(response);
+            }, function(reason){
+                console.error("Files could not be uploaded.");
+                console.error(reason);
+            });
         };
 
         return PostManager;

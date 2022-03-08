@@ -6,6 +6,7 @@ from django.core.cache import cache
 from django.db.models import Q, Count, F
 from django.template.loader import render_to_string, get_template
 from django.contrib.postgres.search import SearchVector, SearchQuery
+from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from core import core_tools
 from flished import utils
@@ -101,6 +102,18 @@ def update_view_count(model, id):
         model.objects.filter(id=id).update(view_count=F('view_count') + 1)
     except Exception as e:
         logger.warn(f"Error on updating view count for instance of {model} with id \"{id}\"")
+
+def add_like(post_id, user):
+    if isinstance(user, User) and hasattr(user, 'likes'):
+        user.likes.add(post_id)
+        return {'success': True,'liked': True, 'likes': Post.objects.filter(pk=post_id).count()}
+    return {'success': False}
+
+def remove_like(post_id, user):
+    if isinstance(user, User) and hasattr(user, 'likes'):
+        user.likes.remove(post_id)
+        return {'success': True,'liked': False, 'likes': Post.objects.filter(pk=post_id).count()}
+    return {'success': False}
 
 def get_category(category_uuid):
     try:

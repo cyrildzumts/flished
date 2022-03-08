@@ -29,7 +29,7 @@
             {% endcomment %}
             {% render_post blog_post %}
             <div class="status-entry post-header">
-                <span class="padding-h js-open-modal" title="{{UI_STRINGS_CONTEXT.UI_POST_REPLY}}" data-target="create-comment-dialog"><i class="far fa-comment"></i><span>{{blog_post.comments.count}}</span></span><span class="padding-h" title="{{UI_STRINGS_CONTEXT.UI_POST_LIKE}}"><i class="far fa-heart"></i><span>{{LIKES|default:''}}</span></span>
+                <span class="padding-h js-open-modal" title="{{UI_STRINGS_CONTEXT.UI_POST_REPLY}}" data-target="create-comment-dialog"><i class="far fa-comment"></i><span>{{blog_post.comments.count}}</span></span><span class="post-like js-post-like padding-h {% if LIKED %}liked{% else %}unliked{% endif %}" title="{% if LIKED %}{{UI_STRINGS_CONTEXT.UI_POST_LIKE}}{% else %}{{UI_STRINGS_CONTEXT.UI_POST_UNLIKE}}{% endif %}" data-liked="{{LIKED}}" data-likes="{{LIKES}}" data-post="{{blog_post.pk}}"><i class="far fa-heart"></i><span id="post-like-count" class="post-like-count">{{LIKES|default:''}}</span></span>
             </div>
             <div class="post-comments">
                 

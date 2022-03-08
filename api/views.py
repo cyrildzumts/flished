@@ -121,6 +121,26 @@ def update_post(request, post_uuid):
     return Response(data=data, status=status.HTTP_200_OK)
 
 
+@api_view(['POST'])
+@permission_classes([])
+@authentication_classes([])
+def add_like(request, post_id):
+    if request.method != 'POST':
+        return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
+    
+    data = blog_service.add_like(post_id, request.user)
+    return Response(data=data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+@permission_classes([])
+@authentication_classes([])
+def remove_like(request, post_id):
+    if request.method != 'POST':
+        return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
+    data = blog_service.remove_like(post_id, request.user)
+    return Response(data=data, status=status.HTTP_200_OK)
+
 
 @api_view(['POST'])
 def create_category(request):

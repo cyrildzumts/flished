@@ -143,6 +143,9 @@ input.error{
 	border: 2px solid #aaa;
 }
 
+.post-like:hover, .post-like:hover *{
+	color: #9b59b6;
+}
 
 .cancel:hover{
 	color: #aaa;
