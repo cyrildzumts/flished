@@ -85,6 +85,14 @@ input.error{
 .danger, .danger *, .saled-price, .sale, .sale-price{
     color: var(--warning-color) !important;
 }
+.char-counter.warning{
+	color: var(--warning-color) !important;
+    border-color: var(--warning-color) !important;;
+}
+.char-counter.danger{
+	color: var(--error-color) !important;
+    border-color: var(--error-color) !important;;
+}
 .on-demand-order{
     color: var(--on-demand-order) !important;
 }

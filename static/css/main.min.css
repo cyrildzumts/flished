@@ -156,6 +156,7 @@ p{
 .create-comment .modal-container{
 	width: 24em;
 	height: 16em;
+	border-radius: 1em;
 }
 .comment-editor{
 	width: 22em;
@@ -164,7 +165,6 @@ p{
 .comment-editor textarea{
 	width: 20em;
 	max-height: 7em;
-	
 }
 .editor-post input[name="title"]{
 	border: none !important;
@@ -3540,7 +3540,7 @@ li .order-tag{
     --text-grey: #777;
     --color-stone : #707C80;
     --color-ebony : #282C35;
-    --warning-color : #FF0D00;
+    --warning-color : #f1c40f;
     --error-color : #FF0D00;
     --success-color :#45A29E ;
     --info-color: #0A0A0A;
@@ -3628,6 +3628,14 @@ input.error{
 }
 .danger, .danger *, .saled-price, .sale, .sale-price{
     color: var(--warning-color) !important;
+}
+.char-counter.warning{
+	color: var(--warning-color) !important;
+    border-color: var(--warning-color) !important;;
+}
+.char-counter.danger{
+	color: var(--error-color) !important;
+    border-color: var(--error-color) !important;;
 }
 .on-demand-order{
     color: var(--on-demand-order) !important;

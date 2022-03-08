@@ -137,9 +137,11 @@
 	border: 1px solid #1a1a1a;
 	color: #1a1a1a;
 }
+
 .create-comment .modal-container{
 	width: 24em;
 	height: 16em;
+	border-radius: 1em;
 }
 .comment-editor{
 	width: 22em;
@@ -148,7 +150,7 @@
 .comment-editor textarea{
 	width: 20em;
 	max-height: 7em;
-	
+
 }
 .editor-post input[name="title"]{
 	border: none !important;
