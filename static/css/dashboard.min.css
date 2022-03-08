@@ -152,8 +152,13 @@ p{
 	border: 1px solid #1abc9c;
 	color: #1abc9c;
 }
+.create-comment .modal-container{
+	width: 24em;
+	height: 12em;
+}
 .comment-editor{
 	width: 22em;
+	height: 10em;
 }
 .editor-post input[name="title"]{
 	border: none !important;
