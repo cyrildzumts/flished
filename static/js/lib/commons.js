@@ -970,13 +970,16 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                         if(eventModal.target == modal){
                             modal.style.display = "none";
                             that.modal = undefined;
-                            let inputs = modal.querySelectorAll("input:not([name='csrfmiddlewaretoken']):not([type='hidden'])");
+                            let inputs = modal.querySelectorAll("input:not([name='csrfmiddlewaretoken']):not([type='hidden']), textarea");
                             if(inputs){
                                 inputs.forEach(function(el,index){
                                     el.value = "";
                                     el.dataset.update = "";
                                     if(el.type =="file"){
                                         el.files = null;
+                                    }
+                                    if(el.type == "checkbox" || el.type == "radio"){
+                                        el.checked = false;
                                     }
                                 });
                             }
@@ -990,13 +993,16 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 let modal = document.getElementById(this.dataset.target);
                 modal.style.display = "none";
                 that.modal = undefined;
-                let inputs = modal.querySelectorAll("input:not([name='csrfmiddlewaretoken']):not([type='hidden'])");
+                let inputs = modal.querySelectorAll("input:not([name='csrfmiddlewaretoken']):not([type='hidden']), textarea");
                 if(inputs){
                     inputs.forEach(function(el,index){
                         el.value = "";
                         el.dataset.update = "";
                         if(el.type =="file"){
                             el.files = null;
+                        }
+                        if(el.type == "checkbox" || el.type == "radio"){
+                            el.checked = false;
                         }
                     });
                 }
