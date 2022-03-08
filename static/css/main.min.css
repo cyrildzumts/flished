@@ -158,6 +158,7 @@ p{
 }
 .comment-editor{
 	width: 22em;
+	padding: 0;
 }
 .comment-editor textarea{
 	width: 20em;
