@@ -18,6 +18,8 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     const EDITOR_CHANGE_TIMEOUT = 1000; // 1s
     const POST_STATUS_PUBLISH = 1
     const CAROUSEL_INTERVAL = 5000;
+    const MIN_LEN_WARNING = 20;
+    const MAX_COMMENT_TEXT_LEN = 256;
     const LOGIN_REQUIRED_KEY = "login_required";
     let AUTO_SAVE_TIMER;
     let fileUpload;
@@ -461,13 +463,18 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     }
 
     function input_check_max_limit(input){
-        let max_len = parseInt(input.dataset.maxLength);
+        //let max_len = parseInt(input.dataset.maxLength);
         let len = input.value.length;
         let target = document.getElementById(input.dataset.target);
-        let max_len_reached = len > max_len;
+        let max_len_reached = len == MAX_COMMENT_TEXT_LEN;
         //$input.toggleClass("warning", max_len_reached);
-        target.innerText = max_len - len;
-        target.classList.toggle("danger", max_len_reached);
+        if((MAX_COMMENT_TEXT_LEN - len) <= MIN_LEN_WARNING){
+            target.innerText = MAX_COMMENT_TEXT_LEN - len;
+        }else{
+            target.innerText = "";
+        }
+        target.classList.toggle("danger", len <= 0);
+        target.classList.toggle("warning", (len > 0 && len <= MIN_LEN_WARNING));
     }
 
     function track_action(track_element){
