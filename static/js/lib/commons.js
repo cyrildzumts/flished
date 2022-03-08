@@ -978,6 +978,10 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                             modal.style.display = "none";
                             that.modal = undefined;
                             let inputs = modal.querySelectorAll("input:not([name='csrfmiddlewaretoken']):not([type='hidden']), textarea");
+                            let clearables = modal.querySelectorAll('.clearable');
+                            if(clearables){
+                                clearables.forEach((el) =>{el.innerText = ""});
+                            }
                             if(inputs){
                                 inputs.forEach(function(el,index){
                                     el.value = "";
@@ -1001,6 +1005,10 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 modal.style.display = "none";
                 that.modal = undefined;
                 let inputs = modal.querySelectorAll("input:not([name='csrfmiddlewaretoken']):not([type='hidden']), textarea");
+                let clearables = modal.querySelectorAll('.clearable');
+                if(clearables){
+                    clearables.forEach((el) =>{el.innerText = ""});
+                }
                 if(inputs){
                     inputs.forEach(function(el,index){
                         el.value = "";
