@@ -982,7 +982,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                             if(clearables){
                                 clearables.forEach((el) =>{
                                     el.innerText = "";
-                                    el.classList.remove(['warning', 'danger']);
+                                    el.classList.remove('warning', 'danger');
                                 });
                             }
                             if(inputs){
@@ -1012,7 +1012,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 if(clearables){
                     clearables.forEach((el) =>{
                         el.innerText = "";
-                        el.classList.remove(['warning', 'danger']);
+                        el.classList.remove('warning', 'danger');
                     });
                 }
                 if(inputs){
