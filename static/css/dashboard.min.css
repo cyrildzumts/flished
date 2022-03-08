@@ -161,7 +161,7 @@ p{
 }
 .comment-editor textarea{
 	width: 20em;
-	max-height: 10em;
+	max-height: 7em;
 }
 .editor-post input[name="title"]{
 	border: none !important;
