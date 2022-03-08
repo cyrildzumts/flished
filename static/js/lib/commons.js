@@ -980,7 +980,10 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                             let inputs = modal.querySelectorAll("input:not([name='csrfmiddlewaretoken']):not([type='hidden']), textarea");
                             let clearables = modal.querySelectorAll('.clearable');
                             if(clearables){
-                                clearables.forEach((el) =>{el.innerText = ""});
+                                clearables.forEach((el) =>{
+                                    el.innerText = "";
+                                    el.classList.remove(['warning', 'danger']);
+                                });
                             }
                             if(inputs){
                                 inputs.forEach(function(el,index){
@@ -1007,7 +1010,10 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 let inputs = modal.querySelectorAll("input:not([name='csrfmiddlewaretoken']):not([type='hidden']), textarea");
                 let clearables = modal.querySelectorAll('.clearable');
                 if(clearables){
-                    clearables.forEach((el) =>{el.innerText = ""});
+                    clearables.forEach((el) =>{
+                        el.innerText = "";
+                        el.classList.remove(['warning', 'danger']);
+                    });
                 }
                 if(inputs){
                     inputs.forEach(function(el,index){
