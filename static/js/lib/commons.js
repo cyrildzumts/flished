@@ -961,7 +961,13 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
             if(!post_like || !post_like_count){
                 return;
             }
-            post_like_count.innerText = data.likes;
+            if(data.success){
+                if(data.likes){
+                    post_like_count.innerText = data.likes;
+                }
+                    
+            }
+            
             post_like.dataset.liked = data.liked ? "true" : 'false';
             post_like.dataset.likes = data.likes;
             post_like.classList.toggle('liked', data.liked);
@@ -974,7 +980,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
             let csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]');
             let formData = new FormData();
             formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
-            let url = liked == "liked" ? '/api/add-like/': '/api/remove-like/' + post_id + '/';
+            let url = liked == "false" ? '/api/add-like/': '/api/remove-like/' + post_id + '/';
             let fetch_options = {
                 method : 'POST',
                 body: formData
