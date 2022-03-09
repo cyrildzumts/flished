@@ -967,11 +967,8 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 post_like.dataset.likes = data.likes;
                 post_like.title = data.title;
                 post_like.classList.toggle('liked', data.liked);
-                post_like.classList.toggle('unliked', !data.liked);
+                post_like.classList.toggle('unliked', data.liked);
             }
-            
-            
-            
         };
 
         PostManager.prototype.add_like = function(liked, post_id){
