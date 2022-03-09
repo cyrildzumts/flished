@@ -962,16 +962,15 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 return;
             }
             if(data.success){
-                if(data.likes){
-                    post_like_count.innerText = data.likes;
-                }
-                    
+                post_like_count.innerText = data.likes > 0 ? data.likes : '';
+                post_like.dataset.liked = data.liked ? "true" : 'false';
+                post_like.dataset.likes = data.likes;
+                post_like.title = data.title;
+                post_like.classList.toggle('liked', data.liked);
+                post_like.classList.toggle('unliked', !data.liked);
             }
             
-            post_like.dataset.liked = data.liked ? "true" : 'false';
-            post_like.dataset.likes = data.likes;
-            post_like.classList.toggle('liked', data.liked);
-            post_like.classList.toggle('unliked', !data.liked);
+            
             
         };
 

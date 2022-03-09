@@ -147,6 +147,10 @@ input.error{
 	color: #9b59b6;
 }
 
+.post-like.liked, .post-like.liked *{
+	color: #3498db;
+}
+
 .cancel:hover{
 	color: #aaa;
 }

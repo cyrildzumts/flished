@@ -8,7 +8,8 @@ from django.template.loader import render_to_string, get_template
 from django.contrib.postgres.search import SearchVector, SearchQuery
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from core import core_tools
+from core import core_tools 
+from core.resources import ui_strings as CORE_UI_STRINGS
 from flished import utils
 import logging
 
@@ -108,7 +109,7 @@ def add_like(post_id, user):
     if isinstance(user, User) and hasattr(user, 'likes'):
         logger.info(f"Adding like to post {post_id}")
         user.likes.add(post_id)
-        return {'success': True,'liked': True, 'likes': Post.objects.filter(pk=post_id).count()}
+        return {'success': True,'liked': True, 'likes': Post.objects.filter(pk=post_id).count(), 'title': CORE_UI_STRINGS.UI_POST_UNLIKE}
     return {'success': False}
 
 def remove_like(post_id, user):
@@ -116,7 +117,7 @@ def remove_like(post_id, user):
     if isinstance(user, User) and hasattr(user, 'likes'):
         logger.info(f"Removing like to post {post_id}")
         user.likes.remove(post_id)
-        return {'success': True,'liked': False, 'likes': Post.objects.filter(pk=post_id).count()}
+        return {'success': True,'liked': False, 'likes': Post.objects.filter(pk=post_id).count(), 'title': CORE_UI_STRINGS.UI_POST_LIKE}
     return {'success': False}
 
 def get_category(category_uuid):
