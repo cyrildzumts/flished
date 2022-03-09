@@ -123,7 +123,6 @@ def update_post(request, post_uuid):
 
 @api_view(['POST'])
 @permission_classes([])
-@authentication_classes([])
 def add_like(request, post_id):
     if request.method != 'POST':
         return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
@@ -134,7 +133,6 @@ def add_like(request, post_id):
 
 @api_view(['POST'])
 @permission_classes([])
-@authentication_classes([])
 def remove_like(request, post_id):
     if request.method != 'POST':
         return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
