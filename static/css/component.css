@@ -127,12 +127,16 @@
 	margin-bottom: 1em;
 }
 
+
 .post p, .comment p{
 	overflow-wrap: break-word;
 	white-space: pre-wrap;
 	padding: 0;
 }
 
+.comment{
+	border-bottom: 2px dotted #ccc;
+}
 .char-counter{
 	display: flex;
 	align-items: center;
