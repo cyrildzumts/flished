@@ -83,7 +83,7 @@ p{
 					0px 1px 3px 0px rgba(0,0,0,0.12);
 }
 .post-wrapper{
-	max-width: 900px;
+	max-width: 37.5em;
 }
 .post-wrapper, .post-list-wrapper{
 	padding: 1.5em;
