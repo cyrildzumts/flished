@@ -104,7 +104,7 @@ def update_view_count(model, id):
         logger.warn(f"Error on updating view count for instance of {model} with id \"{id}\"")
 
 def add_like(post_id, user):
-    logger.info(f"add like to post {post_id}")
+    logger.info(f"add like to post {post_id} by user {user}")
     if isinstance(user, User) and hasattr(user, 'likes'):
         logger.info(f"Adding like to post {post_id}")
         user.likes.add(post_id)
@@ -112,7 +112,7 @@ def add_like(post_id, user):
     return {'success': False}
 
 def remove_like(post_id, user):
-    logger.info(f"remove like to post {post_id}")
+    logger.info(f"remove like to post {post_id}  by user {user}")
     if isinstance(user, User) and hasattr(user, 'likes'):
         logger.info(f"Removing like to post {post_id}")
         user.likes.remove(post_id)
