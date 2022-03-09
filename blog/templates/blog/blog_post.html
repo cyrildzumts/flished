@@ -62,10 +62,10 @@
                             <span>{{UI_STRINGS_CONTEXT.UI_COMMENT_LIST_LABEL}}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>
                         </div>
                     {% endcomment %}
-                    <ul id="comments" class="comments box">
+                    <ul id="comments" class="comments mat-box">
                         {% for comment in blog_post.comments.all %}
                         <li class="margin-bottom">
-                            <div class="comment mat-box">
+                            <div class="comment">
                                 <div class="post-header">
                                     <span class="bold">{{comment.author.get_full_name}}</span>|<span><i class="fas fa-comment icon"></i> {{comment.created_at}}</span>|<span class="js-report-comment" title="{% trans 'Signal this comment' %}"><i class="far fa-flag icon"></i></span>
                                 </div>
