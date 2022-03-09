@@ -28,7 +28,7 @@
                 </div>
             {% endcomment %}
             {% render_post blog_post %}
-            <div class="status-entry post-header">
+            <div class="status-entry post-header margin-top">
                 <span class="padding-h js-open-modal" title="{{UI_STRINGS_CONTEXT.UI_POST_REPLY}}" data-target="create-comment-dialog"><i class="far fa-comment"></i><span>{{blog_post.comments.count}}</span></span><span class="post-like js-post-like padding-h {% if LIKED %}liked{% else %}unliked{% endif %}" title="{% if LIKED %}{{UI_STRINGS_CONTEXT.UI_POST_UNLIKE}}{% else %}{{UI_STRINGS_CONTEXT.UI_POST_LIKE}}{% endif %}" data-liked="{{LIKED|yesno:'true,false'}}" data-likes="{{LIKES}}" data-post="{{blog_post.pk}}"><i class="far fa-heart"></i><span id="post-like-count" class="post-like-count">{{LIKES|default:''}}</span></span>
             </div>
             <div class="post-comments">
@@ -64,7 +64,7 @@
                     {% endcomment %}
                     <ul id="comments" class="comments box">
                         {% for comment in blog_post.comments.all %}
-                        <li>
+                        <li class="margin-bottom">
                             <div class="comment mat-box">
                                 <div class="post-header">
                                     <span class="bold">{{comment.author.get_full_name}}</span>|<span><i class="fas fa-comment icon"></i> {{comment.created_at}}</span>|<span class="js-report-comment" title="{% trans 'Signal this comment' %}"><i class="far fa-flag icon"></i></span>

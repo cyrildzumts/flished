@@ -123,8 +123,14 @@
 	padding-right: 0;
 }
 
-.post p{
-	padding: 0.5em 0;
+.post h1, .post h2, .post h3, .post h4, .post h5, .post h6{
+	margin-bottom: 1em;
+}
+
+.post p, .comment p{
+	overflow-wrap: break-word;
+	white-space: pre-wrap;
+	padding: 0;
 }
 
 .char-counter{

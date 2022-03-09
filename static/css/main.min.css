@@ -26,8 +26,8 @@ body {
   padding: 0;
 }
 p{
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   text-decoration: none;
   text-align: left;
 }
@@ -138,8 +138,13 @@ p{
 .post-sharing ul li:last-child{
 	padding-right: 0;
 }
-.post p{
-	padding: 0.5em 0;
+.post h1, .post h2, .post h3, .post h4, .post h5, .post h6{
+	margin-bottom: 1em;
+}
+.post p, .comment p{
+	overflow-wrap: break-word;
+	white-space: pre-wrap;
+	padding: 0;
 }
 .char-counter{
 	display: flex;
@@ -3498,6 +3503,12 @@ li .order-tag{
 }
 .margin-r{
     margin-right: 1rem !important;
+}
+.margin-top{
+    margin-top: 1em;
+}
+.margin-bottom{
+    margin-bottom: 1em;
 }
 .margin-v{
     margin-top: 1rem !important;
