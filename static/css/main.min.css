@@ -3692,7 +3692,7 @@ input.error{
 	font-weight: 700 !important;
 	border: 2px solid #aaa;
 }
-.post-like:hover, .post-like:hover *{
+.post-like:hover, .comment-btn:hover, .post-like:hover *, .comment-btn:hover *{
 	color: #9b59b6;
 }
 .post-like.liked, .post-like.liked *{
