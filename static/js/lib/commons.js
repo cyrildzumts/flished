@@ -980,7 +980,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
             let csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]');
             let formData = new FormData();
             formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
-            let url = liked == "false" ? '/api/add-like/': '/api/remove-like/' + post_id + '/';
+            let url = (liked == "false" ? '/api/add-like/': '/api/remove-like/') + post_id + '/';
             let fetch_options = {
                 method : 'POST',
                 body: formData
