@@ -150,7 +150,7 @@ def fetch_comments(request, post_id):
     if data.get('not_found', False):
         return Response(data=data, status=status.HTTP_404_NOT_FOUND)
     
-    return Response(data=json.dumps(data), status=status.HTTP_200_OK)
+    return Response(data=data, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
