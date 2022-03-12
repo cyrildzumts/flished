@@ -40,4 +40,5 @@ class NewsSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = Comment.FORM_FIELDS
+        #fields = Comment.FORM_FIELDS
+        fields = Comment.SERIALIZER_FIELDS

@@ -247,3 +247,18 @@ def category_posts(category):
     CACHE.set(key,post_list)
     return post_list
 
+
+def get_new_post_comments(post_id,data) :
+    form = BLOG_FORMS.FetchCommentsForm(data)
+    if not form.is_valid():
+        return {'success': False, 'not_found': False, 'message': CORE_UI_STRINGS.UI_INVALID_USER_REQUEST}
+    
+    post = None
+    try:
+        post = Post.objects.get(pk=post_id)
+    except ObjectDoesNotExist :
+        return {'success': False, 'not_found': True, 'message': CORE_UI_STRINGS.UI_NOT_FOUND}
+    
+    comments = Comment.objects.filter(post=post, created_at__gt=form.cleaned_data('created_at')).annotate(username=F('author__username'), post_id=F('pk')).values_list('username', 'post_id', 'comment', 'created_at')
+
+    return {'success': True, 'comments': comments}

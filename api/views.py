@@ -15,6 +15,7 @@ from core.resources import ui_strings as UI_STRINGS
 
 import logging
 import uuid
+import json
 logger = logging.getLogger(__name__)
 
 # Create your views here.
@@ -138,6 +139,18 @@ def remove_like(request, post_id):
         return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
     data = blog_service.remove_like(post_id, request.user)
     return Response(data=data, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+@permission_classes([])
+def fetch_comments(request, post_id):
+    if request.method != 'POST':
+        return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
+    data = blog_service.get_new_post_comments(post_id, utils.get_postdata(request))
+    if data.get('not_found', False):
+        return Response(data=data, status=status.HTTP_404_NOT_FOUND)
+    
+    return Response(data=json.dumps(data), status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])

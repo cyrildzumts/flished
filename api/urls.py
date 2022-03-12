@@ -29,6 +29,7 @@ urlpatterns = [
     path('add-like/<int:post_id>/', views.add_like, name='add-like'),
     path('remove-like/<int:post_id>/', views.remove_like, name='remove-like'),
     path('update-post/<uuid:post_uuid>/', views.update_post, name='update-post'),
+    path('fetch-comments/<int:post_id>/', views.fetch_comments, name='fetch-comments'),
 
     path('update-tag/<uuid:tag_uuid>/', views.update_tag, name='update-tag'),
     path('update-category/<uuid:category_uuid>/', views.update_category, name='update-category'),

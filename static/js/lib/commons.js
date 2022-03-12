@@ -16,6 +16,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     
     const SAVE_DRAFT_INTERVAL = 10000; // 10s
     const EDITOR_CHANGE_TIMEOUT = 1000; // 1s
+    const COMMENT_FETCH_INTERVAL = 5000; // 5s
     const POST_STATUS_PUBLISH = 1
     const CAROUSEL_INTERVAL = 5000;
     const MIN_LEN_WARNING = 20;
@@ -37,6 +38,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         unordered:'ul',
         checklist: 'ul'
     };
+
     let BLOCK_MAPPING = {
         'header': render_header,
         'paragraph': render_paragraph,
@@ -1077,6 +1079,58 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         $(".kiosk-image").removeClass('active').filter(event.target).addClass("active");
     }
 
+    function parseHTML(html){
+        let template = document.createElement('template');
+        template.innerHTML = html;
+        return template.content;
+    }
+    function create_comment(data){
+        let author = data.username;
+        let created_at = data.created_at;
+        let comment = data.comment;
+        let comment_tag = 
+    `<li class="margin-bottom">
+        <div class="comment">
+            <div class="post-header">
+                <span class="bold">${author}</span>|<span><i class="fas fa-comment icon"></i> ${created_at}</span>|<span class="js-report-comment" title="report"><i class="far fa-flag icon"></i></span>
+            </div>
+            <div>
+                <p>${comment}</p>
+            </div>
+        </div>
+    </li>`;
+    return parseHTML(comment_tag);
+    }
+
+    function auto_fetch_comments(post_id, comments_container){
+        let post_comment_count = document.getElementById('post-comment-count');
+        let post_like_count = document.getElementById('post-like-count');
+        let csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]');
+        function fetch_comments(){
+            let last = comments_container.dataset.last;
+            let formData = new FormData();
+            formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
+            formData.append('created_at', last);
+            let url = '/api/fetch-comments/' + post_id + '/';
+            let fetch_options = {
+                method : 'POST',
+                body: formData
+            };
+            ajax_api.fetch_api(url, fetch_options).then(function(response){
+                if(!response.success || !response.comments){
+                    return;
+                }
+                post_comment_count.innerText = response.comments;
+                post_like_count.innerText = response.likes;
+                response.comments.forEach((c)=>{comments_container.appendChild(create_comment(c))});
+            }, function(reason){
+                console.error("Files could not be uploaded.");
+                console.error(reason);
+            });
+        }
+        return setInterval(fetch_comments, COMMENT_FETCH_INTERVAL);
+    }
+
     $(document).ready(function(){
         if(window){
             window.notify = notify;
@@ -1092,6 +1146,10 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         fileUpload = new FileUpload();
         postManager = new PostManager();
         postManager.init();
+        let comments = document.getElementById('comments');
+        if(comments){
+            auto_fetch_comments(comments.dataset.post, comments_container);
+        }
         
         $('.collapsible .toggle').on('click', function(event){
             var parent = $(this).parent();

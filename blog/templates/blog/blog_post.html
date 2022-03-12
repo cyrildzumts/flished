@@ -29,7 +29,7 @@
             {% endcomment %}
             {% render_post blog_post %}
             <div class="status-entry post-header margin-top">
-                <span class="padding-h js-open-modal comment-btn" title="{{UI_STRINGS_CONTEXT.UI_POST_REPLY}}" data-target="create-comment-dialog"><i class="far fa-comment"></i><span>{{blog_post.comments.count}}</span></span><span class="post-like js-post-like padding-h {% if LIKED %}liked{% else %}unliked{% endif %}" title="{% if LIKED %}{{UI_STRINGS_CONTEXT.UI_POST_UNLIKE}}{% else %}{{UI_STRINGS_CONTEXT.UI_POST_LIKE}}{% endif %}" data-liked="{{LIKED|yesno:'true,false'}}" data-likes="{{LIKES}}" data-post="{{blog_post.pk}}"><i class="far fa-heart"></i><span id="post-like-count" class="post-like-count">{{LIKES|default:''}}</span></span>
+                <span class="padding-h js-open-modal comment-btn" title="{{UI_STRINGS_CONTEXT.UI_POST_REPLY}}" data-target="create-comment-dialog"><i class="far fa-comment"></i><span id="post-comment-count">{{blog_post.comments.count}}</span></span><span class="post-like js-post-like padding-h {% if LIKED %}liked{% else %}unliked{% endif %}" title="{% if LIKED %}{{UI_STRINGS_CONTEXT.UI_POST_UNLIKE}}{% else %}{{UI_STRINGS_CONTEXT.UI_POST_LIKE}}{% endif %}" data-liked="{{LIKED|yesno:'true,false'}}" data-likes="{{LIKES}}" data-post="{{blog_post.pk}}"><i class="far fa-heart"></i><span id="post-like-count" class="post-like-count">{{LIKES|default:''}}</span></span>
             </div>
             <div class="post-comments">
                 
@@ -62,7 +62,7 @@
                             <span>{{UI_STRINGS_CONTEXT.UI_COMMENT_LIST_LABEL}}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>
                         </div>
                     {% endcomment %}
-                    <ul id="comments" class="comments mat-box">
+                    <ul id="comments" class="comments mat-box" data-post="{{blog_post.pk}}" data-last="{{blog_post.comments.last.created_at}}">
                         {% for comment in blog_post.comments.all %}
                         <li class="margin-bottom">
                             <div class="comment">

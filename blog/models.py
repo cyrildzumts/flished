@@ -165,9 +165,10 @@ class Comment(models.Model):
     comment_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     created_at = models.DateTimeField(auto_now_add=True, blank=False, null=False, editable=False)
     FORM_FIELDS = ['author', 'comment', 'post']
+    SERIALIZER_FIELDS = ['author', 'comment', 'post', 'created_at']
 
     class Meta:
-        ordering = ['-created_at']
+        ordering = ['created_at']
 
     def __str__(self):
         return f"Comment - {self.author.username} - {self.post.title}"

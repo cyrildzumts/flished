@@ -35,3 +35,8 @@ class NewsForm(forms.ModelForm):
     class Meta:
         model = News
         fields = News.FORM_FIELDS
+
+
+class FetchCommentsForm(forms.Form):
+    created_at = forms.DateTimeField()
+    
