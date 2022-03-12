@@ -1148,7 +1148,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         postManager.init();
         let comments = document.getElementById('comments');
         if(comments){
-            auto_fetch_comments(comments.dataset.post, comments_container);
+            auto_fetch_comments(comments.dataset.post, comments);
         }
         
         $('.collapsible .toggle').on('click', function(event){
