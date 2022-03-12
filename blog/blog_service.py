@@ -251,6 +251,7 @@ def category_posts(category):
 def get_new_post_comments(post_id,data) :
     form = BLOG_FORMS.FetchCommentsForm(data)
     if not form.is_valid():
+        logger.warning(f"new post comments : form is invalid : Errors {form.errors}")
         return {'success': False, 'not_found': False, 'message': CORE_UI_STRINGS.UI_INVALID_USER_REQUEST}
     
     post = None
