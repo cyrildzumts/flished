@@ -16,7 +16,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     
     const SAVE_DRAFT_INTERVAL = 10000; // 10s
     const EDITOR_CHANGE_TIMEOUT = 1000; // 1s
-    const COMMENT_FETCH_INTERVAL = 5000; // 5s
+    const COMMENT_FETCH_INTERVAL = 30000; // 30s
     const POST_STATUS_PUBLISH = 1
     const CAROUSEL_INTERVAL = 5000;
     const MIN_LEN_WARNING = 20;
@@ -1086,7 +1086,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     }
     function create_comment(data){
         let author = data.username;
-        let created_at = data.created_at;
+        let created_at = data.date;
         let comment = data.comment;
         let comment_tag = 
     `<li class="margin-bottom">
@@ -1120,7 +1120,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 if(!response.success || !response.comments){
                     return;
                 }
-                post_comment_count.innerText = response.comments;
+                post_comment_count.innerText = response.comment_count;
                 post_like_count.innerText = response.likes;
                 response.comments.forEach((c)=>{comments_container.appendChild(create_comment(c))});
             }, function(reason){

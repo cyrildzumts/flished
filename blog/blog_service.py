@@ -259,6 +259,6 @@ def get_new_post_comments(post_id,data) :
     except ObjectDoesNotExist :
         return {'success': False, 'not_found': True, 'message': CORE_UI_STRINGS.UI_NOT_FOUND}
     
-    comments = Comment.objects.filter(post=post, created_at__gt=form.cleaned_data('created_at')).annotate(username=F('author__username'), post_id=F('pk')).values_list('username', 'post_id', 'comment', 'created_at')
+    comments = Comment.objects.filter(post=post, created_at__gt=form.cleaned_data('created_at')).annotate(username=F('author__username'), post_id=F('pk'), date=F('created_at__timestamp')).values_list('username', 'post_id', 'comment', 'date')
 
-    return {'success': True, 'comments': comments}
+    return {'success': True, 'comments': comments, 'likes': post.likes.count(), 'comment_count': post.comments.count()}
