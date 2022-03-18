@@ -16,5 +16,11 @@ app.conf.task_queues = (
 app.conf.task_default_queue = settings.CELERY_DEFAULT_QUEUE
 app.conf.task_default_exchange_type = settings.CELERY_DEFAULT_EXCHANGE_TYPE
 app.conf.task_default_routing_key = settings.CELERY_DEFAULT_ROUTING_KEY
-#app.conf.beat_schedule = {}
+app.conf.beat_schedule = {
+    'clean_users': {
+        'task': 'core.tasks.clean_users_not_actif',
+        'schedule' : crontab(minute=0, hour=0)
+
+    },
+}
 app.autodiscover_tasks()

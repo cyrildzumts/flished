@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models import Q,F
 from celery import shared_task
 from django.template.loader import render_to_string
+from core import constants as CORE_CONSTANTS
 from django.utils import timezone
 from blog.models import Category, Post
 from flished import settings, utils
@@ -100,8 +101,7 @@ def clean_users_not_actif():
     E-Mail address. The provided E-Mailaddress is probably an invalid one.
     """
     today = timezone.datetime.today()
-    today_date = today.date()
-    ACTIVATION_DELAY = today - timezone.timedelta(days=5)
+    ACTIVATION_DELAY = today - timezone.timedelta(days=CORE_CONSTANTS.EMAIL_VALIDATION_DELAY)
     DATE_JOINED_FILTER = Q(date_joined__lt=ACTIVATION_DELAY) & Q(is_active=False)
     deleted , users= User.objects.filter(DATE_JOINED_FILTER).delete()
     logger.info(f"Clean User inactifs : deleted {deleted} inactive users {users}")
