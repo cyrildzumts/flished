@@ -1,6 +1,6 @@
 from django.utils.translation import ugettext_lazy as _
 
-HOME_META_DESCRIPTION = "Votre Blog actuel"
+HOME_META_DESCRIPTION = "Votre Plateforme de publication en ligne"
 HOME_META_KEYWORDS = "flished"
 HOME_PAGE_TITLE = "FLISHED"
 HOME_PAGE_BANNER = _('Stories')
