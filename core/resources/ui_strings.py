@@ -33,6 +33,7 @@ UI_POST_REPLY = _('Reply')
 UI_POST_LIKE = _('Like')
 UI_POST_UNLIKE = _('Unlike')
 UI_UPDATE_BLOG_POST = _('Edit Post')
+UI_DELETE_BLOG_POST = _('Delete')
 UI_POST_PUBLISHED_LABEL = _('Your story has been published')
 UI_OPEN_POST_LINK_LABEL = _('Open your story')
 UI_NO_BLOG_POSTS_HINT = _("There no posts currently. Feel free to create a new one")
@@ -98,6 +99,7 @@ DASHBOARD_SUBSCRIPTION_PAYMENTS_TITLE = _('Subscription Payments')
 DASHBOARD_SUBSCRIPTION__CREATE_PAYMENT_TITLE = _('Create Subscription Payment')
 
 UI_STRINGS_CONTEXT = {
+    'UI_DELETE_BLOG_POST': UI_DELETE_BLOG_POST,
     'UI_POST_REPLY': UI_POST_REPLY,
     'UI_POST_LIKE': UI_POST_LIKE,
     'UI_POST_UNLIKE': UI_POST_UNLIKE,

@@ -157,6 +157,13 @@ def blog_post(request, author, post_slug):
 
 
 @login_required
+def delete_post(request, post_slug):
+    post = get_object_or_404(Post, slug=post_slug, author=request.user)
+    post.delete()
+    return redirect('blog:blog-home')
+
+
+@login_required
 def post_preview(request):
     logger.info("previewing post ...")
     template_name = "blog/blog_post_preview.html"
