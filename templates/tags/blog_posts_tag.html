@@ -12,7 +12,8 @@
             </div>
           {% endcomment %}
           <div class="post-header">
-            <span>{{blog_post.author.get_full_name}}</span>|<span>{{blog_post.created_at}}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>{% if blog_post.author == request.user %} | <a href="{{blog_post.get_update_url}}" title="{{UI_STRINGS_CONTEXT.UI_UPDATE_BLOG_POST}}"><i class="fas fa-edit icon"></i></a>{% endif %}
+            <span>{{blog_post.author.get_full_name}}</span>|<span>{{blog_post.created_at}}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>
+            {% comment %}{% if blog_post.author == request.user %} | <a href="{{blog_post.get_update_url}}" title="{{UI_STRINGS_CONTEXT.UI_UPDATE_BLOG_POST}}"><i class="fas fa-edit icon"></i></a>{% endif %}{% endcomment %}
           </div>
         </div>
       </li>
