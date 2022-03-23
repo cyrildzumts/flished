@@ -210,7 +210,7 @@ td span, .word-wrap{
 
 ul.bullet-list{
 	list-style-type: disc;
-	padding: 1em 2em;
+	padding: 1em;
 }
 
 .online-user-list li span{
@@ -341,7 +341,7 @@ canvas{
 ul, ol{
 	margin: 1em;
 }
-nav, .nav{
+ul,nav, .nav{
 	list-style-type: none;
 	margin: 0;
 }
