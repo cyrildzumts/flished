@@ -1107,7 +1107,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         let post_like_count = document.getElementById('post-like-count');
         let csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]');
         function fetch_comments(){
-            let last = comments_container.dataset.last;
+            let last = comments_container.dataset.latest;
             let formData = new FormData();
             formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
             formData.append('created_at', last);
@@ -1120,7 +1120,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 if(!response.success || !response.comments){
                     return;
                 }
-                comments_container.dataset.last = response.latest;
+                comments_container.dataset.latest = response.latest;
                 post_comment_count.innerText = parseInt(post_comment_count.innerText) + response.comment_count;
                 post_like_count.innerText = response.likes;
                 response.comments.forEach((c)=>{comments_container.appendChild(create_comment(c))});

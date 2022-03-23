@@ -137,7 +137,7 @@ def blog_post(request, author, post_slug):
     recent_posts = Post.objects.all()[:GLOBAL_CONF.MAX_RECENT]
     post_comments = post.comments.all()
     if post_comments.exists():
-        latest = post_comments.last().created_at.timestamp()
+        latest = post_comments.last().created_at.isoformat()
     else:
         latest = ""
     blog_service.update_view_count(Post, post.id)
