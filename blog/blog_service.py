@@ -1,11 +1,10 @@
 
-from django.forms import CharField
 from blog import forms as BLOG_FORMS
 from blog.models import Tag, Category, News, Post, Comment
 from blog import constants as Constants
 from django.core.cache import cache
 from django.db.models.functions import Concat
-from django.db.models import Q, Count, F, ExpressionWrapper, Value
+from django.db.models import Q, Count, F, ExpressionWrapper, Value, CharField
 from django.template.loader import render_to_string, get_template
 from django.contrib.postgres.search import SearchVector, SearchQuery
 from django.contrib.auth.models import User
