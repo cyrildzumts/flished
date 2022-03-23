@@ -72,8 +72,8 @@
         {% if is_dashboard_allowed %}
        <li><a class="mat-button mat-button-text" href="{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i><span class="hidden-m">{% trans "Dashboard" %}</span></a></li>
       {% endif %}
+      <li><a class="mat-button mat-button-text" href="{% url 'blog:create-post' %}"><span><i class="fas fa-edit icon"></i><span class="hidden-xs">{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</span></span></a></li>
         {% if request.user.is_authenticated %}
-        <li><a class="mat-button mat-button-text" href="{% url 'blog:create-post' %}"><span><i class="fas fa-edit icon"></i><span class="hidden-xs">{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</span></span></a></li>
         <li><a class="mat-button mat-button-text" href="{% url 'me' %}" title="{% trans 'Account' %}"><i class="fas fa-user"></i></a></li>
         <li><a class="signout-btn mat-button mat-button-text signout" href="{% url 'accounts:logout' %}" title="{% trans 'Logout' %}"><i class="fas fa-sign-out-alt icon"></i></a></li>
       {% else %}
