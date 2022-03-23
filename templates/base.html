@@ -163,12 +163,6 @@
                 {% now "Y" as current_year %}
                 <ul class="mat-list small">
                         <li class="list-item"><span>Copyright <i class="fa fa-copyright"></i><span class="copyright-year">{{current_year}}</span><span class="site">{{site_name}}</span></span></li>
-                        <li class="list-item">
-                                <div class="actions">
-                                        <a class="mat-button mat-button-text" href="{% url 'about' %}">{{UI_STRINGS_CONTEXT.UI_ABOUT_US}}</a>
-                                        <a class="mat-button mat-button-text" href="{% url 'faq' %}">{{UI_STRINGS_CONTEXT.UI_FAQ}}</a>
-                                </div>
-                        </li>
                 </ul>
         </div>
 </footer>
