@@ -38,5 +38,5 @@ class NewsForm(forms.ModelForm):
 
 
 class FetchCommentsForm(forms.Form):
-    created_at = forms.FloatField()
+    created_at = forms.DateTimeField()
     
