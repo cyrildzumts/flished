@@ -414,7 +414,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         }
         title.classList.remove('warning');
         preview_title.value = title.value;
-        if(!post_content){
+        if(!post_content.blocks.length){
             notify({'content' : content.dataset.missingMessage, 'level': 'info'});
             return;
         }
