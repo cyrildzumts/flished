@@ -61,8 +61,10 @@
 <div class="header--panel">
   <div class="col-xs-12">
         <div class="row">
-                <button class="js-menu js-action-abtest menu-button" data-action="0"><i class="btn-icon fas fa-bars"></i></button>
-                <button class="js-menu-close js-action-abtest menu-close menu-button" data-action="0"><i class="btn-icon fas fa-times"></i></button>
+                {% comment %}
+                        <button class="js-menu js-action-abtest menu-button" data-action="0"><i class="btn-icon fas fa-bars"></i></button>
+                        <button class="js-menu-close js-action-abtest menu-close menu-button" data-action="0"><i class="btn-icon fas fa-times"></i></button>
+                {% endcomment %}
                 <ul class="logo">
                         <li class="js-action-abtest" data-action="3"><a class="mat-button mat-button-text" href="{%url 'home'%}">{{site_name}}</a></li>
                 </ul>
