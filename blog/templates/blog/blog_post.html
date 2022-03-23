@@ -71,7 +71,7 @@
                         <li class="margin-bottom">
                             <div class="comment">
                                 <div class="post-header">
-                                    <span class="bold">{{comment.author.get_full_name}}</span>|<span><i class="fas fa-comment icon"></i> {{comment.created_at}}</span>|<span class="js-report-comment" title="{% trans 'Signal this comment' %}"><i class="far fa-flag icon"></i></span>
+                                    <span class="bold">{{comment.author.get_full_name}}</span>|<span><i class="fas fa-comment icon"></i> {{comment.created_at|date:'d M Y H:i'}}</span>|<span class="js-report-comment" title="{% trans 'Signal this comment' %}"><i class="far fa-flag icon"></i></span>
                                 </div>
                                 <div>
                                     <p>{{comment.comment}}</p>
