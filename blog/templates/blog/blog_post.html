@@ -62,8 +62,8 @@
                             <span>{{UI_STRINGS_CONTEXT.UI_COMMENT_LIST_LABEL}}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>
                         </div>
                     {% endcomment %}
-                    <ul id="comments" class="comments mat-box" data-post="{{blog_post.pk}}" data-last="{{blog_post.comments.last.created_at.timestamp}}">
-                        {% for comment in blog_post.comments.all %}
+                    <ul id="comments" class="comments mat-box" data-post="{{blog_post.pk}}" data-last="{{latest}}">
+                        {% for comment in comments %}
                         <li class="margin-bottom">
                             <div class="comment">
                                 <div class="post-header">

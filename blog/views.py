@@ -135,6 +135,11 @@ def blog_post(request, author, post_slug):
     if request.user.is_authenticated:
         liked = post.likes.filter(id=request.user.pk).exists()
     recent_posts = Post.objects.all()[:GLOBAL_CONF.MAX_RECENT]
+    post_comments = post.comments.all()
+    if post_comments.exists():
+        latest = post_comments.last().created_at.timestamp()
+    else:
+        latest = ""
     blog_service.update_view_count(Post, post.id)
     context = {
         'page_title': page_title,
@@ -142,7 +147,9 @@ def blog_post(request, author, post_slug):
         'recent_posts': recent_posts,
         'POST_STATUS_DRAFT': Constants.POST_STATUS_DRAFT,
         'blog_post': post,
+        'comments': post_comments,
         'LIKED': liked,
+        'latest': latest,
         'LIKES': post.likes.count(),
         'COMMENT_MAX_SIZE': Constants.COMMENT_MAX_SIZE,
     }
