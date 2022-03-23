@@ -1,6 +1,6 @@
 from django.utils.translation import gettext_lazy as _
 
-DB_DATETIME_FORMAT = "DD-Month-YYYY HH24:MI"
+DB_DATETIME_FORMAT = "DD Mon YYYY HH24:MI"
 CATEGORY_PAGE_TITLE_KEY = 'page-title'
 CATEGORY_META_KEYWORDS_KEY = 'meta-keywords'
 CATEGORY_DESCRIPTION_KEY = 'description'
