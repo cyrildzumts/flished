@@ -261,7 +261,7 @@ def get_new_post_comments(post_id,data) :
     except ObjectDoesNotExist :
         return {'success': False, 'not_found': True, 'message': CORE_UI_STRINGS.UI_NOT_FOUND}
     
-    last = datetime.datetime.strptime(form.cleaned_data.get('created_at'), "")
+    last = datetime.datetime.fromtimestamp(form.cleaned_data.get('created_at'))
     logger.info(f"LAST : {last}")
     comments = Comment.objects.filter(post=post, created_at__gt=last).annotate(username=F('author__username'), post_id=F('pk'), date=F('created_at')).values_list('username', 'post_id', 'comment', 'date')
 
