@@ -11,6 +11,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from core import core_tools 
 from core.resources import ui_strings as CORE_UI_STRINGS
 from flished import utils
+import datetime
 import logging
 
 CACHE = cache
@@ -260,6 +261,8 @@ def get_new_post_comments(post_id,data) :
     except ObjectDoesNotExist :
         return {'success': False, 'not_found': True, 'message': CORE_UI_STRINGS.UI_NOT_FOUND}
     
-    comments = Comment.objects.filter(post=post, created_at__gt=form.cleaned_data('created_at')).annotate(username=F('author__username'), post_id=F('pk'), date=F('created_at')).values_list('username', 'post_id', 'comment', 'date')
+    last = datetime.datetime.fromisoformat(form.cleaned_data('created_at'))
+    logger.info(f"LAST : {last}")
+    comments = Comment.objects.filter(post=post, created_at__gt=last).annotate(username=F('author__username'), post_id=F('pk'), date=F('created_at')).values_list('username', 'post_id', 'comment', 'date')
 
     return {'success': True, 'comments': comments, 'likes': post.likes.count(), 'comment_count': post.comments.count()}
