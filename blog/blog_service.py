@@ -1,9 +1,10 @@
 
+from django.forms import CharField
 from blog import forms as BLOG_FORMS
 from blog.models import Tag, Category, News, Post, Comment
 from blog import constants as Constants
 from django.core.cache import cache
-from django.db.models import Q, Count, F
+from django.db.models import Q, Count, F, ExpressionWrapper
 from django.template.loader import render_to_string, get_template
 from django.contrib.postgres.search import SearchVector, SearchQuery
 from django.contrib.auth.models import User
@@ -265,7 +266,7 @@ def get_new_post_comments(post_id,data) :
     queryset = Comment.objects.filter(post=post, created_at__gt=last_update)
     if queryset.exists():
         latest = queryset.last().created_at.isoformat();
-        comments = queryset.annotate(username=F('author__first_name'), date=F('created_at')).values('username', 'post_id', 'comment', 'date')
+        comments = queryset.annotate(username=ExpressionWrapper(F('author__first_name') + " " + F('author__last_name'), output_field=CharField()), date=F('created_at')).values('username', 'post_id', 'comment', 'date')
         comment_count = queryset.count()
     else: 
         latest = last_update.isoformat()
