@@ -263,6 +263,11 @@ def get_new_post_comments(post_id,data) :
     
     last = datetime.datetime.fromtimestamp(form.cleaned_data.get('created_at'))
     logger.info(f"LAST : {last}")
-    comments = Comment.objects.filter(post=post, created_at__gt=last).annotate(username=F('author__username'), post_id=F('pk'), date=F('created_at')).values_list('username', 'post_id', 'comment', 'date')
+    queryset = Comment.objects.filter(post=post, created_at__gt=last)
+    if queryset.exists():
+        latest = queryset.last().created_at.timestamp();
+    else: 
+        latest = last.timestamp()
+    comments = Comment.objects.filter(post=post, created_at__gt=last).annotate(username=F('author__username'), date=F('created_at')).values_list('username', 'post_id', 'comment', 'date')
 
-    return {'success': True, 'comments': comments, 'likes': post.likes.count(), 'comment_count': post.comments.count()}
+    return {'success': True, 'comments': comments, 'likes': post.likes.count(), 'latest': latest, 'comment_count': post.comments.count()}
