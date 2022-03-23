@@ -266,7 +266,7 @@ def get_new_post_comments(post_id,data) :
     queryset = Comment.objects.filter(post=post, created_at__gt=last_update)
     if queryset.exists():
         latest = queryset.last().created_at.isoformat();
-        comments = queryset.annotate(username=Concat('author__first_name', Value(" ") , 'author__last_name', output_field=CharField()), date=Func(F('created_at'),Value('DD MM YYYY hh:MM'),function="to_char",output_field=CharField())).values('username', 'post_id', 'comment', 'date')
+        comments = queryset.annotate(username=Concat('author__first_name', Value(" ") , 'author__last_name', output_field=CharField()), date=Func(F('created_at'),Value(Constants.DB_DATETIME_FORMAT),function="to_char",output_field=CharField())).values('username', 'post_id', 'comment', 'date')
         comment_count = queryset.count()
     else: 
         latest = last_update.isoformat()
