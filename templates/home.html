@@ -14,7 +14,7 @@
 
 {% block MAIN %}
 <div class="container">
-{% if blog_posts %}
+{% if recent_posts %}
 {% include "tags/blog_posts_tag.html" with blog_posts=recent_posts %}
 {% else %}
 <div class="mat-box">
