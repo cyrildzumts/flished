@@ -2,6 +2,6 @@
 <form id="preview-form" class="force-hidden" action="{% url 'blog:post-preview' %}" method="POST" target="_blank">{% csrf_token %}
     <input id="author" type="hidden" name="author" value="{{request.user.pk}}">
     <input id="category" type="hidden" name="category">
-    <input id="preview-title" type="hidden"  name="title">
-    <input id="preview-content" type="hidden" name="content">
+    <input id="preview-title" type="hidden"  name="title" data-missing-message="{{UI_STRINGS_CONTEXT.UI_POST_TITLE_MISSING_MESSAGE}}">
+    <input id="preview-content" type="hidden" name="content" data-missing-message="{{UI_STRINGS_CONTEXT.UI_POST_CONTENT_MISSING_MESSAGE}}">
 </form>

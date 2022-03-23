@@ -36,6 +36,8 @@ UI_UPDATE_BLOG_POST = _('Edit Post')
 UI_DELETE_BLOG_POST = _('Delete')
 UI_HOME_EMPTY_CONTENT = _('There is no publication. Be the first to publish a new one.')
 UI_POST_PUBLISHED_LABEL = _('Your story has been published')
+UI_POST_TITLE_MISSING_MESSAGE = _("The publication's title is missing")
+UI_POST_CONTENT_MISSING_MESSAGE = _("The publication's content is empty")
 UI_OPEN_POST_LINK_LABEL = _('Open your story')
 UI_NO_BLOG_POSTS_HINT = _("There no posts currently. Feel free to create a new one")
 UI_INVALID_USER_REQUEST = _('Invalid user request')
@@ -100,6 +102,8 @@ DASHBOARD_SUBSCRIPTION_PAYMENTS_TITLE = _('Subscription Payments')
 DASHBOARD_SUBSCRIPTION__CREATE_PAYMENT_TITLE = _('Create Subscription Payment')
 
 UI_STRINGS_CONTEXT = {
+    'UI_POST_TITLE_MISSING_MESSAGE': UI_POST_TITLE_MISSING_MESSAGE,
+    'UI_POST_CONTENT_MISSING_MESSAGE': UI_POST_CONTENT_MISSING_MESSAGE,
     'UI_HOME_EMPTY_CONTENT': UI_HOME_EMPTY_CONTENT,
     'UI_DELETE_BLOG_POST': UI_DELETE_BLOG_POST,
     'UI_POST_REPLY': UI_POST_REPLY,
