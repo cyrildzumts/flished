@@ -1120,6 +1120,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 if(!response.success || !response.comments){
                     return;
                 }
+                comments_container.dataset.last = response.latest;
                 post_comment_count.innerText = response.comment_count;
                 post_like_count.innerText = response.likes;
                 response.comments.forEach((c)=>{comments_container.appendChild(create_comment(c))});
