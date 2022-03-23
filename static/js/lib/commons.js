@@ -407,18 +407,18 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         let preview_title = document.getElementById('preview-title');
         let title = document.getElementById('title');
         let content = document.getElementById('preview-content');
-        content.value = JSON.stringify(post_content);
-        preview_title.value = title.value;
-        if(!title || title.length == 0){
+        if(!title || !title.length){
             notify({'content' : preview_title.dataset.missingMessage, 'level': 'info'});
             title.classList.add('warning');
             return;
         }
         title.classList.remove('warning');
+        preview_title.value = title.value;
         if(!post_content){
             notify({'content' : content.dataset.missingMessage, 'level': 'info'});
             return;
         }
+        content.value = JSON.stringify(post_content);
         form.submit();
     }
 
