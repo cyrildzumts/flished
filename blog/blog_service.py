@@ -262,7 +262,6 @@ def get_new_post_comments(post_id,data) :
         return {'success': False, 'not_found': True, 'message': CORE_UI_STRINGS.UI_NOT_FOUND}
     
     last_update = form.cleaned_data.get('created_at')
-    logger.info(f"LAST UPDATE : {last_update}")
     queryset = Comment.objects.filter(post=post, created_at__gt=last_update)
     if queryset.exists():
         latest = queryset.last().created_at.isoformat();
