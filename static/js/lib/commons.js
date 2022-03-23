@@ -16,7 +16,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     
     const SAVE_DRAFT_INTERVAL = 10000; // 10s
     const EDITOR_CHANGE_TIMEOUT = 1000; // 1s
-    const COMMENT_FETCH_INTERVAL = 30000; // 30s
+    const COMMENT_FETCH_INTERVAL = 15000; // 30s
     const POST_STATUS_PUBLISH = 1
     const CAROUSEL_INTERVAL = 5000;
     const MIN_LEN_WARNING = 20;
