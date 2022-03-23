@@ -407,7 +407,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         let preview_title = document.getElementById('preview-title');
         let title = document.getElementById('title');
         let content = document.getElementById('preview-content');
-        if(!title || !title.length){
+        if(!title || !title.value.length){
             notify({'content' : preview_title.dataset.missingMessage, 'level': 'info'});
             title.classList.add('warning');
             return;
