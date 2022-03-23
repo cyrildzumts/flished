@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-23 13:05+0100\n"
+"POT-Creation-Date: 2022-03-23 13:09+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -232,8 +232,9 @@ msgid "Delete"
 msgstr "Supprimer"
 
 #: core/resources/ui_strings.py:37
-msgid "There is no publication. Be the first to publish one."
-msgstr "Il n'y a aucune publication. Soyez le premier à en publier un"
+msgid "There is no publication. Be the first to publish a new one."
+msgstr ""
+"Il n'y a aucune publication. Soyez le premier à en publier une nouvelle"
 
 #: core/resources/ui_strings.py:38
 msgid "Your story has been published"
