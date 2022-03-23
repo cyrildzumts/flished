@@ -12,17 +12,19 @@
 <div class="container">
     <article class="post-wrapper">
         <div class="post-header">
-            <span>{{blog_post.author.get_full_name}}</span>|<span>{{blog_post.created_at}}</span>|<span>{{blog_post.post_status|post_status_value}}</span>
+            <span>{{blog_post.author.get_full_name}}</span>|<span>{{blog_post.created_at}}</span>{% if blog_post.post_status %}|<span>{{blog_post.post_status|post_status_value|default:""}}</span>{% endif %}
         </div>
         <div class="post">
             <div class="post-title"><span>{{blog_post.title}}</span></div>
-            <div class="post-sharing">
-                <ul class="flex flex-left">
-                    <li><a href="#"><i class="fab fa-facebook icon"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter icon"></i></a></li>
-                    <li><a class="js-action-abtest" data-action="13" href="https://api.whatsapp.com/send?text={{UI_WHATSAPP_SHARE_BODY|urlencode}}"><i class="fab fa-whatsapp icon"></i></a></li>
-                </ul>
-            </div>
+            {% comment %}
+                <div class="post-sharing">
+                    <ul class="flex flex-left">
+                        <li><a href="#"><i class="fab fa-facebook icon"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter icon"></i></a></li>
+                        <li><a class="js-action-abtest" data-action="13" href="https://api.whatsapp.com/send?text={{UI_WHATSAPP_SHARE_BODY|urlencode}}"><i class="fab fa-whatsapp icon"></i></a></li>
+                    </ul>
+                </div>
+            {% endcomment %}
             {% render_post blog_post %}
         </div>
     </article>
