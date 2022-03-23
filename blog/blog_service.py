@@ -261,15 +261,15 @@ def get_new_post_comments(post_id,data) :
     except ObjectDoesNotExist :
         return {'success': False, 'not_found': True, 'message': CORE_UI_STRINGS.UI_NOT_FOUND}
     
-    last = datetime.datetime.fromisoformat(form.cleaned_data.get('created_at'))
-    logger.info(f"LAST : {last}")
-    queryset = Comment.objects.filter(post=post, created_at__gt=last)
+    last_update = form.cleaned_data.get('created_at')
+    logger.info(f"LAST UPDATE : {last_update}")
+    queryset = Comment.objects.filter(post=post, created_at__gt=last_update)
     if queryset.exists():
         latest = queryset.last().created_at.isoformat();
         comments = queryset.annotate(username=F('author__username'), date=F('created_at')).values('username', 'post_id', 'comment', 'date')
         comment_count = queryset.count()
     else: 
-        latest = last.isoformat()
+        latest = last_update.isoformat()
         comments = []
         comment_count = 0
 
