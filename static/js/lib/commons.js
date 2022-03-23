@@ -1107,7 +1107,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         let post_like_count = document.getElementById('post-like-count');
         let csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]');
         function fetch_comments(){
-            let last = comments_container.dataset.last;
+            let last = parseFloat(comments_container.dataset.last);
             let formData = new FormData();
             formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
             formData.append('created_at', last);
