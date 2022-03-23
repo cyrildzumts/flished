@@ -26,8 +26,8 @@ body {
   padding: 0;
 }
 p{
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
   text-decoration: none;
   text-align: left;
 }
@@ -319,7 +319,10 @@ canvas{
 	width: 100%;
 	padding: 150px 15px;
 }
-ul, nav, .nav{
+ul, ol{
+	margin: 1em;
+}
+nav, .nav{
 	list-style-type: none;
 	margin: 0;
 }

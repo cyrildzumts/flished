@@ -338,8 +338,10 @@ canvas{
 }
 
 /* sections */
-
-ul, nav, .nav{
+ul, ol{
+	margin: 1em;
+}
+nav, .nav{
 	list-style-type: none;
 	margin: 0;
 }
