@@ -11,7 +11,7 @@ from blog.forms import PostForm
 from blog.models import Post, Category, Tag
 from blog import blog_service, constants as Constants
 from flished import utils, settings, conf as GLOBAL_CONF
-
+import datetime
 import logging
 
 
@@ -139,7 +139,7 @@ def blog_post(request, author, post_slug):
     if post_comments.exists():
         latest = post_comments.last().created_at.isoformat()
     else:
-        latest = ""
+        latest = datetime.datetime.now().isoformat()
     blog_service.update_view_count(Post, post.id)
     context = {
         'page_title': page_title,
