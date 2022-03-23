@@ -4,6 +4,7 @@ from blog import forms as BLOG_FORMS
 from blog.models import Tag, Category, News, Post, Comment
 from blog import constants as Constants
 from django.core.cache import cache
+from django.db.models.functions import Concat
 from django.db.models import Q, Count, F, ExpressionWrapper, Value
 from django.template.loader import render_to_string, get_template
 from django.contrib.postgres.search import SearchVector, SearchQuery
@@ -266,7 +267,7 @@ def get_new_post_comments(post_id,data) :
     queryset = Comment.objects.filter(post=post, created_at__gt=last_update)
     if queryset.exists():
         latest = queryset.last().created_at.isoformat();
-        comments = queryset.annotate(username=ExpressionWrapper(F('author__first_name') + Value(" ") + F('author__last_name'), output_field=CharField()), date=F('created_at')).values('username', 'post_id', 'comment', 'date')
+        comments = queryset.annotate(username=Concat('author__first_name', Value(" ") , 'author__last_name', output_field=CharField()), date=F('created_at')).values('username', 'post_id', 'comment', 'date')
         comment_count = queryset.count()
     else: 
         latest = last_update.isoformat()
