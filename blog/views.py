@@ -152,6 +152,7 @@ def blog_post(request, author, post_slug):
         'META_DESCRIPTION': renderers.read_post_summary(post.content),
         'OG_URL': request.build_absolute_uri(),
         'OG_IMAGE': image_url,
+        'OG_WEBSITE': 'article',
         'recent_posts': recent_posts,
         'POST_STATUS_DRAFT': Constants.POST_STATUS_DRAFT,
         'blog_post': post,
