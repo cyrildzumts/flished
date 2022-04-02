@@ -12,9 +12,6 @@
         <title>
                 {% block title %} {{page_title}} {% endblock %}
         </title>
-        {% comment %}
-                twitter card
-        {% endcomment %}
         <meta name="twitter:card"       content="summary_large_image">
         <meta name="twitter:creator"    content="@cyrildz"/>
         <meta name="keywords"           content="{{META_KEYWORDS}}">
@@ -23,6 +20,11 @@
         <meta property="og:description" content="{{META_DESCRIPTION}}">
         <meta property="og:image"       content="{{OG_IMAGE}}">
         <meta property="og:url"         content="{{OG_URL}}">
+
+        <meta property="twitter:title"       content="{{OG_TITLE}}">
+        <meta property="twitter:description" content="{{META_DESCRIPTION}}">
+        <meta property="twitter:image:src"   content="{{OG_IMAGE}}">
+
         <meta property="og:type"        content="{{OG_WEBSITE|default:'website'}}">
         <meta property="og:site_name"   content="{{SITE_NAME}}">
         <meta name="theme-color"        content="{{SITE_HEADER_BG}}">
