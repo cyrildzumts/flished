@@ -5,7 +5,7 @@
       {% for blog_post in blog_posts %}
       <li>
         <div class="post-entry">
-          <div class="link-wrapper"><a href="{{blog_post.get_absolute_url}}"><span>{{blog_post.title}}</span></a></div>
+          <div class="link-wrapper"><a href="{{blog_post.get_absolute_url}}">{{blog_post.title}}</a></div>
           {% comment %}
             <div class="post-summary">
               {% render_post_summary blog_post %}

@@ -140,6 +140,11 @@
 	padding: 0;
 }
 
+.post a{
+	font-weight: bold;
+	color: #9b59b6;
+}
+
 .comment{
 	border-bottom: 2px dotted #ccc;
 }
