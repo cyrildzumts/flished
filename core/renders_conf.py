@@ -3,6 +3,7 @@ from django.template.loader import render_to_string
 import logging
 logger = logging.getLogger(__name__)
 SUMMARY_TAG = "paragraph"
+IMAGE_TAG = "image"
 
 def render_table(table, template_name="editor/table.html"):
     return render_to_string(template_name, {'table': table})

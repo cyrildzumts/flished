@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from core.resources import ui_strings as UI_STRINGS
+from core import renderers
 from django.contrib import messages
 from blog.forms import PostForm
 from blog.models import Post, Category, Tag
@@ -141,9 +142,16 @@ def blog_post(request, author, post_slug):
     else:
         latest = datetime.datetime.now().isoformat()
     blog_service.update_view_count(Post, post.id)
+    image_url = renderers.read_post_image(post.content)
+    if image_url:
+        image_url = request.build_absolute_uri(image_url)
     context = {
         'page_title': page_title,
         'PAGE_TITLE': page_title,
+        'OG_TITLE': page_title,
+        'META_DESCRIPTION': renderers.read_post_summary(post.content),
+        'OG_URL': request.build_absolute_uri(),
+        'OG_IMAGE': image_url,
         'recent_posts': recent_posts,
         'POST_STATUS_DRAFT': Constants.POST_STATUS_DRAFT,
         'blog_post': post,
