@@ -82,10 +82,8 @@ p{
 					0px 1px 1px 0px rgba(0, 0, 0, 0.14),
 					0px 1px 3px 0px rgba(0,0,0,0.12);
 }
-.post-wrapper{
-	max-width: 37.5em;
-}
 .post-wrapper, .post-list-wrapper{
+	max-width: 37.5em;
 	padding: 1em;
 }
 .post-list-wrapper ul li{
@@ -154,6 +152,13 @@ p{
 a.link, .post a{
 	font-weight: bold;
 	color: #9b59b6;
+}
+.post-summary p{
+	text-overflow: ellipsis;
+	word-break: break-word;
+	overflow: hidden;
+	white-space: nowrap;
+	max-height: 3em;
 }
 .comment{
 	border-bottom: 2px dotted #ccc;

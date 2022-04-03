@@ -54,11 +54,9 @@
 
 }
 
-.post-wrapper{
-	max-width: 37.5em;
-}
 
 .post-wrapper, .post-list-wrapper{
+	max-width: 37.5em;
 	padding: 1em;
 }
 
@@ -143,6 +141,14 @@
 a.link, .post a{
 	font-weight: bold;
 	color: #9b59b6;
+}
+
+.post-summary p{
+	text-overflow: ellipsis;
+	word-break: break-word;
+	overflow: hidden;
+	white-space: nowrap;
+	max-height: 3em;
 }
 
 .comment{
