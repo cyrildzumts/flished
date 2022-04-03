@@ -151,7 +151,7 @@ p{
 	white-space: pre-wrap;
 	padding: 0;
 }
-a.link{
+a.link, .post a{
 	font-weight: bold;
 	color: #9b59b6;
 }
