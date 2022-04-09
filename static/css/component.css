@@ -58,7 +58,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: baseline;
-	justify-content: flex-end;
+	justify-content: center;
 	width: 100%;
 	padding: 1em;
 	margin: 1em;
@@ -3465,7 +3465,7 @@ li .order-tag{
 
 @media only screen and (max-width:50em){
 	.post-container{
-		flex-direction: row-reverse;
+		flex-direction: column-reverse;
 	}
 	.post-wrapper{
 		max-width: 100%;
