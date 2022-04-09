@@ -35,3 +35,35 @@ p{
   text-decoration: none;
   text-align: left;
 }
+
+
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Nunito/Nunito-Regular.ttf');
+}
+@font-face {
+  font-family: 'Nunito-Bold';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('fonts/Nunito/Nunito-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Montserrat/Montserrat-Regular.woff2');
+}
+@font-face {
+  font-family: 'Montserrat-Bold';
+  font-style: normal;
+  font-weight: bold;
+  font-display: swap;
+  src: url('fonts/Montserrat/Montserrat-Bold.woff2');
+}

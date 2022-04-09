@@ -27,6 +27,14 @@
 
         <meta property="og:type"        content="{{OG_WEBSITE|default:'website'}}">
         <meta property="og:site_name"   content="{{SITE_NAME}}">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-title" content="{{SITE_NAME}}">
+        <meta name="short_name" content="{{SITE_NAME}}">
+        <meta name="name" content="{{SITE_NAME}}">
+        <meta name="application-name" content="{{SITE_NAME}}">
+        <meta name="msapplication-config" content="{% static 'browserconfig.xml' %}" />
+        <link rel="manifest" href="{% static 'manifest.json' %}">
+        <meta name="apple-mobile-web-app-status-bar-style" content="{{SITE_HEADER_BG}}">
         <meta name="theme-color"        content="{{SITE_HEADER_BG}}">
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,20 +42,30 @@
                 <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
         {% endcomment %}
         
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        {% comment %}
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> 
+        {% endcomment %}
         <link rel="canonical" href="{{OG_URL}}" hreflang="{{LANGUAGE_CODE}}">
-        
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
         <!-- Add icon library -->
-        {% block STYLESHEET %}<link rel="stylesheet" type="text/css" href="{% static 'css/main.min.css' %}" />{% endblock STYLESHEET %}
+        {% block STYLESHEET %}
+                <link rel="preload stylesheet"  href="{% static 'css/main.min.css' %}" as="style" type="text/css">
+        {% endblock STYLESHEET %}
 
         {% block external %} {% endblock external %}
         {% if structured_data %}
         {% json_ld structured_data %}
         {% endif %}
+        {% block GOOGLE_TAG %}
+        {% if ALLOW_GOOGLE_ANALYTICS %}
+        <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+        {% endif %}
+        {% endblock GOOGLE_TAG %}
+        {% block EXTRA_GOOGLE_TAG %}{% endblock EXTRA_GOOGLE_TAG %}
  
 </head>
 
@@ -172,9 +190,9 @@
 </footer>
 {% endblock FOOTER %}
 
-<script async  src="{% static 'js/vendors/jquery-3.6.0.min.js' %}"></script>
+<script defer  src="{% static 'js/vendors/jquery-3.6.0.min.js' %}"></script>
 {% block BASE_SCRIPT %}
-<script async data-main="{% static 'js/main.min' %}" src="{% static 'js/require.js' %}"></script>        
+<script defer data-main="{% static 'js/main.min' %}" src="{% static 'js/require.js' %}"></script>        
 {% endblock BASE_SCRIPT %}
 
 {% block SCRIPT %}
