@@ -91,6 +91,15 @@ p{
 	padding: 1em;
 	margin: 1em;
 }
+.recommendations{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: center;
+	padding: 1em;
+	margin: 1em;
+}
 .post-wrapper, .post-list-wrapper{
 	max-width: 37.5em;
 	padding: 1em;
@@ -2875,6 +2884,9 @@ li .order-tag{
 	font-size: 1.2em;
 }
 @media only screen and (max-width:50em){
+	.recommendations{
+		width: 100%;
+	}
 	.post-container{
 		flex-direction: column-reverse;
 	}
@@ -3099,7 +3111,10 @@ li .order-tag{
 		width: 100%;
 	}
 }
-@media only screen and (min-width:40em){
+@media only screen and (min-width:50em){
+	.recommendations{
+		width: 22.5em;
+	}
 	.search-form-wrapper{
 		position: absolute;
 		right: 0;
@@ -3178,15 +3193,6 @@ li .order-tag{
 	.mat-table th{
 		font-size: 0.85em;
 		text-transform: uppercase;
-	}
-}
-@media only screen and (min-width:36em){
-	.modal-dialog{
-		max-width: 500px;
-		margin: 1.75em auto;
-	}
-	.modal-dialog-centered{
-		min-height: calc(100% - (1.75em * 2));
 	}
 }
 .dashboard-page{
