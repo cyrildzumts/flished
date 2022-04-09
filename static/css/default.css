@@ -43,14 +43,14 @@ p{
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('fonts/Nunito/Nunito-Regular.ttf');
+  src: url('fonts/Nunito_Sans/NunitoSans-Regular.ttf');
 }
 @font-face {
   font-family: 'Nunito-Bold';
   font-style: normal;
   font-weight: bold;
   font-display: swap;
-  src: url('fonts/Nunito/Nunito-Bold.ttf');
+  src: url('fonts/Nunito_Sans/NunitoSans-Bold.ttf');
 }
 
 @font-face {
