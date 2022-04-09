@@ -5,7 +5,7 @@
       {% for blog_post in blog_posts %}
       <li>
         <div class="post-entry">
-          <div class="link-wrapper padding"><a href="{{blog_post.get_absolute_url}}">{{blog_post.title}}</a></div>
+          <div class="link-wrapper"><a href="{{blog_post.get_absolute_url}}">{{blog_post.title}}</a></div>
           <div class="summary-wrapper">
             <div class="post-summary">
               {% render_post_summary blog_post %}
