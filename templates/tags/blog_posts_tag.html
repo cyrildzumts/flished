@@ -1,6 +1,8 @@
 
 {% load core_tags %}
   <div class="post-list-wrapper">
+    <div class="block-title margin-v"><strong>{{UI_STRINGS_CONTEXT.UI_STANDARD_POST_LIST_TITLE}}</strong></div>
+    <div class="post-list">
     <ul>
       {% for blog_post in blog_posts %}
       <li>
@@ -20,4 +22,5 @@
       </li>
       {% endfor %}
     </ul>
+    </div>
   </div>

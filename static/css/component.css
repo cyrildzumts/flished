@@ -149,6 +149,13 @@
 	padding: 1em;
 }
 
+.block-title,.group-title{
+	width: fit-content;
+	background-color: var(--secondary-color);
+	color: #fafafa;
+	padding: 0.25em 1em;
+
+}
 .post p, .comment p{
 	overflow-wrap: break-word;
 	white-space: pre-wrap;
