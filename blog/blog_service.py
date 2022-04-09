@@ -101,7 +101,7 @@ def get_user_recent_posts(user):
 
 
 def get_recommendations_post(user):
-    return Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED).order_by('?')[:utils.MAX_RECENTS]
+    return Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED).order_by('?')[:Constants.MAX_RECOMMENDATION]
 
 
 def update_view_count(model, id):
