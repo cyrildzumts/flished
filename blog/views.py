@@ -25,6 +25,7 @@ def stories(request):
     page_title = f"{UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE} | {settings.SITE_NAME}"
 
     queryset = Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED)
+    recommendations = blog_service.get_recommendations_post(request.user)
     page = request.GET.get('page', 1)
     paginator = Paginator(queryset, GLOBAL_CONF.PAGINATED_BY)
     try:
@@ -36,7 +37,8 @@ def stories(request):
     context = {
         'page_title': page_title,
         'PAGE_TITLE': page_title,
-        'story_list': list_set
+        'story_list': list_set,
+        'recommendations': recommendations
     }
     return render(request, template_name, context)
 
