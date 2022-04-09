@@ -2,14 +2,14 @@
 {% load core_tags %}
 
 <div class="col-m-12 col 4">
-    <div class="recommandations flex flex-column">
-        <div class="title padding-v margin-v">{{UI_STRINGS_CONTEXT.UI_POST_RECOMMENDATIONS_TITLE}}</div>
+    <div class="recommandations container flex-column">
+        <div class="title padding-v margin-v"><strong>{{UI_STRINGS_CONTEXT.UI_POST_RECOMMENDATIONS_TITLE}}</strong></div>
         <div class="post-list">
             <ul>
               {% for blog_post in recommendations %}
               <li>
                 <div class="post-entry">
-                  <div class="link-wrapper"><a href="{{blog_post.get_absolute_url}}">{{blog_post.title}}</a></div>
+                  <div class="link-wrapper"><a href="{{blog_post.get_absolute_url}}"><strong>{{blog_post.title}}</strong></a></div>
                   {% comment %}
                       <div class="post-summary">
                         {% render_post_summary blog_post %}
