@@ -153,7 +153,7 @@
 	overflow-wrap: break-word;
 	white-space: pre-wrap;
 	padding: 0;
-	font-size: 1.25em;
+	font-size: 1.2em;
 }
 
 a.link, .post a{
@@ -167,6 +167,7 @@ a.link, .post a{
 	overflow: hidden;
 	white-space: nowrap;
 	max-height: 3em;
+	font-size: 1.2em;
 }
 
 .comment{
