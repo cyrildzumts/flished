@@ -16,6 +16,7 @@
 <div class="container">
 {% if recent_posts %}
 {% include "tags/blog_posts_tag.html" with blog_posts=recent_posts %}
+{% include "tags/recommendations.html" with blog_posts=recommendations %}
 {% else %}
 <div class="mat-box">
     <p>{{UI_STRINGS_CONTEXT.UI_HOME_EMPTY_CONTENT}}</p>
