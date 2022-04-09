@@ -85,7 +85,6 @@ p{
 .post-container{
 	display: flex;
 	flex-wrap: wrap;
-	align-items: baseline;
 	justify-content: center;
 	width: 100%;
 	padding: 1em;
@@ -95,7 +94,6 @@ p{
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	align-items: baseline;
 	justify-content: center;
 	padding: 1em;
 	margin: 1em;
@@ -103,6 +101,7 @@ p{
 .post-wrapper, .post-list-wrapper{
 	max-width: 37.5em;
 	padding: 1em;
+	margin: 1em;
 }
 .post-list-wrapper ul li{
 	margin: 0.2em 0;
