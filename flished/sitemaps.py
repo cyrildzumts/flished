@@ -9,7 +9,7 @@ class FlishedSiteMap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return ["home", "blog:blog-home", "about", "faq", "accounts:login", "accounts:register"]
+        return ["home", "blog:blog-home"]
     
     def location(self, item):
         return reverse(item)
