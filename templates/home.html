@@ -15,8 +15,11 @@
 {% block MAIN %}
 <div class="container">
 {% if recent_posts %}
-{% include "tags/blog_posts_tag.html" with blog_posts=recent_posts %}
-{% include "tags/recommendations.html" with blog_posts=recommendations %}
+<div class="post-container">
+    {% include "tags/blog_posts_tag.html" with blog_posts=recent_posts %}
+    {% include "tags/recommendations.html" with blog_posts=recommendations %}
+</div>
+{% include "tags/pagination.html" with page_set=story_list %}
 {% else %}
 <div class="mat-box">
     <p>{{UI_STRINGS_CONTEXT.UI_HOME_EMPTY_CONTENT}}</p>

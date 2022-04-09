@@ -54,6 +54,15 @@
 
 }
 
+.post-container{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: flex-end;
+	width: 100%;
+	padding: 1em;
+	margin: 1em;
+}
 
 .post-wrapper, .post-list-wrapper{
 	max-width: 37.5em;
@@ -3454,7 +3463,10 @@ li .order-tag{
 
 
 
-@media only screen and (max-width:40em){
+@media only screen and (max-width:50em){
+	.post-container{
+		flex-direction: row-reverse;
+	}
 	.post-wrapper{
 		max-width: 100%;
 	}

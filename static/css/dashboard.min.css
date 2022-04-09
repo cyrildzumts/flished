@@ -82,6 +82,15 @@ p{
 					0px 1px 1px 0px rgba(0, 0, 0, 0.14),
 					0px 1px 3px 0px rgba(0,0,0,0.12);
 }
+.post-container{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: flex-end;
+	width: 100%;
+	padding: 1em;
+	margin: 1em;
+}
 .post-wrapper, .post-list-wrapper{
 	max-width: 37.5em;
 	padding: 1em;
@@ -2865,7 +2874,10 @@ li .order-tag{
 .subscription .pricing{
 	font-size: 1.2em;
 }
-@media only screen and (max-width:40em){
+@media only screen and (max-width:50em){
+	.post-container{
+		flex-direction: row-reverse;
+	}
 	.post-wrapper{
 		max-width: 100%;
 	}
@@ -4475,10 +4487,6 @@ option:checked{
 	display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  
-  
-  
-  
 	width: 100%;
 }
 .row-left, .flex-left{
@@ -4506,12 +4514,7 @@ option:checked{
   justify-content: center !important;
 }
 .flex-column{
-	display: flex;
   flex-direction: column;
-  
-  
-  width: 100%;
-  height: 100%;
   flex: 1 0 auto;
 }
 .space-around{
