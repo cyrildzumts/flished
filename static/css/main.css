@@ -2,7 +2,7 @@
  * Imported Styles
  ********************************/
 @import url("vendor/fontawesome/css/all.min.css");
-@import url("vendors/Chart.min.css");
+@import url("vendor/Chart.min.css");
 @import url("theming/light-theme.css");
 @import url("theming/theme-commons.css");
 @import url("component.css");
