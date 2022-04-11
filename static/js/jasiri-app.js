@@ -1,8 +1,8 @@
 requirejs.config({
     baseUrl :'/static/js/lib',
     paths:{
-        vendor: '../vendors',
-        editor: '../vendors/editor'
+        vendor: '../vendor',
+        editor: '../vendor/editor'
 
     },
     waitSeconds: 0
