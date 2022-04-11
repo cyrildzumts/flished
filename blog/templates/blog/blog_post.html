@@ -12,13 +12,15 @@
 
 {% block MAIN %}
 <div class="container">
+    {% if POST_DELETED %}
+    <div class="mat-box">
+        <p>{{UI_STRINGS_CONTEXT.UI_POST_DELETED_MESSAGE}}</p>
+    </div>
+    {% else %}
     <article class="post-wrapper">
         <div class="post-header">
             <a href="{% url 'blog:author-stories' blog_post.author.username %}"><span>{{blog_post.author.get_full_name}}</span> </a>|<span>{{blog_post.created_at}}</span>{% if blog_post.post_status == POST_STATUS_DRAFT %}|<span>{{blog_post.post_status|post_status_value}}</span>{% endif %}
-            {% if blog_post.author == request.user %} | <a href="{{blog_post.get_delete_url}}" title="{{UI_STRINGS_CONTEXT.UI_DELETE_BLOG_POST}}"><i class="fas fa-trash icon"></i></a>{% endif %}
-            {% comment %}
-                {% if blog_post.author == request.user %} | <a href="{{blog_post.get_update_url}}" title="{{UI_STRINGS_CONTEXT.UI_UPDATE_BLOG_POST}}"><i class="fas fa-edit icon"></i></a>{% endif %}
-            {% endcomment %}
+            {% if blog_post.author == request.user %} | <a href="{{blog_post.get_delete_url}}" title="{{UI_STRINGS_CONTEXT.UI_DELETE_BLOG_POST}}"><i class="fas fa-trash icon"></i></a> | <a href="{{blog_post.get_update_url}}" title="{{UI_STRINGS_CONTEXT.UI_UPDATE_BLOG_POST}}"><i class="fas fa-edit icon"></i></a>{% endif %}
         </div>
         {% comment %}
             <div class="post-sharing">
@@ -88,6 +90,7 @@
             </div>
         </div>
     </article>
+    {% endif %}
 </div>
 {% endblock MAIN %}
 {% block FOOTER %}{% endblock FOOTER %}

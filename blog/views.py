@@ -157,6 +157,7 @@ def blog_post(request, author, post_slug):
         'OG_WEBSITE': 'article',
         'recent_posts': recent_posts,
         'POST_STATUS_DRAFT': Constants.POST_STATUS_DRAFT,
+        'POST_DELETED': post.post_status == Constants.POST_STATUS_DELETED,
         'blog_post': post,
         'comments': post_comments,
         'LIKED': liked,
@@ -170,7 +171,7 @@ def blog_post(request, author, post_slug):
 @login_required
 def delete_post(request, post_slug):
     post = get_object_or_404(Post, slug=post_slug, author=request.user)
-    post.delete()
+    Post.objects.filter(pk=post.pk).update(post_status=Constants.POST_STATUS_DELETED)
     return redirect('blog:blog-home')
 
 
