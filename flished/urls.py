@@ -28,7 +28,7 @@ sitemaps = {
     'publications': blog_sitemaps.PostSiteMap
 }
 
-urlpatterns = i18n_patterns( * [
+urlpatterns_i18n = i18n_patterns( * [
     path('', views.home, name="home"),
     path('about/', views.about, name='about'),
     path('accounts/', include('accounts.urls')),
@@ -39,11 +39,12 @@ urlpatterns = i18n_patterns( * [
 
 ], prefix_default_language=False)
 
-urlpatterns +=[
-    path('i18n/', include('django.conf.urls.i18n')),
+urlpatterns =[
     path('api/', include('api.urls', namespace='api')),
     path('api/api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('privacy-policy/', views.privacy_policy, name="privacy-policy"),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
     path('terms-of-use/', views.terms_of_use, name="terms-of-use"),
+    path('i18n/', include('django.conf.urls.i18n')),
+    *urlpatterns_i18n
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

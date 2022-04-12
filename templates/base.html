@@ -103,14 +103,6 @@
         <li>
         {% include "tags/language.html" %}
         </li>
-      
-
-      {% if dev_mode %}
-        {% block GRID %}
-        <li><button class="js-grid-enable baseline-grid-btn mat-button mat-button-text">{% trans "Enable Grid" %}</button></li>
-        {% endblock GRID %}
-      {% endif %}
-      
     </ul> 
 </div>
 {% endblock HEADER_PANEL %}
