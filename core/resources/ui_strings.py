@@ -15,6 +15,14 @@ UI_ABOUT_US = _('About us')
 UI_FAQ = _('FAQ')
 UI_FOOTER_MENTION = _('Publication Plateform')
 UI_TERMS_OF_USE = 'Conditions'
+UI_ABOUT_HEAD = _('Share experiences and ideas with others to build a better world')
+UI_ABOUT_INTRO = _("FLISHED a free digital publishing platform. \
+FLISHED is not a journalism site, it's much more than that. \
+Experts are strongly encouraged to share their experiences so that as many people as possible can take advantage of it")
+UI_ABOUT_BODY = _("There is no organization behind FLISHED. \
+Everyone is free to write publications in the fields of their choice. \
+Although FLISHED is a platform where everyone expresses themselves freely, each of us should respect others")
+UI_ABOUT_CLOSING = _("Let's share our experiences for a better world")
 UI_NO_SEARCH_RESULT_TITLE = _('No article found')
 UI_NO_SEARCH_RESULT = _('Your research has no results')
 UI_SEARCH_LABEL = _('Search')
@@ -108,6 +116,10 @@ DASHBOARD_SUBSCRIPTION_PAYMENTS_TITLE = _('Subscription Payments')
 DASHBOARD_SUBSCRIPTION__CREATE_PAYMENT_TITLE = _('Create Subscription Payment')
 
 UI_STRINGS_CONTEXT = {
+    'UI_ABOUT_HEAD': UI_ABOUT_HEAD,
+    'UI_ABOUT_INTRO' : UI_ABOUT_INTRO,
+    'UI_ABOUT_BODY': UI_ABOUT_BODY,
+    'UI_ABOUT_CLOSING': UI_ABOUT_CLOSING,
     'UI_POST_DELETED_MESSAGE': UI_POST_DELETED_MESSAGE,
     'UI_STANDARD_POST_LIST_TITLE': UI_STANDARD_POST_LIST_TITLE,
     'UI_NO_RECOMMENDATIONS_TITLE': UI_NO_RECOMMENDATIONS_TITLE,

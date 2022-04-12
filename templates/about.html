@@ -3,12 +3,12 @@
 
 {% block MAIN %}
 <div id="static-page" class="col-xs-12 col-6">
-<h3>{% trans "About us" %}</h3>
-<p>
-{% blocktrans trimmed%}
-We are a publishing plateforme
-{% endblocktrans %}
-</p>
-{% trans "Coming soon" %}
+    <h1>{{UI_STRINGS_CONTEXT.UI_ABOUT_US}}</h1>
+    <h3>{{UI_STRINGS_CONTEXT.UI_ABOUT_HEAD}}</h3>
+    <div class="grid">
+        <div class="mat-box"><p>{{UI_STRINGS_CONTEXT.UI_ABOUT_INTRO}}</p></div>
+        <div class="mat-box"><p>{{UI_STRINGS_CONTEXT.UI_ABOUT_BODY}}</p></div>
+        <div class="mat-box"><p>{{UI_STRINGS_CONTEXT.UI_ABOUT_CLOSING}}</p></div>
+    </div>
 </div>
 {% endblock MAIN %}
