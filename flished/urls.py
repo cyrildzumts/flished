@@ -37,7 +37,7 @@ urlpatterns_i18n = i18n_patterns( * [
     path('faq/', views.faq, name='faq'),
     path('dashboard/', include('dashboard.urls')),
 
-])
+], prefix_default_language=False)
 
 urlpatterns =[
     path('api/', include('api.urls', namespace='api')),
