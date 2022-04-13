@@ -4,10 +4,10 @@
     --third-color : #FFFFFF;
     --fourth-color : #FFFFFF;
     --light-color : #FAFAFA;
-    --header : #FFFFFF;
+    --header : #eadbcb;
     --header-color: #0A0A0A;
     --label-color : #777;
-    --body-bg : #FFFFFF;
+    --body-bg : #eadbcb;
     --body-color: #0A0A0A;
     --notification-bg : #0A0A0A;
     --notification-color : #FAFAFA;
@@ -24,11 +24,11 @@
     --info-color: #0A0A0A;
     --debug-color: #1e88e5;
     --standard-order : #2980b9;
-    --footer-content-wrapper:#FFFFFF;
+    --footer-content-wrapper:#eadbcb;
     --footer-content-wrapper-color: #0A0A0A;
-    --footer-content: #F5F5F5;
+    --footer-content: #eadbcb;
     --footer-content-color : #1A1A1A;
-    --footer-catelog: #F5F5F5;
+    --footer-catelog: #eadbcb;
     --footer-catelog-color: #1A1A1A;
     --footer-catalog-link: #1A1A1A;
     --editor : #fefefe;

@@ -2,13 +2,13 @@
 
 :root{
   --active-border-color: #45A29E;
-  --body-bg:#fff;
+  --body-bg:#eadbcb;
   --header-hover-color: #66FCF1; 
-  --header-bg: #fafafa;
+  --header-bg: #eadbcb;
   --header-color: #242424;
   --header-panel-bg :#fafafa;
   --header-panel-color: #242424;
-  --banner-bg: #45A29E;
+  --banner-bg: #eadbcb;
   --banner-color: #fff;
   /*--default-banner-url :'';
   --default-small-banner-url :'';*/

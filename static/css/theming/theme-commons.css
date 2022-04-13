@@ -299,7 +299,7 @@ li.active.selected{
 }
 
 .banner{
-    background-color: #fafafa;
+    background-color: var(--banner-bg);
 }
 
 .banner-action .mat-button{
