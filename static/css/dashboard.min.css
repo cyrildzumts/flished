@@ -266,7 +266,9 @@ a.link, .post a{
     height: 1.2em;
 }
 .quote {
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	margin: 1em;
 	overflow: hidden;
 	color: var(--quote-color);
