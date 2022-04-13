@@ -202,7 +202,7 @@ li.active.selected{
 }
 
 .editor-wrapper{
-    background-color: #FFFFFF;
+    background-color: var(--editor);
     color: #0A0A0A;
 }
 

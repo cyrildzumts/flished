@@ -368,6 +368,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                     },
                   },
             },
+            autofocus: true,
             data: init_data,
             placeholder: editor_tag.dataset.placeholder,
             onReady: function(){

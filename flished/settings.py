@@ -65,7 +65,7 @@ SITE_HOST = os.getenv('FLISHED_HOST')
 ALLOW_GOOGLE_ANALYTICS = os.environ.get('ALLOW_GOOGLE_ANALYTICS', 'true') == 'true'
 #CSRF_COOKIE_SECURE = not DEV_MODE
 
-SITE_HEADER_BG = "#0A0A0A"
+SITE_HEADER_BG = "#eadbcb"
 
 TEST_USER_PREFIX = "testuser_"
 

@@ -39,7 +39,7 @@
     --footer-catelog: #eadbcb;
     --footer-catelog-color: #1A1A1A;
     --footer-catalog-link: #1A1A1A;
-    --editor : #fefefe;
+    --editor : #eadbcb;
     --editor-color : #1A1A1A;
     --editor-header : #F5F5F5;
     --editor-header-color : #1a1a1a;
@@ -212,7 +212,7 @@ li.active.selected{
     
 }
 .editor-wrapper{
-    background-color: #FFFFFF;
+    background-color: var(--editor);
     color: #0A0A0A;
 }
 .editor{
