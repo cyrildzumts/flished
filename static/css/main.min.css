@@ -44,6 +44,9 @@
     --editor-header : #F5F5F5;
     --editor-header-color : #1a1a1a;
     --dotted-color : #0a0a0a;
+    --quote : #eadbcb;
+    --quote-color: #a88b6d;
+    --quote-border-color : #a88b6d
 }
 body{
     background-color: var(--body-bg);
@@ -686,17 +689,18 @@ a.link, .post a{
 	display: inline-block;
 	margin: 1em;
 	overflow: hidden;
+	color: var(--quote-color);
 }
 .quote blockquote {
 	display: inline-block;
 	margin: 0;
 	padding: 1em;
 	position: relative;
-	border: 2px solid #757575;
-	background-color: #fafafa;
+	border: 2px solid var(--quote-border-color);
+	background-color: var(--quote);
 }
 .quote blockquote::before {
-	background-color: #fafafa;
+	background-color: var(--quote);
 	bottom: -10%;
 	content: "";
 	left: 0;
