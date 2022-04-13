@@ -241,6 +241,7 @@ a.link, .post a{
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
+	width: 100%;
 	margin: 1em;
 	overflow: hidden;
 	color: var(--quote-color);
