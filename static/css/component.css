@@ -101,7 +101,7 @@
 
 .post-entry{
 	padding: 0.5em;
-	border-bottom: 2px dotted #ccc;
+	border-bottom: 2px dotted var(--dotted-color);
 }
 
 .status-entry{

@@ -24,6 +24,7 @@
     --info-color: #0A0A0A;
     --debug-color: #1e88e5;
     --standard-order : #2980b9;
+    --footer : #eadbcb;
     --footer-content-wrapper:#eadbcb;
     --footer-content-wrapper-color: #0A0A0A;
     --footer-content: #eadbcb;
@@ -35,4 +36,5 @@
     --editor-color : #1A1A1A;
     --editor-header : #F5F5F5;
     --editor-header-color : #1a1a1a;
+    --dotted-color : #fff8f0;
 }

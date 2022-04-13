@@ -31,6 +31,7 @@
     --info-color: #0A0A0A;
     --debug-color: #1e88e5;
     --standard-order : #2980b9;
+    --footer : #eadbcb;
     --footer-content-wrapper:#eadbcb;
     --footer-content-wrapper-color: #0A0A0A;
     --footer-content: #eadbcb;
@@ -42,6 +43,7 @@
     --editor-color : #1A1A1A;
     --editor-header : #F5F5F5;
     --editor-header-color : #1a1a1a;
+    --dotted-color : #fff8f0;
 }
 body{
     background-color: var(--body-bg);
@@ -139,8 +141,8 @@ input.error{
     color: var(--primary-color);
 }
 .footer{
-    background-color: var(--primary-color);
-    color: var(--fourth-color);
+    background-color: var(--footer);
+    color: var(--ligth-color);
 }
 .mat-button-default{
     background-color: var(--primary-color);
@@ -566,7 +568,7 @@ option:checked{
 }
 .post-entry{
 	padding: 0.5em;
-	border-bottom: 2px dotted #ccc;
+	border-bottom: 2px dotted var(--dotted-color);
 }
 .status-entry{
 	font-size: 1em;

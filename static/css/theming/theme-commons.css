@@ -114,8 +114,8 @@ input.error{
 }
 
 .footer{
-    background-color: var(--primary-color);
-    color: var(--fourth-color);
+    background-color: var(--footer);
+    color: var(--ligth-color);
 }
 .mat-button-default{
     background-color: var(--primary-color);
