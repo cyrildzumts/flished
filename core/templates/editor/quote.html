@@ -1,5 +1,5 @@
 {% autoescape off %}
-<blockquote id="{{quote.id}}">
-    <p><q>{{quote.data.text}}</q><cite>{{quote.data.caption}}</cite></p>
+<blockquote id="{{quote.id}}" cite="{{quote.data.caption}}">
+{{quote.data.text}}
 </blockquote>
 {% endautoescape %}
