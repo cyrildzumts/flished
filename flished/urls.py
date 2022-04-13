@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from flished.sitemaps import FlishedSiteMap
 from flished import views, settings
-from blog import views as blog_views, sitemaps as blog_sitemaps
+from blog import views as blog_views, sitemaps as blog_sitemaps, feeds as blog_feeds
 
 sitemaps = {
     'static' : FlishedSiteMap,
@@ -46,5 +46,7 @@ urlpatterns =[
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
     path('terms-of-use/', views.terms_of_use, name="terms-of-use"),
     path('i18n/', include('django.conf.urls.i18n')),
+    path('feeds/rss/', blog_feeds.LatestPostsFeed()),
+    path('feeds/atom/', blog_feeds.AtomPostFeed()),
     *urlpatterns_i18n
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

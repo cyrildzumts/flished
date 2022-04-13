@@ -23,6 +23,9 @@ UI_ABOUT_BODY = _("There is no organization behind FLISHED. \
 Everyone is free to write publications in the fields of their choice. \
 Although FLISHED is a platform where everyone expresses themselves freely, each of us should respect others")
 UI_ABOUT_CLOSING = _("Let's share our experiences for a better world")
+UI_FEED_TITLE = _("FLISHED - A place where people share their experiences")
+UI_FEED_DESCRIPTION = UI_ABOUT_CLOSING
+UI_FEED_LATEST = _("Recents publications")
 UI_NO_SEARCH_RESULT_TITLE = _('No article found')
 UI_NO_SEARCH_RESULT = _('Your research has no results')
 UI_SEARCH_LABEL = _('Search')
@@ -116,6 +119,9 @@ DASHBOARD_SUBSCRIPTION_PAYMENTS_TITLE = _('Subscription Payments')
 DASHBOARD_SUBSCRIPTION__CREATE_PAYMENT_TITLE = _('Create Subscription Payment')
 
 UI_STRINGS_CONTEXT = {
+    'UI_FEED_LATEST': UI_FEED_LATEST,
+    'UI_FEED_TITLE': UI_FEED_TITLE,
+    'UI_FEED_DESCRIPTION': UI_FEED_DESCRIPTION,
     'UI_ABOUT_HEAD': UI_ABOUT_HEAD,
     'UI_ABOUT_INTRO' : UI_ABOUT_INTRO,
     'UI_ABOUT_BODY': UI_ABOUT_BODY,
