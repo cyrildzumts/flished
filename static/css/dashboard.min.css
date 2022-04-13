@@ -265,6 +265,41 @@ a.link, .post a{
 	width: 1.2em;
     height: 1.2em;
 }
+.quote {
+	display: inline-block;
+	margin: 1em;
+	overflow: hidden;
+}
+.quote blockquote {
+	display: inline-block;
+	margin: 0;
+	padding: 1em;
+	position: relative;
+	border: 2px solid #757575;
+	background-color: #fafafa;
+}
+.quote blockquote::before {
+	background-color: #fafafa;
+	bottom: -10%;
+	content: "";
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: -10%;
+	transform: rotate(-15deg) skew(5deg);
+}
+.quote blockquote cite{
+	display: block;
+	font-style: italic;
+	text-align: right;
+}
+.quote blockquote cite::before{
+	content: "- ";
+}
+.quote blockquote > * {
+	position: relative;
+	z-index: 1;
+}
 .coupon-wrapper{
 	width: 100%;
 }

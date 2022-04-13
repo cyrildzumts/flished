@@ -1,5 +1,8 @@
 {% autoescape off %}
+<div class="quote">
 <blockquote id="{{quote.id}}" cite="{{quote.data.caption}}">
-{{quote.data.text}}
+<p>{{quote.data.text}}</p>
+{% if quote.data.caution %} <cite>{{quote.data.caption}}</cite> {% endif %}
 </blockquote>
+</div>
 {% endautoescape %}
