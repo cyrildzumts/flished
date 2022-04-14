@@ -21,10 +21,10 @@ class LatestPostsFeed(Feed):
     def item_description(self, item):
         return renderers.read_post_summary(item.content)
 
-    """
+    
     def item_link(self, item):
         return item.get_absolute_url()
-    """
+    
 
 
 class AtomPostFeed(LatestPostsFeed):
