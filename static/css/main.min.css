@@ -968,15 +968,16 @@ label .icon{
 	
 	padding : 1em;
 	margin-bottom: 16px;
-	letter-spacing: 0.15em;
+	letter-spacing: 0;
 }
-.banner--title{
+.banner-title{
 	width: 100%;
 	text-align: center;
+	font-size: 2.5em;
 	text-transform: uppercase;
 	margin-bottom: 16px;
 }
-.banner--content{
+.banner-content{
 	width: 100%;
 	display: flex;
 	flex-direction: column;
