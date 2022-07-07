@@ -4,6 +4,7 @@ HOME_META_DESCRIPTION = "Votre Plateforme de publication en ligne"
 HOME_META_KEYWORDS = "flished"
 HOME_PAGE_TITLE = "FLISHED"
 HOME_PAGE_BANNER = _('Stories')
+UI_HOME_BANNER_TITLE = _('Write with passion')
 UI_BLOG_HOME_PAGE_TITLE = _("Publications")
 UI_POST_RECENTS_TITLE = _("Recents")
 UI_POST_RECOMMENDATIONS_TITLE = _("Recommendations for you")
@@ -16,6 +17,7 @@ UI_FAQ = _('FAQ')
 UI_FOOTER_MENTION = _('Publication Plateform')
 UI_TERMS_OF_USE = 'Conditions'
 UI_ABOUT_HEAD = _('Share experiences and ideas with others to build a better world')
+UI_HOME_BANNER_SUB = UI_ABOUT_HEAD
 UI_ABOUT_INTRO = _("FLISHED a free digital publishing platform. \
 FLISHED is not a journalism site, it's much more than that. \
 Experts are strongly encouraged to share their experiences so that as many people as possible can take advantage of it")
@@ -120,6 +122,8 @@ DASHBOARD_SUBSCRIPTION_PAYMENTS_TITLE = _('Subscription Payments')
 DASHBOARD_SUBSCRIPTION__CREATE_PAYMENT_TITLE = _('Create Subscription Payment')
 
 UI_STRINGS_CONTEXT = {
+    'UI_HOME_BANNER_TITLE': UI_HOME_BANNER_TITLE,
+    'UI_HOME_BANNER_SUB': UI_HOME_BANNER_SUB,
     'UI_FEED_RSS_VALIDATE': UI_FEED_RSS_VALIDATE,
     'UI_FEED_LATEST': UI_FEED_LATEST,
     'UI_FEED_TITLE': UI_FEED_TITLE,
