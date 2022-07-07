@@ -452,6 +452,10 @@
     font-size: .875rem !important;
 }
 
+.big{
+    font-size: 1.5em;
+}
+
 .upper-case{
     text-transform: uppercase;
 }

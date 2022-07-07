@@ -1604,8 +1604,8 @@ input.editable{
 	text-decoration: none;
 	font-size: 0.75em;
 	font-weight: 500;
-	letter-spacing: 0.15em;
-	padding: 0 0.5em;
+	letter-spacing: 0;
+	padding: 0.5em 1em;
 	margin: 8px;
 	border-radius: 3em;
 	border: none;
@@ -4035,6 +4035,9 @@ main {
 }
 .medium{
     font-size: .875rem !important;
+}
+.big{
+    font-size: 1.5em;
 }
 .upper-case{
     text-transform: uppercase;
