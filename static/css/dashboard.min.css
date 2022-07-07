@@ -557,6 +557,9 @@ label .icon{
 	text-transform: uppercase;
 	margin-bottom: 16px;
 }
+.banner-sub{
+	font-size: 1.75em;
+}
 .banner-content{
 	width: 100%;
 	display: flex;
