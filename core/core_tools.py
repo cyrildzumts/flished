@@ -241,10 +241,10 @@ def core_fetch_url(url):
         "success": 1,
         "link": url,
         "meta": {
-            "title": html_page.find('meta', property="og:title", content=True),
-            "description": html_page.find('meta', property="og:description", content=True),
+            "title": html_page.title.string,
+            "description": html_page.find('meta', property="og:description", content=True).string,
             "image":{
-                "url": html_page.find('meta', property="og:image")
+                "url": html_page.find('meta', property="og:image").string
             }
         }
     }
