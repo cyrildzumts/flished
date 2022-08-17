@@ -2527,6 +2527,10 @@ td a {
 	position: relative;
 	width: 100%;
 }
+.link-meta{
+	box-shadow: var(--box-shadow);
+	margin: 1em 0;
+}
 .link-meta a{
 	color: #0a0a0a;
 }
