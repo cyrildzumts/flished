@@ -1,7 +1,9 @@
 define(['require','filters','ajax_api', 'element_utils', 'editor/editor', 
     'editor/plugins/header.min','editor/plugins/list.min', 'editor/plugins/link.min',
     'editor/plugins/checklist.min', 'editor/plugins/quote.min', 'editor/plugins/table.min',
-    'editor/plugins/inline-image','editor/plugins/editor-emoji.min'
+    'editor/plugins/inline-image','editor/plugins/editor-emoji.min',
+    'editor/plugins/code.min','editor/plugins/inline-code.min',
+    'editor/plugins/marker.min'
     ], function(require,Filter,ajax_api, element_utils,EditorJS) {
     'use strict';
 
