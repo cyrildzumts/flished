@@ -237,14 +237,18 @@ def core_fetch_url(url):
         return {'success': 0, 'link': url, 'meta': {}}
 
     html_page = BeautifulSoup(response.content, "html.parser")
+    meta_title = html_page.title.string,
+    description_meta = html_page.find('meta', property="og:description", content=True)
+    image_url =  html_page.find('meta', property="og:image")
+    logger.info(f"Meta INfo : description = {description_meta}; type : {type(description_meta)}")
     data = {
         "success": 1,
         "link": url,
         "meta": {
             "title": html_page.title.string,
-            "description": html_page.find('meta', property="og:description", content=True).find('content'),
+            "description": description_meta,
             "image":{
-                "url": html_page.find('meta', property="og:image").find('content')
+                "url": None
             }
         }
     }
