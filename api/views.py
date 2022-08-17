@@ -270,9 +270,7 @@ def update_activity(request):
 @api_view()
 def fetchUrl(request):
     logger.info(f"Fetching Url Request")
-    utils.show_request(request)
-    if request.user.is_authenticated:
-        data = core_tools.core_fetch_url()
-    else:
-        data = {'username': 'anonymous user', 'user_id': -1, 'is_valid':False}
+    url = utils.get_data_from_request(utils.get_request_data(request), "url")
+    data = core_tools.core_fetch_url(utils.get_data_from_request(request, url))
+
     return Response(data)
