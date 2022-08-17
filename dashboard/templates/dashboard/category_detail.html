@@ -1,6 +1,5 @@
 {% extends "post_base.html"%}
 {% load i18n %}
-{% load catalog_tags %}
 {% block ACTIONS %}
 {% if perms.catalog.add_category %}
 <a class="margin" href="{% url 'dashboard:category-create' %}"> <i class="fas fa-plus icon"></i> <span>{% trans "New Category" %}</span></a>
