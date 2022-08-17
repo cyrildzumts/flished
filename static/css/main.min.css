@@ -2527,10 +2527,13 @@ td a {
 	position: relative;
 	width: 100%;
 }
-.link-meta{
+.link-meta, .code-area{
 	box-shadow: var(--box-shadow);
 	margin: 1em 0;
 	padding: 1em;
+}
+.code-area textarea{
+	width: 100%;
 }
 .link-meta a{
 	color: #0a0a0a;

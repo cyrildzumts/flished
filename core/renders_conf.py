@@ -31,6 +31,9 @@ def render_linktool(linktool, template_name="editor/linktool.html"):
 def render_image(image, template_name="editor/image.html"):
     return render_to_string(template_name, {'image': image})
 
+def render_code(code, template_name="editor/code.html"):
+    return render_to_string(template_name, {'code': code})
+
 
 BLOCK_MAPPING = {
     'header': render_header,
@@ -41,4 +44,5 @@ BLOCK_MAPPING = {
     'checklist': render_checklist,
     'quote': render_quote,
     'image': render_image,
+    'code': render_code,
 }
