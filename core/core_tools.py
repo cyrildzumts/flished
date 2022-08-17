@@ -248,5 +248,5 @@ def core_fetch_url(url):
             }
         }
     }
-    logger.info(f"Fetching Url {url} finished")
+    logger.info(f"Fetching Url {url} finished with data : {data}")
     return data
