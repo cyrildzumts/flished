@@ -2,6 +2,7 @@
  * Imported Styles
  ********************************/
 @import url("vendor/Chart.min.css");
+@import url("vendor/fontawesome/css/all.min.css");
 @import url("default.css");
 @import url("component.css");
 @import url("dashboard.css");
