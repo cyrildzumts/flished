@@ -350,6 +350,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                         endpoint:"/api/fetchUrl/",
                     }
                 },
+                code: Code,
                 emoji: {
                     class:Emoji,
                     inlineToolbar: true
