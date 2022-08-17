@@ -1,3 +1,17 @@
 {% autoescape off %}
-<a class="link" id="{{linktool.id}}" href="{{linktool.data.link}}">{{linktool.data.link}}</a>
+<div class="url-wrapper" id="link-{{linktool.id}}">
+    <div class="link-meta">
+        {% if linktool.data.meta.image.url %}
+        <div class="meta-img"><img src="{{linktool.data.meta.image.url}}" alt="{{linktool.data.meta.title}}"></div>
+        {% endif %}
+        <div class="meta-info">
+            <a class="link" id="{{linktool.id}}" href="{{linktool.data.link}}">
+                <div class="meta-title">{{linktool.data.meta.title}}</div>
+                <div class="meta-site-name">{{linktool.data.meta.site_name}}</div>
+                <div class="meta-description">{{linktool.data.meta.description}}</div>
+            </a>
+        </div>
+    </div>
+</div>
+
 {% endautoescape %}

@@ -8,6 +8,9 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     const Header = require('editor/plugins/header.min');
     const List = require('editor/plugins/list.min');
     const Link = require('editor/plugins/link.min');
+    const Code = require('editor/plugins/code.min');
+    const Marker = require('editor/plugins/marker.min');
+    const InlineCode = require('editor/plugins/inline-code.min');
     const Checklist = require('editor/plugins/checklist.min');
     const Quote = require('editor/plugins/quote.min');
     const Emoji = require('editor/plugins/editor-emoji.min');
@@ -340,7 +343,10 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 },
                 linkTool: {
                     class: Link,
-                    inlineToolbar: true
+                    inlineToolbar: true,
+                    config:{
+                        endpoint:"/api/fetchUrl/",
+                    }
                 },
                 emoji: {
                     class:Emoji,
@@ -358,6 +364,10 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                         quotePlaceholder: editor_tag.dataset.quotePlaceholder,
                         captionPlaceholder: editor_tag.dataset.captionPlaceholder,
                     },
+                },
+                Marker:{
+                    class:Marker,
+                    shortcut: 'CMD+SHIFT+M',
                 },
                 table: {
                     class: Table,

@@ -1,4 +1,5 @@
 import os
+from unittest import result
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import F, Q, Count, Sum
 from django.contrib.auth.models import User
@@ -14,8 +15,16 @@ from xhtml2pdf import pisa
 import logging
 import datetime
 import io
+import requests
+from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
+
+USER_AGENT = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:100.0) Gecko/20100101 Firefox/100.0"
+HTTP_OK = 200
+HEADERS = {
+    'User-Agent': USER_AGENT
+}
 
 def create_instance(model, data):
     Form = modelform_factory(model, fields=model.FORM_FIELDS)
@@ -218,3 +227,25 @@ def generate_categories_translations():
     except Exception as e:
         logger.warn(f"Error while creating {filename}")
         logger.exception(e)
+
+
+def core_fetch_url(url):
+    logger.info(f"Fetching Url : {url}")
+    response = requests.get(url, timeout=60, headers=HEADERS)
+    if response.status_code != HTTP_OK:
+        logger.warning(f"Url {url} not found.")
+        return {'success': 0, 'link': url, 'meta': {}}
+
+    html_page = BeautifulSoup(result.content, "html.parser")
+    data = {
+        "success": 1,
+        "link": url,
+        "meta": {
+            "title": html_page.find('meta', property="og:title", content=True),
+            "description": html_page.find('meta', property="og:description", content=True),
+            "image":{
+                "url": html_page.find('meta', property="og:image")
+            }
+        }
+    }
+    return data

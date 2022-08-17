@@ -10,7 +10,7 @@ from api import serializers
 from api.serializers import PostSerializer, UserSerializer, TagSerializer, CategorySerializer, CommentSerializer, NewsSerializer
 from flished import utils
 from blog import blog_service
-from core import load_credentials
+from core import core_tools, load_credentials
 from core.resources import ui_strings as UI_STRINGS
 
 import logging
@@ -265,3 +265,14 @@ def update_activity(request):
     utils.show_dict_contents(postdata, "update_activity")
     logger.debug(f"update_activity request user: {request.user}")
     return Response(data={'success': True, 'message': 'updated'}, status=status.HTTP_200_OK)
+
+
+@api_view()
+def fetchUrl(request):
+    logger.info(f"Fetching Url Request")
+    utils.show_request(request)
+    if request.user.is_authenticated:
+        data = core_tools.core_fetch_url()
+    else:
+        data = {'username': 'anonymous user', 'user_id': -1, 'is_valid':False}
+    return Response(data)
