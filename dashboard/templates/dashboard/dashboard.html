@@ -32,6 +32,7 @@
 
 <div class="mat-table-wrapper">
         <div class="mat-table-title flex flex-left align-baseline label"><span class="medium">{% trans "New Users" %}</span> <a href="{% url 'dashboard:users' %}" class="mat-button mat-button-text"><span class="small">{% trans "See all" %}</span><i class="fas fa-arrow-right icon"></i></a></div>
+        <div class="table-wrapper">
         <table id="user-list" class="mat-table">
                 <thead>
                         <tr>
@@ -53,11 +54,12 @@
                         
                 </tbody>
         </table>
-                
+        </div>
 </div> <!--End of Table Wrapper-->
 
 <div class="mat-table-wrapper">
         <h4><i class="fas fa-eye icon"></i><span>{% trans "Most Views Post" %}</span></h4>
+        <div class="table-wrapper">
         <table id="ost-list" class="mat-table">
                 <thead>
                         <tr>
@@ -80,10 +82,12 @@
                 </tbody>
 
         </table>
+        </div>
 </div>
 
 <div class="mat-table-wrapper">
         <div class="flex flex-left align-baseline label"><span>{% trans "Last added Post" %}</span> <a href="{% url 'dashboard:posts' %}" class="mat-button mat-button-text"><span class="small">{% trans "See all" %}</span><i class="fas fa-arrow-right icon"></i></a></div>
+        <div class="table-wrapper">
         <table id="ost-list" class="mat-table">
                 <thead>
                         <tr>
@@ -106,6 +110,7 @@
                 </tbody>
 
         </table>
+        </div>
 </div>
 {% endblock CONTENT %}
 </div>

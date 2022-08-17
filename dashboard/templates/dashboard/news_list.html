@@ -12,6 +12,7 @@
         </div>
         <div class="mat-table-wrapper">
             <div class="mat-table-title">{% trans "News List" %}</div>
+            <div class="table-wrapper">
             <table id="news-list" class="mat-table js-filter-table">
             <thead>
                     
@@ -38,6 +39,7 @@
                     
             </tbody>
             </table>
+            </div>
             {% include "tags/pagination.html" with page_set=news_list %}
         </div><!--End of Table Wrapper-->
         </form>

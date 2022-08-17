@@ -16,6 +16,7 @@
         </div>
         <div class="mat-table-wrapper">
         <div class="mat-table-title padding-v">{% trans "Users" %}</div>
+        <div class="table-wrapper">
         <table id="user-list" class="mat-table js-filter-table">
           
           <thead>
@@ -42,7 +43,8 @@
                   </tr>
                   {% endfor %}
           </tbody>
-    </table>
+        </table>
+        </div>
      {% include "tags/pagination.html" with page_set=users %}
     </div><!--End of Table Wrapper-->
     </form>
