@@ -240,15 +240,16 @@ def core_fetch_url(url):
     meta_title = html_page.title.string,
     description_meta = html_page.find('meta', property="og:description", content=True)
     image_url =  html_page.find('meta', property="og:image")
-    logger.info(f"Meta INfo : description = {description_meta}; type : {type(description_meta)}")
+    logger.info(f"Meta INfo : description = {description_meta};")
+    logger.info(f"Meta INfo : image = {description_meta};")
     data = {
         "success": 1,
         "link": url,
         "meta": {
             "title": html_page.title.string,
-            "description": description_meta,
+            "description": description_meta.attrs.get('content'),
             "image":{
-                "url": None
+                "url": image_url.attrs.get('content')
             }
         }
     }
