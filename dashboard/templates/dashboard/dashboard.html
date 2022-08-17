@@ -63,18 +63,18 @@
         <table id="ost-list" class="mat-table">
                 <thead>
                         <tr>
+                                <th scope="col">{% trans "Views" %}</th>
                                 <th scope="col">{% trans "Post" %}</th>
                                 <th scope="col">{% trans "Author" %}</th>
-                                <th scope="col">{% trans "Views" %}</th>
                                 <th scope="col">{% trans 'Added Date' %}</th>
                         </tr>
                 </thead>
                 <tbody>
                         {% for post in top_10_list  %}
                         <tr>
+                        <td data-label="{% trans 'Views' %}"><span class="bold"><i class="fas fa-eye icon"></i> {{post.view_count}}</span></td>
                         <td data-label="{% trans 'Article' %}"><span>{{post.title}}</span></td>
                         <td data-label="{% trans 'Author' %}"><span>{{post.author.get_full_name}}</span></td>
-                        <td data-label="{% trans 'Views' %}"><span class="bold"><i class="fas fa-eye icon"></i> {{post.view_count}}</span></td>
                         <td scope="row" data-label="{% trans 'Added Date' %}"><span>{{post.created_at|date:"F j, Y H:i:s"}}</span></td>
                         </tr>
                         {% endfor %}
@@ -91,18 +91,18 @@
         <table id="ost-list" class="mat-table">
                 <thead>
                         <tr>
+                                <th scope="col">{% trans "Views" %}</th>
                                 <th scope="col">{% trans "Post" %}</th>
                                 <th scope="col">{% trans "Author" %}</th>
-                                <th scope="col">{% trans "Views" %}</th>
                                 <th scope="col">{% trans 'Added Date' %}</th>
                         </tr>
                 </thead>
                 <tbody>
                         {% for post in recent_posts  %}
                         <tr>
+                        <td data-label="{% trans 'Views' %}"><span class="bold"><i class="fas fa-eye icon"></i> {{post.view_count}}</span></td>
                         <td data-label="{% trans 'Article' %}"><span>{{post.title}}</span></td>
                         <td data-label="{% trans 'Author' %}"><span>{{post.author.get_full_name}}</span></td>
-                        <td data-label="{% trans 'Views' %}"><span class="bold"><i class="fas fa-eye icon"></i> {{post.view_count}}</span></td>
                         <td scope="row" data-label="{% trans 'Added Date' %}"><span>{{post.created_at|date:"F j, Y H:i:s"}}</span></td>
                         </tr>
                         {% endfor %}
