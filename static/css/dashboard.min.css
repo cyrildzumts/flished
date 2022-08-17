@@ -2112,6 +2112,37 @@ td a {
 	position: relative;
 	width: 100%;
 }
+.link-meta .meta-img{
+	width: 65px;
+	height: 65px;
+	border-radius: 3px;
+	margin-left: 30px;
+	float: right;
+}
+.meta-img img{
+	width: 100% !important;
+	min-width: 100%;
+}
+.link-meta .meta-title{
+	font-size: 1.2em;
+	font-weight: 600;
+	margin-bottom: 0.75em;
+}
+.link-meta .meta-description{
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	font-size: 0.8em;
+	overflow: hidden;
+	margin-bottom: 1.1em;
+}
+.link-meta .meta-site-name{
+	display: block;
+	font-size: 15px;
+	color: #888;
+	border: 0;
+	padding: 0 !important;
+}
 #nav-tree-toggle ~ ul.nav-tree, #current-nav-tree-toggle ~ ul.nav-tree {
 	display: none;
 }
