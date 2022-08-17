@@ -7,13 +7,13 @@
                 
 <div class="container">
         <div class="actions">
-                <a class="mat-button mat-button-outline" href="{% url 'dashboard:user-delete' user_instance.pk %}"><i class="fas fa-remove icon"></i><span>{% trans "Delete" %}</span></a>
-                <a class="mat-button mat-button-outline" href="{% url 'dashboard:send-welcome-mail' user_instance.pk %}"><i class="fas fa-envelope icon"></i><span>{% trans "Send Welcome Mail" %}</span></a>
+                <a class="margin" href="{% url 'dashboard:user-delete' user_instance.pk %}"><i class="fas fa-remove icon"></i><span>{% trans "Delete" %}</span></a>
+                <a class="margin" href="{% url 'dashboard:send-welcome-mail' user_instance.pk %}"><i class="fas fa-envelope icon"></i><span>{% trans "Send Welcome Mail" %}</span></a>
                 {% if user_instance.account and not user_instance.account.email_validated %}
-                <a class="mat-button mat-button-outline" href="{% url 'accounts:send-validation' user_instance.account.account_uuid %}">{% trans "Send Validation Link" %}</a>
+                <a class="margin" href="{% url 'accounts:send-validation' user_instance.account.account_uuid %}">{% trans "Send Validation Link" %}</a>
                 {% endif %}
                 
-                <a class="mat-button mat-button-outline" href="{% url 'dashboard:users' %}"><i class="fas fa-users icon"></i><span>{% trans "Users" %}</span></a>
+                <a class="margin" href="{% url 'dashboard:users' %}"><i class="fas fa-users icon"></i><span>{% trans "Users" %}</span></a>
                 
         </div><!--End of Banner-Actions-->
         <div class="mat-box full">

@@ -9,7 +9,7 @@
 <div class="container">
         <form action="{% url HIGHLIGHTS_DELETE_URL %}" method="POST">{% csrf_token %}
                 <div class="actions flex-left">
-                        <a class="mat-button mat-button-default" href="{% url HIGHLIGHT_CREATE_URL %}"> <i class="fas fa-plus icon"></i><span>{% trans "Highlight" %}</span></a>
+                        <a class="margin" href="{% url HIGHLIGHT_CREATE_URL %}"> <i class="fas fa-plus icon"></i><span>{% trans "Highlight" %}</span></a>
                         {% if perms.catalog.delete_highlight %}
                         <button class="js-activable mat-button mat-button-outlined" disabled><i class="fas fa-trash icon"></i><span>{% trans "Delete Selected" %}</span></button>
                         {% endif %}

@@ -10,7 +10,7 @@
         <form action="{% url 'dashboard:users-delete' %}" method="POST">{% csrf_token %}
         <div class="actions flex-left">
               {% if perms.auth.add_user %}
-              <a class="mat-button mat-button-default" href="{% url 'dashboard:create-user' %}"> <i class="fas fa-user-plus icon"></i><span>{% trans "New User" %}</span></a>
+              <a class="margin" href="{% url 'dashboard:create-user' %}"> <i class="fas fa-user-plus icon"></i><span>{% trans "New User" %}</span></a>
               {% endif %}
               <button class="js-activable mat-button mat-button-outline" disabled><i class="fas fa-trash icon"></i><span>{% trans "Delete" %}</span></button>
         </div>

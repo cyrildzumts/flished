@@ -3,10 +3,10 @@
 {% load catalog_tags %}
 {% block ACTIONS %}
 {% if perms.catalog.add_category %}
-<a class="mat-button mat-button-default" href="{% url 'dashboard:category-create' %}"> <i class="fas fa-plus icon"></i> <span>{% trans "New Category" %}</span></a>
-<a class="mat-button mat-button-outline" href="{{category.get_update_url}}"> <i class="fas fa-edit icon"></i><span>{% trans "Edit" %}</span></a>
-<a class="mat-button mat-button-outline" href="{{category.get_delete_url}}"> <i class="fas fa-trash icon"></i><span>{% trans "Delete" %}</span> </a>
-<a class="mat-button mat-button-outline" href="{% url 'dashboard:categories' %}"> <i class="fas fa-list icon"></i><span>{% trans "Categories" %}</span></a>
+<a class="margin" href="{% url 'dashboard:category-create' %}"> <i class="fas fa-plus icon"></i> <span>{% trans "New Category" %}</span></a>
+<a class="margin" href="{{category.get_update_url}}"> <i class="fas fa-edit icon"></i><span>{% trans "Edit" %}</span></a>
+<a class="margin" href="{{category.get_delete_url}}"> <i class="fas fa-trash icon"></i><span>{% trans "Delete" %}</span> </a>
+<a class="margin" href="{% url 'dashboard:categories' %}"> <i class="fas fa-list icon"></i><span>{% trans "Categories" %}</span></a>
 {% endif %}
 {% endblock ACTIONS %}
 

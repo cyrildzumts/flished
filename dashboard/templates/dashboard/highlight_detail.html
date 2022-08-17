@@ -4,9 +4,9 @@
 
 
 {% block ACTIONS %}
-<a class="mat-button mat-button-default" href="{% url 'dashboard:highlight-create'%}"> <i class="fas fa-plus icon"></i><span>{% trans "New Highlight" %}</span></a>
-<a class="mat-button mat-button-outline" href="{% url HIGHLIGHT_UPDATE_URL highlight.highlight_uuid %}"><i class="fas fa-refresh icon"></i><span>{% trans "Update" %}</span></a>
-<a class="mat-button mat-button-outline" href="{% url 'dashboard:highlights' %}"><i class="fas fa-list icon"></i><span>{% trans "Highlights" %}</span></a>
+<a class="margin" href="{% url 'dashboard:highlight-create'%}"> <i class="fas fa-plus icon"></i><span>{% trans "New Highlight" %}</span></a>
+<a class="margin" href="{% url HIGHLIGHT_UPDATE_URL highlight.highlight_uuid %}"><i class="fas fa-refresh icon"></i><span>{% trans "Update" %}</span></a>
+<a class="margin" href="{% url 'dashboard:highlights' %}"><i class="fas fa-list icon"></i><span>{% trans "Highlights" %}</span></a>
 {% endblock ACTIONS %}
 
 

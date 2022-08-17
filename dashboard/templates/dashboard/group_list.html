@@ -26,7 +26,7 @@
         <form action="{% url 'dashboard:groups-delete' %}" method="POST">{% csrf_token %}
         <div class="actions flex-left">
         {% if perms.auth.add_group %}
-            <a class="mat-button mat-button-default" href="{% url 'dashboard:group-create' %}"> <i class="fas fa-plus icon"></i> <span>{% trans "New Group" %}</span></a>
+            <a class="margin" href="{% url 'dashboard:group-create' %}"> <i class="fas fa-plus icon"></i> <span>{% trans "New Group" %}</span></a>
         {% endif %}
         {% if perms.auth.delete_group %}
             <button class="js-activable mat-button mat-button-outline" disabled><i class="fas fa-trash icon"></i><span>{% trans "Delete" %}</span></button>

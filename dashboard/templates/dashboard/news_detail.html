@@ -2,10 +2,10 @@
 {% load i18n %}
 
 {% block ACTIONS %}
-<a class="mat-button mat-button-default" href="{% url 'dashboard:news-create'%}"><i class="fas fa-plus icon"></i>{% trans "New Info" %}</a>
-<a class="mat-button mat-button-outline" href="{{news.get_update_url}}"><i class="fas fa-pen icon"></i>{% trans "Edit" %}</a>
-<a class="mat-button mat-button-outline warn" href="{{news.get_delete_url}}"><i class="fas fa-trash icon"></i>{% trans "Delete" %}</a>
-<a class="mat-button mat-button-outline" href="{% url 'dashboard:news' %}"><i class="fas fa-list icon"></i></span>{% trans "Infos" %}</a>
+<a class="margin" href="{% url 'dashboard:news-create'%}"><i class="fas fa-plus icon"></i>{% trans "New Info" %}</a>
+<a class="margin" href="{{news.get_update_url}}"><i class="fas fa-pen icon"></i>{% trans "Edit" %}</a>
+<a class="margin warn" href="{{news.get_delete_url}}"><i class="fas fa-trash icon"></i>{% trans "Delete" %}</a>
+<a class="margin" href="{% url 'dashboard:news' %}"><i class="fas fa-list icon"></i></span>{% trans "Infos" %}</a>
 {% endblock ACTIONS %}
 {% block CONTENT_MAIN %}
 

@@ -8,10 +8,10 @@
 <div class="container">
     <div class="actions flex-left">
     {% if perms.auth.add_group %}
-    <a class="mat-button mat-button-default" href="{% url 'dashboard:group-update' group.pk %}"><i class="far fa-edit icon"></i><span>{% trans "Edit" %}</span></a>
-    <a class="mat-button mat-button-outline" href="{% url 'dashboard:group-delete' group.pk %}"><i class="far fa-trash-alt icon"></i><span>{% trans "Delete" %}</span></a>
+    <a class="margin" href="{% url 'dashboard:group-update' group.pk %}"><i class="far fa-edit icon"></i><span>{% trans "Edit" %}</span></a>
+    <a class="margin" href="{% url 'dashboard:group-delete' group.pk %}"><i class="far fa-trash-alt icon"></i><span>{% trans "Delete" %}</span></a>
     {% endif %} 
-    <a class="mat-button mat-button-outline" href="{% url 'dashboard:groups' %}"><i class="fas fa-list icon"></i><span>{% trans "Groups" %}</span></a> 
+    <a class="margin" href="{% url 'dashboard:groups' %}"><i class="fas fa-list icon"></i><span>{% trans "Groups" %}</span></a> 
     </div><!--End of Actions-->
     <div class="mat-box">
              <div class="box-content">

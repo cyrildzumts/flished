@@ -7,7 +7,7 @@
 <div class="container">
         <form action="{% url 'dashboard:news-bulk-delete' %}" method="POST">{% csrf_token %}
         <div class="actions flex-left">
-            <a class="mat-button mat-button-default" href="{% url 'dashboard:news-create'%}"> <i class="fas fa-plus icon"></i><span>{% trans "New Info" %}</span></a>
+            <a class="margin" href="{% url 'dashboard:news-create'%}"> <i class="fas fa-plus icon"></i><span>{% trans "New Info" %}</span></a>
             <button id="js-delete-all-btn" class="mat-button mat-button-outline js-activable" disabled><i class="fas fa-trash icon"></i><span>{% trans "Delete" %}</span></button>
         </div>
         <div class="mat-table-wrapper">

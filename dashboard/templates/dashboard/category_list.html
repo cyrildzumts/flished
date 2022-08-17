@@ -9,7 +9,7 @@
         <form action="{% url 'dashboard:categories-delete' %}" method="POST">{% csrf_token %}
         
         <div class="actions flex-left">
-                <a class="mat-button mat-button-default" href="{% url 'dashboard:category-create'%}"> <i class="fas fa-plus icon"></i> <span>{% trans "New Category" %}</span> </a>
+                <a class="margin" href="{% url 'dashboard:category-create'%}"> <i class="fas fa-plus icon"></i> <span>{% trans "New Category" %}</span> </a>
                 {% if perms.catalog.delete_category %}
                 <button class="js-activable mat-button mat-button-outline" disabled><i class="fas fa-trash icon"></i><span>{% trans "Delete" %}</span></button>
                 {% endif %}

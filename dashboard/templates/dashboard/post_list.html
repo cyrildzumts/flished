@@ -9,7 +9,7 @@
         <form action="{% url 'dashboard:posts-delete' %}" method="POST">{% csrf_token %}
         
         <div class="actions flex-left">
-                <a class="mat-button mat-button-default" href="{% url 'dashboard:post-create'%}"> <i class="fas fa-plus icon"></i> <span>{% trans "New Post" %}</span> </a>
+                <a class="margin" href="{% url 'dashboard:post-create'%}"> <i class="fas fa-plus icon"></i> <span>{% trans "New Post" %}</span> </a>
                 {% if perms.blog.delete_post %}
                 <button class="js-activable mat-button mat-button-outline" disabled><i class="fas fa-trash icon"></i><span>{% trans "Delete" %}</span></button>
                 {% endif %}
