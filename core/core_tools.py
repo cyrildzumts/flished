@@ -236,7 +236,7 @@ def core_fetch_url(url):
         logger.warning(f"Url {url} not found.")
         return {'success': 0, 'link': url, 'meta': {}}
 
-    html_page = BeautifulSoup(result.content, "html.parser")
+    html_page = BeautifulSoup(response.content, "html.parser")
     data = {
         "success": 1,
         "link": url,
@@ -248,4 +248,5 @@ def core_fetch_url(url):
             }
         }
     }
+    logger.info(f"Fetching Url {url} finished")
     return data
