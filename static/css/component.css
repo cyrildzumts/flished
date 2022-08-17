@@ -2488,6 +2488,7 @@ td a {
 
 .code-area{
 	box-shadow: var(--box-shadow);
+	background-color: #fafafa;
 	margin: 1em 0;
 	padding: 0.5em;
 }
@@ -2495,6 +2496,7 @@ td a {
 .code-area textarea{
 	width: 100%;
 	padding: 0;
+	color: #1a1a1a;
 }
 .code-area textarea:focus{
 	border: 0 !important;
