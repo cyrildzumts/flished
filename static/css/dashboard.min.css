@@ -2112,6 +2112,9 @@ td a {
 	position: relative;
 	width: 100%;
 }
+.link-meta a{
+	color: #0a0a0a;
+}
 .link-meta .meta-img{
 	width: 65px;
 	height: 65px;
@@ -2135,6 +2138,7 @@ td a {
 	font-size: 0.8em;
 	overflow: hidden;
 	margin-bottom: 1.1em;
+	color: #0a0a0a;
 }
 .link-meta .meta-site-name{
 	display: block;
