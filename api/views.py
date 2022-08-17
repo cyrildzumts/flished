@@ -259,18 +259,11 @@ def clear_sessions(request):
 @permission_classes([])
 @authentication_classes([])
 def update_activity(request):
-    logger.debug("Updating User activity request")
     postdata = request.POST.copy()
-    logger.debug(f"Request POST : {postdata}")
-    utils.show_dict_contents(postdata, "update_activity")
-    logger.debug(f"update_activity request user: {request.user}")
     return Response(data={'success': True, 'message': 'updated'}, status=status.HTTP_200_OK)
 
 
 @api_view()
 def fetchUrl(request):
-    url = utils.get_data_from_request(utils.get_request_data(request), "url")
-    logger.info(f"Fetching Url Request : {url}")
-    data = core_tools.core_fetch_url(url)
-
+    data = core_tools.core_fetch_url(request.GET.copy().get("url"))
     return Response(data)
