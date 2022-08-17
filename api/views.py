@@ -269,8 +269,8 @@ def update_activity(request):
 
 @api_view()
 def fetchUrl(request):
-    logger.info(f"Fetching Url Request")
     url = utils.get_data_from_request(utils.get_request_data(request), "url")
+    logger.info(f"Fetching Url Request : {url}")
     data = core_tools.core_fetch_url(utils.get_data_from_request(request, url))
 
     return Response(data)
