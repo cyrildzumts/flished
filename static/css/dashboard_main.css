@@ -1,7 +1,7 @@
 /********************************
  * Imported Styles
  ********************************/
-@import url("vendors/Chart.min.css");
+@import url("vendor/Chart.min.css");
 @import url("default.css");
 @import url("component.css");
 @import url("dashboard.css");
