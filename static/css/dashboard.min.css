@@ -2112,13 +2112,22 @@ td a {
 	position: relative;
 	width: 100%;
 }
-.link-meta, .code-area{
+.link-meta{
 	box-shadow: var(--box-shadow);
 	margin: 1em 0;
 	padding: 1em;
 }
+.code-area{
+	box-shadow: var(--box-shadow);
+	margin: 1em 0;
+	padding: 0.5em;
+}
 .code-area textarea{
 	width: 100%;
+	padding: 0;
+}
+.code-area textarea:focus{
+	border: 0 !important;
 }
 .link-meta a{
 	color: #0a0a0a;
