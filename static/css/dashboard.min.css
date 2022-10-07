@@ -765,7 +765,8 @@ a.button{
 }
 nav, .nav{
 	display: flex;
-	position: relative;
+	position: fixed;
+	top: 0;
 	align-items: center;
 	justify-content: space-between;
 	padding-top : 0.5rem;
@@ -774,6 +775,7 @@ nav, .nav{
   
   nav .container{
 	  display: flex;
+	  position: relative;
 	  flex-wrap: inherit;
 	  align-items: center;
 	  justify-content: space-between;
