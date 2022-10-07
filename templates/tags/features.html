@@ -1,0 +1,18 @@
+{% load i18n %}
+
+<section id="features" class="padding-v border-bottom">
+    <div class="container padding-h margin v">
+        <div class="row">
+            {% for feature in features %}
+            <div class="col-4 col-m-6 margin-bottom">
+                <div class="feature">
+                    <div class="margin-bottom"><i class="fas fa-layer"></i></div>
+                    <h2>{{feature.title}}</h2>
+                    <p>{{feature.content}}</p>
+                    <a href="{{feature.link}}" class="feature-cta">{{feature.cta}} <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

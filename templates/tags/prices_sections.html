@@ -1,0 +1,31 @@
+{% load i18n %}
+
+<section class="border-bottom padding-v">
+    <div class="container padding-h margin-v">
+        <div class="margin-bottom">
+            <h2>{{pricing.title}}</h2>
+            <p class="lead">{{pricing.lead}}</p>
+        </div>
+    </div>
+    <div class="row flex-center">
+        {% for price in pricing.prices %}
+        <div class="col-m-6 col-4">
+            <div class="card margin-bottom">
+                <div class="card-body padding">
+                    <div class="small uppercase">{% if price.warning %}<i class="fas fa-star"></i>{% endif %} {{price.label}}</div>
+                    <div class="margin-bottom">
+                        <span class="bold">{{price.price}} {{CURRENCY}}</span>
+                        <span>/ {{pricing.plan}}</span>
+                    </div>
+                    <ul class="margin-bottom">
+                        {% for opt in pricing.options %}
+                        <li class="margin-bottom"><i class="fas fa-{{opt.cls}}"></i>{{opt.label}}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="actions"><a href="{{opt.link}}" class="mat-button mat-button-outline cta">{{UI_CORE_STRING.PRICING_CTA}}</a></div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>

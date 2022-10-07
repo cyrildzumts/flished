@@ -1,0 +1,13 @@
+{% load i18n %}
+
+<header class="site-header padding-v-5">
+    <div class="container padding-h">
+        <div class="row flex-center">
+            <div class="col-6">
+                <h1>{{header.main}}</h1>
+                <p class="lead">{{header.lead}}</p>
+                {% for action in header.actions %} <a href="{{SITE_HOST}}{{action.link}}" class="mat-button mat-button-default">{{action.label}}</a> {% endfor %}
+            </div>
+        </div>
+    </div>
+</header>

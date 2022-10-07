@@ -3,7 +3,9 @@
 {% load static %}
 {% load core_tags %}
 {% load blog_tags %}
-
+{% block HEADER %}
+{% include "tags/header_home.html" %}
+{% endblock HEADER %}
 {% block HEADER_BANNER %}
 <div class="banner">
     <div class="container banner-container">
