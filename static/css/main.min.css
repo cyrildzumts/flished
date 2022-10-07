@@ -399,12 +399,12 @@ h1, h2, h3, h4, h5, h6{
     color: #FAFAFA;
 }
 nav, .nav{
-    background-color: var(--header-bg);
-    color: var(--header-color);
+    background-color: var(--header-bg) !important;
+    color: var(--header-color) !important;
 }
 header{
-    background-color: var(--header-bg);
-    color: var(--header-color);
+    background-color: var(--header-bg) !important;
+    color: var(--header-color) !important;
 }
 .submenu{
 	width: 100%;
