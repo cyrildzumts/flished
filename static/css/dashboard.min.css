@@ -822,6 +822,14 @@ nav, .nav{
 	  padding-right: 0;
 	  padding-left: 0;
   }
+.home-header{
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+.home-header .header-content{
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
 .nav-v{
 	flex-direction: column;
 }
@@ -3294,6 +3302,9 @@ li .order-tag{
 	}
 }
 @media only screen and (min-width:50em){
+	.navbar-expand .navbar-toggler {
+		display: none;
+	}
 	.navbar-expand .navbar-nav {
 		flex-direction: row;
 	}
