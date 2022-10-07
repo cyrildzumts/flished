@@ -900,6 +900,7 @@ nav, .nav{
 }
 .header-content h1{
 	font-size: 3rem;
+	text-align: center;
 }
 .header-content .lead{
 	font-size: 1.25rem;

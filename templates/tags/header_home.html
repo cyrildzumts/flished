@@ -5,9 +5,11 @@
         <div class="row flex-center">
             <div class="col-6">
                 <div class="header-content">
-                <h1>{{header.head}}</h1>
-                <p class="lead">{{header.lead}}</p>
-                {% for action in header.actions %} <a href="{{SITE_HOST}}{{action.link}}" class="mat-button mat-button-default">{{action.label}}</a> {% endfor %}
+                    <h1>{{header.head}}</h1>
+                    <p class="lead">{{header.lead}}</p>
+                    <div class="actions">
+                    {% for action in header.actions %} <a href="{{SITE_HOST}}{{action.link}}" class="mat-button mat-button-default">{{action.label}}</a> {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
