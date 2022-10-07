@@ -898,6 +898,14 @@ nav, .nav{
 	margin-top: 3rem;
 	margin-bottom: 3rem;
 }
+.header-content h1{
+	font-size: 3rem;
+}
+.header-content .lead{
+	font-size: 1.25rem;
+	font-weight: 300;
+	text-align: center;
+}
 .nav-v{
 	flex-direction: column;
 }
