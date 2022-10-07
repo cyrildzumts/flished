@@ -770,7 +770,10 @@ nav, .nav{
 	align-items: center;
 	justify-content: space-between;
 	padding-top : 0.5rem;
-	padding-bottom: 0.5rem;
+	padding-bottom: 0;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	z-index: 100;
   }
   
   nav .container{
@@ -1055,7 +1058,6 @@ body.header-not-at-top .site-header{
 	height: var(--nav-height);
 	width: 100%;
 	position: relative;
-	z-index: 1000;
 	display: flex;
 	align-items: center;
 	background: #1a1a1a;
