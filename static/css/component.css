@@ -828,17 +828,65 @@ a.button{
 
 }
 
-.nav{
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  width: 100%;
-}
-
+nav, .nav{
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: space-between;
+	padding-top : 0.5rem;
+	padding-bottom: 0.5rem;
+  }
+  
+  nav .container{
+	  display: flex;
+	  flex-wrap: inherit;
+	  align-items: center;
+	  justify-content: space-between;
+  }
+  
+  .navbar-brand{
+	  padding-top: 0.3125rem;
+	  padding-bottom: 0.3125rem;
+	  margin-right: 1rem;
+	  font-size: 1.25rem;
+	  text-decoration: none;
+	  white-space: nowrap;
+  }
+  .navbar-toggler {
+	  padding: 0.25rem 0.75rem;
+	  font-size: 1.25rem;
+	  line-height: 1;
+	  background-color: transparent;
+	  border: 1px solid transparent;
+	  border-radius: 0.25rem;
+	  transition: box-shadow 0.15s ease-in-out;
+  }
+  .collapse:not(.show) {
+	  display: none;
+  }
+  .navbar-collapse {
+	  flex-basis: 100%;
+	  flex-grow: 1;
+	  align-items: center;
+  }
+  .navbar-nav {
+	  display: flex;
+	  flex-direction: column;
+	  padding-left: 0;
+	  margin-bottom: 0;
+	  list-style: none;
+  }
+  .nav-link {
+	  display: block;
+	  padding: 0.5rem 1rem;
+	  color: #0d6efd;
+	  text-decoration: none;
+	  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  }
+  .navbar-nav .nav-link {
+	  padding-right: 0;
+	  padding-left: 0;
+  }
 .nav-v{
 	flex-direction: column;
 }
@@ -3830,6 +3878,13 @@ li .order-tag{
 
 
 @media only screen and (min-width:50em){
+	.navbar-expand .navbar-nav {
+		flex-direction: row;
+	}
+	.navbar-expand .navbar-nav .nav-link {
+		padding-right: 0.5rem;
+		padding-left: 0.5rem;
+	}
 	.recommendations{
 		width: 22.5em;
 	}
