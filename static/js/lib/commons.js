@@ -1177,12 +1177,12 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
             auto_fetch_comments(comments.dataset.post, comments);
         }
         document.querySelectorAll("button[data-ui-toggle='collapse']").forEach((button)=>{
-            if(!button.dataset.dataUiTarget){
+            if(!button.dataset.uiTarget){
                 return;
             }
             console.log("Data UI toggle clicked ...");
             button.addEventListener('click',(event)=>{
-                let target = document.getElementById(button.dataset.dataUiTarget);
+                let target = document.getElementById(button.dataset.uiTarget);
                 target.classList.toggle('show');
             });
 
