@@ -1192,10 +1192,7 @@ nav, .nav{
 	top: 0;
 	align-items: center;
 	justify-content: space-between;
-	padding-top : 0.5rem;
-	padding-bottom: 0;
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
+	padding : 0 0.5rem;
 	z-index: 100;
   }
   
@@ -1204,7 +1201,7 @@ nav, .nav{
 	  position: relative;
 	  flex-wrap: inherit;
 	  align-items: center;
-	  justify-content: space-between;
+	  justify-content: space-between !important;
   }
   
   .navbar-brand{

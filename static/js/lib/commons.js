@@ -1176,7 +1176,17 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
         if(comments){
             auto_fetch_comments(comments.dataset.post, comments);
         }
-        
+        document.querySelectorAll("button[data-ui-toggle='collapse']").forEach((button)=>{
+            if(!button.dataset.dataUiTarget){
+                return;
+            }
+            console.log("Data UI toggle clicked ...");
+            button.addEventListener('click',(event)=>{
+                let target = document.getElementById(button.dataset.dataUiTarget);
+                target.classList.toggle('show');
+            });
+
+        });
         $('.collapsible .toggle').on('click', function(event){
             var parent = $(this).parent();
             var target = $('.' + this.getAttribute('data-toggle'), parent);
