@@ -1,16 +1,13 @@
 {% load i18n %} 
 {% load static %}
 
-<header class="site-header home-header padding-v-5 force-hidden">
-        <div class="container padding-h">
-            <div class="row flex-center">
-                <div class="col-6">
-                    <div class="header-content">
-                        <h1>{{header.head}}</h1>
-                        <p class="lead">{{header.lead}}</p>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-</header>
+
+<div class="header--panel">
+    <ul class="site-panel">
+        {% comment %}
+                <li><button class="mat-button mat-button-text js-create-post-btn" title="{{UI_STRINGS_CONTEXT.UI_SAVE_BTN_LABEL}}"><span><i class="fas fa-save"></i></span></button></li>
+        {% endcomment %}
+        <li><button class="mat-button mat-button-text js-preview-post" title="{{UI_STRINGS_CONTEXT.UI_BLOG_POST_PREVIEW}}" type="button"><span><i class="fas fa-eye"></i></span></button></li>
+        <li><button class="mat-button mat-button-text publish-btn js-publish-btn"><span>{{UI_STRINGS_CONTEXT.UI_PUBLISH_BTN_LABEL}}</span></button></li>
+    </ul> 
+</div>
