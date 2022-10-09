@@ -16,7 +16,6 @@
                 <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'blog:create-post' %}"><span><i class="fas fa-edit icon"></i><span class="hidden-xs">{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</span></span></a></li>
                 {% if request.user.is_authenticated %}
                 <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'me' %}" title="{% trans 'Account' %}"><i class="fas fa-user"></i></a></li>
-                <li class="nav-item"><a class="signout-btn nav-link signout" href="{{SITE_HOST}}{% url 'accounts:logout' %}" title="{% trans 'Logout' %}"><i class="fas fa-sign-out-alt icon"></i></a></li>
                 {% else %}
                     <li class="nav-item js-action-abtest" data-action="1"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:login' %}?next={{request.path}}" title="{% trans 'Login' %}"><i class="fas fa-sign-in-alt icon"></i></a></li>
                 {% endif %}
@@ -32,7 +31,7 @@
                 </ul>
                 {% endif %}
                 <ul class="nav-bar">
-                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}" title="{% trans 'Search for posts' %}"><i class="fas fa-search icon"></i></a></li>
                     {% if is_dashboard_allowed %}
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i>{% trans "Dashboard" %}</a></li>
                     {% endif %}
