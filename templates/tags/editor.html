@@ -10,6 +10,7 @@
             <div class="flex">
                 {% for c in catogories %} <span class="padding"><input type="radio" name="category" id="category-{{c.name}}" value="{{c.pk}}"><label for="category-{{c.name}}">{{c.display_name}}</label></span> {% endfor %}
             </div>
+            <div class="hint hidden"><p>{% translate "Please, select a category" %}</p></div>
         </div>
         {% csrf_token %}
     </div>

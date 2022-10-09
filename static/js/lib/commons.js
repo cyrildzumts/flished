@@ -950,12 +950,16 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
             let csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]');
             let title = document.getElementById('title');
             let editor_element = document.getElementById('editor');
+            let category = document.querySelector("input[type='radio'][name='category']:checked");
             let formData = new FormData();
             formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
             formData.append('title', title.value);
             formData.append('content', JSON.stringify(post_content));
             formData.append('author', editor_element.dataset.author);
             formData.append('post_status', this.post_status);
+            if(category){
+                formData.append('category', category.value);
+            }
             let url = this.is_update_form() ? '/api/update-post/' + editor_element.dataset.post + '/' : '/api/create-post/';
             var options = {
                 //url : url,
