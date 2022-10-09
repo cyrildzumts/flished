@@ -8,7 +8,7 @@
         <div class="padding">
             <span>{% translate "Category" %}</span>
             <div class="flex">
-                {% for c in catogories %} <span class="padding"><input type="radio" name="category" id="category-{{c.name}}" value="{{c.pk}}"><label for="category-{{c.name}}">{{c.display_name}}</label></span> {% endfor %}
+                {% for c in categories %} <span class="padding"><input type="radio" name="category" id="category-{{c.name}}" value="{{c.pk}}"><label for="category-{{c.name}}">{{c.display_name}}</label></span> {% endfor %}
             </div>
             <div class="hint hidden"><p>{% translate "Please, select a category" %}</p></div>
         </div>
