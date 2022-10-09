@@ -2,8 +2,9 @@
 <nav class="navbar navbar-expand">
     <div class="container px-5">
         <button class="navbar-toggler" type="button" data-ui-toggle="collapse" data-ui-target="navbar-main-menu"><i class="fas fa-bars"></i></button>
-        <a href="{{SITE_HOST}}" class="navbar-brand">{{SITE_NAME}}</a>
+        
         <div class="flex main-nav-bar">
+            <a href="{{SITE_HOST}}" class="navbar-brand">{{SITE_NAME}}</a>
             <ul class="navbar-nav hidden-m">
                 {% for item in navigation_items %} <li class="nav-item"><a href="{{SITE_HOST}}{{item.url}}" class="nav-link">{{item.label}}</a></li> {% endfor %}
             </ul>
