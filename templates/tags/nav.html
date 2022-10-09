@@ -3,7 +3,7 @@
     <div class="container px-5">
         <button class="navbar-toggler" type="button" data-ui-toggle="collapse" data-ui-target="navbar-main-menu"><i class="fas fa-bars"></i></button>
         <a href="{{SITE_HOST}}" class="navbar-brand">{{SITE_NAME}}</a>
-        <div class="collapse nav-bar-collapse" id="navbar-main-menu">
+        <div class="row">
             <ul class="navbar-nav">
                 {% if is_dashboard_allowed %}
                 <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i><span class="hidden-m">{% trans "Dashboard" %}</span></a></li>
@@ -17,6 +17,8 @@
                 {% endif %}
                 {% for item in navigation_items %} <li class="nav-item"><a href="{{SITE_HOST}}{{item.url}}" class="nav-link">{{item.label}}</a></li> {% endfor %}
             </ul>
+        </div>
+        <div class="collapse nav-bar-collapse" id="navbar-main-menu">
         </div>
     </div>
 </nav>  
