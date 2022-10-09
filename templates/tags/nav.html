@@ -1,10 +1,11 @@
 {% load i18n %}
 <nav class="navbar navbar-expand">
     <div class="container px-5">
-        <button class="navbar-toggler" type="button" data-ui-toggle="collapse" data-ui-target="navbar-main-menu"><i class="fas fa-bars"></i></button>
-        
-        <div class="flex main-nav-bar">
+        <div class="flex flex-left">
+            <button class="navbar-toggler" type="button" data-ui-toggle="collapse" data-ui-target="navbar-main-menu"><i class="fas fa-bars"></i></button>
             <a href="{{SITE_HOST}}" class="navbar-brand">{{SITE_NAME}}</a>
+        </div>
+        <div class="flex main-nav-bar">
             <ul class="navbar-nav hidden-m">
                 {% for item in navigation_items %} <li class="nav-item"><a href="{{SITE_HOST}}{{item.url}}" class="nav-link">{{item.label}}</a></li> {% endfor %}
             </ul>
