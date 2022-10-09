@@ -825,6 +825,18 @@ nav, .nav{
 	  padding-right: 0;
 	  padding-left: 0;
   }
+#navbar-main-menu.navbar-collapse{
+	position: fixed;
+	top: 3em;
+	z-index: 1000;
+}
+.navbar-menu-wrapper{
+	width: 100%;
+	padding: 1rem;
+}
+.navbar-menu-wrapper .navbar-nav{
+	flex-direction: column;
+}
 .home-header{
 	padding-top: 3rem;
 	padding-bottom: 3rem;

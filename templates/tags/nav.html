@@ -25,27 +25,27 @@
         </div>
         
         <div class="collapse nav-bar-collapse" id="navbar-main-menu">
-            {% if navigation_items %}
-            <ul class="navbar-nav">
-                {% for item in navigation_items %} <li class="nav-item"><a href="{{SITE_HOST}}{{item.url}}" class="nav-link">{{item.label}}</a></li> {% endfor %}
-            </ul>
-            {% endif %}
-            <ul class="nav-bar">
-                <li class="nav-item"></li>
-                {% if is_dashboard_allowed %}
-                <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i>{% trans "Dashboard" %}</a></li>
+            <div class="navbar-menu-wrapper">
+                {% if navigation_items %}
+                <ul class="navbar-nav">
+                    {% for item in navigation_items %} <li class="nav-item"><a href="{{SITE_HOST}}{{item.url}}" class="nav-link">{{item.label}}</a></li> {% endfor %}
+                </ul>
                 {% endif %}
-                {% if request.user.is_authenticated %}
-                <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'me' %}" title="{% trans 'Account' %}"><i class="fas fa-user"></i>{{UI_STRINGS_CONTEXT.UI_USER_ACCOUNT}}</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'blog:create-post' %}"><i class="fas fa-edit icon"></i>{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'me' %}" title="{% trans 'Account' %}"><i class="fas fa-bell"></i>{% translate "Notifications" %}</a></li>
-                <li class="nav-item"><a class="signout-btn nav-link signout" href="{{SITE_HOST}}{% url 'accounts:logout' %}" title="{% trans 'Logout' %}"><i class="fas fa-sign-out-alt icon"></i>{% trans 'Logout' %}</a></li>
-                {% else %}
-                    <li class="nav-item js-action-abtest" data-action="1"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:login' %}?next={{request.path}}" title="{% trans 'Login' %}"><i class="fas fa-sign-in-alt icon"></i>{% trans 'Login' %}</a></li>
-                {% endif %}
-            </ul>
+                <ul class="nav-bar">
+                    <li class="nav-item"></li>
+                    {% if is_dashboard_allowed %}
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i>{% trans "Dashboard" %}</a></li>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'me' %}" title="{% trans 'Account' %}"><i class="fas fa-user icon"></i>{{UI_STRINGS_CONTEXT.UI_USER_ACCOUNT|default:_('My Account')}}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'blog:create-post' %}"><i class="fas fa-edit icon"></i>{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'me' %}" title="{% trans 'Account' %}"><i class="fas fa-bell icon"></i>{% translate "Notifications" %}</a></li>
+                    <li class="nav-item"><a class="signout-btn nav-link signout" href="{{SITE_HOST}}{% url 'accounts:logout' %}" title="{% trans 'Logout' %}"><i class="fas fa-sign-out-alt icon"></i>{% trans 'Logout' %}</a></li>
+                    {% else %}
+                        <li class="nav-item js-action-abtest" data-action="1"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:login' %}?next={{request.path}}" title="{% trans 'Login' %}"><i class="fas fa-sign-in-alt icon"></i>{% trans 'Login' %}</a></li>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
-        
-
     </div>
 </nav>  
