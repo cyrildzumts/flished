@@ -820,7 +820,7 @@ nav, .nav{
 	border-bottom: 1px dotted #ccc;
   }
   .navbar-nav.secondary{
-	margin-top: 3rem;
+	margin-top: 1rem;
 	font-size: 1.25rem;
   }
   .nav-link {
@@ -3147,6 +3147,9 @@ li .order-tag{
 	font-size: 1.2em;
 }
 @media only screen and (max-width:50em){
+	.navbar-menu-wrapper{
+		padding: 1rem !important;
+	}
 	.recommendations{
 		width: 100%;
 	}
