@@ -2,12 +2,12 @@
 
 <div class="flex flex-center  flex-wrap editor-post editor-wrapper full padding">
     {% include "tags/post_published_tag.html" %}
-    <div class="flex flex-left padding-v full">
+    <div class="flex flex-left flex-wrap padding-v full">
         {% include "tags/preview_form.html" %}
         <input type="text" id="title" class="full" name="title" placeholder="{{UI_STRINGS_CONTEXT.UI_BLOG_INPUT_TITLE_PLACEHOLDER}}">
         <div class="padding">
             <span>{% translate "Category" %}</span>
-            <div class="flex">
+            <div class="flex flex-wrap">
                 {% for c in categories %} <span class="padding"><input type="radio" name="category" id="category-{{c.name}}" value="{{c.pk}}"><label for="category-{{c.name}}">{{c.display_name}}</label></span> {% endfor %}
             </div>
             <div class="hint hidden"><p>{% translate "Please, select a category" %}</p></div>
