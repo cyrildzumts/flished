@@ -1353,6 +1353,7 @@ button, input, select, textarea{
   --width-mobile: 12;
    --width-tablet: 6;
   --width-desktop: 4;
+  width: 16.25em;
   /*height: 64rem;*/
 }
 

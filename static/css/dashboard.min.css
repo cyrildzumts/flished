@@ -1207,6 +1207,7 @@ button, input, select, textarea{
   --width-mobile: 12;
    --width-tablet: 6;
   --width-desktop: 4;
+  width: 16.25em;
   
 }
 .footer {
@@ -3792,7 +3793,7 @@ main {
     .sidebar{
         transition: left 300ms;
         left: 0;
-        width: 4em;
+        width: 16.25em;
     }
     
     
@@ -3813,7 +3814,6 @@ main {
     
     
     .sidebar .sidebar-brand h4 span:last-child,
-    .sidebar li a span:last-child,
     .sidebar .footer-wrapper{
         display: none;
     }
