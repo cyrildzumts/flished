@@ -7,7 +7,7 @@
         </div>
         <div class="flex main-nav-bar">
             <ul class="navbar-nav hidden-m">
-                {% for item in navigation_items %} <li class="nav-item"><a href="{{SITE_HOST}}{{item.url}}" class="nav-link">{{item.label}}</a></li> {% endfor %}
+                {% for category in categories %} <li class="nav-item"><a href="{{SITE_HOST}}{{category.get_slug_url}}" class="nav-link">{{category.display_name}}</a></li> {% endfor %}
             </ul>
             <ul class="navbar-nav">
                 {% if is_dashboard_allowed %}

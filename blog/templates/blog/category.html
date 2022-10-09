@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %} 
+{% load static %}
+{% block HEADER %}
+{% endblock HEADER %}
+{% block MAIN %}
+<div class="container">
+  {% if post_list %}
+  <div class="post-container">
+    {% include "tags/blog_posts_tag.html" with blog_posts=post_list %}
+    {% include "tags/recommendations.html" with blog_posts=recommendations %}
+  </div>
+  {% include "tags/pagination.html" with page_set=post_list %}
+
+  {% else %}
+  <p>{{UI_STRINGS_CONTEXT.UI_NO_BLOG_POSTS_HINT}}</p>
+  {% endif %}
+</div>
+{% endblock MAIN %}

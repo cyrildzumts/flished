@@ -1,9 +1,10 @@
 {% extends "base.html"%}
 {% load i18n %}
-
+{% block HEADER %}
+<div class="flex flex-left full padding-h"><h2>{{UI_STRINGS_CONTEXT.UI_USER_HISTORY_LABEL}}</h2></div>
+{% endblock HEADER %}
 {% block MAIN %}
 
-<div class="flex flex-left full padding-h"><h2>{{UI_STRINGS_CONTEXT.UI_USER_HISTORY_LABEL}}</h2></div>
 <div class="container">
    {% if histories %}
    {% include "tags/blog_posts_tag.html" with blog_posts=histories %}

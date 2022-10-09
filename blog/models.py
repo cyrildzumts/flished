@@ -69,9 +69,9 @@ class Category(models.Model):
     """def get_absolute_url(self):
         return reverse("blog:category-detail-old", kwargs={"category_uuid": self.category_uuid})
     
+    """
     def get_slug_url(self):
         return reverse("blog:category-detail", kwargs={"slug": self.slug})
-    """
     
     def get_dashboard_url(self):
         return reverse("dashboard:category-detail", kwargs={"category_uuid": self.category_uuid})
@@ -141,7 +141,7 @@ class PostHistory(models.Model):
     
     def __str__(self):
         return f"History - {self.visitor.username} - {self.post.title}"
-        
+
 
 class News(models.Model):
     title = models.CharField(max_length=128)

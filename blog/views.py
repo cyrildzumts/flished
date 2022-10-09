@@ -220,13 +220,12 @@ def post_preview(request):
 
 
 def category_detail_slug(request, slug=None):
-    template_name = 'catalog/category_detail.html'
+    template_name = 'blog/category_detail.html'
     if request.method != 'GET':
         raise SuspiciousOperation
 
     category = get_object_or_404(Category, slug__iexact=slug, is_active=True)
     
-    #subcats = category.get_children().filter(is_active=True)
     subcats = blog_service.find_children(category)
     descendants = blog_service.category_descendants(category)
     queryDict = request.GET.copy()

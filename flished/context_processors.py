@@ -1,6 +1,6 @@
 from flished import settings
 from django.contrib.auth.models import User
-
+from blog import blog_service
 from core.resources import ui_strings as UI_STRINGS
 import logging
 
@@ -19,6 +19,7 @@ def site_context(request):
         'SITE_HEADER_BG': settings.SITE_HEADER_BG,
         'META_KEYWORDS': UI_STRINGS.HOME_META_KEYWORDS,
         'META_DESCRIPTION': UI_STRINGS.HOME_META_DESCRIPTION,
+        'categories': blog_service.get_categories(),
         'redirect_to' : '/',
         'is_dashboard_allowed' : is_dashboard_allowed,
         'dev_mode' : settings.DEBUG,
