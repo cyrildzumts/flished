@@ -900,6 +900,10 @@ nav, .nav{
 	  padding-left: 0;
   }
 
+  .nav-item{
+	padding: 0 0.5em;
+  }
+
   .nav-link .fas, .nav-link .icon{
 	font-size: inherit;
   }
