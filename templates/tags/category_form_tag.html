@@ -23,17 +23,7 @@
                 <input type="text" id="seo-meta-keywords" class="full" name="seo_meta_keywords" maxlength="{{SEO_META_KEYWORDS_MAX_SIZE}}">
             </div>
         </div>
-        {% if highlight_list %}
-        <div class="flex flex-left flex-wrap">
-            <div class="form-group">
-                <label for="highlight">{% trans "Highlight" %}</label>
-                <select name="highlight" id="highlight">
-                    <option value=""><span class="mat-button">{% trans "Select a Highlight" %}</span></option>
-                    {% for h in highlight_list %} <option value="{{h.pk}}"><span class="key">{{h}}</span></option> {% endfor %}
-                </select>
-            </div>
-        </div>
-        {% endif %}
+        
         <div class="flex flex-left flex-wrap">
             {% if category_list %}
             <div class="form-group">

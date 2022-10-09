@@ -36,14 +36,6 @@ def home(request):
     PAGE_TITLE = page_title
     #META_DESCRIPTION = UI_STRINGS.HOME_META_DESCRIPTION
     #META_KEYWORDS = UI_STRINGS.HOME_META_KEYWORDS
-    
-    """structured_data = {
-            '@context': settings.JSON_LD_CONTEXT,
-            '@type' : settings.JSON_LD_TYPE_BREADCRUMBLIST,
-            'name' : settings.SITE_NAME,
-            'description': str(META_DESCRIPTION),
-            'itemListElement' : [{'@type':settings.JSON_LD_TYPE_LISTITEM, 'position': index,'name': catalog_service.get_seo_description(cat.name,Catalog_Constants.CATEGORY_PAGE_TITLE_KEY, default_value=_(cat.display_name)), 'item': settings.SITE_HOST + cat.get_slug_url()} for index, cat in enumerate(catalog_service.find_children()) if cat.is_active]
-    }"""
 
     context = {
         'page_title': PAGE_TITLE,

@@ -84,7 +84,6 @@ def category_create (request):
     context = {
         'page_title': page_title,
         'content_title' : _('New Category'),
-        #'highlight_list':catalog_service.get_highlights({'is_active': True, 'user': None, 'is_home': False}),
         'category_list': Category.objects.all(),
         'SHORT_DESCRIPTION_MAX_SIZE': BLOG_CONSTANTS.SHORT_DESCRIPTION_MAX_SIZE,
         'DESCRIPTION_MAX_SIZE': BLOG_CONSTANTS.DESCRIPTION_MAX_SIZE,
@@ -188,7 +187,6 @@ def category_update(request, category_uuid):
         'category':category,
         'category_list': Category.objects.exclude(id__in=[category.pk]),
         'content_title': f"{category.display_name} - {_('Update')}",
-        #'highlight_list':catalog_service.get_highlights({'is_active': True, 'user': None, 'is_home': False}),
         'SHORT_DESCRIPTION_MAX_SIZE': BLOG_CONSTANTS.SHORT_DESCRIPTION_MAX_SIZE,
         'DESCRIPTION_MAX_SIZE': BLOG_CONSTANTS.DESCRIPTION_MAX_SIZE,
         'SEO_PAGE_TITLE_MAX_SIZE': BLOG_CONSTANTS.SEO_PAGE_TITLE_MAX_SIZE,
