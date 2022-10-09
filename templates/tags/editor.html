@@ -7,7 +7,7 @@
         <input type="text" id="title" class="full" name="title" placeholder="{{UI_STRINGS_CONTEXT.UI_BLOG_INPUT_TITLE_PLACEHOLDER}}">
         <div class="padding">
             <span>{% translate "Category" %}</span>
-            <div class="flex flex-wrap">
+            <div class="flex flex-left flex-wrap">
                 {% for c in categories %} <span class="padding"><input type="radio" name="category" id="category-{{c.name}}" value="{{c.pk}}"><label for="category-{{c.name}}">{{c.display_name}}</label></span> {% endfor %}
             </div>
             <div class="hint hidden"><p>{% translate "Please, select a category" %}</p></div>
