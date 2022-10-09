@@ -31,6 +31,7 @@
                 <ul>
                     {% block SIDEBAR_CONTENT %}
                     <li><a class="mat-button mat-button-text active" href="{% url 'dashboard:home'%}"><i class="fas fa-tachometer-alt icon"></i><span>{% trans "Dashboard" %}</span></a></li>
+                    <li><a class="mat-button mat-button-text" href="{% url 'dashboard:categories' %}"><i class="fas fa-sitemap icon"></i><span>{% trans "Categories" %}</span></a></li>
                     {% if perms.blog.view_blog %}
                     <li><a class="mat-button mat-button-text" href="{% url 'dashboard:posts'%}"><i class="fas fa-gifts icon"></i><span>{% trans "Posts" %}</span></a></li>
                     {% endif %}
