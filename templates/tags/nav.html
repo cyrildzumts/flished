@@ -1,9 +1,13 @@
 {% load i18n %}
 <nav class="navbar navbar-expand">
     <div class="container px-5">
+        
         <button class="navbar-toggler" type="button" data-ui-toggle="collapse" data-ui-target="navbar-main-menu"><i class="fas fa-bars"></i></button>
         <a href="{{SITE_HOST}}" class="navbar-brand">{{SITE_NAME}}</a>
-        <div class="row">
+        <div class="row main-nav-bar">
+            <ul class="navbar-nav hidden-m">
+                {% for item in navigation_items %} <li class="nav-item"><a href="{{SITE_HOST}}{{item.url}}" class="nav-link">{{item.label}}</a></li> {% endfor %}
+            </ul>
             <ul class="navbar-nav">
                 {% if is_dashboard_allowed %}
                 <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i><span class="hidden-m">{% trans "Dashboard" %}</span></a></li>
@@ -15,10 +19,32 @@
                 {% else %}
                     <li class="nav-item js-action-abtest" data-action="1"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:login' %}?next={{request.path}}" title="{% trans 'Login' %}"><i class="fas fa-sign-in-alt icon"></i></a></li>
                 {% endif %}
-                {% for item in navigation_items %} <li class="nav-item"><a href="{{SITE_HOST}}{{item.url}}" class="nav-link">{{item.label}}</a></li> {% endfor %}
+                
             </ul>
         </div>
+        
         <div class="collapse nav-bar-collapse" id="navbar-main-menu">
+            {% if navigation_items %}
+            <ul class="navbar-nav">
+                {% for item in navigation_items %} <li class="nav-item"><a href="{{SITE_HOST}}{{item.url}}" class="nav-link">{{item.label}}</a></li> {% endfor %}
+            </ul>
+            {% endif %}
+            <ul class="nav-bar">
+                <li class="nav-item"></li>
+                {% if is_dashboard_allowed %}
+                <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i><span class="hidden-m">{% trans "Dashboard" %}</span></a></li>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'me' %}" title="{% trans 'Account' %}"><i class="fas fa-user"></i>{{UI_STRINGS_CONTEXT.UI_USER_ACCOUNT}}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'blog:create-post' %}"><i class="fas fa-edit icon"></i>{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'me' %}" title="{% trans 'Account' %}"><i class="fas fa-bell"></i>{% translate "Notifications" %}</a></li>
+                <li class="nav-item"><a class="signout-btn nav-link signout" href="{{SITE_HOST}}{% url 'accounts:logout' %}" title="{% trans 'Logout' %}"><i class="fas fa-sign-out-alt icon"></i></a></li>
+                {% else %}
+                    <li class="nav-item js-action-abtest" data-action="1"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:login' %}?next={{request.path}}" title="{% trans 'Login' %}"><i class="fas fa-sign-in-alt icon"></i></a></li>
+                {% endif %}
+            </ul>
         </div>
+        
+
     </div>
 </nav>  
