@@ -893,19 +893,24 @@ nav, .nav{
 
   .nav-link .fas, .nav-link .icon{
 	font-size: inherit;
-	font-weight: inherit;
   }
 
 #navbar-main-menu.navbar-collapse{
 	position: fixed;
 	width: 100%;
+	height: 100vh;
 	top: 3em;
 	z-index: 1000;
+	overflow: hidden;
+	overflow-y: auto;
 }
 
 .navbar-menu-wrapper{
 	width: 100%;
-	padding: 1rem 0;
+	height: 100vh;
+	padding: 1rem 3rem;
+	font-size: 2.25rem;
+	font-weight: bold;
 	background-color: #fafafa;
 }
 
