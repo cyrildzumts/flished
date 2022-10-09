@@ -4,11 +4,13 @@
         <div class="flex flex-left">
             <button class="navbar-toggler" type="button" data-ui-toggle="collapse" data-ui-target="navbar-main-menu"><i class="fas fa-bars"></i></button>
             <a href="{{SITE_HOST}}" class="navbar-brand">{{SITE_NAME}}</a>
-        </div>
-        <div class="flex main-nav-bar">
+            {% if categories %}
             <ul class="navbar-nav hidden-m">
                 {% for category in categories %} <li class="nav-item"><a href="{{SITE_HOST}}{{category.get_slug_url}}" class="nav-link">{{category.display_name}}</a></li> {% endfor %}
             </ul>
+            {% endif %}
+        </div>
+        <div class="flex main-nav-bar">
             <ul class="navbar-nav">
                 {% if is_dashboard_allowed %}
                 <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i><span class="hidden-m">{% trans "Dashboard" %}</span></a></li>
@@ -22,9 +24,9 @@
         
         <div class="collapse navbar-collapse" id="navbar-main-menu">
             <div class="navbar-menu-wrapper">
-                {% if navigation_items %}
+                {% if categories %}
                 <ul class="navbar-nav primary">
-                    {% for item in navigation_items %} <li class="nav-item"><a href="{{SITE_HOST}}{{item.url}}" class="nav-link">{{item.label}}</a></li> {% endfor %}
+                    {% for category in categories %} <li class="nav-item"><a href="{{SITE_HOST}}{{category.get_slug_url}}" class="nav-link">{{category.display_name}}</a></li> {% endfor %}
                 </ul>
                 {% endif %}
                 <ul class="navbar-nav secondary">
