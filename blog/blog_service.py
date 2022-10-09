@@ -1,6 +1,6 @@
 
 from blog import forms as BLOG_FORMS
-from blog.models import Tag, Category, News, Post, Comment
+from blog.models import Tag, Category, News, Post, Comment, PostHistory
 from blog import constants as Constants
 from django.core.cache import cache
 from django.db.models.functions import Concat
@@ -143,8 +143,18 @@ def get_categories():
         CACHE.set(Constants.CACHE_CATEGORY_ALL_PREFIX, categories )
     return categories
 
+def get_histories(user):
+    return PostHistory.objects.filter(visitor=user)
 
 
+def add_read_history(user, post):
+    if not isinstance(post, Post):
+        return
+    if not isinstance(user, User):
+        return
+    
+    post.readers.add(user)
+    return 
 
 def find_children(root=None):    
     key = Constants.CACHE_CATEGORY_CHILDREN_PREFIX

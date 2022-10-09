@@ -84,6 +84,27 @@ def my_stories(request):
     }
     return render(request, template_name, context)
 
+@login_required
+def histories(request):
+    template_name = "blog/history.html"
+    page_title = f"{UI_STRINGS.UI_READ_HISTORY_PAGE_TITLE} | {settings.SITE_NAME}"
+
+    queryset = blog_service.get_histories(request.user)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(queryset, GLOBAL_CONF.PAGINATED_BY)
+    try:
+        list_set = paginator.page(page)
+    except PageNotAnInteger:
+        list_set = paginator.page(1)
+    except EmptyPage:
+        list_set = paginator.page(1)
+    context = {
+        'page_title': page_title,
+        'PAGE_TITLE': page_title,
+        'histories': list_set
+    }
+    return render(request, template_name, context)
+
 
 @login_required
 def create_post(request):
@@ -137,6 +158,7 @@ def blog_post(request, author, post_slug):
     liked = False
     if request.user.is_authenticated:
         liked = post.likes.filter(id=request.user.pk).exists()
+        blog_service.add_read_history(request.user, post)
     recent_posts = Post.objects.all()[:GLOBAL_CONF.MAX_RECENT]
     post_comments = post.comments.all()
     if post_comments.exists():
@@ -144,6 +166,7 @@ def blog_post(request, author, post_slug):
     else:
         latest = datetime.datetime.now().isoformat()
     blog_service.update_view_count(Post, post.id)
+    
     image_url = renderers.read_post_image(post.content)
     if image_url:
         image_url = request.build_absolute_uri(image_url)

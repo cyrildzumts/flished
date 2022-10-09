@@ -98,6 +98,7 @@ class Post(models.Model):
     post_status = models.IntegerField(default=Contants.POST_STATUS_DRAFT, blank=True)
     view_count = models.IntegerField(default=0, blank=True, null=True)
     likes = models.ManyToManyField(User, related_name="likes")
+    readers = models.ManyToManyField(User, related_name="histories", through="PostHistory")
     post_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     FORM_FIELDS = ['author', 'title', 'category', 'content','post_status']
     SERIALIZER_FIELDS = ['author', 'title', 'category', 'content', 'post_uuid', 'post_status']
@@ -128,6 +129,19 @@ class Post(models.Model):
         return reverse("blog:delete-post", kwargs={"post_slug": self.slug})
     
 
+class PostHistory(models.Model):
+    visitor = models.ForeignKey(User, related_name='histroies', on_delete=models.CASCADE)
+    post = models.ForeignKey(Post,related_name='histories', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True, editable=False)
+    last_read = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_at', '-last_read']
+        constraints = [models.UniqueConstraint(fields=['visitor', 'post'], name="unique_read")]
+    
+    def __str__(self):
+        return f"History - {self.visitor.username} - {self.post.title}"
+        
 
 class News(models.Model):
     title = models.CharField(max_length=128)
