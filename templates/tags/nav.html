@@ -26,11 +26,11 @@
         <div class="collapse navbar-collapse" id="navbar-main-menu">
             <div class="navbar-menu-wrapper">
                 {% if navigation_items %}
-                <ul class="navbar-nav">
+                <ul class="navbar-nav primary">
                     {% for item in navigation_items %} <li class="nav-item"><a href="{{SITE_HOST}}{{item.url}}" class="nav-link">{{item.label}}</a></li> {% endfor %}
                 </ul>
                 {% endif %}
-                <ul class="nav-bar">
+                <ul class="nav-bar secondary">
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}" title="{% trans 'Search for posts' %}"><i class="fas fa-search icon"></i>{% translate "Search" %}</a></li>
                     {% if is_dashboard_allowed %}
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i>{% trans "Dashboard" %}</a></li>
