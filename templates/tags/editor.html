@@ -5,6 +5,12 @@
     <div class="flex flex-left padding-v full">
         {% include "tags/preview_form.html" %}
         <input type="text" id="title" class="full" name="title" placeholder="{{UI_STRINGS_CONTEXT.UI_BLOG_INPUT_TITLE_PLACEHOLDER}}">
+        <div class="padding">
+            <span>{% translate "Category" %}</span>
+            <div class="flex">
+                {% for c in catogories %} <span class="padding"><input type="radio" name="category" id="category-{{c.name}}" value="{{c.pk}}"><label for="category-{{c.name}}">{{c.display_name}}</label></span> {% endfor %}
+            </div>
+        </div>
         {% csrf_token %}
     </div>
     <div id="editor" class="full mat-box editor padding full-h" 
