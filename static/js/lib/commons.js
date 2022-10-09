@@ -27,6 +27,8 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
     const MIN_LEN_WARNING = 20;
     const MAX_COMMENT_TEXT_LEN = 256;
     const LOGIN_REQUIRED_KEY = "login_required";
+    const UI_TOGGLE_OPEN_CSS = "fa-bars";
+    const UI_TOGGLE_CLOSE_CSS = "fa-times";
     let AUTO_SAVE_TIMER;
     let fileUpload;
     let postManager;
@@ -1180,10 +1182,12 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
             if(!button.dataset.uiTarget){
                 return;
             }
-            console.log("Data UI toggle clicked ...");
             button.addEventListener('click',(event)=>{
                 let target = document.getElementById(button.dataset.uiTarget);
                 target.classList.toggle('show');
+                let i = button.querySelector("i");
+                i.classList.toggle(UI_TOGGLE_OPEN_CSS);
+                i.classList.toggle(UI_TOGGLE_CLOSE_CSS);
             });
 
         });
