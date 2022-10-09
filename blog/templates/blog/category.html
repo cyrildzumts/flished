@@ -8,7 +8,9 @@
   {% if post_list %}
   <div class="post-container">
     {% include "tags/blog_posts_tag.html" with blog_posts=post_list %}
+    {% if recommendations %}
     {% include "tags/recommendations.html" with blog_posts=recommendations %}
+    {% endif %}
   </div>
   {% include "tags/pagination.html" with page_set=post_list %}
 
