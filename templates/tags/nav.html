@@ -1,8 +1,8 @@
 {% load i18n %}
 <nav class="navbar navbar-expand">
     <div class="container px-5">
-        <a href="{{SITE_HOST}}" class="navbar-brand">{{SITE_NAME}}</a>
         <button class="navbar-toggler" type="button" data-ui-toggle="collapse" data-ui-target="navbar-main-menu"><i class="fas fa-bars"></i></button>
+        <a href="{{SITE_HOST}}" class="navbar-brand">{{SITE_NAME}}</a>
         <div class="collapse nav-bar-collapse" id="navbar-main-menu">
             <ul class="navbar-nav">
                 {% if is_dashboard_allowed %}
