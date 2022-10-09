@@ -831,6 +831,7 @@ a.button{
 nav, .nav{
 	display: flex;
 	position: fixed;
+	width: 100%;
 	top: 0;
 	align-items: center;
 	justify-content: space-between;
@@ -873,7 +874,7 @@ nav, .nav{
   }
   .navbar-nav {
 	  display: flex;
-	  flex-direction: column;
+	  flex-direction: row;
 	  padding-left: 0;
 	  margin-bottom: 0;
 	  list-style: none;
@@ -881,7 +882,7 @@ nav, .nav{
   .nav-link {
 	  display: block;
 	  padding: 0.5rem 1rem;
-	  color: #0d6efd;
+	  color: #1a1a1a;
 	  text-decoration: none;
 	  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
   }
