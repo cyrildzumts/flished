@@ -879,12 +879,12 @@ nav, .nav{
 	  margin-bottom: 0;
 	  list-style: none;
   }
-  .navvbar-nav.primary{
+  .navbar-nav.primary{
 	font-size: 2.2rem;
 	font-weight: bold;
 	border-bottom: 1px dotted #ccc;
   }
-  .navvbar-nav.secondary{
+  .navbar-nav.secondary{
 	margin-top: 3rem;
 	font-size: 1.25rem;
   }
