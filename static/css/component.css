@@ -922,7 +922,7 @@ nav, .nav{
 }
 
 .navbar-menu-wrapper .navbar-nav{
-	flex-direction: column;
+	flex-direction: column !important;
 }
 
 .home-header{

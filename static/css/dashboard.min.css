@@ -853,7 +853,7 @@ nav, .nav{
 	background-color: #fafafa;
 }
 .navbar-menu-wrapper .navbar-nav{
-	flex-direction: column;
+	flex-direction: column !important;
 }
 .home-header{
 	padding-top: 3rem;
