@@ -3562,7 +3562,7 @@ li .order-tag{
 	display: none;
 }
 .sidebar {
-	width: 345px;
+	width: 300px;
 	height: 100%;
 	position: fixed;
 	top: 0;
@@ -3599,7 +3599,7 @@ li .order-tag{
     display: flex;
 	width: 100%;
     justify-content: center;
-	padding-left: 2rem;
+	padding-left: 0.5rem;
 	margin-bottom: 0.5rem;
     overflow: hidden;
 }
@@ -3647,14 +3647,14 @@ li .order-tag{
 .dash-main-content{
 	position: relative;
 	transition: margin-left 300ms;
-	margin-left: 345px;
+	margin-left: 300px;
     width: 100%;
 }
 .dashboard-header-wrapper{
     position: fixed;
     top:0;
-    left: 345px;
-    width: calc(100% - 345px);
+    left: 300px;
+    width: calc(100% - 300px);
     transition: left 300ms;
     z-index: 100;
 }
@@ -3712,7 +3712,7 @@ main {
 }
 #nav-toggle:checked  + .sidebar{
     transition: left 300ms;
-    left: -345px;
+    left: -300px;
 }
 #nav-toggle:checked ~ .dash-main-content .dashboard-header-wrapper{
     transition: width 300ms;
@@ -3764,7 +3764,7 @@ main {
     
     .sidebar{
         transition: left 300ms;
-        left: -345px;
+        left: -300px;
     }
     
     
