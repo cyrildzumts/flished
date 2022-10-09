@@ -220,7 +220,7 @@ def post_preview(request):
 
 
 def category_detail_slug(request, slug=None):
-    template_name = 'blog/category_detail.html'
+    template_name = 'blog/category.html'
     if request.method != 'GET':
         raise SuspiciousOperation
 
