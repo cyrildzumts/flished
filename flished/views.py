@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import reverse
+from django.templatetags.static import static
 from flished import settings
 from core.resources import ui_strings as UI_STRINGS
 from blog import blog_service
@@ -32,21 +33,21 @@ def home(request):
     on the root template folder.
     """
     template_name = "home.html"
-    page_title = f"{settings.SITE_NAME}"
+    page_title = f"{UI_STRINGS.HOME_PAGE_TITLE} - {UI_STRINGS.HOME_PAGE_TITLE_LEAD}"
     PAGE_TITLE = page_title
-    #META_DESCRIPTION = UI_STRINGS.HOME_META_DESCRIPTION
-    #META_KEYWORDS = UI_STRINGS.HOME_META_KEYWORDS
+    META_DESCRIPTION = UI_STRINGS.HOME_META_DESCRIPTION
+    META_KEYWORDS = UI_STRINGS.HOME_META_KEYWORDS
 
     context = {
         'page_title': PAGE_TITLE,
         'user_is_authenticated' : request.user.is_authenticated,
         'recent_posts': blog_service.get_recent_posts(),
         'recommendations': blog_service.get_recommendations_post(request.user),
-        #'META_KEYWORDS': META_KEYWORDS,
-        #'META_DESCRIPTION': META_DESCRIPTION,
+        'META_KEYWORDS': META_KEYWORDS,
+        'META_DESCRIPTION': META_DESCRIPTION,
         'OG_TITLE' : PAGE_TITLE,
-        #'OG_DESCRIPTION': META_DESCRIPTION,
-        #'OG_IMAGE': static('assets/lyshop-banner.png'),
+        'OG_DESCRIPTION': META_DESCRIPTION,
+        'OG_IMAGE': request.build_absolute_uri(static('flished.png')),
         'OG_URL': request.build_absolute_uri(),
         #'structured_data': structured_data
 

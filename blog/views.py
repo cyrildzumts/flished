@@ -245,14 +245,7 @@ def category_detail_slug(request, slug=None):
     #structured_data = category.get_structured_data()
 
     PAGE_TITLE = _(category.display_name)
-    #META_DESCRIPTION = catalog_service.get_seo_description(category.name,Constants.CATEGORY_DESCRIPTION_KEY, settings.META_DESCRIPTION)
-    #META_KEYWORDS = catalog_service.get_seo_description(category.name,Constants.CATEGORY_META_KEYWORDS_KEY, settings.META_KEYWORDS)
-
-    """if subcats:
-        structured_data['itemListElement'] = [{'@type':settings.JSON_LD_TYPE_LISTITEM, 'position': index,'name': catalog_service.get_seo_description(cat.name,Constants.CATEGORY_PAGE_TITLE_KEY, default_value=_(cat.display_name)), 'item': settings.SITE_HOST + cat.get_slug_url()} for index, cat in enumerate(subcats,start=1)]
-    else:
-        structured_data['itemListElement'] = [{'@type':settings.JSON_LD_TYPE_LISTITEM, 'position': index,'name': _(p.display_name), 'item': settings.SITE_HOST + p.get_slug_url()} for index, p in enumerate(queryset[:5],start=1) if p.is_active ]"""
-
+    
     context = {
         'page_title': PAGE_TITLE,
         'category' : category,

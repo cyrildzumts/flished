@@ -3,8 +3,9 @@ from django.utils.translation import ugettext_lazy as _
 HOME_META_DESCRIPTION = "Votre Plateforme de publication en ligne"
 HOME_META_KEYWORDS = "flished"
 HOME_PAGE_TITLE = "FLISHED"
+HOME_PAGE_TITLE_LEAD = _("Write with passion")
 HOME_PAGE_BANNER = _('Stories')
-UI_HOME_BANNER_TITLE = _('Write with passion')
+UI_HOME_BANNER_TITLE = HOME_PAGE_TITLE_LEAD
 UI_HOME_BANNER_CTA = _('Publish now')
 UI_BLOG_HOME_PAGE_TITLE = _("Publications")
 UI_READ_HISTORY_PAGE_TITLE = _("History")
@@ -126,6 +127,7 @@ DASHBOARD_SUBSCRIPTION_PAYMENTS_TITLE = _('Subscription Payments')
 DASHBOARD_SUBSCRIPTION__CREATE_PAYMENT_TITLE = _('Create Subscription Payment')
 
 UI_STRINGS_CONTEXT = {
+    'HOME_PAGE_TITLE_LEAD': HOME_PAGE_TITLE_LEAD,
     'UI_USER_HISTORY_LABEL': UI_USER_HISTORY_LABEL,
     'UI_USER_NO_HISTORY': UI_USER_NO_HISTORY,
     'UI_HOME_BANNER_CTA': UI_HOME_BANNER_CTA,
