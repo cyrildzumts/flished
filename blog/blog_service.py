@@ -1,5 +1,4 @@
 
-from ast import main
 from blog import forms as BLOG_FORMS
 from blog.models import Tag, Category, News, Post, Comment, PostHistory
 from blog import constants as Constants
