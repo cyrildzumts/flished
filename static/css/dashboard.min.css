@@ -4716,6 +4716,7 @@ option:checked{
 }
 .full{
   min-width: 100%;
+  width: 100%;
 }
 .full-h{
   height: 100%;
