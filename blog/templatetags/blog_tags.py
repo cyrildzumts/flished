@@ -1,6 +1,7 @@
 from django import template
 from django.utils.translation import gettext_lazy as _
 from blog import constants as Constants
+from core.translations.category_strings import CATEGORY_DESCRIPTION_CONTEXT
 from flished import utils
 import logging
 
@@ -14,3 +15,13 @@ def post_status_value(key):
         logger.info(f"post_status_value : Could not found value  for key \"{key}\"")
         return key
     return v
+
+
+@register.filter
+def category_title(name):
+    return CATEGORY_DESCRIPTION_CONTEXT.get(name, {}).get('page-title')
+
+
+@register.filter
+def category_description(name):
+    return CATEGORY_DESCRIPTION_CONTEXT.get(name, {}).get('description')

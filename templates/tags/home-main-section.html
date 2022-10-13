@@ -1,0 +1,66 @@
+{% load i18n %}
+<div class="main-post-container">
+    <div class="row">
+        <div class="col-m-12 col-8">
+            <div class="full">
+                <div class="title"><span>{% translate "Our selection" %}</span></div>
+                <div class="flex flex-wrap full">
+                    <div class="col-m-12 col-4">
+                        <div class="post-list">
+                            <ul>
+                              {% for blog_post in main_post.selections %}
+                              <li>
+                                <div class="post-entry">
+                                  <div class="link-wrapper"><a href="{{blog_post.get_absolute_url}}">{{blog_post.title}}</a></div>
+                                  <div class="summary-wrapper">
+                                    <div class="post-header">
+                                      <span>{{blog_post.author.get_full_name}}</span>|<span>{{blog_post.created_at}}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+                              {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-m-12 col-8">
+                        <div class="post-wrapper">
+                            <div class="post-entry">
+                                <div class="link-wrapper"><a href="{{main_post.blog_post.get_absolute_url}}">{{main_post.blog_post.title}}</a></div>
+                                <div class="summary-wrapper">
+                                    <div class="post-summary">
+                                    {% render_post_summary main_post.blog_post %}
+                                    </div>
+                                    <div class="post-header">
+                                        <span>{{main_post.blog_post.author.get_full_name}}</span>|<span>{{main_post.blog_post.created_at}}</span>|<span><i class="fas fa-comments icon"></i>{{main_post.blog_post.comments.count}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-m-12 col-4">
+            <div class="article-list">
+                <div class="title"><span>{% translate "Most recent" %}</span></div>
+                <div class="post-list">
+                    <ul>
+                      {% for blog_post in main_post.recents %}
+                      <li>
+                        <div class="post-entry">
+                          <div class="link-wrapper"><a href="{{blog_post.get_absolute_url}}">{{blog_post.title}}</a></div>
+                          <div class="summary-wrapper">
+                            <div class="post-header">
+                              <span>{{blog_post.author.get_full_name}}</span>|<span>{{blog_post.created_at}}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

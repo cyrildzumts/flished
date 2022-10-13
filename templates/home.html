@@ -13,10 +13,14 @@
 <div class="container">
 {% if recent_posts %}
 <div class="post-container">
+    {% include "tags/home-ad-section.html" %}
+    {% include "tags/home-main-section.html" with post_list=main_posts %}
+    {% include "tags/home-trending-section.html" with post_list=trending_posts %}
+    {% include "tags/home-category-section.html" with post_list=category_posts %}
+    {% include "tags/home-ad-section.html" %}
     {% include "tags/blog_posts_tag.html" with blog_posts=recent_posts %}
     {% include "tags/recommendations.html" with blog_posts=recommendations %}
 </div>
-{% include "tags/pagination.html" with page_set=story_list %}
 {% else %}
 <div class="mat-box">
     <p>{{UI_STRINGS_CONTEXT.UI_HOME_EMPTY_CONTENT}}</p>

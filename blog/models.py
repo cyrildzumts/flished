@@ -1,8 +1,11 @@
 import json
+from operator import contains
 from django.db import models
 from django.shortcuts import reverse
 from django.contrib.auth.models import User
+from core.translations.category_strings import CATEGORY_DESCRIPTION_CONTEXT
 from blog import constants as Contants
+from flished import settings
 import uuid
 # Create your models here.
 
@@ -55,13 +58,24 @@ class Category(models.Model):
         return f"{self.display_name}"
 
     
-    """def get_structured_data(self):
+    def get_structured_data(self):
         return {
             '@context': settings.JSON_LD_CONTEXT,
             '@type' : settings.JSON_LD_TYPE_BREADCRUMBLIST,
             'name' : self.display_name,
             'description': self.description,
-        }"""
+        }
+    
+    def get_ctx_title(self):
+        if self.name in CATEGORY_DESCRIPTION_CONTEXT:
+            return CATEGORY_DESCRIPTION_CONTEXT.get(self.name).get('page-title')
+        return self.display_name
+    
+    
+    def get_ctx_description(self):
+        if self.name in CATEGORY_DESCRIPTION_CONTEXT:
+            return CATEGORY_DESCRIPTION_CONTEXT.get(self.name).get('description')
+        return self.description
     
     def get_children(self):
         return Category.objects.filter(parent=self)
@@ -93,6 +107,8 @@ class Post(models.Model):
     #content_draft = models.JSONField(blank=True, null=True)
     content = models.JSONField()
     is_active = models.BooleanField(default=True)
+    is_featured = models.BooleanField(default=False)
+    has_affiliate_link = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     post_status = models.IntegerField(default=Contants.POST_STATUS_DRAFT, blank=True)

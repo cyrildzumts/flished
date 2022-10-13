@@ -1,4 +1,5 @@
 
+from ast import main
 from blog import forms as BLOG_FORMS
 from blog.models import Tag, Category, News, Post, Comment, PostHistory
 from blog import constants as Constants
@@ -103,6 +104,13 @@ def get_user_recent_posts(user):
 def get_recommendations_post(user):
     return Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED).order_by('?')[:Constants.MAX_RECOMMENDATION]
 
+def get_main_section_posts(user=None):
+    main_posts = {
+        'recents': get_recent_posts(),
+        'selections': get_recommendations_post(user),
+        'blog_post': get_recommendations_post(user).first()
+    }
+    return main_posts
 
 def update_view_count(model, id):
     try:

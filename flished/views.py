@@ -43,6 +43,7 @@ def home(request):
         'user_is_authenticated' : request.user.is_authenticated,
         'recent_posts': blog_service.get_recent_posts(),
         'recommendations': blog_service.get_recommendations_post(request.user),
+        'main_post': blog_service.get_main_section_posts(request.user),
         'META_KEYWORDS': META_KEYWORDS,
         'META_DESCRIPTION': META_DESCRIPTION,
         'OG_TITLE' : PAGE_TITLE,

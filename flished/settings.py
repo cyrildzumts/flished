@@ -69,6 +69,24 @@ SITE_HEADER_BG = "#eadbcb"
 
 TEST_USER_PREFIX = "testuser_"
 
+JSON_LD_CONTEXT = "https://schema.org/"
+JSON_LD_TYPE_WEBSITE = "WebSite"
+JSON_LD_TYPE_PRODUCT = "Product"
+JSON_LD_TYPE_OFFER = "Offer"
+JSON_LD_TYPE_SEARCHACTION = "SearchAction"
+JSON_LD_TYPE_ENTRY_POINT = "EntryPoint"
+JSON_LD_AGGREGATE_OFFER = "AggregateOffer"
+JSON_LD_TYPE_OFFERS = "Offers"
+JSON_LD_PRODUCT_LIST = "ItemList"
+JSON_LD_PRODUCT_LIST_ELEMENT = "itemListElement"
+JSON_LS_PRODUCT_IN_STOCK = "https://schema.org/InStock"
+JSON_LS_PRODUCT_OUT_OF_STOCK_STOCK = "https://schema.org/OutOfStock"
+JSON_LD_TYPE_COLLECTIONPAGE = "CollectionPage"
+JSON_LD_TYPE_WEBPAGE = "WebPage"
+JSON_LD_TYPE_BREADCRUMBLIST = "BreadcrumbList"
+JSON_LD_TYPE_LISTITEM = "ListItem"
+JSON_LD_PRODUCT_NEW_CONDITION = "NewCondition"
+
 # RESTFRAMEWORK SETTINGS
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
