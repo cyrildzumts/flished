@@ -1,3 +1,35 @@
 {% load i18n %}
 {% load core_tags %}
 {% load blog_tags %}
+
+<div class="container padding full">
+    <div class="flex flex-wrap full">
+        <div class="title full"><span>{% translate "Trending" %}</span></div>
+        {% for post in trendings.posts %}
+        <div class="col-m-12 col-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="post lead">
+                        {% if post.image %}
+                        <div class="full">
+                            <img src="{{post.image}}" alt="{{post.title}}">
+                        </div>
+                        {% endif %}
+                        <div class="post-entry">
+                            <div class="link-wrapper"><a href="{{post.get_absolute_url}}">{{post.title}}</a></div>
+                            <div class="summary-wrapper">
+                                <div class="post-summary">
+                                {% render_post_summary post %}
+                                </div>
+                                <div class="post-header">
+                                    <span>{{post.author.get_full_name}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
