@@ -8,7 +8,9 @@
             <div class="flex flex-left bold"><span class="capitalize">{{UI_STRINGS_CONTEXT.UI_CONTACT_LABEL}}</span></div>
             <ul class="small">
                 <li><a class="js-action-abtest" data-action="9" href="mailto:{{DEFAULT_FROM_EMAIL}}"><i class="far fa-envelope icon"></i><span>{{DEFAULT_FROM_EMAIL}}</span></a></li>
-                <li><a href="http://validator.w3.org/check.cgi?url=https%3A//flished.com/feeds/rss/"><img src="{% static 'valid-rss-rogers.png' %}" alt="[Valid RSS]" title="{{UI_STRINGS_CONTEXT.UI_FEED_RSS_VALIDATE}}" /></a></li>
+                {% comment %}
+                    <li><a href="http://validator.w3.org/check.cgi?url=https%3A//flished.com/feeds/rss/"><img src="{% static 'valid-rss-rogers.png' %}" alt="[Valid RSS]" title="{{UI_STRINGS_CONTEXT.UI_FEED_RSS_VALIDATE}}" /></a></li>
+                {% endcomment %}
             </ul>
         </div>
     </div>
