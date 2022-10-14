@@ -3,11 +3,11 @@
 {% load blog_tags %}
 <div class="main-post-container padding full">
     <div class="row">
-        <div class="col-m-12 col-8">
+        <div class="col-m-12 col-9">
             <div class="full">
                 <div class="title"><span>{% translate "Our selection" %}</span></div>
                 <div class="flex flex-wrap full">
-                    <div class="col-m-12 col-4">
+                    <div class="col-m-12 col-3">
                         <div class="post-list">
                             <ul>
                               {% for blog_post in main_post.selections %}
@@ -25,7 +25,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-m-12 col-8">
+                    <div class="col-m-12 col-9">
                         <div class="post-wrapper no-padding">
                             <div class="post-entry">
                                 <div class="link-wrapper"><a href="{{main_post.blog_post.get_absolute_url}}">{{main_post.blog_post.title}}</a></div>
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-m-12 col-4">
+        <div class="col-m-12 col-3">
             <div class="article-list">
                 <div class="title"><span>{% translate "Most recent" %}</span></div>
                 <div class="post-list">

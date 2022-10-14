@@ -15,11 +15,19 @@
 <div class="post-container">
     {% include "tags/home-ad-section.html" %}
     {% include "tags/home-main-section.html" with post_list=main_posts %}
+    {% if trending_posts %}
     {% include "tags/home-trending-section.html" with post_list=trending_posts %}
+    {% endif %}
+    {% if category_posts %}
     {% include "tags/home-category-section.html" with post_list=category_posts %}
+    {% endif %}
     {% include "tags/home-ad-section.html" %}
-    {% include "tags/blog_posts_tag.html" with blog_posts=recent_posts %}
-    {% include "tags/recommendations.html" with blog_posts=recommendations %}
+    {% comment %}
+        {% include "tags/blog_posts_tag.html" with blog_posts=recent_posts %}
+    {% endcomment %}
+    {% comment %}
+        {% include "tags/recommendations.html" with blog_posts=recommendations %}
+    {% endcomment %}
 </div>
 {% else %}
 <div class="mat-box">
