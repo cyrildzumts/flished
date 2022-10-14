@@ -1,7 +1,7 @@
 {% load i18n %}
 {% load core_tags %}
 {% load blog_tags %}
-
+{% if trendings %}
 <div class="container padding full">
     <div class="flex flex-wrap full">
         <div class="title full"><span>{% translate "Trending" %}</span></div>
@@ -33,3 +33,4 @@
         {% endfor %}
     </div>
 </div>
+{% endif %}
