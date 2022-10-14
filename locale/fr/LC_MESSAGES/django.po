@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-12 20:46+0200\n"
+"POT-Creation-Date: 2022-10-14 23:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,19 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: blog/constants.py:40
+#: blog/constants.py:46
 msgid "draft"
 msgstr "brouillon"
 
-#: blog/constants.py:41
+#: blog/constants.py:47
 msgid "published"
 msgstr "publié"
 
-#: blog/constants.py:42
+#: blog/constants.py:48
 msgid "review"
 msgstr "en examen"
 
-#: blog/constants.py:43
+#: blog/constants.py:49
 msgid "deleted"
 msgstr "Supprimé"
 
@@ -2096,6 +2096,18 @@ msgstr ""
 msgid "Slug"
 msgstr ""
 
+#: templates/tags/home-main-section.html:8
+msgid "Our selection"
+msgstr "Notre sélection"
+
+#: templates/tags/home-main-section.html:50
+msgid "Most recent"
+msgstr "Recent"
+
+#: templates/tags/home-trending-section.html:7
+msgid "Trending"
+msgstr "En vogue"
+
 #: templates/tags/images_uploader.html:5
 msgid "Accepted formats"
 msgstr ""
@@ -2121,16 +2133,12 @@ msgid "Select language : "
 msgstr ""
 
 #: templates/tags/nav.html:21 templates/tags/nav.html:33
-#, fuzzy
-#| msgid "Search results for"
 msgid "Search for posts"
-msgstr "Résultats de recherche pour"
+msgstr "Résultats des publications"
 
 #: templates/tags/nav.html:40
-#, fuzzy
-#| msgid "Publications"
 msgid "Notifications"
-msgstr "Publications"
+msgstr "Notifications"
 
 #: templates/tags/navigations.html:6
 msgid "Shop"
