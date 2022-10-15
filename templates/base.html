@@ -57,6 +57,9 @@
         {% if structured_data %}
         {% json_ld structured_data %}
         {% endif %}
+        {% block ADSENSE %}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7624615584108748" crossorigin="anonymous"></script>
+        {% endblock ADSENSE %}
         {% block GOOGLE_TAG %}
         {% if ALLOW_GOOGLE_ANALYTICS %}
         <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
