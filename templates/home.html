@@ -21,7 +21,9 @@
     {% if category_posts %}
     {% include "tags/home-category-section.html" with post_list=category_posts %}
     {% endif %}
-    {% include "tags/home-ad-section.html" %}
+    {% comment %}
+        {% include "tags/home-ad-section.html" %}
+    {% endcomment %}
     {% comment %}
         {% include "tags/blog_posts_tag.html" with blog_posts=recent_posts %}
     {% endcomment %}
