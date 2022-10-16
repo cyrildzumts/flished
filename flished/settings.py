@@ -96,7 +96,7 @@ CSP_CONNECT_SRC = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.
 CSP_IMG_SRC = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com",
 "*.lyshoping.com", "*.flished.com", "*.lipa-betaal.com", "*.googletagmanager.com", "*.google-analytics.com", "*.bootstrapcdn.com", "*.fontawesome.com",
  "https://twemoji.maxcdn.com", "https://images.unsplash.com", "*.gstatic.com"]
-CSP_STYLE_SRC = ["*.flished.com", "*.fontawesome.com", "*.bootstrapcdn.com", "*.googleapis.com", "https://www.googletagmanager.com", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com"]
+CSP_STYLE_SRC = ["'self'","*.flished.com", "*.fontawesome.com", "*.bootstrapcdn.com", "*.googleapis.com", "https://www.googletagmanager.com", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com"]
 CSP_FONT_SRC = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com",
  "*.flished.com", "*.googletagmanager.com", "*.google-analytics.com", "*.bootstrapcdn.com", "*.fontawesome.com", "*.gstatic.com"]
 CSP_FRAME_ANCESTORS = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com",
