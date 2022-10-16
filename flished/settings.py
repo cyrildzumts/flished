@@ -88,20 +88,20 @@ JSON_LD_TYPE_LISTITEM = "ListItem"
 JSON_LD_PRODUCT_NEW_CONDITION = "NewCondition"
 
 #CSP SETTING
-CSP_DEFAULT_SRC = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com"]
+CSP_DEFAULT_SRC = ["'self'"]
 CSP_SCRIPT_SRC = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com",
-"*.lyshoping.com", "*.flished.com", "*.lipa-betaal.com", "*.googletagmanager.com", "*.google-analytics.com", "*.bootstrapcdn.com", "*.fontawesome.com"]
-CSP_CONNECT_SRC = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com",
-"*.lyshoping.com", "*.flished.com", "*.lipa-betaal.com", "*.googletagmanager.com", "*.google-analytics.com"]
-CSP_IMG_SRC = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com",
-"*.lyshoping.com", "*.flished.com", "*.lipa-betaal.com", "*.googletagmanager.com", "*.google-analytics.com", "*.bootstrapcdn.com", "*.fontawesome.com",
- "https://twemoji.maxcdn.com", "https://images.unsplash.com", "*.gstatic.com"]
-CSP_STYLE_SRC = ["'self'","*.flished.com", "*.fontawesome.com", "*.bootstrapcdn.com", "*.googleapis.com", "https://www.googletagmanager.com", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com"]
-CSP_FONT_SRC = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com",
+"*.lyshoping.com", "*.flished.com", "*.lipa-betaal.com", "https://*.googletagmanager.com", "https://*.google-analytics.com", "*.bootstrapcdn.com", "*.fontawesome.com"]
+CSP_CONNECT_SRC = ["'self'", "https://*.googleadservices.com", "https://*.google.de", "https://*.google.com", "https://*.google.fr", "https://*.g.doubleclick.net", "https://*.googlesyndication.com",
+"https://*.lyshoping.com", "https://*.flished.com", "https://*.lipa-betaal.com", "https://*.googletagmanager.com", "https://*.google-analytics.com"]
+CSP_IMG_SRC = ["'self'", "https://*.googleadservices.com", "https://*.google.de", "https://*.google.com", "https://*.google.fr", "https://*.g.doubleclick.net", "https://*.googlesyndication.com",
+"https://*.lyshoping.com", "https://*.flished.com", "https://*.lipa-betaal.com", "https://*.googletagmanager.com", "https://*.google-analytics.com", "https://*.bootstrapcdn.com", "https://*.fontawesome.com",
+ "https://twemoji.maxcdn.com", "https://images.unsplash.com", "https://*.gstatic.com"]
+CSP_STYLE_SRC = ["'self'","https://*.flished.com", "https://*.fontawesome.com", "https://*.bootstrapcdn.com", "https://*.googleapis.com", "https://*.googletagmanager.com", "https://*.googleadservices.com", "https://*.google.de", "https://*.google.com", "https://*.google.fr", "https://*.g.doubleclick.net", "https://*.googlesyndication.com"]
+CSP_FONT_SRC = ["'self'", "https://*.googleadservices.com", "https://*.google.de", "https://*.google.com", "https://*.google.fr", "https://*.g.doubleclick.net", "https://*.googlesyndication.com",
  "*.flished.com", "*.googletagmanager.com", "*.google-analytics.com", "*.bootstrapcdn.com", "*.fontawesome.com", "*.gstatic.com"]
-CSP_FRAME_ANCESTORS = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com",
-"*.lyshoping.com", "*.flished.com", "*.lipa-betaal.com", "*.googletagmanager.com", "*.google-analytics.com"]
-CSP_INCLUDE_NONCE_IN = ['script-src']
+CSP_FRAME_ANCESTORS = ["'self'", "https://*.googleadservices.com", "https://*.google.de", "https://*.google.com", "https://*.google.fr", "https://*.g.doubleclick.net", "https://*.googlesyndication.com",
+"https://*.lyshoping.com", "https://*.flished.com", "https://*.lipa-betaal.com", "https://*.googletagmanager.com", "https://*.google-analytics.com"]
+CSP_INCLUDE_NONCE_IN = ['script-src', "style-src"]
 
 # RESTFRAMEWORK SETTINGS
 REST_FRAMEWORK = {
