@@ -101,7 +101,7 @@ CSP_FONT_SRC = ["'self'", "https://*.googleadservices.com", "https://*.google.de
  "*.flished.com", "*.googletagmanager.com", "*.google-analytics.com", "*.bootstrapcdn.com", "*.fontawesome.com", "*.gstatic.com"]
 CSP_FRAME_ANCESTORS = ["'self'", "https://*.googleadservices.com", "https://*.google.de", "https://*.google.com", "https://*.google.fr", "https://*.g.doubleclick.net", "https://*.googlesyndication.com",
 "https://*.lyshoping.com", "https://*.flished.com", "https://*.lipa-betaal.com", "https://*.googletagmanager.com", "https://*.google-analytics.com"]
-CSP_INCLUDE_NONCE_IN = ['script-src', "style-src"]
+CSP_INCLUDE_NONCE_IN = []
 
 # RESTFRAMEWORK SETTINGS
 REST_FRAMEWORK = {
