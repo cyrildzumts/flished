@@ -90,14 +90,14 @@ JSON_LD_PRODUCT_NEW_CONDITION = "NewCondition"
 #CSP SETTING
 CSP_DEFAULT_SRC = ["'self'", "https://*.g.doubleclick.net", "https://*.googlesyndication.com", "https://*.google.com"]
 CSP_SCRIPT_SRC = [
-    "'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", 
-    "*.googlesyndication.com","*.lyshoping.com", "*.flished.com", "*.lipa-betaal.com", "https://*.googletagmanager.com", 
-    "https://*.google-analytics.com", "*.bootstrapcdn.com", "*.fontawesome.com"
+    "'self'", "https://*.googleadservices.com", "https://*.google.de", "https://*.google.com", "https://*.google.fr", "https://*.g.doubleclick.net", 
+    "https://*.googlesyndication.com","https://*.lyshoping.com", "https://*.flished.com", "https://*.lipa-betaal.com", "https://*.googletagmanager.com", 
+    "https://*.google-analytics.com", "https://*.bootstrapcdn.com", "https://*.fontawesome.com"
 ]
 CSP_CONNECT_SRC = [
     "'self'", "https://*.googleadservices.com", "https://*.google.de", "https://*.google.com", "https://*.google.fr", 
     "https://*.g.doubleclick.net", "https://*.googlesyndication.com","https://*.lyshoping.com", "https://*.flished.com", 
-    "https://*.lipa-betaal.com", "https://*.googletagmanager.com", "https://*.google-analytics.com"
+    "https://*.lipa-betaal.com", "https://*.googletagmanager.com", "https://*.google-analytics.com", "https://api.unsplash.com"
 ]
 CSP_IMG_SRC = [
     "'self'", "https://*.googleadservices.com", "https://*.google.de", "https://*.google.com", "https://*.google.fr", 
