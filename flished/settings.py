@@ -110,7 +110,7 @@ CSP_STYLE_SRC = [
     "'self'","https://*.flished.com", "https://*.fontawesome.com", "https://*.bootstrapcdn.com", 
     "https://*.googleapis.com", "https://*.googletagmanager.com", "https://*.googleadservices.com", 
     "https://*.google.de", "https://*.google.com", "https://*.google.fr", "https://*.g.doubleclick.net", 
-    "https://*.googlesyndication.com"
+    "https://*.googlesyndication.com", "data: https 'self' 'unsafe-inline'"
 ]
 CSP_FONT_SRC = [
     "'self'", "https://*.googleadservices.com", "https://*.google.de", "https://*.google.com", "https://*.google.fr", 
