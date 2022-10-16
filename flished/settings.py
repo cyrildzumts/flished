@@ -132,6 +132,7 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'blog.apps.BlogConfig',
     'core.apps.CoreConfig',
+    'csp',
     'dashboard.apps.DashboardConfig',
     'rest_framework',
     'rest_framework.authtoken',
