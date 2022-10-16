@@ -87,6 +87,22 @@ JSON_LD_TYPE_BREADCRUMBLIST = "BreadcrumbList"
 JSON_LD_TYPE_LISTITEM = "ListItem"
 JSON_LD_PRODUCT_NEW_CONDITION = "NewCondition"
 
+#CSP SETTING
+CSP_DEFAULT_SRC = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com"]
+CSP_SCRIPT_SRC = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com",
+"*.lyshoping.com", "*.flished.com", "*.lipa-betaal.com", "*.googletagmanager.com", "*.google-analytics.com", "*.bootstrapcdn.com", "*.fontawesome.com"]
+CSP_CONNECT_SRC = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com",
+"*.lyshoping.com", "*.flished.com", "*.lipa-betaal.com", "*.googletagmanager.com", "*.google-analytics.com"]
+CSP_IMG_SRC = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com",
+"*.lyshoping.com", "*.flished.com", "*.lipa-betaal.com", "*.googletagmanager.com", "*.google-analytics.com", "*.bootstrapcdn.com", "*.fontawesome.com",
+ "https://twemoji.maxcdn.com", "https://images.unsplash.com", "*.gstatic.com"]
+CSP_STYLE_SRC = ["*.flished.com", "*.fontawesome.com", "*.bootstrapcdn.com", "*.googleapis.com", "https://www.googletagmanager.com", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com"]
+CSP_FONT_SRC = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com",
+ "*.flished.com", "*.googletagmanager.com", "*.google-analytics.com", "*.bootstrapcdn.com", "*.fontawesome.com", "*.gstatic.com"]
+CSP_FRAME_ANCESTORS = ["'self'", "*.googleadservices.com", "*.google.de", "*.google.com", "*.google.fr", "*.g.doubleclick.net", "*.googlesyndication.com",
+"*.lyshoping.com", "*.flished.com", "*.lipa-betaal.com", "*.googletagmanager.com", "*.google-analytics.com"]
+CSP_INCLUDE_NONCE_IN = ['script-src']
+
 # RESTFRAMEWORK SETTINGS
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -130,6 +146,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'csp.middleware.CSPMiddleware',
 ]
 
 ROOT_URLCONF = 'flished.urls'
@@ -147,6 +164,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'core.context_processors.core_context',
                 'flished.context_processors.site_context',
+                'csp.context_processors.nonce',
             ],
         },
     },
