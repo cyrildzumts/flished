@@ -117,6 +117,7 @@ def create_post(request):
     context = {
         'page_title': page_title,
         'PAGE_TITLE': page_title,
+        'LOAD_EDITOR': True,
     }
     return render(request, template_name, context)
 
@@ -133,7 +134,8 @@ def update_post(request, post_slug):
     context = {
         'page_title': page_title,
         'PAGE_TITLE': page_title,
-        'post': post
+        'post': post,
+        'LOAD_EDITOR': True,
     }
     return render(request, template_name, context)
 

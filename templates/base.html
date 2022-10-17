@@ -153,7 +153,11 @@
 
 <script defer  src="{% static 'js/vendor/jquery-3.6.0.min.js' %}"></script>
 {% block BASE_SCRIPT %}
-<script defer data-main="{% static 'js/main.min' %}" src="{% static 'js/require.js' %}"></script>        
+<script defer data-main="{% static 'js/main.min' %}" src="{% static 'js/require.js' %}">
+        {% if LOAD_EDITOR %}
+        const LOAD_EDITOR = true;
+        {% endif %}
+</script>        
 {% endblock BASE_SCRIPT %}
 
 {% block SCRIPT %}

@@ -324,6 +324,7 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
                 init_data = {};
             }
         }
+        
         editor = new EditorJS({
             holder:'editor',
             tools: {
@@ -1168,7 +1169,9 @@ define(['require','filters','ajax_api', 'element_utils', 'editor/editor',
             window.notify = notify;
         }
         let modal = new Modal();
-        create_editor();
+        if(LOAD_EDITOR){   
+            create_editor();
+        }
         notification_wrapper = $('#notifications-wrapper');
         messages = $('#messages', notification_wrapper);
         //onDragInit();
