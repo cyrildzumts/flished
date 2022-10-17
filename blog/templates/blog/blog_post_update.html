@@ -35,3 +35,6 @@
 </div>
 {% endblock MAIN %}
 {% block FOOTER %}{% endblock FOOTER %}
+{% block BASE_SCRIPT %}
+<script defer data-main="{% static 'js/editor.min' %}" src="{% static 'js/require.js' %}"></script>        
+{% endblock BASE_SCRIPT %}
