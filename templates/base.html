@@ -155,9 +155,9 @@
 {% block BASE_SCRIPT %}
 <script defer data-main="{% static 'js/main.min' %}" src="{% static 'js/require.js' %}">
         {% if LOAD_EDITOR %}
-        const LOAD_EDITOR = true;
+        window.LOAD_EDITOR = true;
         {% else %}
-        const LOAD_EDITOR = false;
+        window.LOAD_EDITOR = false;
         {% endif %}
 </script>        
 {% endblock BASE_SCRIPT %}
