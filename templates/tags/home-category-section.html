@@ -3,8 +3,9 @@
 {% load blog_tags %}
 {% if kiosk %}
 <div class="container padding full">
-    <div class="flex flex-wrap full">
+    <div class="flex flex-left flex-wrap full">
         {% for entry in kiosk %}
+        {% if entry.posts %}
         <div class="col-m-12 col-3">
             <div class="card">
                 <div class="title"><span>{{entry.category.name}}</span></div>
@@ -34,6 +35,7 @@
                 </div>
             </div>
         </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>
