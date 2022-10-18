@@ -1,11 +1,11 @@
 {% load i18n %}
 {% load core_tags %}
 {% load blog_tags %}
-{% if trendings %}
+{% if trending %}
 <div class="container padding full">
     <div class="flex flex-wrap full">
         <div class="title full"><span>{% translate "Trending" %}</span></div>
-        {% for post in trendings.posts %}
+        {% for post in trending.posts %}
         <div class="col-m-12 col-3">
             <div class="card">
                 <div class="card-body">

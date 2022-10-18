@@ -1,16 +1,16 @@
 {% load i18n %}
 {% load core_tags %}
 {% load blog_tags %}
-{% if categories %}
+{% if kiosk %}
 <div class="container padding full">
     <div class="flex flex-wrap full">
-        {% for category in categories %}
+        {% for entry in kiosk %}
         <div class="col-m-12 col-3">
             <div class="card">
-                <div class="title"><span>{{category.name}}</span></div>
+                <div class="title"><span>{{entry.category.name}}</span></div>
                 <div class="card-body">
                     <ul>
-                        {% for post in category.posts %}
+                        {% for post in entry.posts %}
                         <li>
                             {% if forloop.first %}
                             <div class="post lead">

@@ -111,6 +111,24 @@ def get_main_section_posts(user=None):
     }
     return main_posts
 
+
+def get_trending():
+    trending = {
+        'posts': Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED).order_by('?')[:Constants.TRENDING_SIZE]
+    }
+    return trending
+
+
+def get_category_kiosk():
+    categories = get_categories()
+    kiosk = []
+    for c in categories:
+        kiosk.append({
+            'category' : c,
+            'posts': c.posts.all()[:Constants.PER_CATEGORY_SIZE]
+        })
+    return kiosk
+
 def update_view_count(model, id):
     try:
         model.objects.filter(id=id).update(view_count=F('view_count') + 1)
