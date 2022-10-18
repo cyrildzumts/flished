@@ -3725,9 +3725,10 @@ li .order-tag{
 	.recommendations{
 		width: 100%;
 	}
+	/*
 	.post-container{
 		flex-direction: column-reverse;
-	}
+	}*/
 	.post-wrapper{
 		max-width: 100%;
 	}
