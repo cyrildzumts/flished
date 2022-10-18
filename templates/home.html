@@ -15,11 +15,11 @@
 <div class="post-container">
     {% include "tags/home-ad-section.html" %}
     {% include "tags/home-main-section.html" with post_list=main_posts %}
-    {% if trending_posts %}
-    {% include "tags/home-trending-section.html" with post_list=trending_posts %}
+    {% if trending %}
+    {% include "tags/home-trending-section.html" with post_list=trending.posts %}
     {% endif %}
-    {% if category_posts %}
-    {% include "tags/home-category-section.html" with post_list=category_posts %}
+    {% if kiosk %}
+    {% include "tags/home-category-section.html" with kiosk=kiosk %}
     {% endif %}
     {% comment %}
         {% include "tags/home-ad-section.html" %}
