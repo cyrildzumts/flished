@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import reverse
 from django.templatetags.static import static
-from flished import settings
+from flished import settings, utils
 from core.resources import ui_strings as UI_STRINGS
 from blog import blog_service
 import logging
@@ -37,7 +37,7 @@ def home(request):
     PAGE_TITLE = page_title
     META_DESCRIPTION = UI_STRINGS.HOME_META_DESCRIPTION
     META_KEYWORDS = UI_STRINGS.HOME_META_KEYWORDS
-
+    utils.show_request(request)
     context = {
         'page_title': PAGE_TITLE,
         'user_is_authenticated' : request.user.is_authenticated,
