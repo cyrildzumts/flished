@@ -25,5 +25,6 @@ def site_context(request):
         'dev_mode' : settings.DEBUG,
         'ALLOW_GOOGLE_ANALYTICS' : settings.ALLOW_GOOGLE_ANALYTICS,
         'next_url' : request.path,
+        'CSP_NONCE': request.META.get('CSP_NONCE'),
     }
     return context
