@@ -36,13 +36,13 @@ CATEGORY_DESCRIPTION_CONTEXT = {
     # CATALOG PAGE
 
     # ROOT CATEGORIES
-    "business" : {"description": CATEGORY_BUSINESS_DESCRIPTION, "meta-keywords":_("business, business topic, startups"),"page-title":_("Business | Stories about Business,Startups,E-Commerce")},
-    "culture" : {"description": CATEGORY_CULTURE_DESCRIPTION, "meta-keywords":_("culture, tv-shows, movies"),"page-title":_("Culture | TV-Shows, Movies, Music")},
-    'fashion' :{'description': CATEGORY_FASHION_DESCRIPTION, 'meta-keywords':_("fashion, mode, beauty,perfumes"), "page-title": _("Fashion | Beauty, Cosmetics, Perfumes")},
-    "games" : {"description": CATEGORY_GAMES_DESCRIPTION, "meta-keywords":_("games, console"),"page-title":_("Games | Game Consoles, Mobile games")},
-    "health" : {"description": CATEGORY_HEALTH_DESCRIPTION, "meta-keywords":_("health"),"page-title":_("Health | Stories and tips on health")},
-    "marketing" : {"description": CATEGORY_MARKETING_DESCRIPTION, "meta-keywords":_("marketing"),"page-title":_("Marketing | Share your tips and stories marketing and SEO")},
-    "politics" : {"description": CATEGORY_POLITICS_DESCRIPTION, "meta-keywords":_("politics"),"page-title":_("Politics | News on politics around the world")},
-    "reviews" : {"description": CATEGORY_REVIEWS_DESCRIPTION, "meta-keywords":_("reviews, products reviews"),"page-title":_("Reviews | Product reviews")},
-    "technology" : {"description": CATEGORY_TECHNOLOGY_DESCRIPTION, "meta-keywords":_("technology, science, engineering"),"page-title":_("Technology | Science , Engineering")},
+    "business" : {"description": CATEGORY_BUSINESS_DESCRIPTION, "meta-keywords":_("business, business topic, startups"),"page-title":_("Business | Stories about Business,Startups,E-Commerce"),"name":_("Business")},
+    "culture" : {"description": CATEGORY_CULTURE_DESCRIPTION, "meta-keywords":_("culture, tv-shows, movies"),"page-title":_("Culture | TV-Shows, Movies, Music"),"name":_("Culture")},
+    'fashion' :{'description': CATEGORY_FASHION_DESCRIPTION, 'meta-keywords':_("fashion, mode, beauty,perfumes"), "page-title": _("Fashion | Beauty, Cosmetics, Perfumes"),"name":_("Fashion")},
+    "games" : {"description": CATEGORY_GAMES_DESCRIPTION, "meta-keywords":_("games, console"),"page-title":_("Games | Game Consoles, Mobile games"),"name":_("Games")},
+    "health" : {"description": CATEGORY_HEALTH_DESCRIPTION, "meta-keywords":_("health"),"page-title":_("Health | Stories and tips on health"),"name":_("Health")},
+    "marketing" : {"description": CATEGORY_MARKETING_DESCRIPTION, "meta-keywords":_("marketing"),"page-title":_("Marketing | Share your tips and stories marketing and SEO"),"name":_("Marketing")},
+    "politics" : {"description": CATEGORY_POLITICS_DESCRIPTION, "meta-keywords":_("politics"),"page-title":_("Politics | News on politics around the world"),"name":_("Politics")},
+    "reviews" : {"description": CATEGORY_REVIEWS_DESCRIPTION, "meta-keywords":_("reviews, products reviews"),"page-title":_("Reviews | Product reviews"),"name":_("Reviews")},
+    "technology" : {"description": CATEGORY_TECHNOLOGY_DESCRIPTION, "meta-keywords":_("technology, science, engineering"),"page-title":_("Technology | Science , Engineering"),"name":_("Technology")},
 }

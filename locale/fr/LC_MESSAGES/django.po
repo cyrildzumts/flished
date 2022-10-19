@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-14 23:45+0200\n"
+"POT-Creation-Date: 2022-10-19 15:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,19 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: blog/constants.py:46
+#: blog/constants.py:47
 msgid "draft"
 msgstr "brouillon"
 
-#: blog/constants.py:47
+#: blog/constants.py:48
 msgid "published"
 msgstr "publié"
 
-#: blog/constants.py:48
+#: blog/constants.py:49
 msgid "review"
 msgstr "en examen"
 
-#: blog/constants.py:49
+#: blog/constants.py:50
 msgid "deleted"
 msgstr "Supprimé"
 
@@ -86,7 +86,7 @@ msgstr "Publier maintenant"
 msgid "Publications"
 msgstr "Publications"
 
-#: core/resources/ui_strings.py:11 templates/tags/nav.html:41
+#: core/resources/ui_strings.py:11 templates/tags/nav.html:43
 msgid "History"
 msgstr "Historique"
 
@@ -122,11 +122,11 @@ msgstr "Conditions d'utilisation"
 msgid "Privacy"
 msgstr "Vie privée"
 
-#: core/resources/ui_strings.py:20 templates/dashboard_base.html:60
+#: core/resources/ui_strings.py:20 templates/dashboard_base.html:61
 msgid "About us"
 msgstr "À propos de nous"
 
-#: core/resources/ui_strings.py:21 templates/dashboard_base.html:61
+#: core/resources/ui_strings.py:21 templates/dashboard_base.html:62
 msgid "FAQ"
 msgstr "FAQ"
 
@@ -186,8 +186,8 @@ msgstr "Aucun article trouvé"
 msgid "Your research has no results"
 msgstr "Votre recherche n'a pas de résultats"
 
-#: core/resources/ui_strings.py:39 templates/dashboard_base.html:77
-#: templates/tags/nav.html:33
+#: core/resources/ui_strings.py:39 templates/dashboard_base.html:78
+#: templates/tags/nav.html:35
 msgid "Search"
 msgstr "Recherche"
 
@@ -313,6 +313,7 @@ msgstr "Modifier la publication"
 
 #: core/resources/ui_strings.py:61
 #: dashboard/templates/dashboard/category_detail.html:7
+#: dashboard/templates/dashboard/category_detail.html:45
 #: dashboard/templates/dashboard/category_list.html:14
 #: dashboard/templates/dashboard/coupon_detail.html:6
 #: dashboard/templates/dashboard/coupon_list.html:14
@@ -432,21 +433,22 @@ msgid "Comments"
 msgstr "Commentaires"
 
 #: core/resources/ui_strings.py:85
-#: dashboard/templates/dashboard/user_detail.html:53 templates/tags/nav.html:38
-#: templates/tags/nav.html:40
+#: dashboard/templates/dashboard/user_detail.html:53 templates/tags/nav.html:40
+#: templates/tags/nav.html:42
 msgid "Account"
 msgstr "Compte"
 
 #: core/resources/ui_strings.py:86 core/resources/ui_strings.py:93
-#: templates/dashboard_base.html:33 templates/post_base.html:9
-#: templates/tags/nav.html:16 templates/tags/nav.html:35
+#: templates/dashboard_base.html:34 templates/post_base.html:9
+#: templates/tags/nav.html:18 templates/tags/nav.html:37
 #: templates/users_base.html:9
 msgid "Dashboard"
 msgstr "Dashboard"
 
 #: core/resources/ui_strings.py:88
+#: dashboard/templates/dashboard/category_detail.html:50
 #: dashboard/templates/dashboard/post_list.html:19
-#: templates/dashboard_base.html:36 templates/post_base.html:10
+#: templates/dashboard_base.html:37 templates/post_base.html:10
 msgid "Posts"
 msgstr "Publications"
 
@@ -530,7 +532,7 @@ msgstr "Actualiser le groupe"
 msgid "Highlights"
 msgstr ""
 
-#: core/resources/ui_strings.py:111 templates/tags/category_tag.html:58
+#: core/resources/ui_strings.py:111
 msgid "Highlight"
 msgstr ""
 
@@ -550,7 +552,7 @@ msgstr ""
 #: dashboard/templates/tags/group_form_new.html:58
 #: dashboard/templates/tags/group_update_form_new.html:86
 #: dashboard/templates/tags/group_update_form_new.html:112
-#: templates/dashboard_base.html:39 templates/users_base.html:11
+#: templates/dashboard_base.html:40 templates/users_base.html:11
 msgid "Users"
 msgstr "Utilisateurs"
 
@@ -634,6 +636,10 @@ msgstr "affaires, sujet d'affaires, startups"
 msgid "Business | Stories about Business,Startups,E-Commerce"
 msgstr "Business | Histoires sur les affaires, les startups, le E-Commerce"
 
+#: core/translations/category_strings.py:39
+msgid "Business"
+msgstr "Business"
+
 #: core/translations/category_strings.py:40
 msgid "culture, tv-shows, movies"
 msgstr "culture, émissions de télévision, films"
@@ -641,6 +647,10 @@ msgstr "culture, émissions de télévision, films"
 #: core/translations/category_strings.py:40
 msgid "Culture | TV-Shows, Movies, Music"
 msgstr "Culture | Émissions de télévision, films, musique"
+
+#: core/translations/category_strings.py:40
+msgid "Culture"
+msgstr "Culture"
 
 #: core/translations/category_strings.py:41
 msgid "fashion, mode, beauty,perfumes"
@@ -650,6 +660,10 @@ msgstr "mode, mode, beauté, parfums"
 msgid "Fashion | Beauty, Cosmetics, Perfumes"
 msgstr "Mode | Beauté, Mode, Cosmétique, Parfums"
 
+#: core/translations/category_strings.py:41
+msgid "Fashion"
+msgstr "Mode"
+
 #: core/translations/category_strings.py:42
 msgid "games, console"
 msgstr "console de jeux, jeux vidéo"
@@ -657,6 +671,10 @@ msgstr "console de jeux, jeux vidéo"
 #: core/translations/category_strings.py:42
 msgid "Games | Game Consoles, Mobile games"
 msgstr "Jeux | Consoles de jeux, Jeux mobiles"
+
+#: core/translations/category_strings.py:42
+msgid "Games"
+msgstr "Jeux Vidéo"
 
 #: core/translations/category_strings.py:43
 msgid "health"
@@ -666,6 +684,10 @@ msgstr "santé"
 msgid "Health | Stories and tips on health"
 msgstr "Santé | Histoires et conseils sur la santé"
 
+#: core/translations/category_strings.py:43
+msgid "Health"
+msgstr "Santé"
+
 #: core/translations/category_strings.py:44
 msgid "marketing"
 msgstr "marketing, publicité"
@@ -673,6 +695,10 @@ msgstr "marketing, publicité"
 #: core/translations/category_strings.py:44
 msgid "Marketing | Share your tips and stories marketing and SEO"
 msgstr "Marketing | Partagez vos conseils et histoires marketing et SEO"
+
+#: core/translations/category_strings.py:44
+msgid "Marketing"
+msgstr "Marketing"
 
 #: core/translations/category_strings.py:45
 msgid "politics"
@@ -682,6 +708,10 @@ msgstr "politiques"
 msgid "Politics | News on politics around the world"
 msgstr "Politique | L'actualité politique dans le monde"
 
+#: core/translations/category_strings.py:45
+msgid "Politics"
+msgstr "Politiques"
+
 #: core/translations/category_strings.py:46
 msgid "reviews, products reviews"
 msgstr "avis, avis sur des produits"
@@ -690,6 +720,10 @@ msgstr "avis, avis sur des produits"
 msgid "Reviews | Product reviews"
 msgstr "Avis | Avis sur les produits"
 
+#: core/translations/category_strings.py:46
+msgid "Reviews"
+msgstr "Revues"
+
 #: core/translations/category_strings.py:47
 msgid "technology, science, engineering"
 msgstr "technologie, science, ingénierie"
@@ -697,6 +731,10 @@ msgstr "technologie, science, ingénierie"
 #: core/translations/category_strings.py:47
 msgid "Technology | Science , Engineering"
 msgstr "Technologie | Sciences , Ingénierie"
+
+#: core/translations/category_strings.py:47
+msgid "Technology"
+msgstr "Technologie"
 
 #: dashboard/templates/dashboard/abtesting.html:10 dashboard/views.py:497
 msgid "AB/TEST"
@@ -719,7 +757,7 @@ msgstr ""
 #: dashboard/templates/dashboard/category_create.html:4
 #: dashboard/templates/dashboard/category_detail.html:8
 #: dashboard/templates/dashboard/category_list.html:19 dashboard/views.py:106
-#: templates/dashboard_base.html:34 templates/post_base.html:11
+#: templates/dashboard_base.html:35 templates/post_base.html:11
 msgid "Categories"
 msgstr "Catégories"
 
@@ -757,6 +795,8 @@ msgstr ""
 
 #: dashboard/templates/dashboard/category_detail.html:23
 #: dashboard/templates/dashboard/category_detail.html:31
+#: dashboard/templates/dashboard/category_detail.html:59
+#: dashboard/templates/dashboard/category_detail.html:69
 #: dashboard/templates/dashboard/category_list.html:28
 #: dashboard/templates/dashboard/category_list.html:38
 #: dashboard/templates/dashboard/dashboard.html:67
@@ -771,6 +811,8 @@ msgstr ""
 
 #: dashboard/templates/dashboard/category_detail.html:24
 #: dashboard/templates/dashboard/category_detail.html:32
+#: dashboard/templates/dashboard/category_detail.html:60
+#: dashboard/templates/dashboard/category_detail.html:70
 #: dashboard/templates/dashboard/category_list.html:29
 #: dashboard/templates/dashboard/category_list.html:39
 #: dashboard/templates/dashboard/coupon_list.html:29
@@ -788,6 +830,7 @@ msgstr ""
 msgid "Details"
 msgstr ""
 
+#: dashboard/templates/dashboard/category_detail.html:56
 #: dashboard/templates/dashboard/category_list.html:25
 #: dashboard/templates/dashboard/coupon_list.html:23
 #: dashboard/templates/dashboard/facebook_app.html:74
@@ -796,6 +839,32 @@ msgstr ""
 #: dashboard/templates/dashboard/user_list.html:24
 msgid "Select all"
 msgstr "Tout sélectionner"
+
+#: dashboard/templates/dashboard/category_detail.html:57
+#: dashboard/templates/dashboard/category_detail.html:67
+#: dashboard/templates/dashboard/news_detail.html:19
+#: dashboard/templates/dashboard/news_list.html:21
+#: dashboard/templates/dashboard/news_list.html:32
+#: dashboard/templates/dashboard/post_list.html:26
+#: dashboard/templates/dashboard/post_list.html:36
+#: templates/tags/info_form_tag.html:10
+#: templates/tags/info_form_update_tag.html:10
+#: templates/tags/subscription_form_tag.html:14
+#: templates/tags/subscription_form_update_tag.html:14
+#: templates/tags/subscription_tag.html:12
+msgid "Title"
+msgstr "Titre"
+
+#: dashboard/templates/dashboard/category_detail.html:58
+#: dashboard/templates/dashboard/category_detail.html:68
+#: dashboard/templates/dashboard/dashboard.html:69
+#: dashboard/templates/dashboard/dashboard.html:78
+#: dashboard/templates/dashboard/dashboard.html:97
+#: dashboard/templates/dashboard/dashboard.html:106
+#: dashboard/templates/dashboard/post_list.html:27
+#: dashboard/templates/dashboard/post_list.html:37
+msgid "Author"
+msgstr "Auteur"
 
 #: dashboard/templates/dashboard/category_list.html:26
 #: dashboard/templates/dashboard/category_list.html:36
@@ -849,7 +918,7 @@ msgstr ""
 #: dashboard/templates/dashboard/news_list.html:34
 #: templates/tags/category_form_tag.html:39
 #: templates/tags/category_form_update_tag.html:50
-#: templates/tags/category_tag.html:70 templates/tags/coupon_form_tag.html:47
+#: templates/tags/category_tag.html:63 templates/tags/coupon_form_tag.html:47
 #: templates/tags/coupon_form_update_tag.html:47
 #: templates/tags/info_form_tag.html:31
 #: templates/tags/info_form_update_tag.html:31
@@ -952,7 +1021,7 @@ msgstr ""
 #: dashboard/templates/dashboard/partner_token_list.html:33
 #: templates/tags/category_form_tag.html:38
 #: templates/tags/category_form_update_tag.html:49
-#: templates/tags/category_tag.html:69 templates/tags/coupon_form_tag.html:46
+#: templates/tags/category_tag.html:62 templates/tags/coupon_form_tag.html:46
 #: templates/tags/coupon_form_update_tag.html:46
 #: templates/tags/info_form_tag.html:30
 #: templates/tags/info_form_update_tag.html:30
@@ -1020,15 +1089,6 @@ msgstr ""
 #: dashboard/templates/dashboard/dashboard.html:62
 msgid "Most Views Post"
 msgstr ""
-
-#: dashboard/templates/dashboard/dashboard.html:69
-#: dashboard/templates/dashboard/dashboard.html:78
-#: dashboard/templates/dashboard/dashboard.html:97
-#: dashboard/templates/dashboard/dashboard.html:106
-#: dashboard/templates/dashboard/post_list.html:27
-#: dashboard/templates/dashboard/post_list.html:37
-msgid "Author"
-msgstr "Auteur"
 
 #: dashboard/templates/dashboard/dashboard.html:70
 #: dashboard/templates/dashboard/dashboard.html:79
@@ -1152,19 +1212,6 @@ msgstr ""
 #: dashboard/templates/dashboard/group_update.html:8
 msgid "Create A Group"
 msgstr ""
-
-#: dashboard/templates/dashboard/news_detail.html:19
-#: dashboard/templates/dashboard/news_list.html:21
-#: dashboard/templates/dashboard/news_list.html:32
-#: dashboard/templates/dashboard/post_list.html:26
-#: dashboard/templates/dashboard/post_list.html:36
-#: templates/tags/info_form_tag.html:10
-#: templates/tags/info_form_update_tag.html:10
-#: templates/tags/subscription_form_tag.html:14
-#: templates/tags/subscription_form_update_tag.html:14
-#: templates/tags/subscription_tag.html:12
-msgid "Title"
-msgstr "Titre"
 
 #: dashboard/templates/dashboard/news_detail.html:23
 #: templates/tags/info_form_tag.html:14
@@ -1390,7 +1437,7 @@ msgstr "Plus"
 #: dashboard/templates/tags/category_update_form.html:27
 #: templates/tags/category_form_tag.html:44
 #: templates/tags/category_form_update_tag.html:55
-#: templates/tags/category_tag.html:75
+#: templates/tags/category_tag.html:68
 #: templates/tags/subscription_attribute_tag.html:30
 msgid "Description"
 msgstr ""
@@ -1608,47 +1655,47 @@ msgstr ""
 msgid "Dashboard Users"
 msgstr ""
 
-#: flished/settings.py:294
+#: flished/settings.py:334
 msgid "French"
 msgstr ""
 
-#: flished/settings.py:295
+#: flished/settings.py:335
 msgid "English"
 msgstr ""
 
-#: templates/400.html:10
+#: templates/400.html:11
 msgid "Bad Request ! "
 msgstr "Mauvaise requete !"
 
-#: templates/400.html:13
+#: templates/400.html:14
 msgid "The server did not understand your request."
 msgstr ""
 
-#: templates/400.html:16 templates/403.html:16 templates/500.html:18
+#: templates/400.html:17 templates/403.html:17 templates/500.html:19
 msgid "Go back to Home Page"
 msgstr ""
 
-#: templates/403.html:10
+#: templates/403.html:11
 msgid "Access Forbidden ! "
 msgstr ""
 
-#: templates/403.html:13
+#: templates/403.html:14
 msgid "You are not allowed to access this page."
 msgstr ""
 
-#: templates/500.html:10
+#: templates/500.html:11
 msgid "Internal Server Error ! "
 msgstr ""
 
-#: templates/500.html:13
+#: templates/500.html:14
 msgid "The server has encountered an internal error."
 msgstr ""
 
-#: templates/500.html:14
+#: templates/500.html:15
 msgid "If this problem persists please contact us."
 msgstr ""
 
-#: templates/500.html:15
+#: templates/500.html:16
 msgid "Our technicians are working on the problem."
 msgstr ""
 
@@ -1719,7 +1766,7 @@ msgid "Go to your Account by following this link"
 msgstr "Accédez à votre Compte en suivant ce lien"
 
 #: templates/accounts/registration/email_validation.html:20
-#: templates/registration/email_validation.html:20 templates/tags/nav.html:38
+#: templates/registration/email_validation.html:20 templates/tags/nav.html:40
 msgid "My Account"
 msgstr "Mon Compte"
 
@@ -1743,7 +1790,7 @@ msgstr "Envoyez-moi un lien de validation"
 #: templates/accounts/registration/password_reset_complete.html:15
 #: templates/registration/login.html:41
 #: templates/registration/password_reset_complete.html:16
-#: templates/tags/nav.html:19 templates/tags/nav.html:44
+#: templates/tags/nav.html:21 templates/tags/nav.html:46
 msgid "Login"
 msgstr "Connexion"
 
@@ -2011,11 +2058,11 @@ msgstr ""
 msgid "Already have an account ? "
 msgstr ""
 
-#: templates/dashboard_base.html:49
+#: templates/dashboard_base.html:50
 msgid "Visite The site"
 msgstr ""
 
-#: templates/dashboard_base.html:50 templates/tags/nav.html:42
+#: templates/dashboard_base.html:51 templates/tags/nav.html:44
 msgid "Logout"
 msgstr ""
 
@@ -2032,11 +2079,11 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: templates/site_account_base.html:11
+#: templates/site_account_base.html:12
 msgid "Hello"
 msgstr ""
 
-#: templates/site_account_base.html:16
+#: templates/site_account_base.html:17
 msgid "Account Details"
 msgstr ""
 
@@ -2052,19 +2099,19 @@ msgstr ""
 msgid "SEO Meta Keywords"
 msgstr ""
 
-#: templates/tags/category_form_tag.html:30 templates/tags/category_tag.html:65
+#: templates/tags/category_form_tag.html:30 templates/tags/category_tag.html:58
 msgid "Parent"
 msgstr ""
 
 #: templates/tags/category_form_tag.html:52
 #: templates/tags/category_form_update_tag.html:63
-#: templates/tags/category_tag.html:80
+#: templates/tags/category_tag.html:73
 msgid "SEO Description"
 msgstr ""
 
 #: templates/tags/category_form_tag.html:60
 #: templates/tags/category_form_update_tag.html:71
-#: templates/tags/category_tag.html:88
+#: templates/tags/category_tag.html:81
 msgid "FACEBOOK Description"
 msgstr ""
 
@@ -2132,11 +2179,11 @@ msgstr ""
 msgid "Select language : "
 msgstr ""
 
-#: templates/tags/nav.html:21 templates/tags/nav.html:33
+#: templates/tags/nav.html:23 templates/tags/nav.html:35
 msgid "Search for posts"
 msgstr "Résultats des publications"
 
-#: templates/tags/nav.html:40
+#: templates/tags/nav.html:42
 msgid "Notifications"
 msgstr "Notifications"
 

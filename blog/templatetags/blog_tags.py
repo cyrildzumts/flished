@@ -19,7 +19,11 @@ def post_status_value(key):
 
 @register.filter
 def category_title(name):
-    return CATEGORY_DESCRIPTION_CONTEXT.get(name, {}).get('page-title')
+    return CATEGORY_DESCRIPTION_CONTEXT.get(name, {}).get('page-title', name)
+
+@register.filter
+def category_name(name):
+    return CATEGORY_DESCRIPTION_CONTEXT.get(name, {}).get('name', name)
 
 
 @register.filter

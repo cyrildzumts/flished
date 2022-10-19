@@ -8,7 +8,7 @@
             <a href="{{SITE_HOST}}" class="navbar-brand">{{SITE_NAME}}</a>
             {% if categories %}
             <ul class="navbar-nav hidden-m">
-                {% for category in categories %} <li class="nav-item"><a href="{{SITE_HOST}}{{category.get_slug_url}}" class="nav-link">{{category.name|category_title}}</a></li> {% endfor %}
+                {% for category in categories %} <li class="nav-item"><a href="{{SITE_HOST}}{{category.get_slug_url}}" class="nav-link">{{category.name|category_name}}</a></li> {% endfor %}
             </ul>
             {% endif %}
         </div>
@@ -28,7 +28,7 @@
             <div class="navbar-menu-wrapper">
                 {% if categories %}
                 <ul class="navbar-nav primary">
-                    {% for category in categories %} <li class="nav-item"><a href="{{SITE_HOST}}{{category.get_slug_url}}" class="nav-link">{{category.display_name}}</a></li> {% endfor %}
+                    {% for category in categories %} <li class="nav-item"><a href="{{SITE_HOST}}{{category.get_slug_url}}" class="nav-link">{{category.name|category_name}}</a></li> {% endfor %}
                 </ul>
                 {% endif %}
                 <ul class="navbar-nav secondary">
