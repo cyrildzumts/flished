@@ -38,6 +38,8 @@ def home(request):
     META_DESCRIPTION = UI_STRINGS.HOME_META_DESCRIPTION
     META_KEYWORDS = UI_STRINGS.HOME_META_KEYWORDS
     utils.show_request(request)
+    logger.info("HOME CSP : {}", request.META.get('HTTP_CSP_NONCE', ''))
+    logger.info("HOME CSP 2 : {}", request.META.get('CSP_NONCE', ''))
     context = {
         'page_title': PAGE_TITLE,
         'user_is_authenticated' : request.user.is_authenticated,
