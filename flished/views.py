@@ -37,7 +37,7 @@ def home(request):
     PAGE_TITLE = page_title
     META_DESCRIPTION = UI_STRINGS.HOME_META_DESCRIPTION
     META_KEYWORDS = UI_STRINGS.HOME_META_KEYWORDS
-    logger.info(f"HOME CSP : {request.META.get('HTTP_CSP_NONCE', '')}" )
+    logger.info(f"HOME CSP 2 : {request.META.get('CSP_NONCE', '')}")
     logger.info(f"HOME CSP 2 : {request.META.get('CSP_NONCE', '')}")
     context = {
         'page_title': PAGE_TITLE,
