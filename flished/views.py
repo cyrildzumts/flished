@@ -37,8 +37,6 @@ def home(request):
     PAGE_TITLE = page_title
     META_DESCRIPTION = UI_STRINGS.HOME_META_DESCRIPTION
     META_KEYWORDS = UI_STRINGS.HOME_META_KEYWORDS
-    logger.info(f"HOME CSP 2 : {request.META.get('CSP_NONCE', '')}")
-    logger.info(f"HOME CSP 2 : {request.META.get('CSP_NONCE', '')}")
     context = {
         'page_title': PAGE_TITLE,
         'user_is_authenticated' : request.user.is_authenticated,
@@ -53,7 +51,6 @@ def home(request):
         'OG_DESCRIPTION': META_DESCRIPTION,
         'OG_IMAGE': request.build_absolute_uri(static('flished.png')),
         'OG_URL': request.build_absolute_uri(),
-        'CSP_NONCE': request.META.get('CSP_NONCE', ''),
         #'structured_data': structured_data
 
     }
