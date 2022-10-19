@@ -52,6 +52,7 @@ def home(request):
         'OG_DESCRIPTION': META_DESCRIPTION,
         'OG_IMAGE': request.build_absolute_uri(static('flished.png')),
         'OG_URL': request.build_absolute_uri(),
+        'CSP_NONCE': request.META.get('CSP_NONCE', ''),
         #'structured_data': structured_data
 
     }
