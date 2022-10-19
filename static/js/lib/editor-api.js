@@ -20,7 +20,8 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     const InlineImage = require('editor/plugins/inline-image');
     
     const EDITOR_CHANGE_TIMEOUT = 1000; // 1s
-
+    const SAVE_DRAFT_INTERVAL = 10000; // 10s
+    const POST_STATUS_PUBLISH = 1
     let AUTO_SAVE_TIMER;
     let editor;
     let post_content;
