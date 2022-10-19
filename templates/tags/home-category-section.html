@@ -8,7 +8,7 @@
         {% if entry.posts %}
         <div class="col-m-12 col-3">
             <div class="card">
-                <div class="title"><span>{{entry.category.display_name}}</span></div>
+                <div class="title"><span>{{entry.category.name|category_title}}</span></div>
                 <div class="card-body">
                     <ul>
                         {% for post in entry.posts %}

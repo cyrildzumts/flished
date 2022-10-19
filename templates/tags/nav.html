@@ -1,4 +1,6 @@
 {% load i18n %}
+{% load core_tags %}
+{% load blog_tags %}
 <nav class="navbar navbar-expand">
     <div class="container px-5">
         <div class="flex flex-left">
@@ -6,7 +8,7 @@
             <a href="{{SITE_HOST}}" class="navbar-brand">{{SITE_NAME}}</a>
             {% if categories %}
             <ul class="navbar-nav hidden-m">
-                {% for category in categories %} <li class="nav-item"><a href="{{SITE_HOST}}{{category.get_slug_url}}" class="nav-link">{{category.display_name}}</a></li> {% endfor %}
+                {% for category in categories %} <li class="nav-item"><a href="{{SITE_HOST}}{{category.get_slug_url}}" class="nav-link">{{category.name|category_title}}</a></li> {% endfor %}
             </ul>
             {% endif %}
         </div>
