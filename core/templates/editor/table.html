@@ -1,4 +1,5 @@
 {% autoescape off %}
+<div class="table-wrapper mat-table-wrapper">
 <table id="{{table.id}}">
 {% if table.data.withHeadings %}
     <thead>
@@ -25,4 +26,5 @@
     </tbody>
 {% endif %}
 </table>
+</div>
 {% endautoescape %}
