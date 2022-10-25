@@ -2042,11 +2042,6 @@ a.mat-button{
 .mat-table-wrapper{
 	box-shadow: var(--box-shadow);
 	padding: 1rem;
-	margin: 1rem;
-}
-.mat-table-wrapper{
-	box-shadow: var(--box-shadow);
-	padding: 1rem;
 	margin: 1rem 0;
 	border-radius: 8px;
 }
