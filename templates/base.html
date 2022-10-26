@@ -58,7 +58,7 @@
         {% json_ld structured_data %}
         {% endif %}
         {% block ADSENSE %}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7624615584108748" crossorigin="anonymous"></script>
+        <script nonce="{{CSP_NONCE}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7624615584108748" crossorigin="anonymous"></script>
         {% endblock ADSENSE %}
         {% block GOOGLE_TAG %}
         {% if ALLOW_GOOGLE_ANALYTICS %}
@@ -162,8 +162,8 @@
 {% endblock SCRIPT %}
 {% block GOOGLE_ANALYTICS %}
 {% if ALLOW_GOOGLE_ANALYTICS %}
-<script preload  src="{% static 'js/lib/libgtm.js' %}"></script>
-<script preload  src="{% static 'js/lib/libsense.js' %}"></script>
+<script  preload  src="{% static 'js/lib/libgtm.js' %}"></script>
+<script  preload  src="{% static 'js/lib/libsense.js' %}"></script>
 {% endif %}
 {% endblock GOOGLE_ANALYTICS %}
 </body>
