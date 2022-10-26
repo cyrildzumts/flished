@@ -58,7 +58,7 @@
         {% json_ld structured_data %}
         {% endif %}
         {% block ADSENSE %}
-        <script nonce="{{CSP_NONCE}}" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7624615584108748" crossorigin="anonymous"></script>
+        <script nonce="{{CSP_NONCE}}-123" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7624615584108748" crossorigin="anonymous"></script>
         {% endblock ADSENSE %}
         {% block GOOGLE_TAG %}
         {% if ALLOW_GOOGLE_ANALYTICS %}
