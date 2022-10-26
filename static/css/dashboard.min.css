@@ -3145,7 +3145,32 @@ li .order-tag{
 .subscription .pricing{
 	font-size: 1.2em;
 }
+.banner-ads{
+	height: 120px;
+	width: 728px;
+	padding: 0.5rem;
+	margin: 0.2rem;
+}
+.multiplex-ads{
+	height: 60px;
+	width: 728px;
+	padding: 0.5rem;
+	margin: 0.2rem;
+}
 @media only screen and (max-width:50em){
+	.banner-ads{
+		height: 120px;
+		width: 100%;
+		padding: 0.5rem;
+		margin: 0.2rem;
+	}
+	
+	.multiplex-ads{
+		height: 60px;
+		width: 100%;
+		padding: 0.5rem;
+		margin: 0.2rem;
+	}
 	.navbar-menu-wrapper{
 		padding: 1rem !important;
 	}
