@@ -6,10 +6,10 @@
         <div class="col-m-12 col-9">
             <div class="flex flex-left flex-wrap mat-box">
                 {% include "tags/preview_form.html" %}
-                <div class="margin-bottom">
+                <div class="margin-bottom full">
                     <input type="text" id="title" class="full" name="title" placeholder="{{UI_STRINGS_CONTEXT.UI_BLOG_INPUT_TITLE_PLACEHOLDER}}">
                 </div>
-                <div class="padding">
+                <div class="padding full">
                     <span>{% translate "Category" %}</span>
                     <div class="flex flex-left flex-wrap">
                         {% for c in categories %} <span class="padding"><input type="radio" name="category" id="category-{{c.name}}" value="{{c.pk}}"><label for="category-{{c.name}}">{{c.display_name}}</label></span> {% endfor %}
