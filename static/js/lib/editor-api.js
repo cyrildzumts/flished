@@ -458,6 +458,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 if(file_input){
                     file_input.files = e.originalEvent.dataTransfer.files;
                     this.classList.add('active');
+                    console.log("image dropped");
                     self.imagesPreview(this);
                 }
             });
