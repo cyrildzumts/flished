@@ -1,17 +1,17 @@
 {% load i18n %}
 <div class="container">
     <div class="row flex-left text-left padding-v"><span>{{UPLOADER_TITLE}}</span></div>
-    <div class="drag-area" data-form="{{FORM_ID}}">
+    <div id="{{INPUT_ID|default_if_none:'default'}}-drag-area" class="drag-area" data-form="{{FORM_ID}}" data-input="{{INPUT_ID|default_if_none:'files'}}">
         <div class="hint left"><i class="far fa-images icon"></i> {% blocktrans %}Accepted formats{% endblocktrans %} : <b>jpeg</b>, <b>jpg</b>, <b>png</b> <b>webp</b></div>
         
         <div class="form-group file-upload">
-            <input type="file" name="{{INPUT_NAME}}" id="files" class="files-upload-input" {% if ALLOW_MULTIPLE %}multiple{% endif %}>
-            <label for="files"><span class="hint left"><i class="fas fa-upload icon"></i> {% blocktrans %}Please Drag and drop the product images here{% endblocktrans %} {% trans "or click here to choose your images" %}</span></label>
+            <input type="file" name="{{INPUT_NAME}}" id="{{INPUT_ID|default_if_none:'files'}}" class="files-upload-input" data-dragarea="{{INPUT_ID|default_if_none:'default'}}-drag-area" {% if ALLOW_MULTIPLE %}multiple{% endif %} >
+            <label for="{{INPUT_ID|default_if_none:'files'}}"><span class="hint left"><i class="fas fa-upload icon"></i> {% blocktrans %}Please Drag and drop the product images here{% endblocktrans %} {% trans "or click here to choose your images" %}</span></label>
         </div>
         <div class="actions">
-            <span class="mat-button mat-button-outlined js-uploaded-files-clear hidden"><i class="fas fa-trash"></i> <span>{{UI_STRINGS_CONTEXT.UI_CLEAR_LABEL}}</span></span>
+            <span class="mat-button mat-button-outlined js-uploaded-files-clear hidden" data-dragarea="{{INPUT_ID|default_if_none:'default'}}-drag-area" data-target="{{INPUT_ID|default_if_none:'preview'}}-file-list"><i class="fas fa-trash"></i> <span>{{UI_STRINGS_CONTEXT.UI_CLEAR_LABEL}}</span></span>
         </div>
-        <ul class="file-list" data-format="jpg, jpeg, png, webp" data-max-size="2097152">
+        <ul id="{{INPUT_ID|default_if_none:'preview'}}-file-list" class="file-list" data-input="{{INPUT_ID|default_if_none:'files'}}" data-format="jpg, jpeg, png, webp" data-max-size="2097152">
             {% if image_list %}
             {% for image in image_list %}
             <li><img height="60" src="{{image.get_image_url}}" alt=""></li>
