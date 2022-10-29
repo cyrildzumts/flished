@@ -70,14 +70,14 @@ def update_category(category, data):
     return updated_instance
 
 def create_post(data, images=None):
-    instance = core_tools.create_instance(model=Post, data=data)
+    instance = core_tools.create_instance(model=Post, data=data, files=images)
     if instance:
         logger.info(f"Post {instance} created")
     
     return instance
 
 def update_post(post, data, images=None):
-    updated_instance = core_tools.update_instance(model=Post, instance=post, data=data)
+    updated_instance = core_tools.update_instance(model=Post, instance=post, data=data, files=images)
     if updated_instance:
         logger.info("Post updated")
     

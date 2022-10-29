@@ -12,6 +12,12 @@
             </div>
             <div class="hint hidden"><p>{% translate "Please, select a category" %}</p></div>
         </div>
+        <div class="col-m-12">
+            <div class="box">
+                <div class="bold">{% trans "Image" %}</div>
+               {% include "tags/images_uploader.html" with FORM_ID="post-upload-form" INPUT_ID="image" INPUT_NAME="image" UPLOADER_TITLE="Post Image" %}
+            </div>
+        </div>
         {% csrf_token %}
     </div>
     <div id="editor" class="full mat-box editor padding full-h" 

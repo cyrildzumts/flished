@@ -1,5 +1,7 @@
 from django.utils.translation import gettext_lazy as _
 
+WEBP_QUALITY = 80
+WEBP_EXT = ".webp"
 DB_DATETIME_FORMAT = "DD Mon YYYY HH24:MI"
 CATEGORY_PAGE_TITLE_KEY = 'page-title'
 CATEGORY_META_KEYWORDS_KEY = 'meta-keywords'

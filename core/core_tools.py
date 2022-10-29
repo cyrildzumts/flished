@@ -26,8 +26,8 @@ HEADERS = {
     'User-Agent': USER_AGENT
 }
 
-def create_instance(model, data):
-    Form = modelform_factory(model, fields=model.FORM_FIELDS)
+def create_instance(model, data, files=None):
+    Form = modelform_factory(model, fields=model.FORM_FIELDS, files=files)
     form = Form(data)
     if form.is_valid():
         return form.save()
@@ -37,8 +37,8 @@ def create_instance(model, data):
     return None
 
 
-def update_instance(model, instance, data):
-    Form = modelform_factory(model, fields=model.FORM_FIELDS)
+def update_instance(model, instance, data, files=None):
+    Form = modelform_factory(model, fields=model.FORM_FIELDS, files=files)
     form = Form(data, instance=instance)
     if form.is_valid():
         return form.save()

@@ -52,7 +52,7 @@ def create_post(request):
     if request.method != 'POST':
         return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
     
-    instance = blog_service.create_post(utils.get_postdata(request), utils.get_uploaded_files(request))
+    instance = blog_service.create_post(utils.get_postdata(request), request.FILES)
     data = None
     if instance is None:
         data = {
@@ -104,7 +104,7 @@ def update_post(request, post_uuid):
     post = blog_service.get_post(post_uuid)
     if post is None:
         return Response(data={'success': False, 'message': UI_STRINGS.UI_NOT_FOUND}, status=status.HTTP_404_NOT_FOUND)
-    instance = blog_service.update_post(post, utils.get_postdata(request), utils.get_uploaded_files(request))
+    instance = blog_service.update_post(post, utils.get_postdata(request), request.FILES)
     data = None
     if instance is None:
         data = {

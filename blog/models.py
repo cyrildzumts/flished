@@ -1,10 +1,15 @@
 import json
 from operator import contains
+import sys
 from django.db import models
 from django.shortcuts import reverse
 from django.contrib.auth.models import User
 from core.translations.category_strings import CATEGORY_DESCRIPTION_CONTEXT
 from blog import constants as Contants
+from PIL import Image
+from io import BytesIO
+from django.core.files.uploadedfile import InMemoryUploadedFile
+import os
 from flished import settings
 import uuid
 # Create your models here.
@@ -12,6 +17,8 @@ import uuid
 def upload_to(instance, filename):
     return f"products/{instance.product.id}/{instance.product.category.code}-{instance.product.id}-{instance.height}x{instance.width}-{filename}"
 
+def upload_post_image_to(instance, filename):
+    return f"posts/{instance.slug}/{filename}"
 
 class Tag(models.Model):
 
@@ -106,6 +113,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=250, blank=True, null=True)
     #content_draft = models.JSONField(blank=True, null=True)
     content = models.JSONField()
+    image = models.ImageField(upload_to=upload_post_image_to, blank=True, null=True)
     is_active = models.BooleanField(default=True)
     is_featured = models.BooleanField(default=False)
     has_affiliate_link = models.BooleanField(default=False)
@@ -143,6 +151,23 @@ class Post(models.Model):
     
     def get_delete_url(self):
         return reverse("blog:delete-post", kwargs={"post_slug": self.slug})
+    
+
+    def save(self, *args, **kwargs):
+        if self.image:
+            filename,ext = os.path.splitext(self.image.path)
+            if ext != Contants.WEBP_EXT:
+                name,ext2 = os.path.splitext(self.image.name)
+                finale_name = f"{name}{Contants.WEBP_EXT}"
+                image = Image.open(self.image)
+                image.load()
+                img_stream = BytesIO()
+                img = image.convert("RGB")
+                img.save(img_stream,format="WEBP", quality=Contants.WEBP_QUALITY)
+                img_stream.seek(0)
+                self.image = InMemoryUploadedFile(img_stream,'ImageField', finale_name, 'image/webp',sys.getsizeof(img_stream),None)
+
+        super(Post, self).save(*args, **kwargs)
     
 
 class PostHistory(models.Model):
