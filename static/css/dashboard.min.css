@@ -216,7 +216,13 @@ a.link, .post a{
 .main-post a{
 	color: #1a1a1a !important;
 	font-weight: bold;
+	text-transform: uppercase !important;
+}
+.main-post a h2{
+	font-size: 2rem;
 	text-transform: uppercase;
+	line-break: normal;
+	overflow-wrap: normal;
 }
 .post-summary p{
 	text-overflow: ellipsis;
@@ -3173,6 +3179,9 @@ li .order-tag{
 	margin: 0.2rem;
 }
 @media only screen and (max-width:50em){
+	.main-post a h2{
+		font-size: 1.5rem;
+	}
 	.banner-ads{
 		height: 120px;
 		width: 100%;
