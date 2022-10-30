@@ -14,7 +14,7 @@
         <ul id="{{INPUT_ID|default_if_none:'preview'}}-file-list" class="file-list" data-input="{{INPUT_ID|default_if_none:'files'}}" data-format="jpg, jpeg, png, webp" data-max-size="2097152">
             {% if image_list %}
             {% for image in image_list %}
-            <li><img height="60" src="{{image.get_image_url}}" alt=""></li>
+            <li><img height="60" src="{{image.urll}}" alt=""></li>
             {% endfor %}
             {% else %}
             <li class="no-data file-entry">{% trans "no images" %}</li>
