@@ -8,28 +8,38 @@
 
 
 {% block MAIN %}
-<div class="full">
-  <div class="flex flex-center  flex-wrap editor-post editor-wrapper full padding">
-    {% include "tags/post_published_tag.html" %}
-    <div class="flex flex-left flex-wrap padding-v full">
+<div class="flex flex-center flex-wrap editor-post editor-wrapper full padding">
+  {% include "tags/post_published_tag.html" %}
+  <div class="container">
+    <div class="col-m-12 col-9">
+      <div class="flex flex-left flex-wrap mat-box">
         {% include "tags/preview_form.html" %}
-        <input type="text" id="title" class="full" name="title" placeholder="{{UI_STRINGS_CONTEXT.UI_BLOG_INPUT_TITLE_PLACEHOLDER}}" value="{{post.title}}">
-        <div class="padding">
+        <div class="margin-bottom full">
+          <input type="text" id="title" class="full" name="title" placeholder="{{UI_STRINGS_CONTEXT.UI_BLOG_INPUT_TITLE_PLACEHOLDER}}" value="{{post.title}}">
+        </div>
+        <div class="padding full">
           <span>{% translate "Category" %}</span>
           <div class="flex flex-left flex-wrap">
               {% for c in categories %} <span class="padding"><input type="radio" name="category" id="category-{{c.name}}" value="{{c.pk}}" {% if post.category == c %}checked{% endif %}><label for="category-{{c.name}}">{{c.display_name}}</label></span> {% endfor %}
           </div>
           <div class="hint hidden"><p>{% translate "Please, select a category" %}</p></div>
+        </div>
+      </div>
+      <form action="">{% csrf_token %}
+        <input id="content" type="hidden" name="content" value="{{post.content_json_str|default_if_none:''}}">
+      </form>
+      <div id="editor" class="full mat-box editor padding full-h" 
+                        data-post="{{post.post_uuid}}" 
+                        data-action="update" 
+                        data-author="{{request.user.pk}}" 
+                        data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}">
       </div>
     </div>
-    <form action="">{% csrf_token %}
-      <input id="content" type="hidden" name="content" value="{{post.content_json_str|default_if_none:''}}">
-    </form>
-    <div id="editor" class="full mat-box editor padding full-h" 
-                      data-post="{{post.post_uuid}}" 
-                      data-action="update" 
-                      data-author="{{request.user.pk}}" 
-                      data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}">
+    <div class="col-m-12 col-3">
+      <div class="mat-box">
+          <div class="bold">{% trans "Image" %}</div>
+      {% include "tags/images_uploader.html" with FORM_ID="post-upload-form" INPUT_ID="image" INPUT_NAME="image" UPLOADER_TITLE="Post Image" image_list=images %}
+      </div>
     </div>
   </div>
 </div>

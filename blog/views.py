@@ -126,6 +126,9 @@ def create_post(request):
 def update_post(request, post_slug):
     template_name = "blog/blog_post_update.html"
     post = get_object_or_404(Post, slug=post_slug, author=request.user)
+    images = []
+    if post.image:
+        images.append(post.image)
     page_title = f"{post.title} | {UI_STRINGS.UI_UPDATE_BLOG_POST} | {settings.SITE_NAME}"
     if request.method == 'POST':
         instance = blog_service.update_post(utils.get_postdata(request))
@@ -135,6 +138,7 @@ def update_post(request, post_slug):
         'page_title': page_title,
         'PAGE_TITLE': page_title,
         'post': post,
+        'images': images,
         'LOAD_EDITOR': True,
     }
     return render(request, template_name, context)
