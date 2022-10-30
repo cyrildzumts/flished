@@ -2456,6 +2456,12 @@ label.nav-label::after{
 	align-items: center;
 	justify-content: center;
 }
+.lead .image-wrapper{
+	max-height: 500px;
+}
+.lead img{
+	max-height: inherit;
+}
 .banner-container{
 	padding-bottom: 1em;
 }
