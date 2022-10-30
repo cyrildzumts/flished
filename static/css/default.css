@@ -22,7 +22,8 @@ body {
 * {
   background-color: transparent;
   /*color: black;*/
-  font-family: "Nunito", sans-serif;
+  /*font-family: "Nunito", sans-serif;*/
+  font-family: "Noto Sans Mono",monospace;
   line-height: 1.5em;
   text-decoration: none;
   margin: 0;
