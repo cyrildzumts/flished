@@ -4542,3 +4542,51 @@ p{
   font-display: swap;
   src: url(fonts/Montserrat/Montserrat-Bold.woff2);
 }
+@font-face {
+  font-family: 'Noto Sans Mono';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+       url(fonts/noto-sans-mono-latin-500.woff2) format('woff2'), 
+       url(fonts/noto-sans-mono-latin-500.woff) format('woff'); 
+}
+@font-face {
+  font-family: 'Noto Sans Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url(fonts/noto-sans-mono-latin-regular.woff2) format('woff2'), 
+       url(fonts/noto-sans-mono-latin-regular.woff) format('woff'); 
+}
+@font-face {
+  font-family: 'Noto Sans Mono';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+       url(fonts/noto-sans-mono-latin-600.woff2) format('woff2'), 
+       url(fonts/noto-sans-mono-latin-600.woff) format('woff'); 
+}
+@font-face {
+  font-family: 'Noto Sans Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url(fonts/noto-sans-mono-latin-700.woff2) format('woff2'), 
+       url(fonts/noto-sans-mono-latin-700.woff) format('woff'); 
+}
+@font-face {
+  font-family: 'Noto Sans Mono';
+  font-style: normal;
+  font-weight: 800;
+  src: local(''),
+       url(fonts/noto-sans-mono-latin-800.woff2) format('woff2'), 
+       url(fonts/noto-sans-mono-latin-800.woff) format('woff'); 
+}
+@font-face {
+  font-family: 'Noto Sans Mono';
+  font-style: normal;
+  font-weight: 900;
+  src: local(''),
+       url(fonts/noto-sans-mono-latin-900.woff2) format('woff2'), 
+       url(fonts/noto-sans-mono-latin-900.woff) format('woff'); 
+}
