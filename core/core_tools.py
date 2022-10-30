@@ -27,8 +27,8 @@ HEADERS = {
 }
 
 def create_instance(model, data, files=None):
-    Form = modelform_factory(model, fields=model.FORM_FIELDS, files=files)
-    form = Form(data)
+    Form = modelform_factory(model, fields=model.FORM_FIELDS)
+    form = Form(data, files=files)
     if form.is_valid():
         return form.save()
     else:
@@ -38,8 +38,8 @@ def create_instance(model, data, files=None):
 
 
 def update_instance(model, instance, data, files=None):
-    Form = modelform_factory(model, fields=model.FORM_FIELDS, files=files)
-    form = Form(data, instance=instance)
+    Form = modelform_factory(model, fields=model.FORM_FIELDS)
+    form = Form(data, instance=instance, files=files)
     if form.is_valid():
         return form.save()
     else:
