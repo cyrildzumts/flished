@@ -173,9 +173,9 @@ def blog_post(request, author, post_slug):
         latest = datetime.datetime.now().isoformat()
     blog_service.update_view_count(Post, post.id)
     
-    image_url = renderers.read_post_image(post.content)
-    if image_url:
-        image_url = request.build_absolute_uri(image_url)
+    image_url = None
+    if post.image:
+        image_url = f"{settings.SITE_HOST}{post.image.url}"
     context = {
         'page_title': page_title,
         'PAGE_TITLE': page_title,

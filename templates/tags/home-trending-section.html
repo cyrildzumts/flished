@@ -11,9 +11,12 @@
                 <div class="card-body">
                     <div class="post lead">
                         {% if post.image %}
-                        <div class="full">
-                            <img src="{{post.image}}" alt="{{post.title}}">
+                        <div class="col-m-12">
+                            <div class="image-wrapper">
+                                <img class="img-responsive" src="{{SITE_HOST}}{{post.image.url}}" alt="{{post.title}}">
+                            </div>
                         </div>
+                        
                         {% endif %}
                         <div class="post-entry">
                             <div class="link-wrapper"><a href="{{post.get_absolute_url}}">{{post.title}}</a></div>

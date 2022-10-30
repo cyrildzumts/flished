@@ -2883,11 +2883,11 @@ label.nav-label::after{
 	justify-content: center;
 
 }
-.lead .image-wrapper{
+.main-post .image-wrapper{
 	max-height: 500px;
 }
 
-.lead img{
+.main-post img{
 	max-height: inherit;
 }
 
