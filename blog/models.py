@@ -109,7 +109,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, related_name='blog_posts', on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     category = models.ForeignKey(Category,related_name='posts', on_delete=models.SET_NULL, blank=True, null=True)
-    tags = models.ManyToManyField(Tag, related_name="tags")
+    tags = models.ManyToManyField(Tag, related_name="tags", blank=True, null=True)
     slug = models.SlugField(max_length=250, blank=True, null=True)
     #content_draft = models.JSONField(blank=True, null=True)
     content = models.JSONField()
