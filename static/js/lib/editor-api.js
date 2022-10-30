@@ -458,7 +458,6 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 if(file_input){
                     file_input.files = e.originalEvent.dataTransfer.files;
                     this.classList.add('active');
-                    console.log("image dropped");
                     self.imagesPreview(this);
                 }
             });
@@ -662,10 +661,9 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             formData.append('content', JSON.stringify(post_content));
             formData.append('author', editor_element.dataset.author);
             formData.append('post_status', this.post_status);
-            let files = this.imageManager.getFiles();
-            console.log("Input File : ", files);
-            if(files != null && files.files.length > 0){
-                formData.append('image', files.files[0]);
+            let input_image = document.getElementById('image');
+            if(input_image != null && input_image.files != null && input_image.files.length > 0){
+                formData.append('image', input_image.files[0]);
             }
             if(category){
                 formData.append('category', category.value);
