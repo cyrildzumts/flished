@@ -13,6 +13,14 @@
                               {% for blog_post in main_post.selections %}
                               <li>
                                 <div class="post-entry">
+                                  {% if blog_post.image %}
+                                  <div class="col-m-12">
+                                      <div class="image-wrapper">
+                                          <img class="img-responsive" src="{{SITE_HOST}}{{blog_post.image.url}}" alt="{{blog_post.title}}">
+                                      </div>
+                                  </div>
+                                  
+                                  {% endif %}
                                   <div class="link-wrapper"><a href="{{blog_post.get_absolute_url}}">{{blog_post.title}}</a></div>
                                   <div class="summary-wrapper">
                                     <div class="post-header">
@@ -29,6 +37,13 @@
                         <div class="container">
                             <div class="post full margin padding-h">
                                 <div class="post-entry">
+                                    {% if main_post.blog_post.image %}
+                                    <div class="col-m-12">
+                                        <div class="image-wrapper">
+                                            <img class="img-responsive" src="{{SITE_HOST}}{{main_post.blog_post.image.url}}" alt="{{main_post.blog_post.title}}">
+                                        </div>
+                                    </div>
+                                    {% endif %}
                                     <div class="link-wrapper"><a href="{{main_post.blog_post.get_absolute_url}}">{{main_post.blog_post.title}}</a></div>
                                     <div class="summary-wrapper">
                                         <div class="post-summary">
