@@ -115,8 +115,8 @@ class Post(models.Model):
     content = models.JSONField()
     image = models.ImageField(upload_to=upload_post_image_to, blank=True, null=True)
     is_active = models.BooleanField(default=True)
-    is_featured = models.BooleanField(default=False)
-    has_affiliate_link = models.BooleanField(default=False)
+    is_featured = models.BooleanField(default=False, blank=True, null=True)
+    has_affiliate_link = models.BooleanField(default=False, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     post_status = models.IntegerField(default=Contants.POST_STATUS_DRAFT, blank=True)
@@ -124,7 +124,7 @@ class Post(models.Model):
     likes = models.ManyToManyField(User, related_name="likes")
     readers = models.ManyToManyField(User, related_name="histories", through="PostHistory")
     post_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
-    FORM_FIELDS = ['author', 'title', 'category', 'content','post_status']
+    FORM_FIELDS = ['author', 'title', 'category', 'content','post_status','image','is_featured', 'has_affiliate_link', 'tags']
     SERIALIZER_FIELDS = ['author', 'title', 'category', 'content', 'post_uuid', 'post_status']
     SEARCH_FIELDS = ['title', 'content']
 
