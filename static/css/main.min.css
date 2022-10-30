@@ -632,6 +632,15 @@ a.link, .post a{
 	font-weight: bold;
 	color: #9b59b6;
 }
+.post.lead a, .main-post a, .post-summary a{
+	color: #1a1a1a !important;
+	font-weight: bold;
+}
+.main-post a{
+	color: #1a1a1a !important;
+	font-weight: bold;
+	text-transform: uppercase;
+}
 .post-summary p{
 	text-overflow: ellipsis;
 	word-break: break-word;
