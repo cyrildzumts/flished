@@ -15,9 +15,14 @@
                                 <div class="post-entry">
                                   {% if blog_post.image %}
                                   <div class="col-m-12">
-                                      <div class="image-wrapper">
+                                    <div class="link-wrapper">
+                                      <a href="{{blog_post.get_absolute_url}}" title="{{blog_post.title}}">
+                                        <div class="image-wrapper">
                                           <img class="img-responsive" src="{{SITE_HOST}}{{blog_post.image.url}}" alt="{{blog_post.title}}">
-                                      </div>
+                                        </div>
+                                      </a>
+                                    </div>
+                                      
                                   </div>
                                   
                                   {% endif %}
@@ -39,9 +44,13 @@
                                 <div class="post-entry">
                                     {% if main_post.blog_post.image %}
                                     <div class="col-m-12">
-                                        <div class="image-wrapper">
+                                      <div class="link-wrapper">
+                                        <a href="{{main_post.blog_post.get_absolute_url}}" title="{{main_post.blog_post.title}}">
+                                          <div class="image-wrapper">
                                             <img class="img-responsive" src="{{SITE_HOST}}{{main_post.blog_post.image.url}}" alt="{{main_post.blog_post.title}}">
-                                        </div>
+                                          </div>
+                                        </a>
+                                      </div>
                                     </div>
                                     {% endif %}
                                     <div class="link-wrapper"><a href="{{main_post.blog_post.get_absolute_url}}">{{main_post.blog_post.title}}</a></div>

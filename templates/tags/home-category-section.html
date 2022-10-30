@@ -17,8 +17,12 @@
                             <div class="post lead">
                                 {% if post.image %}
                                 <div class="col-m-12">
-                                    <div class="image-wrapper">
-                                        <img class="img-responsive" src="{{SITE_HOST}}{{post.image.url}}" alt="{{post.title}}">
+                                    <div class="link-wrapper">
+                                        <a href="{{post.get_absolute_url}}" title="{{post.title}}">
+                                            <div class="image-wrapper">
+                                            <img class="img-responsive" src="{{SITE_HOST}}{{post.image.url}}" alt="{{post.title}}">
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                                 
