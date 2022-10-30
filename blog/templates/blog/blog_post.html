@@ -33,6 +33,14 @@
         {% endcomment %}
         <div class="post">
             <div class="post-title"><span>{{blog_post.title}}</span></div>
+            {% if blog_post.image %}
+            <div class="col-m-12">
+                <div class="image-wrapper">
+                    <img class="img-responsive" src="{{SITE_HOST}}{{blog_post.image.url}}" alt="{{blog_post.title}}">
+                </div>
+            </div>
+            
+            {% endif %}
             
             {% render_post blog_post %}
             <div class="status-entry post-header margin-top">
