@@ -3223,7 +3223,24 @@ li .order-tag{
 	padding: 0.5rem;
 	margin: 0.2rem;
 }
+.section .title span{
+	background-color: #0a0a0a;
+	color: #fafafa;
+	padding: 0.5rem;
+	display: inline-block;
+}
+.section{
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+.section .title{
+	margin-bottom: 1em;
+	padding: 0.5rem;
+}
 @media only screen and (max-width:50em){
+	.section .title span{
+		width: 100%;
+	}
 	.main-post a h2{
 		font-size: 1.5rem;
 	}
