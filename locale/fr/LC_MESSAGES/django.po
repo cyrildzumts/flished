@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-19 15:19+0200\n"
+"POT-Creation-Date: 2022-11-01 00:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,38 +18,45 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: blog/constants.py:47
+#: blog/constants.py:49
 msgid "draft"
 msgstr "brouillon"
 
-#: blog/constants.py:48
+#: blog/constants.py:50
 msgid "published"
 msgstr "publié"
 
-#: blog/constants.py:49
+#: blog/constants.py:51
 msgid "review"
 msgstr "en examen"
 
-#: blog/constants.py:50
+#: blog/constants.py:52
 msgid "deleted"
 msgstr "Supprimé"
 
-#: blog/templates/blog/blog_post.html:79
+#: blog/templates/blog/blog_post.html:87
 #: dashboard/templates/dashboard/post_detail.html:35
 #: dashboard/templates/dashboard/post_update.html:34
 msgid "Signal this comment"
 msgstr "Signalez ce commentaire"
 
-#: blog/templates/blog/blog_post_update.html:18
+#: blog/templates/blog/blog_post_update.html:21
 #: dashboard/templates/tags/category_creation_form.html:7
 #: dashboard/templates/tags/category_update_form.html:5 dashboard/views.py:133
-#: templates/tags/editor.html:9
+#: templates/tags/editor.html:13
 msgid "Category"
 msgstr "Catégorie"
 
-#: blog/templates/blog/blog_post_update.html:22 templates/tags/editor.html:13
+#: blog/templates/blog/blog_post_update.html:25 templates/tags/editor.html:17
 msgid "Please, select a category"
 msgstr "Veuillez choisir une catégory"
+
+#: blog/templates/blog/blog_post_update.html:40
+#: templates/email_tags/order_cancel_confirmation_email.html:47
+#: templates/email_tags/order_confirmation_email.html:46
+#: templates/tags/editor.html:30
+msgid "Image"
+msgstr ""
 
 #: blog/templates/blog/me.html:9 templates/accounts/account.html:19
 msgid "Overview"
@@ -137,8 +144,8 @@ msgstr "Plateforme de publication"
 #: core/resources/ui_strings.py:24 core/translations/category_strings.py:8
 msgid "Share experiences and ideas with others to build a better world"
 msgstr ""
-"Partager ses expériences et idées avec les autres afin de contruire un monde "
-"meilleur"
+"Partager ses expériences et idées avec les autres afin de construire un "
+"monde meilleur"
 
 #: core/resources/ui_strings.py:26
 msgid ""
@@ -2066,11 +2073,6 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: templates/email_tags/order_cancel_confirmation_email.html:47
-#: templates/email_tags/order_confirmation_email.html:46
-msgid "Image"
-msgstr ""
-
 #: templates/faq.html:13
 msgid "This FAQ collects the commons questions you may be looking for answers."
 msgstr ""
@@ -2147,7 +2149,7 @@ msgstr ""
 msgid "Our selection"
 msgstr "Notre sélection"
 
-#: templates/tags/home-main-section.html:50
+#: templates/tags/home-main-section.html:74
 msgid "Most recent"
 msgstr "Recent"
 
