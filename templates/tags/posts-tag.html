@@ -1,0 +1,42 @@
+
+{% load i18n %}
+{% load static %}
+{% load humanize %}
+
+<div class="activity-list-wrapper col-m-12 col-7">
+        <div class="mat-box style-box">
+            <div class="padding title flex flex-left">
+                <span class="medium bold">{{list_title}}</span> {% if FULL_LIST_LINK and post_list %} <a class="mat-button mat-button-text" href="{% url FULL_LIST_LINK %}"><span class="small padding-h">{% trans "See all" %}</span><i class="fas fa-arrow-right"></i></a> {% endif %}
+            </div>
+            
+            <div class="container">
+                <div class="col-m-12 col-6">
+                    <div class="container">
+                        <div class="padding"><label><input id="filter-select-all" class="js-select-all" type="checkbox" name="allselected" title="{% trans 'Select all' %}"></label></div>
+                        <ul class="activity-list status-list js-filter-table full">
+                            {% for post in post_list %}
+                            <li class="activity" data-post="{{post.title}}" data-date="{{post.created_at|naturalday}}">
+                                <div class="flex flex-left padding full">
+                                    <input class="js-selectable" type="checkbox" name="posts" value="{{post.pk}}">
+                                    <a class="full" title="{{post.title}}" href="{% url BASE_URL post.post_uuid %}">
+                                        <div class="status-entry-wrapper">
+                                            <div class="status-entry flex space-between">
+                                                <span class="">{{post.title}}</span>
+                                            </div>
+                                            <div class="status-entry small">
+                                                <span><i class="fas fa-eye"></i> {{post.view_count}}</span> | <span class="small">{{post.created_at|naturalday}}</span> | <span class="small">{{post.author.get_full_name}}</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            {% empty %}
+                                <li><span>{% trans "There is no posts yet" %}</span></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include "tags/pagination.html" with page_set=post_list params=request.GET.attribute %}
+</div>

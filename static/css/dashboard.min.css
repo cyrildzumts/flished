@@ -2967,45 +2967,34 @@ label.nav-label::after{
 .footer-catalog a{
 	display: inline-block;
 }
-.cart-item{
-	display: flex;
-	position: relative;
-	align-items: center;
-	justify-content: center;
+.activity-list{
+	max-height: 32em;
+	overflow: auto;
+	padding: 0.5em;
+}
+.activity{
 	width: 100%;
 }
-.cart-container .mat-list-wrapper{
-	margin: 0;
+.activity .outgoing, .activity .incoming{
+	text-align: right;
+	font-weight: bold;
 }
-.cart-container .title{
-	padding: 1em 0;
+.activity-list li,.status-list li{
+	padding: 0.5em;
+	margin: 1em 0;
+	width: 100%;
+	border-bottom: 2px dotted #ccc;
+	border-radius: 1em;
+	background-color: var(--notification-bg);
 }
-.cart-container .mat-list{
-	overflow: hidden;
-	max-height: unset;
+.activity-list li:last-child,.status-list li:last-child{
+	border-bottom: none;
 }
-.cart-container .mat-box{
-	padding: 0 1em;
-	margin: 0 1em;
+.sidebar-menu li.active, .sidebar-menu li:hover, .activity-list li:hover,.status-list li:hover{
+	background-color: #137B7733;
 }
-.cart-item-remove{
-	position: absolute;
-	right: 1em;
-	bottom: 1em;
-	font-size: 1.5em;
-	padding: 16px;
-	z-index: 10;
-}
-.cart-item-content{
-	position: relative;
-}
-.order-item-content{
-	position: relative;
-	font-size: 0.7em;
-}
-.cart-item-content .item-total{
-	position: absolute;
-	right: 1em;
+.activity-list li:hover,.status-list li:hover{
+	border-radius: 1em;
 }
 .carousel-wrapper{
 	
