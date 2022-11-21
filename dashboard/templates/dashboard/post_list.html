@@ -11,7 +11,7 @@
                 {% endif %}
         </div>
         <div class="container">
-                {% include 'tags/posts-tag.html' with list_title=_("Posts") BASE_URL="dashboard:post-detail" %}
+                {% include 'tags/posts-tag.html' with list_title=_("Posts") BASE_URL="dashboard:post-detail" FILTER_ENABLED=True %}
         </div>
 </form>
 {% comment %}

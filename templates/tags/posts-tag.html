@@ -11,12 +11,14 @@
             <div class="container">
                 <div class="col-m-12 col-6">
                     <div class="container">
+                        {% if FILTER_ENABLED %}
                         <div class="padding full"><label><input id="filter-select-all" class="js-select-all" type="checkbox" name="allselected" title="{% trans 'Select all' %}">{% trans 'Select all' %}</label></div>
+                        {% endif %}
                         <ul class="activity-list status-list js-filter-table full">
                             {% for post in post_list %}
                             <li class="activity" data-post="{{post.title}}" data-date="{{post.created_at|naturalday}}">
                                 <div class="flex flex-left full">
-                                    <input class="js-selectable" type="checkbox" name="posts" value="{{post.pk}}">
+                                    {% if FILTER_ENABLED %}<input class="js-selectable" type="checkbox" name="posts" value="{{post.pk}}">{% endif %}
                                     <a class="full padding" title="{{post.title}}" href="{% url BASE_URL post.post_uuid %}">
                                         <div class="status-entry-wrapper">
                                             <div class="status-entry flex space-between">
