@@ -5,6 +5,8 @@ define(['require','filters','ajax_api', 'element_utils'
     const SAVE_DRAFT_INTERVAL = 10000; // 10s
     const EDITOR_CHANGE_TIMEOUT = 1000; // 1s
     const COMMENT_FETCH_INTERVAL = 15000; // 30s
+    const COOKIE_CONSENT_MODAL_SELECTOR = 'cookie-consent-modal';
+    const COOKIE_CONTENT_BTN_SELECTOR = 'cookie-content-btn';
     const POST_STATUS_PUBLISH = 1
     const CAROUSEL_INTERVAL = 5000;
     const MIN_LEN_WARNING = 20;
@@ -552,11 +554,32 @@ define(['require','filters','ajax_api', 'element_utils'
         return setInterval(fetch_comments, COMMENT_FETCH_INTERVAL);
     }
 
+    function load_cookie_consent(){
+        let modal = document.getElementById(COOKIE_CONSENT_MODAL_SELECTOR);
+        if(modal == null){
+            return;
+        }
+        modal.style.display = 'container';
+        if(window){
+            $(window).click(function(eventModal){
+                if(eventModal.target == modal){
+                    modal.style.display = "none";
+                }
+            });
+        }
+        let  accep_btn = document.getElementById(COOKIE_CONTENT_BTN_SELECTOR);
+        accep_btn.addEventListener('click', event =>{
+            modal.style.display = 'none';
+            console.log("Cookie usage consented by the user");
+        });
+    }
+
     $(document).ready(function(){
         if(window){
             window.notify = notify;
         }
         let modal = new Modal();
+        load_cookie_consent();
         commentManager = new CommentManager();
         commentManager.init();
         notification_wrapper = $('#notifications-wrapper');

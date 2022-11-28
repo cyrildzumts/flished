@@ -40,6 +40,7 @@ UI_SEARCH_LABEL = _('Search')
 UI_SEARCHED_TERM_LABEL = _('Your search term')
 UI_SEARCH_RESULTS_LABEL = _('Search results for')
 UI_BACK_BTN_LABEL = _('Back')
+UI_OK_BTN_LABEL = _("OK")
 UI_CREATE_BTN_LABEL = _('Create')
 UI_UPDATE_BTN_LABEL = _('Update')
 UI_CANCEL_BTN_LABEL = _('Cancel')
@@ -73,7 +74,8 @@ UI_BLOG_POST_PREVIEW = _('Post Preview')
 UI_BLOG_INPUT_TITLE_PLACEHOLDER = _("Story's title ...")
 UI_NOT_FOUND = _('Not found')
 UI_WHATSAPP_SHARE_BODY = _("Hey, have a look on this article {POST_URL}. I think it is interesting, Thanks !")
-
+UI_COOKIE_CONSENT_TITLE = _("We use cookies")
+UI_COOKIE_CONSENT_BODY = _("We use cookies and other tracking technologies to improve your browsing experience on our website, to show you personalized content and targeted ads, to analyze our website traffic, and to understand where our visitors are coming from.")
 UI_EDITOR_PLACEHOLDER = _("Start typing here ...")
 UI_QUOTE_PLACEHOLDER = _('Enter a quote')
 UI_CAPTION_PLACEHOLDER = _('Quote\'s author')
@@ -199,9 +201,11 @@ UI_STRINGS_CONTEXT = {
     'UI_SAVE_BTN_LABEL': UI_SAVE_BTN_LABEL,
     'UI_PUBLISH_BTN_LABEL': UI_PUBLISH_BTN_LABEL,
     'UI_BLOG_HOME_LABEL': UI_BLOG_HOME_LABEL,
+    'UI_OK_BTN_LABEL': UI_OK_BTN_LABEL,
     'UI_NEW_BLOG_POST': UI_NEW_BLOG_POST,
     'UI_UPDATE_BLOG_POST': UI_UPDATE_BLOG_POST,
     'UI_NO_BLOG_POSTS_HINT': UI_NO_BLOG_POSTS_HINT,
-
+    'UI_COOKIE_CONSENT_TITLE': UI_COOKIE_CONSENT_TITLE,
+    'UI_COOKIE_CONSENT_BODY': UI_COOKIE_CONSENT_BODY,
 
 }
