@@ -561,6 +561,12 @@ define(['require','filters','ajax_api', 'element_utils'
         }
         console.log("Cookie consent loaded");
         modal.style.display = 'container';
+        
+        let  accep_btn = document.getElementById(COOKIE_CONTENT_BTN_SELECTOR);
+        accep_btn.addEventListener('click', event =>{
+            modal.style.display = 'none';
+            console.log("Cookie usage consented by the user");
+        });
         if(window){
             $(window).click(function(eventModal){
                 if(eventModal.target == modal){
@@ -568,11 +574,6 @@ define(['require','filters','ajax_api', 'element_utils'
                 }
             });
         }
-        let  accep_btn = document.getElementById(COOKIE_CONTENT_BTN_SELECTOR);
-        accep_btn.addEventListener('click', event =>{
-            modal.style.display = 'none';
-            console.log("Cookie usage consented by the user");
-        });
     }
 
     $(document).ready(function(){

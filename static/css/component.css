@@ -1624,7 +1624,7 @@ input.editable{
 
 
 /* Modal Settings */
-.modal{
+.modal, .cookie-consent-modal{
 	display: none;
 	position: fixed;
 	z-index: 1800;
@@ -1637,6 +1637,20 @@ input.editable{
 	overflow: auto;
 	background-color: rgb(0, 0, 0);
 	background-color: rgba(0, 0, 0, 0.4);
+}
+.cookie-consent-modal .content-wrapper{
+	background-color: #fafafa;
+	box-shadow: var(--box-shadow);
+	padding: 1em;
+	border-radius: 1rem;
+	position: absolute;
+
+}
+
+.cookie-consent-modal .cookie-content{
+	position: relative;
+	width: 100%;
+
 }
 
 .modal-container{
