@@ -559,6 +559,7 @@ define(['require','filters','ajax_api', 'element_utils'
         if(modal == null){
             return;
         }
+        console.log("Cookie consent loaded");
         modal.style.display = 'container';
         if(window){
             $(window).click(function(eventModal){
