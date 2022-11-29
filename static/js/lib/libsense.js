@@ -64,5 +64,6 @@ function load_cookie_consent(){
     }
     console.log("Cookie consent loaded");
 }
+    console.log("libsense module ready");
 
 });
