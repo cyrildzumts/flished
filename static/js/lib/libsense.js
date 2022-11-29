@@ -7,6 +7,7 @@ const CONSENT_GRANTED = "granted";
 const CONSENT_DENIED = "denied";
 const LOCAL_STORAGE = "localStorage";
 const SESSION_STORAGE = "sessionStorage";
+const CONSENT_STORAGE_DURATION = 365; // Days
 const COOKIE_CONSENT_MODAL_SELECTOR = 'cookie-consent-modal';
 const COOKIE_CONTENT_BTN_SELECTOR = 'cookie-content-btn';
 const AD_CLIENT = "ca-pub-7624615584108748";
@@ -59,6 +60,17 @@ function storageAvailable(type) {
     }
 }
 
+function resetStorage(){
+    if(!storageAvailable(LOCAL_STORAGE)){
+        console.log("%s is not available", LOCAL_STORAGE);
+        return ;
+    }
+    CONSENT_ITEMS.forEach(entry =>{
+        localStorage.removeItem(entry);
+        Cookies.remove(entry);
+    });
+    Cookies.remove(COOKIE_NAME);
+}
 
 function onUserGranted(){
     if(!storageAvailable(LOCAL_STORAGE)){
@@ -67,9 +79,9 @@ function onUserGranted(){
     }
     CONSENT_ITEMS.forEach(entry =>{
         localStorage.setItem(entry, CONSENT_GRANTED);
-        Cookies.set(entry, CONSENT_GRANTED,{sameSite:"Lax"} );
+        Cookies.set(entry, CONSENT_GRANTED, {sameSite:"Lax", expires: CONSENT_STORAGE_DURATION});
     });
-    Cookies.set(COOKIE_NAME, CONSENT_GRANTED, {sameSite:"Lax"});
+    Cookies.set(COOKIE_NAME, CONSENT_GRANTED, {sameSite:"Lax", expires: CONSENT_STORAGE_DURATION});
 }
 
 function load_cookie_consent(callback){
