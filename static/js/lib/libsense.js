@@ -30,7 +30,9 @@ function load_sense_tools(user_accepted){
         j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
         f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-P59WJQQ');
-    (adsbygoogle = window.adsbygoogle || []).push({});
+    if(adsbygoogle){
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    }
     console.log("Sense tool loaded");
 }
 
