@@ -1,6 +1,12 @@
 
 
 const COOKIE_NAME = "consent-ads";
+const CONSENT_STORAGE = "consent_marketing";
+const CONSENT_ITEMS = ["consent_marketing","ad_storage", "analytics_storage", "functionality_storage", "personalization_storage", "security_storage"];
+const CONSENT_GRANTED = "granted";
+const CONSENT_DENIED = "denied";
+const LOCAL_STORAGE = "localStorage";
+const SESSION_STORAGE = "sessionStorage";
 const COOKIE_CONSENT_MODAL_SELECTOR = 'cookie-consent-modal';
 const COOKIE_CONTENT_BTN_SELECTOR = 'cookie-content-btn';
 const AD_CLIENT = "ca-pub-7624615584108748";
@@ -15,10 +21,7 @@ const data = [
     }
 ];
 
-function load_sense_tools(user_accepted){
-    if(!user_accepted){
-        return;
-    }
+function load_gtm(){
     (function(w,d,s,l,i){
         w[l]=w[l]||[];
         w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
@@ -31,13 +34,54 @@ function load_sense_tools(user_accepted){
     
 }
 
-function load_cookie_consent(callback){
-    let cookie = Cookies.get(COOKIE_NAME);
-    if(cookie && cookie == "accepted"){
-        load_sense_tools(true);
-        callback();
+function storageAvailable(type) {
+    let storage;
+    try {
+        storage = window[type];
+        const x = '__storage_test__';
+        storage.setItem(x, x);
+        storage.removeItem(x);
         return true;
     }
+    catch (e) {
+        return e instanceof DOMException && (
+            // everything except Firefox
+            e.code === 22 ||
+            // Firefox
+            e.code === 1014 ||
+            // test name field too, because code might not be present
+            // everything except Firefox
+            e.name === 'QuotaExceededError' ||
+            // Firefox
+            e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+            // acknowledge QuotaExceededError only if there's something already stored
+            (storage && storage.length !== 0);
+    }
+}
+
+
+function onUserGranted(){
+    if(!storageAvailable(LOCAL_STORAGE)){
+        console.log("%s is not available", LOCAL_STORAGE);
+        return ;
+    }
+    CONSENT_ITEMS.forEach(entry =>{
+        localStorage.setItem(entry, CONSENT_GRANTED);
+        Cookies.set(entry, CONSENT_GRANTED,{sameSite:"Lax"} );
+    });
+    Cookies.set(COOKIE_NAME, CONSENT_GRANTED, {sameSite:"Lax"});
+}
+
+function load_cookie_consent(callback){
+    if(!storageAvailable(LOCAL_STORAGE)){
+        console.log("%s is not available", LOCAL_STORAGE);
+        return ;
+    }
+    let consent_storage = localStorage.getItem(CONSENT_STORAGE);
+    if(consent_storage != null && consent_storage == CONSENT_GRANTED){
+        return true;
+    }
+
     let modal = document.getElementById(COOKIE_CONSENT_MODAL_SELECTOR);
     if(modal == null){
         return false;
@@ -46,9 +90,9 @@ function load_cookie_consent(callback){
     let  accep_btn = document.getElementById(COOKIE_CONTENT_BTN_SELECTOR);
     accep_btn.addEventListener('click', event =>{
         modal.style.display = 'none';
-        Cookies.set(COOKIE_NAME, "accepted", {secure: false, sameSite:"Lax"});
-        load_sense_tools(true);
-        callback();
+        if(callback){
+            callback();
+        }
     });
     if(window){
         $(window).click(function(eventModal){
@@ -59,14 +103,10 @@ function load_cookie_consent(callback){
         modal.style.display = 'flex';
     }
 }
-    window.addEventListener('load', event=>{
-        load_cookie_consent(() =>{
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        });
-    });
-    /*
-    window.addEventListener('load',(event) =>{
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        console.log("loaded adsense");
-    });
-    */
+window.addEventListener('load',(event) =>{
+    load_gtm();
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    load_cookie_consent(onUserGranted);
+    console.log("loaded adsense");
+});
+    
