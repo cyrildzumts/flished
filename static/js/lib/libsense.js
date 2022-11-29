@@ -1,7 +1,5 @@
 
-define(['require','vendor/js.cookie'
-], function(require,Cookies) {
-'use strict';
+
 const COOKIE_NAME = "consent-ads";
 const COOKIE_CONSENT_MODAL_SELECTOR = 'cookie-consent-modal';
 const COOKIE_CONTENT_BTN_SELECTOR = 'cookie-content-btn';
@@ -70,4 +68,3 @@ function load_cookie_consent(){
         load_cookie_consent();
         console.log("libsense module ready");
     })
-});

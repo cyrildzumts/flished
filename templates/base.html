@@ -155,6 +155,7 @@
 {% endblock FOOTER %}
 
 <script defer  src="{% static 'js/vendor/jquery-3.6.0.min.js' %}"></script>
+<script defer  src="{% static 'js/vendor/js.cookie.js' %}"></script>
 {% block BASE_SCRIPT %}
 <script defer data-main="{% static 'js/main.min' %}" src="{% static 'js/require.js' %}">
         
@@ -166,9 +167,9 @@
 {% block GOOGLE_ANALYTICS %}
 {% if ALLOW_GOOGLE_ANALYTICS %}
 {% comment %}<script  preload  src="{% static 'js/lib/libgtm.js' %}"></script>{% endcomment %}
-{% comment %}<script  preload  src="{% static 'js/lib/libsense.js' %}"></script>{% endcomment %}
 {% endif %}
 {% endblock GOOGLE_ANALYTICS %}
+<script  preload  src="{% static 'js/lib/libsense.js' %}"></script>
 </body>
 
 </html>
