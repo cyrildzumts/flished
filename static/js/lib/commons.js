@@ -554,6 +554,7 @@ define(['require','filters','ajax_api', 'element_utils'
         return setInterval(fetch_comments, COMMENT_FETCH_INTERVAL);
     }
 
+    /*
     function load_cookie_consent(){
         let modal = document.getElementById(COOKIE_CONSENT_MODAL_SELECTOR);
         if(modal == null){
@@ -575,6 +576,7 @@ define(['require','filters','ajax_api', 'element_utils'
         }
         console.log("Cookie consent loaded");
     }
+    */
 
     $(document).ready(function(){
         if(window){
