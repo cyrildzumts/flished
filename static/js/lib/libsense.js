@@ -28,9 +28,7 @@ function load_sense_tools(user_accepted){
         j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
         f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-P59WJQQ');
-    if(adsbygoogle){
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    }
+    
     console.log("Sense tool loaded");
 }
 
@@ -67,4 +65,8 @@ function load_cookie_consent(){
     window.addEventListener('load', event=>{
         load_cookie_consent();
         console.log("libsense module ready");
-    })
+    });
+    window.addEventListener('load',(event) =>{
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        console.log("loaded adsense");
+    });
