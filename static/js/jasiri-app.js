@@ -8,6 +8,6 @@ requirejs.config({
     waitSeconds: 0
 });
 
-requirejs(['ajax_api', 'commons'], function(ajax_api){
+requirejs(['ajax_api', 'commons', 'libsense'], function(ajax_api){
     console.log("flished app ready");
 });

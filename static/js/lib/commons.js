@@ -583,7 +583,7 @@ define(['require','filters','ajax_api', 'element_utils'
             window.notify = notify;
         }
         let modal = new Modal();
-        load_cookie_consent();
+        //load_cookie_consent();
         commentManager = new CommentManager();
         commentManager.init();
         notification_wrapper = $('#notifications-wrapper');
