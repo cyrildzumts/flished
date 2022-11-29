@@ -559,8 +559,6 @@ define(['require','filters','ajax_api', 'element_utils'
         if(modal == null){
             return;
         }
-        console.log("Cookie consent loaded");
-        modal.style.display = 'container';
         
         let  accep_btn = document.getElementById(COOKIE_CONTENT_BTN_SELECTOR);
         accep_btn.addEventListener('click', event =>{
@@ -573,7 +571,9 @@ define(['require','filters','ajax_api', 'element_utils'
                     modal.style.display = "none";
                 }
             });
+            modal.style.display = 'flex';
         }
+        console.log("Cookie consent loaded");
     }
 
     $(document).ready(function(){
