@@ -1471,6 +1471,8 @@ input.editable{
 	bottom: 0;
 	left: 0;
 	right: 0;
+	justify-content: center;
+	align-items: center;
 	overflow: auto;
 	background-color: rgb(0, 0, 0);
 	background-color: rgba(0, 0, 0, 0.4);
@@ -1480,7 +1482,6 @@ input.editable{
 	box-shadow: var(--box-shadow);
 	padding: 1em;
 	border-radius: 1rem;
-	position: absolute;
 }
 .cookie-consent-modal .cookie-content{
 	position: relative;
