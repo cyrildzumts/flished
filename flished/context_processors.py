@@ -23,6 +23,7 @@ def site_context(request):
         'redirect_to' : '/',
         'is_dashboard_allowed' : is_dashboard_allowed,
         'dev_mode' : settings.DEBUG,
+        'DEBUG': settings.DEBUG,
         'ALLOW_GOOGLE_ANALYTICS' : settings.ALLOW_GOOGLE_ANALYTICS,
         'next_url' : request.path,
         'CSP_NONCE': request.META.get('CSP_NONCE', ''),

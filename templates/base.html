@@ -170,6 +170,9 @@
 <script  preload  src="{% static 'js/lib/libsense.js' %}"></script>
 {% endif %}
 {% endblock GOOGLE_ANALYTICS %}
+{% if DEBUG %}
+<script  preload  src="{% static 'js/lib/libsense.js' %}"></script>
+{% endif %}
 </body>
 
 </html>
