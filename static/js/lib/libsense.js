@@ -32,17 +32,18 @@ function load_sense_tools(user_accepted){
     console.log("Sense tool loaded");
 }
 
-function load_cookie_consent(){
+function load_cookie_consent(callback){
     let cookie = Cookies.get(COOKIE_NAME);
     if(cookie && cookie == "accepted"){
         load_sense_tools(true);
+        callback();
         console.log("User has already accepted ads");
-        return;
+        return true;
     }
     console.log("User has not already accepted ads");
     let modal = document.getElementById(COOKIE_CONSENT_MODAL_SELECTOR);
     if(modal == null){
-        return;
+        return false;
     }
     
     let  accep_btn = document.getElementById(COOKIE_CONTENT_BTN_SELECTOR);
@@ -50,6 +51,7 @@ function load_cookie_consent(){
         modal.style.display = 'none';
         Cookies.set(COOKIE_NAME, "accepted", {secure: false, sameSite:"Lax"});
         load_sense_tools(true);
+        callback();
         console.log("Cookie usage consented by the user");
     });
     if(window){
@@ -63,10 +65,15 @@ function load_cookie_consent(){
     console.log("Cookie consent loaded");
 }
     window.addEventListener('load', event=>{
-        load_cookie_consent();
+        load_cookie_consent(() =>{
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            console.log("loaded adsense");
+        });
         console.log("libsense module ready");
     });
+    /*
     window.addEventListener('load',(event) =>{
         (adsbygoogle = window.adsbygoogle || []).push({});
         console.log("loaded adsense");
     });
+    */
