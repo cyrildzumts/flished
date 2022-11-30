@@ -118,7 +118,6 @@ function load_cookie_consent(callback){
 
 window.addEventListener('load',(event) =>{
     load_gtm();
-    const updateConsentState = require('updateConsentState');
     (adsbygoogle = window.adsbygoogle || []).push({});
     load_cookie_consent(onUserGranted);
     console.log("loaded adsense");
