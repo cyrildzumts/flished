@@ -84,7 +84,7 @@ function reset_storage(){
 function set_default_consent(){
     let tagObject = {};
     CONSENT_ITEMS.forEach(entry =>{
-        tagObject[entry] = CONSENT_GRANTED;
+        tagObject[entry] = CONSENT_DENIED;
     });
     gtag('consent', 'default', tagObject);
 }
