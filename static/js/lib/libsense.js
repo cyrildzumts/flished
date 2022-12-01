@@ -90,9 +90,7 @@ function reset_storage(){
 }
 
 function set_default_consent(){
-    let tagObject = {
-        'consent': 'default',
-    };
+    let tagObject = {};
     CONSENT_ITEMS.forEach(entry =>{
         tagObject[entry] = CONSENT_DENIED;
     });
@@ -147,9 +145,9 @@ function onUserGranted(){
         'advertisingConsent': 'granted',
     };
     gtag('consent', 'update', tagObject);
-    gtag_event({'event':'gtm.init_consent', tagObject});
+    gtag_event({'event':'gtm.init_consent'});
     gtag_event(dataLayerVariables);
-    gtag_event({'event':'analyticsUpdate' , tagObject});
+    gtag_event({'event':'analyticsUpdate'});
     gtag_event({'event':'advertisingUpdate' });
     gtag_event({'event':'performanceUpdate' });
     gtag_event({'event':'essentialUpdate' });
