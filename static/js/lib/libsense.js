@@ -106,6 +106,9 @@ function onUserGranted(){
     });
     Cookies.set(COOKIE_NAME, CONSENT_GRANTED, {sameSite:"Lax", expires: CONSENT_STORAGE_DURATION});
     gtag('consent', 'update', tagObject);
+    gtag('event', 'essentialUpdate',{essentialConsent:"granted"});
+    gtag('event', 'performanceUpdate',{performanceConsent:"granted"});
+    gtag('event', 'analyticsUpdate',{analyticsConsent:"granted"});
 }
 
 function onUserDenied(){
@@ -121,6 +124,9 @@ function onUserDenied(){
     });
     Cookies.set(COOKIE_NAME, CONSENT_DENIED, {sameSite:"Lax", expires: CONSENT_DENIED_STORAGE_DURATION});
     gtag('consent', 'update', tagObject);
+    gtag('event', 'essentialUpdate',{essentialConsent:"denied"});
+    gtag('event', 'performanceUpdate',{performanceConsent:"denied"});
+    gtag('event', 'analyticsUpdate',{analyticsConsent:"denied"});
 }
 
 function load_cookie_consent(callback){
