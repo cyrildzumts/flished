@@ -132,10 +132,13 @@ function onUserGranted(){
     };
    
     gtag('consent', 'update', tagObject);
+    gtag('event', 'essentialUpdate');
+    gtag('essentialConsent',"granted");
+    gtag('event', 'performanceUpdate');
+    gtag('performanceConsent',"granted");
+    gtag('event', 'analyticsUpdate');
+    gtag('analyticsConsent',"granted");
     gtag(dataLayerVariables);
-    //gtag('event', 'essentialUpdate',{essentialConsent:"granted"});
-    //gtag('event', 'performanceUpdate',{performanceConsent:"granted"});
-    //gtag('event', 'analyticsUpdate',{analyticsConsent:"granted"});
 }
 
 function onUserDenied(){
