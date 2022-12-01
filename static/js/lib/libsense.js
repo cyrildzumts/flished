@@ -149,6 +149,7 @@ function onUserGranted(){
     gtag_event({'event':'advertisingUpdate' });
     gtag_event({'event':'performanceUpdate' });
     gtag_event({'event':'essentialUpdate' });
+    gtag_event({'event': 'flished_consent_given'});
 }
 
 function onUserDenied(){
