@@ -92,7 +92,6 @@ function reset_storage(){
 function set_default_consent(){
     let tagObject = {
         'consent': 'default',
-        'event': 'gtm.init_consent'
     };
     CONSENT_ITEMS.forEach(entry =>{
         tagObject[entry] = CONSENT_DENIED;
