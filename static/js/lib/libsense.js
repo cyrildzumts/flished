@@ -126,6 +126,9 @@ function load_cookie_consent(callback){
     }
     let consent = Cookies.get(COOKIE_NAME);
     if(consent != undefined){
+        if(consent == CONSENT_GRANTED){
+            onUserGranted();
+        }
         return true;
     }
     reset_storage();
