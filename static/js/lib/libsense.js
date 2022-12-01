@@ -142,10 +142,10 @@ function onUserGranted(){
         'analyticsConsent':"granted",
         'advertisingConsent': 'granted',
     };
-    gtag_event({consent: 'update', tagObject});
-    gtag('event','gtm.init_consent');
+    gtag('consent', 'update', tagObject);
+    gtag_event({'event':'gtm.init_consent', tagObject});
     gtag_event(dataLayerVariables);
-    gtag_event({'event':'analyticsUpdate' });
+    gtag_event({'event':'analyticsUpdate' , tagObject});
     gtag_event({'event':'advertisingUpdate' });
     gtag_event({'event':'performanceUpdate' });
     gtag_event({'event':'essentialUpdate' });
