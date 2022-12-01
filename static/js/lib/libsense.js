@@ -10,8 +10,10 @@ const SESSION_STORAGE = "sessionStorage";
 const GTM_ID = "GTM-P59WJQQ";
 const TAG_ID = "G-NQPSEMG1ZR";
 const CONSENT_STORAGE_DURATION = 365; // Days
+const CONSENT_DENIED_STORAGE_DURATION = 7; // Days
 const COOKIE_CONSENT_MODAL_SELECTOR = 'cookie-consent-modal';
-const COOKIE_CONTENT_BTN_SELECTOR = 'cookie-content-btn';
+const COOKIE_GRANTED_BTN_SELECTOR = 'cookie-granted-btn';
+const COOKIE_DENIED_BTN_SELECTOR = 'cookie-denied-btn';
 const AD_CLIENT = "ca-pub-7624615584108748";
 const AD_SLOT = "6056470096";
 const AD_FORMAT = "auto";
@@ -67,7 +69,7 @@ function storageAvailable(type) {
     }
 }
 
-function resetStorage(){
+function reset_storage(){
     if(!storageAvailable(LOCAL_STORAGE)){
         console.log("%s is not available", LOCAL_STORAGE);
         return ;
@@ -77,6 +79,14 @@ function resetStorage(){
         Cookies.remove(entry);
     });
     Cookies.remove(COOKIE_NAME);
+}
+
+function set_default_consent(){
+    let tagObject = {};
+    CONSENT_ITEMS.forEach(entry =>{
+        tagObject[entry] = CONSENT_GRANTED;
+    });
+    gtag('consent', 'default', tagObject);
 }
 
 function onUserGranted(){
@@ -94,12 +104,31 @@ function onUserGranted(){
     gtag('consent', 'update', tagObject);
 }
 
+function onUserDenied(){
+    if(!storageAvailable(LOCAL_STORAGE)){
+        console.log("%s is not available", LOCAL_STORAGE);
+        return ;
+    }
+    let tagObject = {};
+    CONSENT_ITEMS.forEach(entry =>{
+        localStorage.setItem(entry, CONSENT_DENIED);
+        Cookies.set(entry, CONSENT_DENIED, {sameSite:"Lax", expires: CONSENT_DENIED_STORAGE_DURATION});
+        tagObject[entry] = CONSENT_DENIED;
+    });
+    Cookies.set(COOKIE_NAME, CONSENT_DENIED, {sameSite:"Lax", expires: CONSENT_DENIED_STORAGE_DURATION});
+    gtag('consent', 'update', tagObject);
+}
+
 function load_cookie_consent(callback){
     if(!storageAvailable(LOCAL_STORAGE)){
         console.log("%s is not available", LOCAL_STORAGE);
         return ;
     }
-    let consent_storage = localStorage.getItem(CONSENT_STORAGE);
+    let consent = Cookies.get(COOKIE_NAME);
+    if(consent != undefined){
+        return true;
+    }
+    reset_storage();
     if(consent_storage != null && consent_storage == CONSENT_GRANTED){
         return true;
     }
@@ -109,13 +138,20 @@ function load_cookie_consent(callback){
         return false;
     }
     
-    let  accep_btn = document.getElementById(COOKIE_CONTENT_BTN_SELECTOR);
+    let  accep_btn = document.getElementById(COOKIE_GRANTED_BTN_SELECTOR);
+    let  denied_btn = document.getElementById(COOKIE_DENIED_BTN_SELECTOR);
     accep_btn.addEventListener('click', event =>{
         modal.style.display = 'none';
         if(callback){
             callback();
         }
     });
+    if(denied_btn){
+        denied_btn.addEventListener('click', event =>{
+            modal.style.display = 'none';
+            onUserDenied();
+        });
+    }
     if(window){
         $(window).click(function(eventModal){
             if(eventModal.target == modal){
@@ -129,6 +165,7 @@ function load_cookie_consent(callback){
 window.addEventListener('load',(event) =>{
     DATALAYER = window.dataLayer = window.dataLayer || [];
     load_gtm();
+    set_default_consent();
     (adsbygoogle = window.adsbygoogle || []).push({});
     load_cookie_consent(onUserGranted);
     console.log("loaded adsense");
