@@ -129,9 +129,6 @@ function load_cookie_consent(callback){
         return true;
     }
     reset_storage();
-    if(consent_storage != null && consent_storage == CONSENT_GRANTED){
-        return true;
-    }
 
     let modal = document.getElementById(COOKIE_CONSENT_MODAL_SELECTOR);
     if(modal == null){
