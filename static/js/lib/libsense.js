@@ -137,8 +137,8 @@ function onUserGranted(){
     gtag('event','gtm.init_consent', tagObject);
     gtag('event', 'analyticsUpdate', dataLayerVariables);
     gtag('analyticsConsent',"granted");
+    gtag({'event':'analyticsUpdate', 'analyticsConsent': 'granted' })
 
-    gtag(dataLayerVariables);
 }
 
 function onUserDenied(){
