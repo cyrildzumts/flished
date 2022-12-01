@@ -32,6 +32,10 @@ function gtag(){
     DATALAYER.push(arguments);
 }
 
+function gtag_event(obj){
+    DATALAYER.push(obj);
+}
+
 function load_gtm(){
     (function(w,d,s,l,i){
         DATALAYER = w[l]=w[l]||[];
@@ -86,12 +90,15 @@ function reset_storage(){
 }
 
 function set_default_consent(){
-    let tagObject = {};
+    let tagObject = {
+        'consent': 'default',
+        'event': 'gtm.init_consent'
+    };
     CONSENT_ITEMS.forEach(entry =>{
         tagObject[entry] = CONSENT_DENIED;
     });
-    gtag('consent', 'default', tagObject);
-    gtag('gtm.init_consent', tagObject);
+    gtag_event(tagObject);
+    //gtag('gtm.init_consent', tagObject);
     //gtag('gtm.js', tagObject);
 }
 
@@ -119,7 +126,10 @@ function onUserGranted(){
         console.log("%s is not available", LOCAL_STORAGE);
         return ;
     }
-    let tagObject = {};
+    let tagObject = {
+        'consent': 'update',
+        'event': 'gtm.init_consent'
+    };
     
     CONSENT_ITEMS.forEach(entry =>{
         localStorage.setItem(entry, CONSENT_GRANTED);
@@ -130,14 +140,20 @@ function onUserGranted(){
     let dataLayerVariables = {
         'essentialConsent':"granted",
         'performanceConsent' :"granted",
-        'analyticsConsent':"granted"
+        'analyticsConsent':"granted",
+        'advertisingConsent': 'granted'
     };
-   
-    gtag('consent', 'update',tagObject);
-    gtag('event','gtm.init_consent', tagObject);
+    tagObject['essentialConsent'] = 'granted';
+    tagObject['performanceConsent'] = 'granted';
+    tagObject['analyticsConsent'] = 'granted';
+    tagObject['advertisingConsent'] = 'granted';
+    gtag_event(tagObject);
+    //gtag('event','gtm.init_consent', tagObject);
+    //gtag('event','gtm.init_consent', tagObject);
     //gtag('event', 'analyticsUpdate', dataLayerVariables);
-    gtag('analyticsConsent',"granted");
-    gtag({'event':'analyticsUpdate', 'analyticsConsent': 'granted' })
+
+    gtag_event(dataLayerVariables);
+    gtag_event({'event':'analyticsUpdate' });
 
 }
 
