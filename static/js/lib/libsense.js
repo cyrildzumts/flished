@@ -96,9 +96,14 @@ function set_default_consent(){
     CONSENT_ITEMS.forEach(entry =>{
         tagObject[entry] = CONSENT_DENIED;
     });
-    gtag_event(tagObject);
-    //gtag('gtm.init_consent', tagObject);
-    //gtag('gtm.js', tagObject);
+    let dataLayerVariables = {
+        'essentialConsent':"denied",
+        'performanceConsent' :"denied",
+        'analyticsConsent':"denied",
+        'advertisingConsent': 'denied',
+    };
+    gtag('consent', 'default', tagObject);
+    gtag_event(dataLayerVariables);
 }
 
 function watcher_default(){
