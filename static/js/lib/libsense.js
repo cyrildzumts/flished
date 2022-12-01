@@ -131,13 +131,11 @@ function onUserGranted(){
         'analyticsConsent':"granted"
     };
    
-    gtag('consent', 'update', tagObject);
-    gtag('event', 'essentialUpdate');
-    gtag('essentialConsent',"granted");
-    gtag('event', 'performanceUpdate');
-    gtag('performanceConsent',"granted");
-    gtag('event', 'analyticsUpdate');
-    gtag('analyticsConsent',"granted");
+    tagObject['consent'] = 'update';
+    gtag(tagObject);
+    gtag({'event': 'essentialUpdate', 'essentialConsent':"granted"});
+    gtag({'event': 'performanceUpdate', 'performanceConsent':"granted"});
+    gtag({'event': 'analyticsUpdate', 'analyticsConsent':"granted"});
     gtag(dataLayerVariables);
 }
 
@@ -153,10 +151,11 @@ function onUserDenied(){
         tagObject[entry] = CONSENT_DENIED;
     });
     Cookies.set(COOKIE_NAME, CONSENT_DENIED, {sameSite:"Lax", expires: CONSENT_DENIED_STORAGE_DURATION});
-    gtag('consent', 'update', tagObject);
-    gtag('event', 'essentialUpdate',{essentialConsent:"denied"});
-    gtag('event', 'performanceUpdate',{performanceConsent:"denied"});
-    gtag('event', 'analyticsUpdate',{analyticsConsent:"denied"});
+    tagObject['consent'] = 'update';
+    gtag(tagObject);
+    gtag({'event': 'essentialUpdate', 'essentialConsent':"denied"});
+    gtag({'event': 'performanceUpdate', 'performanceConsent':"denied"});
+    gtag({'event': 'analyticsUpdate', 'analyticsConsent':"denied"});
 }
 
 function load_cookie_consent(callback){
