@@ -7,12 +7,15 @@ const CONSENT_GRANTED = "granted";
 const CONSENT_DENIED = "denied";
 const LOCAL_STORAGE = "localStorage";
 const SESSION_STORAGE = "sessionStorage";
+const GTM_ID = "GTM-P59WJQQ";
+const TAG_ID = "G-NQPSEMG1ZR";
 const CONSENT_STORAGE_DURATION = 365; // Days
 const COOKIE_CONSENT_MODAL_SELECTOR = 'cookie-consent-modal';
 const COOKIE_CONTENT_BTN_SELECTOR = 'cookie-content-btn';
 const AD_CLIENT = "ca-pub-7624615584108748";
 const AD_SLOT = "6056470096";
 const AD_FORMAT = "auto";
+let DATALAYER = undefined;
 const data = [
     {
         'ad-format': 'auto','ad-client': "ca-pub-7624615584108748","ad-slot": "6056470096"
@@ -24,7 +27,7 @@ const data = [
 
 function load_gtm(){
     (function(w,d,s,l,i){
-        w[l]=w[l]||[];
+        DATALAYER = w[l]=w[l]||[];
         w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
         var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
@@ -33,6 +36,10 @@ function load_gtm(){
         f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-P59WJQQ');
     
+}
+
+function gtag(){
+    DATALAYER.push(arguments);
 }
 
 function storageAvailable(type) {
@@ -77,11 +84,14 @@ function onUserGranted(){
         console.log("%s is not available", LOCAL_STORAGE);
         return ;
     }
+    let tagObject = {};
     CONSENT_ITEMS.forEach(entry =>{
         localStorage.setItem(entry, CONSENT_GRANTED);
         Cookies.set(entry, CONSENT_GRANTED, {sameSite:"Lax", expires: CONSENT_STORAGE_DURATION});
+        tagObject[entry] = CONSENT_GRANTED;
     });
     Cookies.set(COOKIE_NAME, CONSENT_GRANTED, {sameSite:"Lax", expires: CONSENT_STORAGE_DURATION});
+    gtag('event', 'essentialUpdate', tagObject);
 }
 
 function load_cookie_consent(callback){
@@ -117,6 +127,7 @@ function load_cookie_consent(callback){
 }
 
 window.addEventListener('load',(event) =>{
+    DATALAYER = window.dataLayer = window.dataLayer || [];
     load_gtm();
     (adsbygoogle = window.adsbygoogle || []).push({});
     load_cookie_consent(onUserGranted);
