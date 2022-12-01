@@ -1,6 +1,7 @@
 from flished import settings
 from django.contrib.auth.models import User
 from blog import blog_service
+from core import constants as CORE_CONSTANTS
 from core.resources import ui_strings as UI_STRINGS
 import logging
 
@@ -27,5 +28,6 @@ def site_context(request):
         'ALLOW_GOOGLE_ANALYTICS' : settings.ALLOW_GOOGLE_ANALYTICS,
         'next_url' : request.path,
         'CSP_NONCE': request.META.get('CSP_NONCE', ''),
+        'ads_settings' : CORE_CONSTANTS.ADS_SETTINGS_LIST
     }
     return context
