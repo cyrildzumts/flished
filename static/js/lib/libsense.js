@@ -135,7 +135,7 @@ function onUserGranted(){
     gtag(tagObject);
     gtag({'event': 'essentialUpdate', 'essentialConsent':"granted"});
     gtag({'event': 'performanceUpdate', 'performanceConsent':"granted"});
-    gtag({'event': 'analyticsUpdate', 'analyticsConsent':"granted"});
+    gtag('event', 'analyticsUpdate');
     gtag('analyticsConsent',"granted");
 
     gtag(dataLayerVariables);
