@@ -27,9 +27,15 @@ const data = [
     }
 ];
 
+
+function gtag(){
+    DATALAYER.push(arguments);
+}
+
 function load_gtm(){
     (function(w,d,s,l,i){
         DATALAYER = w[l]=w[l]||[];
+        set_default_consent();
         w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
         var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
@@ -40,9 +46,7 @@ function load_gtm(){
     
 }
 
-function gtag(){
-    DATALAYER.push(arguments);
-}
+
 
 function storageAvailable(type) {
     let storage;
@@ -165,7 +169,6 @@ function load_cookie_consent(callback){
 window.addEventListener('load',(event) =>{
     DATALAYER = window.dataLayer = window.dataLayer || [];
     load_gtm();
-    set_default_consent();
     (adsbygoogle = window.adsbygoogle || []).push({});
     load_cookie_consent(onUserGranted);
     console.log("loaded adsense");
