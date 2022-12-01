@@ -91,6 +91,8 @@ function set_default_consent(){
         tagObject[entry] = CONSENT_DENIED;
     });
     gtag('consent', 'default', tagObject);
+    gtag('gtm.init_consent', tagObject);
+    //gtag('gtm.js', tagObject);
 }
 
 function watcher_default(){
@@ -132,6 +134,7 @@ function onUserGranted(){
     };
    
     gtag('consent', 'update',tagObject);
+    gtag('gtm.js', tagObject);
     gtag({'event': 'essentialUpdate', 'essentialConsent':"granted"});
     gtag({'event': 'performanceUpdate', 'performanceConsent':"granted"});
     gtag('event', 'analyticsUpdate');
