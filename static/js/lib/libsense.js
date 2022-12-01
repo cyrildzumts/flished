@@ -134,8 +134,8 @@ function onUserGranted(){
     };
    
     gtag('consent', 'update',tagObject);
-    gtag('gtm.init_consent', tagObject);
-    gtag('event', 'analyticsUpdate');
+    gtag('event','gtm.init_consent', tagObject);
+    gtag('event', 'analyticsUpdate', dataLayerVariables);
     gtag('analyticsConsent',"granted");
 
     gtag(dataLayerVariables);
