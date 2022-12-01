@@ -127,8 +127,7 @@ function onUserGranted(){
         return ;
     }
     let tagObject = {
-        'consent': 'update',
-        'event': 'gtm.init_consent'
+
     };
     
     CONSENT_ITEMS.forEach(entry =>{
@@ -141,20 +140,15 @@ function onUserGranted(){
         'essentialConsent':"granted",
         'performanceConsent' :"granted",
         'analyticsConsent':"granted",
-        'advertisingConsent': 'granted'
+        'advertisingConsent': 'granted',
     };
-    tagObject['essentialConsent'] = 'granted';
-    tagObject['performanceConsent'] = 'granted';
-    tagObject['analyticsConsent'] = 'granted';
-    tagObject['advertisingConsent'] = 'granted';
-    gtag_event(tagObject);
-    //gtag('event','gtm.init_consent', tagObject);
-    //gtag('event','gtm.init_consent', tagObject);
-    //gtag('event', 'analyticsUpdate', dataLayerVariables);
-
+    gtag_event({consent: 'update', tagObject});
+    gtag('event','gtm.init_consent');
     gtag_event(dataLayerVariables);
     gtag_event({'event':'analyticsUpdate' });
-
+    gtag_event({'event':'advertisingUpdate' });
+    gtag_event({'event':'performanceUpdate' });
+    gtag_event({'event':'essentialUpdate' });
 }
 
 function onUserDenied(){
