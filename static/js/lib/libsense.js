@@ -166,6 +166,7 @@ function load_cookie_consent(callback){
         return ;
     }
     let consent = Cookies.get(COOKIE_NAME);
+    
     if(consent != undefined){
         if(consent == CONSENT_GRANTED){
             onUserGranted();
@@ -181,6 +182,7 @@ function load_cookie_consent(callback){
     
     let  accep_btn = document.getElementById(COOKIE_GRANTED_BTN_SELECTOR);
     let  denied_btn = document.getElementById(COOKIE_DENIED_BTN_SELECTOR);
+    let  reset_btn = document.getElementById(COOKIE_DENIED_BTN_SELECTOR);
     accep_btn.addEventListener('click', event =>{
         modal.style.display = 'none';
         if(callback){
@@ -191,6 +193,12 @@ function load_cookie_consent(callback){
         denied_btn.addEventListener('click', event =>{
             modal.style.display = 'none';
             onUserDenied();
+        });
+    }
+    if(reset_btn){
+        reset_btn.addEventListener('click', event =>{
+            modal.style.display = 'none';
+            reset_storage();
         });
     }
     if(window){
@@ -205,6 +213,7 @@ function load_cookie_consent(callback){
 
 window.addEventListener('load',(event) =>{
     DATALAYER = window.dataLayer = window.dataLayer || [];
+    reset_storage();
     load_gtm();
     (adsbygoogle = window.adsbygoogle || []).push({});
     load_cookie_consent(onUserGranted);
