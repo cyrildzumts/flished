@@ -91,7 +91,7 @@ function onUserGranted(){
         tagObject[entry] = CONSENT_GRANTED;
     });
     Cookies.set(COOKIE_NAME, CONSENT_GRANTED, {sameSite:"Lax", expires: CONSENT_STORAGE_DURATION});
-    gtag('event', 'essentialUpdate', tagObject);
+    gtag('consent', 'update', tagObject);
 }
 
 function load_cookie_consent(callback){
