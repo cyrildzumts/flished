@@ -226,7 +226,7 @@ function load_cookie_consent(callback){
 
 window.addEventListener('load',(event) =>{
     DATALAYER = window.dataLayer = window.dataLayer || [];
-    reset_storage();
+    //reset_storage();
     load_gtm();
     (adsbygoogle = window.adsbygoogle || []).push({});
     load_cookie_consent(onUserGranted);
