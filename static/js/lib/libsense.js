@@ -93,22 +93,49 @@ function set_default_consent(){
     gtag('consent', 'default', tagObject);
 }
 
+function watcher_default(){
+    window.addEventListener("load", function(ev){
+        console.log("Flished Tag manager loaded ...");
+      });
+      window.addEventListener('message', function (ev) {
+      if (ev.data.message==='consent_given') {
+        console.log(ev.data.consentStatuses);
+        ev.data.consentStatuses&&Object.keys(ev.data.consentStatuses).forEach(function (category) {
+            if (ev.data.consentStatuses[category]) {
+                dataLayer.push({
+                'event': 'userPrefUpdate',
+                'cookieConsent': category
+                });
+            }
+            });
+        }
+      });
+}
+
 function onUserGranted(){
     if(!storageAvailable(LOCAL_STORAGE)){
         console.log("%s is not available", LOCAL_STORAGE);
         return ;
     }
     let tagObject = {};
+    
     CONSENT_ITEMS.forEach(entry =>{
         localStorage.setItem(entry, CONSENT_GRANTED);
         Cookies.set(entry, CONSENT_GRANTED, {sameSite:"Lax", expires: CONSENT_STORAGE_DURATION});
         tagObject[entry] = CONSENT_GRANTED;
     });
     Cookies.set(COOKIE_NAME, CONSENT_GRANTED, {sameSite:"Lax", expires: CONSENT_STORAGE_DURATION});
+    let dataLayerVariables = {
+        'essentialConsent':"granted",
+        'performanceConsent' :"granted",
+        'analyticsConsent':"granted"
+    };
+   
     gtag('consent', 'update', tagObject);
-    gtag('event', 'essentialUpdate',{essentialConsent:"granted"});
-    gtag('event', 'performanceUpdate',{performanceConsent:"granted"});
-    gtag('event', 'analyticsUpdate',{analyticsConsent:"granted"});
+    gtag(dataLayerVariables);
+    //gtag('event', 'essentialUpdate',{essentialConsent:"granted"});
+    //gtag('event', 'performanceUpdate',{performanceConsent:"granted"});
+    //gtag('event', 'analyticsUpdate',{analyticsConsent:"granted"});
 }
 
 function onUserDenied(){
