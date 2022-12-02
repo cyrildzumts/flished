@@ -220,10 +220,10 @@ function load_cookie_consent(callback){
     if(preference_btn){
         let preference = document.getElementById(preference_btn.dataset.toggle);
         preference_btn.addEventListener('click', event =>{
-            if(preference.style.display == 'none'){
+            if(preference.style.display == ''){
                 preference.style.display = "block";
             }else{
-                preference.style.display = "none";
+                preference.style.display = "";
             }
         });
     }
