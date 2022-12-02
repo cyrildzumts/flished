@@ -22,7 +22,7 @@
                             {% for ads in ads_settings %}
                             <li class="mat-list-item">
                                 <div class="entry flex-wrap">
-                                    <div class="full padding-v"><span><span class="bold tag">{{ads.name}}</span> <span><input id="tag-{{ads.tag}}" class="js-essential" type="checkbox" name="{{ads.consent_type}}" data-target="{{ads.consent_type}}"><label for="tag-{{ads.tag}}">{{UI_STRINGS_CONTEXT.UI_COOKIE_ENABLE}}</label></span></span></div>
+                                    <div class="full padding-v"><span><span class="bold tag">{{ads.name}}</span> <span><input id="tag-{{ads.tag}}" class="js-essential" type="checkbox" name="{{ads.consent_type}}" data-target="{{ads.consent_type}}" {% if ads.required %}checked disabled{% endif %}><label for="tag-{{ads.tag}}">{{UI_STRINGS_CONTEXT.UI_COOKIE_ENABLE}}</label></span></span></div>
                                     <div class="full"><span>{{ads.description}}</span></div>
                                 </div>
                             </li>
