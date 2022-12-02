@@ -14,6 +14,7 @@ const CONSENT_DENIED_STORAGE_DURATION = 7; // Days
 const COOKIE_CONSENT_MODAL_SELECTOR = 'cookie-consent-modal';
 const COOKIE_GRANTED_BTN_SELECTOR = 'cookie-granted-btn';
 const COOKIE_DENIED_BTN_SELECTOR = 'cookie-denied-btn';
+const COOKIE_PREFERENCE_BTN_SELECTOR = 'cookie-preference-btn';
 const AD_CLIENT = "ca-pub-7624615584108748";
 const AD_SLOT = "6056470096";
 const AD_FORMAT = "auto";
@@ -196,6 +197,8 @@ function load_cookie_consent(callback){
     let  accep_btn = document.getElementById(COOKIE_GRANTED_BTN_SELECTOR);
     let  denied_btn = document.getElementById(COOKIE_DENIED_BTN_SELECTOR);
     let  reset_btn = document.getElementById(COOKIE_DENIED_BTN_SELECTOR);
+    let  preference_btn = document.getElementById(COOKIE_PREFERENCE_BTN_SELECTOR);
+    
     accep_btn.addEventListener('click', event =>{
         modal.style.display = 'none';
         if(callback){
@@ -212,6 +215,16 @@ function load_cookie_consent(callback){
         reset_btn.addEventListener('click', event =>{
             modal.style.display = 'none';
             reset_storage();
+        });
+    }
+    if(preference_btn){
+        let preference = document.getElementById(preference_btn.dataset.target);
+        preference_btn.addEventListener('click', event =>{
+            if(preference.style.display == 'none'){
+                preference.style.display = "block";
+            }else{
+                preference.style.display = "none";
+            }
         });
     }
     if(window){
