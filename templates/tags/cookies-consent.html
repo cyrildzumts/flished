@@ -14,15 +14,15 @@
                     <div class="title bold full"><span>{{UI_STRINGS_CONTEXT.UI_COOKIE_PREFERENCES}}</span></div>
                     <div class="full">
                         <ul class="mat-list">
-                            <li class="mat-list-item">
+                            {% comment %}<li class="mat-list-item">
                                 <div class="entry">
                                     <div><span><input id="tag-enable_all" class="js-essential-all" type="checkbox" name="enable_all"><label for="tag-enable_all">{{UI_STRINGS_CONTEXT.UI_COOKIE_ENABLE_ALL}}</label></span></div>
                                 </div>
-                            </li>
+                            </li>{% endcomment %}
                             {% for ads in ads_settings %}
                             <li class="mat-list-item">
                                 <div class="entry flex-wrap">
-                                    <div class="full padding-v"><span><span class="bold tag">{{ads.name}}</span> <span><input id="tag-{{ads.tag}}" class="js-essential" type="checkbox" name="{{ads.consent_type}}" data-target="{{ads.consent_type}}" {% if ads.required %}checked disabled{% endif %}><label for="tag-{{ads.tag}}">{{UI_STRINGS_CONTEXT.UI_COOKIE_ENABLE}}</label></span></span></div>
+                                    <div class="full padding-v"><span><span class="bold tag">{{ads.name}}</span> <span><input id="tag-{{ads.tag}}" class="js-essential" type="checkbox" name="{{ads.consent_type}}" data-target="{{ads.consent_type}}" {% if ads.required %}disabled{% endif %} checked value="granted"><label for="tag-{{ads.tag}}">{{UI_STRINGS_CONTEXT.UI_COOKIE_ENABLE}}</label></span></span></div>
                                     <div class="full"><span>{{ads.description}}</span></div>
                                 </div>
                             </li>
