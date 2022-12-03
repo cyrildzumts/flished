@@ -1628,9 +1628,10 @@ input.editable{
 	border: none;
 	outline: none;
 }
+/*
 .accordion-toggle:hover, .accordion-toggle.active{
 	background-color: #ccc;
-}
+}*/
 
 .accordion-toggle::after{
 	content: '\02795';
