@@ -1481,7 +1481,7 @@ input.editable{
 	content: '\02796';
 }
 .accordion{
-	
+	display: none;
 	padding: 0 1rem;
 	overflow: hidden;
 	width: 100%;

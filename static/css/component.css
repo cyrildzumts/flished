@@ -1643,7 +1643,7 @@ input.editable{
 }
 
 .accordion{
-	/*display: none;*/
+	display: none;
 	padding: 0 1rem;
 	overflow: hidden;
 	width: 100%;
