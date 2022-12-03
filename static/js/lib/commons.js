@@ -554,29 +554,96 @@ define(['require','filters','ajax_api', 'element_utils'
         return setInterval(fetch_comments, COMMENT_FETCH_INTERVAL);
     }
 
-    /*
-    function load_cookie_consent(){
-        let modal = document.getElementById(COOKIE_CONSENT_MODAL_SELECTOR);
-        if(modal == null){
+    function init_accordion(){
+        let toggle_list = document.querySelectorAll('.accordion-toggle');
+        if( toggle_list == 0){
+            return;
+        }
+        toggle_list.forEach((t,i)=>{
+            t.addEventListener('click', function(event){
+                event.stopPropagation();
+                event.preventDefault();
+                let activate = !this.classList.contains('active');
+                toggle_list.forEach((e,i)=>{
+                    e.classList.remove('active');
+                    if(e.dataset.target){
+                        document.getElementById(e.dataset.target).style.display = 'none';
+                    }else{
+                        e.parentElement.nextElementSibling.style.display = 'none';
+                    }
+                });
+                this.classList.toggle('active', activate);
+                if(this.dataset.target){
+                    //document.getElementById(this.dataset.target).classList.toggle('hidden', !activate);
+                    document.getElementById(this.dataset.target).style.display = activate ? 'block': '';
+                }else{
+                    //this.parentElement.nextElementSibling.classList.toggle('hidden', !activate);
+                    this.parentElement.nextElementSibling.style.display = activate ? 'block': '';
+                }
+            });
+        });
+    }
+    function init_dropdown(){
+        let toggle_list = document.querySelectorAll('.dropdown-toggle');
+        if( toggle_list.length == 0){
             return;
         }
         
-        let  accep_btn = document.getElementById(COOKIE_CONTENT_BTN_SELECTOR);
-        accep_btn.addEventListener('click', event =>{
-            modal.style.display = 'none';
-            console.log("Cookie usage consented by the user");
-        });
-        if(window){
-            $(window).click(function(eventModal){
-                if(eventModal.target == modal){
-                    modal.style.display = "none";
+        toggle_list.forEach((t,i)=>{
+            t.addEventListener('click', function(event){
+                event.stopPropagation();
+                event.preventDefault();
+                toggle_list.forEach((e,i)=>{
+                    if((e != t) && (e.dataset.target != t.dataset.target)){
+                        if(e.dataset.target){
+                            document.getElementById(e.dataset.target).classList.remove('show');
+                        }else{
+                            e.nextElementSibling.classList.remove('show');
+                        }
+                    }
+                });
+                if(this.dataset.target){
+                    document.getElementById(this.dataset.target).classList.toggle('show');
+                }else{
+                    this.nextElementSibling.classList.toggle('show');
                 }
             });
-            modal.style.display = 'flex';
-        }
-        console.log("Cookie consent loaded");
+        });
     }
-    */
+
+    function notification_listener(){
+        let url;
+        let user_notification_list = document.getElementById("user-notification-list");
+        let csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]');
+        let options = {
+            url : null,
+            type: 'POST',
+            data : {'csrfmiddlewaretoken': csrfmiddlewaretoken.value},
+            dataType : 'json',
+            async:false,
+            cache : false,
+            
+        };
+        
+        let read_btn_list = document.querySelectorAll('.js-notify-read');
+        read_btn_list.forEach((btn, i)=>{
+            btn.addEventListener('click', (event)=>{
+                event.stopPropagation();
+                event.preventDefault();
+                let notification_id = btn.dataset.notification;
+                options['url'] = `/api/notifications/${notification_id}/mark-read`;
+                ajax_api.ajax(options).then(function(response){
+                    if(response.success){
+                        let target = document.getElementById(btn.dataset.target);
+                        user_notification_list.removeChild(target);
+                    }
+
+                }, function(reason){
+                    console.error(reason);
+                });
+            });
+        });
+    }
 
     $(document).ready(function(){
         if(window){
@@ -586,6 +653,9 @@ define(['require','filters','ajax_api', 'element_utils'
         //load_cookie_consent();
         commentManager = new CommentManager();
         commentManager.init();
+        init_accordion();
+        init_dropdown();
+        //notification_listener();
         notification_wrapper = $('#notifications-wrapper');
         messages = $('#messages', notification_wrapper);
         //onDragInit();

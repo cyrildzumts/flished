@@ -1836,6 +1836,32 @@ input.editable{
 .template{
 	display: none;
 }
+.accordion-toggle{
+	color: #444;
+	cursor: pointer;
+	border: none;
+	outline: none;
+}
+.accordion-toggle:hover, .accordion-toggle.active{
+	background-color: #ccc;
+}
+.accordion-toggle::after{
+	content: '\02795';
+	font-size: 0.9em;
+	color: #777;
+	padding-left: 0.5em;
+}
+.accordion-toggle.active::after{
+	content: '\02796';
+}
+.accordion{
+	
+	padding: 0 1rem;
+	overflow: hidden;
+	width: 100%;
+	background-color: #fafafa;
+	transition: all 0.2s ease-out;
+}
 .modal, .cookie-consent-modal{
 	display: none;
 	position: fixed;
