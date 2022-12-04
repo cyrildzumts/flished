@@ -38,8 +38,8 @@ CELERY_FILE_HANDLER_CONF = {
 ADS_FUNCTIONALITY_STORAGE = _('We require this for the core functionality of the site.')
 ADS_AD_STORAGE = _('We use this cookies to show to our visitors ads that are adapted to theirs interests.')
 ADS_ANALYTICS_STORAGE = _('We require this cookies to better analyse the how our visitors  use our site. This will help us to improve the usage of our site.')
-ADS_PERSONALIZATION_STORAGE = _('We use this cookie to provide our visitors with the content related to theirs interests.')
-ADS_SECURITY_STORAGE = _('We use this cookies to provide more security around authentication of the site.')
+ADS_PERSONALIZATION_STORAGE = _('We use this cookie to provide our visitors with the content related to their interests.')
+ADS_SECURITY_STORAGE = _('We use this cookies to provide more security and authentication of the site.')
 
 ADS_SETTINGS_LIST = [
     {'name' : _('Functionality'),'tag': 'functionality','consent_type': 'functionality_storage', 'description': ADS_FUNCTIONALITY_STORAGE, 'required': True },

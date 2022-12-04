@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-02 00:46+0100\n"
+"POT-Creation-Date: 2022-12-04 01:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -99,21 +99,19 @@ msgstr ""
 "de notre site."
 
 #: core/constants.py:41
-
 msgid ""
-"We use this cookie to provide our visitors with the content related to "
-"theirs interests."
+"We use this cookie to provide our visitors with the content related to their "
+"interests."
 msgstr ""
-"We use this cookie to provide our visitors with the content related to "
-"theirs interests."
+"Nous utilisons ce cookie pour fournir à nos visiteurs le contenu lié à leurs "
+"intérêts."
 
 #: core/constants.py:42
 msgid ""
-"We use this cookies to provide more security around authentication of the "
-"site."
+"We use this cookies to provide more security and authentication of the site."
 msgstr ""
-"We use this cookies to provide more security around authentication of the "
-"site."
+"Nous utilisons ces cookies pour fournir plus de sécurité et "
+"d'authentification du site."
 
 #: core/constants.py:45
 msgid "Functionality"
