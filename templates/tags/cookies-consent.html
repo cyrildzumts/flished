@@ -23,7 +23,7 @@
                             <li class="mat-list-item">
                                 <div class="entry flex-wrap">
                                     <div class="flex space-between full padding-v"><span><span class="bold tag">{{ads.name}}</span> <span><input id="tag-{{ads.tag}}" class="js-essential" type="checkbox" name="{{ads.consent_type}}" data-target="{{ads.consent_type}}" {% if ads.required %}disabled{% endif %} checked value="granted"><label for="tag-{{ads.tag}}">{{UI_STRINGS_CONTEXT.UI_COOKIE_ENABLE}}</label></span></span><span class="padding accordion-toggle" data-target="accordion-{{ads.tag}}"></span></div>
-                                    <div id="accordion-{{ads.tag}}" class="full accordion"><span>{{ads.description}}</span></div>
+                                    <div id="accordion-{{ads.tag}}" class="full accordion padding-bottom"><span>{{ads.description}}</span></div>
                                 </div>
                             </li>
                             {% endfor %}
