@@ -189,13 +189,19 @@ p{
 }
 .post-header, .post-footer{
 	
-	font-size: 0.8em;
+	font-size: 0.7em;
 	font-weight: bold;
 	padding-bottom: 1em;
 }
 .post-header span{
 	padding-right: 0.5em;
 	padding-left: 0.5em;
+}
+.post-header span.author{
+	text-transform: uppercase;
+	padding : 0.5rem;
+	background-color: #0a0a0a;
+	color: #eadbcb;
 }
 .post-header span:last-child{
 	padding-right: 0;
@@ -2566,6 +2572,7 @@ label.nav-label::after{
 	width: 100%;
 	align-items: center;
 	justify-content: center;
+	margin: 2em 0;
 }
 .main-post .image-wrapper{
 	max-height: 500px;
