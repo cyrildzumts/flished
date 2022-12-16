@@ -2683,8 +2683,8 @@ td a {
 }
 
 .link-meta .meta-img{
-	width: 65px;
-	height: 65px;
+	/*width: 65px;
+	height: 65px;*/
 	border-radius: 3px;
 	margin-left: 30px;
 	float: right;
