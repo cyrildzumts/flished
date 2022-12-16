@@ -573,7 +573,7 @@ option:checked{
 }
 .post-header span.author{
 	text-transform: uppercase;
-	padding : 0.5rem;
+	padding : 0.5rem !important;
 	background-color: #0a0a0a;
 	color: #eadbcb;
 }
