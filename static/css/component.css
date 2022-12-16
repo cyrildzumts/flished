@@ -2957,7 +2957,10 @@ label.nav-label::after{
 	border-radius: 0.25rem;
 }
 
-
+.card .image-wrapper{
+	max-height: 12em;
+	overflow: hidden;
+}
 
 .image-wrapper{
 	display: flex;
