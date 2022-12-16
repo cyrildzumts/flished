@@ -119,12 +119,17 @@
 .post-title{
 	text-transform: none;
 	text-align: left;
-	font-size: 1.2em;
+	font-size: 1.5em;
 	font-weight: bold;
 	padding-bottom: 0.5em;
 	margin-top: 1em;
 }
 
+.post-title span{
+	font-size: inherit;
+	font-weight: inherit;
+	font-family: inherit;
+}
 .post-sharing{
 	margin-bottom: 1em;
 	font-size: 1.5em;
