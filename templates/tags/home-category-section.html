@@ -25,7 +25,11 @@
                                         </a>
                                     </div>
                                 </div>
-                                
+                                {% else %}
+                                <div class="col-m-12">
+                                    <div class="image-wrapper">
+                                    </div>
+                                </div>
                                 {% endif %}
                                 <div class="post-entry">
                                     <div class="link-wrapper"><a href="{{post.get_absolute_url}}">{{post.title}}</a></div>
