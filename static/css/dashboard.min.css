@@ -2316,6 +2316,7 @@ td a {
 	width: 100%;
 }
 .link-meta{
+	font-size: 0.75rem;
 	box-shadow: var(--box-shadow);
 	margin: 1em 0;
 	padding: 1em;

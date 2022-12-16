@@ -2655,6 +2655,7 @@ td a {
 }
 
 .link-meta{
+	font-size: 0.75rem;
 	box-shadow: var(--box-shadow);
 	margin: 1em 0;
 	padding: 1em;
@@ -2677,6 +2678,7 @@ td a {
 .code-area textarea:focus{
 	border: 0 !important;
 }
+
 
 .link-meta a{
 	color: #0a0a0a;
