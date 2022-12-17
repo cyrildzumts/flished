@@ -13,8 +13,9 @@
 <div class="container">
 {% if recent_posts %}
 <div class="post-container">
-    {% include "tags/adsence-in-feed.html" %}
+    
     {% include "tags/home-main-section.html" with post_list=main_posts %}
+    {% include "tags/adsence-in-feed.html" %}
     {% if trending %}
     {% include "tags/home-trending-section.html" with post_list=trending.posts %}
     {% endif %}

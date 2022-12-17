@@ -3289,7 +3289,12 @@ li .order-tag{
 	padding: 0.5rem;
 }
 .external-source{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
+	padding: 1em;
+	margin: 0.5em;
 }
 .external-source .adsbygoogle{
 	width: 100%;
