@@ -250,6 +250,5 @@ window.addEventListener('load',(event) =>{
     load_gtm();
     (adsbygoogle = window.adsbygoogle || []).push({});
     load_cookie_consent(onUserGranted);
-    console.log("loaded adsense");
 });
     

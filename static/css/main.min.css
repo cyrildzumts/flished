@@ -3662,6 +3662,12 @@ li .order-tag{
 	margin-bottom: 1em;
 	padding: 0.5rem;
 }
+.external-source{
+	width: 100%;
+}
+.external-source .adsbygoogle{
+	width: 100%;
+}
 @media only screen and (max-width:50em){
 	.section .title span{
 		width: 100%;
