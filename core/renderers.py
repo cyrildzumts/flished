@@ -3,6 +3,7 @@ from django.utils.safestring import mark_safe
 
 def render_post(post_dict):
     html_blocks = [BLOCK_MAPPING[block.get('type')](block) for block in post_dict.get('blocks')]
+    html_blocks.append(BLOCK_MAPPING['in-article']())
     return mark_safe("".join(html_blocks))
 
 

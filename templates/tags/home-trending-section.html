@@ -6,9 +6,21 @@
     <div class="flex flex-left flex-wrap full section">
         <div class="title full"><span>{% translate "Trending" %}</span></div>
         {% for post in trending.posts %}
+        {% if forloop.counter0|divisibleby:"3"  %}
         <div class="col-m-12 col-3">
             <div class="card">
                 <div class="card-body">
+                    <div class="post lead">
+                        {% include "tags/adsence-in-feed.html" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <div class="col-m-12 col-3">
+            <div class="card">
+                <div class="card-body">
+                   
                     <div class="post lead">
                         {% if post.image %}
                         <div class="col-m-12">
@@ -41,6 +53,7 @@
                 </div>
             </div>
         </div>
+        
         {% endfor %}
     </div>
 </div>

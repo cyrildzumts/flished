@@ -11,6 +11,15 @@
                         <div class="post-list">
                             <ul>
                               {% for blog_post in main_post.selections %}
+                              {% if forloop.counter0|divisibleby:"3"  %}
+                                <li>
+                                    <div class="post-entry">
+                                        <div class="post lead">
+                                            {% include "tags/adsence-in-feed.html" %}
+                                        </div>
+                                    </div>
+                              </li>
+                              {% endif %}
                               <li>
                                 <div class="post-entry">
                                   {% if blog_post.image %}

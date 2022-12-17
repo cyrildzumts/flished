@@ -35,6 +35,9 @@ def render_code(code, template_name="editor/code.html"):
     return render_to_string(template_name, {'code': code})
 
 
+def render_ads(template_name="tags/adsense-in-article.html"):
+    return render_to_string(template_name)
+
 BLOCK_MAPPING = {
     'header': render_header,
     'paragraph': render_paragraph,
@@ -45,4 +48,5 @@ BLOCK_MAPPING = {
     'quote': render_quote,
     'image': render_image,
     'code': render_code,
+    'in-article': render_ads,
 }
