@@ -1667,6 +1667,7 @@ button, input, select, textarea{
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   
+  border-top: 2px dotted #0a0a0a;
 }
 .divider {
   --columns: 12; 
