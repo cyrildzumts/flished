@@ -86,7 +86,7 @@ def create_post(data, images=None):
     else:
         results = {
             "success": False,
-            "error_data": form.errors.as_data()
+            "errors": form.errors.as_data()
         }
     return results
 
