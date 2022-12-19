@@ -19,7 +19,7 @@
     {% else %}
     <article class="post-wrapper">
         <div class="post-header">
-            <a href="{% url 'blog:author-stories' blog_post.author.username %}"><span class="author">{{blog_post.author.get_full_name}}</span> </a><span>{{blog_post.created_at}}</span>{% if SHOW_STATUS %} | <span><i class="far fa-lightbulb"></i><span>{{blog_post.post_status|post_status_value}}</span></span>{% endif %}
+            <a href="{% url 'blog:author-stories' blog_post.author.username %}"><span class="author">{{blog_post.author.get_full_name}}</span> </a><span>{{blog_post.published_at|default:blog_post.created_at}}</span>{% if SHOW_STATUS %} | <span><i class="far fa-lightbulb"></i><span>{{blog_post.post_status|post_status_value}}</span></span>{% endif %}
             {% if blog_post.author == request.user %} | <a href="{{blog_post.get_delete_url}}" title="{{UI_STRINGS_CONTEXT.UI_DELETE_BLOG_POST}}"><i class="fas fa-trash icon"></i></a> | <a href="{{blog_post.get_update_url}}" title="{{UI_STRINGS_CONTEXT.UI_UPDATE_BLOG_POST}}"><i class="fas fa-edit icon"></i></a>{% endif %}
         </div>
         {% if SHOW_STATUS and blog_post.scheduled_at %}
