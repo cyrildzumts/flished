@@ -82,10 +82,10 @@
 }
 
 .post-header, .post-footer{
-	
 	font-size: 0.7em;
 	font-weight: bold;
 	padding-bottom: 1em;
+	line-height: 3em;
 }
 .post-header span{
 	padding-right: 0.5em;
