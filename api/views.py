@@ -52,20 +52,21 @@ def create_post(request):
     if request.method != 'POST':
         return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
     
-    instance = blog_service.create_post(utils.get_postdata(request), request.FILES)
+    results = blog_service.create_post(utils.get_postdata(request), request.FILES)
     data = None
-    if instance is None:
+    if results.get('instance') is None:
         data = {
             'success': False,
-            'message': "Invalid data"
+            'message': "Invalid data",
+            'errors': results.get('errors')
         }
     else:
-        serializer = PostSerializer(instance)
+        serializer = PostSerializer(results.get('instance'))
         data = {
             'success': True,
             'message': 'Post created',
             'post': serializer.data,
-            'url': instance.get_absolute_url()
+            'url': results.get('instance').get_absolute_url()
         }
     
     return Response(data=data, status=status.HTTP_200_OK)

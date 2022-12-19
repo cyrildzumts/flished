@@ -71,10 +71,24 @@ def update_category(category, data):
 
 def create_post(data, images=None):
     instance = core_tools.create_instance(model=Post, data=data, files=images)
-    if instance:
+    instance = None
+    results = None
+    form = BLOG_FORMS.PostForm(data, files=images)
+    if form.is_valid():
+        if form.cleaned_data.get('scheduled_at') is None:
+            form.cleaned_data['published_at'] = form.cleaned_data.get('created_at')
+        instance = form.save()
         logger.info(f"Post {instance} created")
-    
-    return instance
+        results = {
+            "success": True,
+            'instance': instance
+        }
+    else:
+        results = {
+            "success": False,
+            "error_data": form.errors.as_data()
+        }
+    return results
 
 def update_post(post, data, images=None):
     updated_instance = core_tools.update_instance(model=Post, instance=post, data=data, files=images)
