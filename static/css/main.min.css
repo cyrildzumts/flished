@@ -4241,6 +4241,7 @@ li .order-tag{
     box-shadow: var(--box-shadow);
     padding: 0.5em;
     margin: 0.2em;
+    border-radius: 8px;
 }
 .mat-box-content{
     display: flex;
