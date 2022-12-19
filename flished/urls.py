@@ -36,6 +36,8 @@ urlpatterns_i18n = i18n_patterns( * [
     path('me/',blog_views.my_stories,name='me'),
     path('faq/', views.faq, name='faq'),
     path('dashboard/', include('dashboard.urls')),
+    path('scheduled/', blog_views.scheduled_stories, name="scheduled"),
+
 
 ], prefix_default_language=False)
 

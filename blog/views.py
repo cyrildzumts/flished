@@ -24,7 +24,7 @@ def stories(request):
     template_name = "blog/blog_home.html"
     page_title = f"{UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE} | {settings.SITE_NAME}"
 
-    queryset = Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED)
+    queryset = Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED, is_active=True)
     recommendations = blog_service.get_recommendations_post(request.user)
     page = request.GET.get('page', 1)
     paginator = Paginator(queryset, GLOBAL_CONF.PAGINATED_BY)
@@ -47,7 +47,7 @@ def author_stories(request,author):
     template_name = "blog/blog_home.html"
     page_title = f"{UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE} | {settings.SITE_NAME}"
 
-    queryset = Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED, author__username=author)
+    queryset = Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED, author__username=author, is_active=True)
     page = request.GET.get('page', 1)
     paginator = Paginator(queryset, GLOBAL_CONF.PAGINATED_BY)
     try:
@@ -68,7 +68,7 @@ def my_stories(request):
     template_name = "blog/me.html"
     page_title = f"{UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE} | {settings.SITE_NAME}"
 
-    queryset = Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED, author=request.user)
+    queryset = Post.objects.filter(author=request.user)
     page = request.GET.get('page', 1)
     paginator = Paginator(queryset, GLOBAL_CONF.PAGINATED_BY)
     try:
@@ -84,6 +84,30 @@ def my_stories(request):
         'SHOW_STATUS': True,
     }
     return render(request, template_name, context)
+
+
+@login_required
+def scheduled_stories(request):
+    template_name = "blog/scheduled.html"
+    page_title = f"{UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE} | {settings.SITE_NAME}"
+
+    queryset = Post.objects.filter(author=request.user, post_status=Constants.POST_STATUS_SCHEDULED)
+    page = request.GET.get('page', 1)
+    paginator = Paginator(queryset, GLOBAL_CONF.PAGINATED_BY)
+    try:
+        list_set = paginator.page(page)
+    except PageNotAnInteger:
+        list_set = paginator.page(1)
+    except EmptyPage:
+        list_set = paginator.page(1)
+    context = {
+        'page_title': page_title,
+        'PAGE_TITLE': page_title,
+        'story_list': list_set,
+        'SHOW_STATUS': True,
+    }
+    return render(request, template_name, context)
+
 
 @login_required
 def histories(request):

@@ -1,0 +1,22 @@
+{% extends "base.html"%}
+{% load i18n %}
+{% block HEADER %}
+
+{% endblock HEADER %}
+
+{% block MAIN %}
+
+<div class="flex flex-left full padding-h"><h4>{% trans "Scheduled Posts" %}</h4></div>
+<div class="container">
+   {% if scheduled_posts %}
+   {% include "tags/blog_posts_tag.html" with blog_posts=scheduled_posts SHOW_STATUS=True %}
+   {% else %}
+   <div class="mat-box">
+    <p>{% trans "You have not scheduled a story yet." %}</p>
+    <p><a class="mat-button mat-button-default" href="{% url 'home' %}"><span>{{UI_STRINGS_CONTEXT.UI_DISCOVER_OUR_BLOG}}</span></a></p>
+   </div>
+   {% endif %}
+   
+</div>
+{% endblock MAIN %}
+{% block GOOGLE_ANALYTICS %}{% endblock GOOGLE_ANALYTICS %}

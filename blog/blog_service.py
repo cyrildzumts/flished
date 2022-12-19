@@ -110,8 +110,8 @@ def get_user_posts(user):
 def get_recent_posts():
     return Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED)[:utils.MAX_RECENTS]
 
-def get_recent_scheduled_posts():
-    return Post.objects.filter(post_status=Constants.POST_STATUS_SCHEDULED)[:utils.MAX_RECENTS]
+def get_scheduled_posts_from_user(user):
+    return Post.objects.filter(post_status=Constants.POST_STATUS_SCHEDULED, author=user)
 
 def get_user_recent_posts(user):
     return Post.objects.filter(author=user)[:utils.MAX_RECENTS]
