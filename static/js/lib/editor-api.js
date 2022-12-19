@@ -21,7 +21,9 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     
     const EDITOR_CHANGE_TIMEOUT = 1000; // 1s
     const SAVE_DRAFT_INTERVAL = 10000; // 10s
+    const POST_STATUS_DRAFT = 0
     const POST_STATUS_PUBLISH = 1
+    const POST_STATUS_SCHEDULED = 5
     let AUTO_SAVE_TIMER;
     let editor;
     let post_content;
@@ -571,6 +573,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 e.preventDefault();
                 e.stopPropagation();
                 if(post_content){
+                    self.post_status = POST_STATUS_DRAFT;
                     self.upload();
                 }
             });
@@ -585,7 +588,12 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 e.preventDefault();
                 e.stopPropagation();
                 if(post_content){
-                    self.post_status = POST_STATUS_PUBLISH;
+                    let scheduled_at = document.getElementById("scheduled_at");
+                    if(scheduled_at && scheduled_at.value.length != 0){
+                        self.post_status = POST_STATUS_SCHEDULED;
+                    }else{
+                        self.post_status = POST_STATUS_PUBLISH;
+                    }
                     self.upload();
                 }
             });
@@ -622,6 +630,21 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             return true;
         };
 
+        PostManager.prototype.validateSchedule = function(){
+            let scheduled_at = document.getElementById('scheduled_at');
+            let is_valid = true;
+            if(scheduled_at && scheduled_at.value.length){
+                let NOW = Date.now()
+                let scheduled_at_Date = new Date(scheduled_at.value);
+                if(scheduled_at_Date < NOW){
+                    scheduled_at.classList.add("warn");
+                    is_valid = false;
+                }
+                scheduled_at.classList.remove("warn");
+            }
+            return is_valid;
+        };
+
         
 
         PostManager.prototype.validateImages = function(){
@@ -655,12 +678,13 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             let title = document.getElementById('title');
             let editor_element = document.getElementById('editor');
             let category = document.querySelector("input[type='radio'][name='category']:checked");
+            let scheduled_at = document.getElementById('scheduled_at');
             let formData = new FormData();
             formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
             formData.append('title', title.value);
             formData.append('content', JSON.stringify(post_content));
             formData.append('author', editor_element.dataset.author);
-            formData.append('post_status', this.post_status);
+            
             let input_image = document.getElementById('image');
             if(input_image != null && input_image.files != null && input_image.files.length > 0){
                 formData.append('image', input_image.files[0]);
@@ -668,6 +692,11 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             if(category){
                 formData.append('category', category.value);
             }
+            if(!this.validateSchedule(scheduled_at)){
+                return;
+            }
+            formData.append('post_status', this.post_status);
+            formData.append('scheduled_at', scheduled_at.value);
             let url = this.is_update_form() ? '/api/update-post/' + editor_element.dataset.post + '/' : '/api/create-post/';
             var options = {
                 //url : url,
