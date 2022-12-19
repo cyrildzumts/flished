@@ -694,10 +694,7 @@ input.range-input{
 }
 
 label{
-	padding: 0.25rem 0.5rem;
-	/*width: 250px;*/
 	text-align: left;
-	/*max-width: 350px;*/
 }
 
 .label-row{

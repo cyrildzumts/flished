@@ -700,10 +700,7 @@ input.range-input{
 	width: 4em;
 }
 label{
-	padding: 0.25rem 0.5rem;
-	
 	text-align: left;
-	
 }
 .label-row{
 	display: inline-flex;
