@@ -4,6 +4,7 @@ from django.utils.translation import ugettext as _
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.db.models import Avg, Count, Sum
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from core.resources import ui_strings as UI_STRINGS
 from core import renderers
@@ -48,6 +49,7 @@ def author_stories(request,author):
     page_title = f"{UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE} | {settings.SITE_NAME}"
 
     queryset = Post.objects.filter(post_status=Constants.POST_STATUS_PUBLISHED, author__username=author, is_active=True)
+    posts_count = queryset.count()
     page = request.GET.get('page', 1)
     paginator = Paginator(queryset, GLOBAL_CONF.PAGINATED_BY)
     try:
@@ -60,6 +62,7 @@ def author_stories(request,author):
         'page_title': page_title,
         'PAGE_TITLE': page_title,
         'story_list': list_set,
+        'posts_count': posts_count,
     }
     return render(request, template_name, context)
 
@@ -69,6 +72,7 @@ def my_stories(request):
     page_title = f"{UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE} | {settings.SITE_NAME}"
 
     queryset = Post.objects.filter(author=request.user)
+    posts_count = queryset.count()
     page = request.GET.get('page', 1)
     paginator = Paginator(queryset, GLOBAL_CONF.PAGINATED_BY)
     try:
@@ -82,6 +86,7 @@ def my_stories(request):
         'PAGE_TITLE': page_title,
         'story_list': list_set,
         'SHOW_STATUS': True,
+        'posts_count': posts_count,
     }
     return render(request, template_name, context)
 
@@ -92,6 +97,7 @@ def scheduled_stories(request):
     page_title = f"{UI_STRINGS.UI_BLOG_HOME_PAGE_TITLE} | {settings.SITE_NAME}"
 
     queryset = Post.objects.filter(author=request.user, post_status=Constants.POST_STATUS_SCHEDULED)
+    posts_count = queryset.count()
     page = request.GET.get('page', 1)
     paginator = Paginator(queryset, GLOBAL_CONF.PAGINATED_BY)
     try:
@@ -105,6 +111,7 @@ def scheduled_stories(request):
         'PAGE_TITLE': page_title,
         'story_list': list_set,
         'SHOW_STATUS': True,
+        'posts_count': posts_count
     }
     return render(request, template_name, context)
 
@@ -115,6 +122,7 @@ def histories(request):
     page_title = f"{UI_STRINGS.UI_READ_HISTORY_PAGE_TITLE} | {settings.SITE_NAME}"
 
     queryset = blog_service.get_histories(request.user)
+    posts_count = queryset.count()
     page = request.GET.get('page', 1)
     paginator = Paginator(queryset, GLOBAL_CONF.PAGINATED_BY)
     try:
@@ -126,7 +134,8 @@ def histories(request):
     context = {
         'page_title': page_title,
         'PAGE_TITLE': page_title,
-        'histories': list_set
+        'histories': list_set,
+        'posts_count': posts_count,
     }
     return render(request, template_name, context)
 

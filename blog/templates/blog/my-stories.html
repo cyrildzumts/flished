@@ -7,7 +7,7 @@
 {% block MAIN %}
 
 <div class="container">
-    <div class="flex flex-left full padding"><h4>{{UI_STRINGS_CONTEXT.UI_MY_POSTS_LABEL}}</h4></div>
+    <div class="flex flex-left full padding"><h4>{{UI_STRINGS_CONTEXT.UI_MY_POSTS_LABEL}}({{posts_count|default:'0'}})</h4></div>
     {% if story_list %}
    {% include "tags/blog_posts_tag.html" with blog_posts=story_list SHOW_STATUS=True %}
    {% else %}
