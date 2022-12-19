@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 def publish_scheduled_posts():
     
     NOW = timezone.datetime.now()
-    SCHEDULED_FILTER = Q(scheduled_at__le=NOW) & Q(is_active=True, post_status=BLOG_CONSTANTS.POST_STATUS_SCHEDULED)
+    SCHEDULED_FILTER = Q(scheduled_at__lte=NOW) & Q(is_active=True, post_status=BLOG_CONSTANTS.POST_STATUS_SCHEDULED)
     n = Post.objects.filter(SCHEDULED_FILTER).update(post_status=BLOG_CONSTANTS.POST_STATUS_PUBLISHED)
     if n:
         logger.info(f"SCHEDULED TASK: Published {n} scheduled publications")
