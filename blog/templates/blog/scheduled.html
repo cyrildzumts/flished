@@ -6,7 +6,7 @@
 
 {% block MAIN %}
 <div class="container">
-    <div class="flex flex-left full padding"><h4>{% trans "Scheduled Posts" %}</h4></div>
+    <div class="flex flex-left full padding"><h4>{{UI_STRINGS_CONTEXT.UI_SCHEDULED_POSTS_LABEL}}</h4></div>
    {% if scheduled_posts %}
    {% include "tags/blog_posts_tag.html" with blog_posts=scheduled_posts SHOW_STATUS=True %}
    {% else %}

@@ -39,7 +39,7 @@
                     {% if request.user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'blog:create-post' %}"><i class="fas fa-edit icon"></i>{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'me' %}" title="{% trans 'Account' %}"><i class="fas fa-user icon"></i>{{UI_STRINGS_CONTEXT.UI_USER_ACCOUNT|default:_('My Account')}}</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'scheduled' %}" title="{% trans 'Scheduled Post' %}"><i class="fas fa-clock icon"></i><span>{% translate "Scheduled Post" %}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'scheduled' %}" title="{{UI_STRINGS_CONTEXT.UI_SCHEDULED_POSTS_LABEL}}"><i class="fas fa-clock icon"></i><span>{{UI_STRINGS_CONTEXT.UI_SCHEDULED_POSTS_LABEL}}</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'blog:histories' %}" title="{% trans 'History' %}"><i class="fas fa-history icon"></i>{% translate "History" %}</a></li>
                     <li class="nav-item"><a class="signout-btn nav-link signout" href="{{SITE_HOST}}{% url 'accounts:logout' %}" title="{% trans 'Logout' %}"><i class="fas fa-sign-out-alt icon"></i>{% trans 'Logout' %}</a></li>
                     {% else %}
