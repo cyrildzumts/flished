@@ -1238,12 +1238,13 @@ input[type="url"], select{
 textarea{
 	font-family: inherit;
 	outline: 0;
-	border: 0;
-	padding: 5px 1rem;
-	border-radius: 6px;
 }
 input, button, select{
 	line-height: normal;
+}
+input, select, textarea{
+	padding: 1em;
+	border-radius: 4px
 }
 button, input, select, textarea{
 	margin: 0;
@@ -1479,14 +1480,18 @@ input.editable{
 	cursor: pointer;
 	border: none;
 	outline: none;
+	margin: 1em;
 }
-.accordion-toggle::after{
+.accordion-toggle .fas, .accordion-toggle .fa{
+	font-size: 1.2em;
+}
+.accordion-toggle::not([data-after])::after{
 	content: '\02795';
 	font-size: 0.9em;
 	color: #777;
 	padding-left: 0.5em;
 }
-.accordion-toggle.active::after{
+.accordion-toggle.active::not([data-after])::after{
 	content: '\02796';
 }
 .accordion{
