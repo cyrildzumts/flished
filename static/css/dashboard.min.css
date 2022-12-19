@@ -1378,6 +1378,9 @@ button, input, select, textarea{
 	border-radius: 50%;
 	z-index: 10;
 }
+.icon + span, .fas + span, .far + span, .fab + span, i + span{
+	margin-left: 0.5em !important;
+}
 .incoming::before, .outgoing::before{
 	font-weight: 600;
 }
