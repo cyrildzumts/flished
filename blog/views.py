@@ -239,7 +239,7 @@ def category_detail_slug(request, slug=None):
     subcats = blog_service.find_children(category)
     descendants = blog_service.category_descendants(category)
     queryDict = request.GET.copy()
-    queryset = Post.objects.filter(is_active=True, category__in=descendants)
+    queryset = Post.objects.filter(is_active=True,post_status=Constants.POST_STATUS_PUBLISHED, category__in=descendants)
     
     blog_service.update_view_count(Category, category.id)
     
