@@ -571,8 +571,10 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             this.imageManager.init();
             let scheduled_at = document.getElementById('scheduled_at');
             if(scheduled_at){
-                scheduled_at.addEventListener('change',function(event){
-                    self.validateSchedule(scheduled_at);
+                ["click","keyup","change"].forEach(function(eventName){
+                    scheduled_at.addEventListener(eventName,function(event){
+                        self.validateSchedule(scheduled_at);
+                    });
                 });
             }
             $(".js-create-post-btn").on('click', function(e){
