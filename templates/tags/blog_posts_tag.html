@@ -14,7 +14,7 @@
               {% render_post_summary blog_post %}
             </div>
             <div class="post-header">
-              <span>{{blog_post.author.get_full_name}}</span>|<span>{{blog_post.created_at}}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>{% if SHOW_STATUS %} | <span><i class="far fa-lightbulb"></i>{{blog_post.post_status|post_status_value}}</span>{% endif %}
+              <span>{{blog_post.author.get_full_name}}</span>|<span>{{blog_post.created_at}}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>{% if SHOW_STATUS %} | <span><i class="far fa-lightbulb"></i><span>{{blog_post.post_status|post_status_value}}</span></span>{% endif %}
               {% if blog_post.author == request.user %} | <a href="{{blog_post.get_update_url}}" title="{{UI_STRINGS_CONTEXT.UI_UPDATE_BLOG_POST}}"><i class="fas fa-edit icon"></i></a> | <a href="{{blog_post.get_delete_url}}" title="{{UI_STRINGS_CONTEXT.UI_DELETE_BLOG_POST}}"><i class="fas fa-trash icon"></i></a>{% endif %}
             </div>
           </div>
