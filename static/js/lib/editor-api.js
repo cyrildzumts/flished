@@ -642,6 +642,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 }
                 scheduled_at.classList.remove("warn");
             }
+            console.log("Schdule valid : %s", is_valid);
             return is_valid;
         };
 
