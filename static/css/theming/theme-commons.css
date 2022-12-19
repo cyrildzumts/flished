@@ -79,7 +79,7 @@ input.warn, input.warning, input.danger, textarea.warn{
 }
 
 input.error{
-    border-bottom-color: var(--error-color);
+    border-color: var(--error-color) !important;
 }
 
 .danger, .danger *, .saled-price, .sale, .sale-price{
