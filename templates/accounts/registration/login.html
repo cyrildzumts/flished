@@ -28,7 +28,7 @@
                     {% comment %}
                         <h3>{{SITE_NAME}}</h3>
                     {% endcomment %}
-                    <h3>{% trans "Login" %}</h3>
+                    <div class="flex padding"><h3>{{UI_STRINGS_CONTEXT.UI_LOGIN_LABEL}}</h3></div>
                     <div id="user-login" class="user-login flex mat-box">
                         <form id="login-form" class="login-form" action="{% url 'accounts:login' %}" method="post"> {% csrf_token %}
                             {% if login_error %}
@@ -45,13 +45,13 @@
                             </div>
                             
                             <div class="actions padding-v">
-                                <button id="login-submit" class="mat-button mat-button-default full"  name="submit" type="submit">{% trans "Login" %}</button>
+                                <button id="login-submit" class="mat-button mat-button-default full"  name="submit" type="submit">{{UI_STRINGS_CONTEXT.UI_SIGN_IN_LABEL}}</button>
                             </div>
                             <div class="actions padding-v">
-                                <a class="mat-button mat-button-text full" href="{% url 'accounts:password-reset' %}">{% trans "Forgot your password ?" %}</a>
+                                <a class="mat-button mat-button-text full" href="{% url 'accounts:password-reset' %}">{{UI_STRINGS_CONTEXT.UI_LOGIN_FORGOT_PW}}</a>
                             </div>
                             <div class="actions padding-v">
-                                <span class="register-hint">{% trans "New here ?" %}</span><a class="mat-button mat-button-outline register-btn js-action-abtest" href="{% url 'accounts:register' %}" data-action="4">{% trans "Create your Account" %}</a>
+                                <span class="register-hint">{{UI_STRINGS_CONTEXT.UI_LOGIN_NO_ACCOUNT}}</span><a class="mat-button mat-button-outline register-btn js-action-abtest" href="{% url 'accounts:register' %}" data-action="4">{{UI_STRINGS_CONTEXT.UI_LOGIN_CREATE_LABEL}}</a>
                             </div>
                         </form>
                     </div> <!-- End of Section Login-->

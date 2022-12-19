@@ -27,7 +27,7 @@
     <div class="col-m-12 col-6">
       <form class="signup-form full" action="{% url 'accounts:register'%}" method="POST">{% csrf_token %}
             <div class="mat-box full">
-                <div class="mat-box-title center"><span class="bold text-gray">{%trans 'Sign up'%}</span></div>
+                <div class="mat-box-title center"><span class="bold text-gray">{{UI_STRINGS_CONTEXT.UI_SIGN_UP_LABEL}}</span></div>
                 <div class="mat-box-content">
                       <div class="flex flex-left">
                           <div class="form-group">
@@ -69,10 +69,10 @@
                 <div class="mat-box-actions">
                     <div class="padding-1x"></div>
                     <div class="actions padding-v">
-                      <button class="mat-button mat-button-default full" type="submit">{%trans 'Sign up'%} </button>
+                      <button class="mat-button mat-button-default full" type="submit">{{UI_STRINGS_CONTEXT.UI_SIGN_UP_LABEL}}</button>
                     </div>
                     <div class="actions padding-v">
-                        <span class="register-hint">{% trans "Already have an account ?" %}</span><a class="mat-button mat-button-outline register-btn" href="{% url 'accounts:login' %}">{% trans "Sign In" %}</a>
+                        <span class="register-hint">{{UI_STRINGS_CONTEXT.UI_SIGN_UP_HAVE_ACCOUNT}}</span><a class="mat-button mat-button-outline register-btn" href="{% url 'accounts:login' %}">{{UI_STRINGS_CONTEXT.UI_SIGN_IN_LABEL}}</a>
                     </div>
                 </div>
             </div>
