@@ -24,7 +24,7 @@
         </div>
         {% if SHOW_STATUS and blog_post.scheduled_at %}
         <div class="margin-v">
-            <span class="bold">{% translate "Schedule" %}</span><span class="padding-h">{{blog_post.scheduled_at}}</span>
+            <span class="bold"><i class="fas fa-clock"></i><span>{{UI_STRINGS_CONTEXT.UI_SCHEDULED_LABEL}}</span></span><span class="padding-h">{{blog_post.scheduled_at}}</span>
         </div>
         {% endif %}
         {% comment %}
