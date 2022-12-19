@@ -70,7 +70,7 @@ def update_category(category, data):
     return updated_instance
 
 def create_post(data, images=None):
-    instance = core_tools.create_instance(model=Post, data=data, files=images)
+    #instance = core_tools.create_instance(model=Post, data=data, files=images)
     instance = None
     results = None
     form = BLOG_FORMS.PostForm(data, files=images)
