@@ -1,15 +1,16 @@
 {% extends "base.html"%}
 {% load i18n %}
 {% block HEADER %}
-<div class="flex flex-left full padding-h"><h2>{{UI_STRINGS_CONTEXT.UI_USER_HISTORY_LABEL}}</h2></div>
+
 {% endblock HEADER %}
 {% block MAIN %}
 
 <div class="container">
+   <div class="flex flex-left full padding"><h2>{{UI_STRINGS_CONTEXT.UI_USER_HISTORY_LABEL}}</h2></div>
    {% if histories %}
    {% include "tags/blog_posts_tag.html" with blog_posts=histories %}
    {% else %}
-   <div class="mat-box">
+   <div class="mat-box container">
         <p>{{UI_STRINGS_CONTEXT.UI_USER_NO_HISTORY}}</p>
         <p><a class="mat-button mat-button-default" href="{{SITE_HOST}}{% url 'home' %}"><span>{{UI_STRINGS_CONTEXT.UI_DISCOVER_OUR_BLOG}}</span></a></p>
    </div>

@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 {% load i18n %} 
 {% load static %}
+{% load core_tags %}
+{% load blog_tags %}
+
 {% block HEADER %}
 {% endblock HEADER %}
 {% block MAIN %}
 <div class="container">
+  <div class="flex flex-left full padding"><h4>{{category.name|category_name}}</h4></div>
   {% if post_list %}
   <div class="post-container">
     {% include "tags/blog_posts_tag.html" with blog_posts=post_list %}
@@ -15,7 +19,10 @@
   {% include "tags/pagination.html" with page_set=post_list %}
 
   {% else %}
-  <p>{{UI_STRINGS_CONTEXT.UI_NO_BLOG_POSTS_HINT}}</p>
+  <div class="mat-box container">
+    <p>{{UI_STRINGS_CONTEXT.UI_NO_BLOG_POSTS_HINT}}</p>
+    <p><a class="mat-button mat-button-default" href="{{SITE_HOST}}{% url 'home' %}"><span>{{UI_STRINGS_CONTEXT.UI_DISCOVER_OUR_BLOG}}</span></a></p>
+  </div>
   {% endif %}
 </div>
 {% endblock MAIN %}
