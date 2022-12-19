@@ -4856,12 +4856,10 @@ option:checked{
 }
 .container {
   min-width: 100% !important;
-  
-  
   display: flex !important;
   flex-wrap: wrap;
   position: relative !important;
-  
+  align-items: baseline;
   justify-content: center !important;
 }
 .main-container{

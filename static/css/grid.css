@@ -2,12 +2,10 @@
 
 .container {
   min-width: 100% !important;
-  /*height: 100%;*/
-  /*margin: 0;*/
   display: flex !important;
   flex-wrap: wrap;
   position: relative !important;
-  /*align-items: baseline !important;*/
+  align-items: baseline;
   justify-content: center !important;
 }
 
