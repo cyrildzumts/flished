@@ -10,14 +10,14 @@
                     <input type="text" id="title" class="full" name="title" placeholder="{{UI_STRINGS_CONTEXT.UI_BLOG_INPUT_TITLE_PLACEHOLDER}}">
                 </div>
                 <div class="padding full">
-                    <span>{% translate "Category" %}</span>
+                    <span class="bold">{% translate "Category" %}</span>
                     <div class="flex flex-left flex-wrap">
                         {% for c in categories %} <span class="padding"><input type="radio" name="category" id="category-{{c.name}}" value="{{c.pk}}"><label for="category-{{c.name}}">{{c.display_name}}</label></span> {% endfor %}
                     </div>
                     <div class="hint hidden"><p>{% translate "Please, select a category" %}</p></div>
                 </div>
                 <div class="padding full">
-                    <label for="scheduled_at">{{UI_STRINGS_CONTEXT.UI_POST_SCHEDULE_LABEL}}</label>
+                    <label class="bold" for="scheduled_at">{{UI_STRINGS_CONTEXT.UI_POST_SCHEDULE_LABEL}}</label>
                     <div class="flex flex-left flex-wrap">
                         <input type="datetime-local" name="scheduled_at" id="scheduled_at">
                         <span class="accordion-toggle" data-target="schedule-hint"><i class="fas fa-question-circle"></i></span>
