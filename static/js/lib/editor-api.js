@@ -639,8 +639,9 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 if(scheduled_at_Date < NOW){
                     scheduled_at.classList.add("warn");
                     is_valid = false;
+                }else{
+                    scheduled_at.classList.remove("warn");
                 }
-                scheduled_at.classList.remove("warn");
             }
             console.log("Schdule valid : %s", is_valid);
             return is_valid;
