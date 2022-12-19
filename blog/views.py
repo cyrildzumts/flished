@@ -59,7 +59,7 @@ def author_stories(request,author):
     context = {
         'page_title': page_title,
         'PAGE_TITLE': page_title,
-        'story_list': list_set
+        'story_list': list_set,
     }
     return render(request, template_name, context)
 
@@ -80,7 +80,8 @@ def my_stories(request):
     context = {
         'page_title': page_title,
         'PAGE_TITLE': page_title,
-        'story_list': list_set
+        'story_list': list_set,
+        'SHOW_STATUS': True,
     }
     return render(request, template_name, context)
 
@@ -162,9 +163,11 @@ def blog_post(request, author, post_slug):
     post = get_object_or_404(Post, slug=post_slug, author__username=author)
     page_title = f"{post.title} | {settings.SITE_NAME}"
     liked = False
+    SHOW_STATUS: False
     if request.user.is_authenticated:
         liked = post.likes.filter(id=request.user.pk).exists()
         blog_service.add_read_history(request.user, post)
+        SHOW_STATUS = request.user == post.author
     recent_posts = Post.objects.all()[:GLOBAL_CONF.MAX_RECENT]
     post_comments = post.comments.all()
     if post_comments.exists():
@@ -192,6 +195,7 @@ def blog_post(request, author, post_slug):
         'LIKED': liked,
         'latest': latest,
         'LIKES': post.likes.count(),
+        'SHOW_STATUS': SHOW_STATUS,
         'COMMENT_MAX_SIZE': Constants.COMMENT_MAX_SIZE,
     }
     return render(request, template_name, context)
