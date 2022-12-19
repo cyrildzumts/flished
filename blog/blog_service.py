@@ -128,7 +128,7 @@ def get_category_kiosk():
     for c in categories:
         kiosk.append({
             'category' : c,
-            'posts': c.posts.all()[:Constants.PER_CATEGORY_SIZE]
+            'posts': c.posts.filter(post_status=Constants.POST_STATUS_PUBLISHED)[:Constants.PER_CATEGORY_SIZE]
         })
     return kiosk
 
