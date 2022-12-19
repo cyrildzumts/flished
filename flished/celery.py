@@ -22,5 +22,10 @@ app.conf.beat_schedule = {
         'schedule' : crontab(minute=0, hour=0)
 
     },
+    'scheduled_posts': {
+        'task': 'blog.tasks.publish_scheduled_posts',
+        'schedule' : crontab(minute="*/15", hour="*")
+
+    },
 }
 app.autodiscover_tasks()

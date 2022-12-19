@@ -68,6 +68,7 @@ UI_HOME_EMPTY_CONTENT = _('There is no publication. Be the first to publish a ne
 UI_POST_PUBLISHED_LABEL = _('Your story has been published')
 UI_POST_TITLE_MISSING_MESSAGE = _("The publication's title is missing")
 UI_POST_CONTENT_MISSING_MESSAGE = _("The publication's content is empty")
+UI_POST_SCHEDULE_HINT = _("Select the date at which you want your post to be published. Leave it empty it if you want your publication to be published as soon as possible. Note that due to schedule policy, publications might appear with 30 min delay. To avoid that, use a schedule that has an 30 minutes interval")
 UI_OPEN_POST_LINK_LABEL = _('Open your story')
 UI_NO_BLOG_POSTS_HINT = _("There no posts currently. Feel free to create a new one")
 UI_INVALID_USER_REQUEST = _('Invalid user request')
@@ -133,6 +134,7 @@ DASHBOARD_SUBSCRIPTION_PAYMENTS_TITLE = _('Subscription Payments')
 DASHBOARD_SUBSCRIPTION__CREATE_PAYMENT_TITLE = _('Create Subscription Payment')
 
 UI_STRINGS_CONTEXT = {
+    'UI_POST_SCHEDULE_HINT': UI_POST_SCHEDULE_HINT,
     'UI_COOKIE_PREFERENCES': UI_COOKIE_PREFERENCES,
     'UI_COOKIE_ENABLE_ALL': UI_COOKIE_ENABLE_ALL,
     'UI_COOKIE_ENABLE': UI_COOKIE_ENABLE,

@@ -16,6 +16,16 @@
                     </div>
                     <div class="hint hidden"><p>{% translate "Please, select a category" %}</p></div>
                 </div>
+                <div class="padding full">
+                    <label for="scheduled_at">{% translate "Schedule" %}</label>
+                    <div class="flex flex-left flex-wrap">
+                        <input type="datetime" name="scheduled_at" id="scheduled_at">
+                        <span class="accordion-toggle" data-target="schedule-hint"><i class="fas fa-question-circle"></i></span>
+                    </div>
+                    <div id="schedule-hint" class="accordion">
+                        <div class="padding"><p>{{UI_STRINGS_CONTEXT.UI_POST_SCHEDULE_HINT}}</p></div>
+                    </div>
+                </div>
                 {% csrf_token %}
             </div>
             <div id="editor" class="mat-box editor padding" 

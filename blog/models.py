@@ -119,12 +119,13 @@ class Post(models.Model):
     has_affiliate_link = models.BooleanField(default=False, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    scheduled_at = models.DateTimeField(null=True, blank=True)
     post_status = models.IntegerField(default=Contants.POST_STATUS_DRAFT, blank=True)
     view_count = models.IntegerField(default=0, blank=True, null=True)
     likes = models.ManyToManyField(User, related_name="likes")
     readers = models.ManyToManyField(User, related_name="histories", through="PostHistory")
     post_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
-    FORM_FIELDS = ['author', 'title', 'category', 'content','post_status','image','is_featured', 'has_affiliate_link', 'tags']
+    FORM_FIELDS = ['author', 'title', 'category', 'content','post_status','image','is_featured', 'has_affiliate_link', 'tags', 'scheduled_at']
     SERIALIZER_FIELDS = ['author', 'title', 'category', 'content', 'post_uuid', 'post_status']
     SEARCH_FIELDS = ['title', 'content']
 

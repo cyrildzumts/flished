@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-04 01:39+0100\n"
+"POT-Creation-Date: 2022-12-19 13:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,21 +18,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: blog/constants.py:49
+#: blog/constants.py:50
 msgid "draft"
 msgstr "brouillon"
 
-#: blog/constants.py:50
+#: blog/constants.py:51
 msgid "published"
 msgstr "publié"
 
-#: blog/constants.py:51
+#: blog/constants.py:52
 msgid "review"
 msgstr "en examen"
 
-#: blog/constants.py:52
+#: blog/constants.py:53
 msgid "deleted"
 msgstr "Supprimé"
+
+#: blog/constants.py:54
+msgid "scheduled"
+msgstr ""
 
 #: blog/templates/blog/blog_post.html:87
 #: dashboard/templates/dashboard/post_detail.html:35
@@ -54,7 +58,7 @@ msgstr "Veuillez choisir une catégory"
 #: blog/templates/blog/blog_post_update.html:40
 #: templates/email_tags/order_cancel_confirmation_email.html:47
 #: templates/email_tags/order_confirmation_email.html:46
-#: templates/tags/editor.html:30
+#: templates/tags/editor.html:37
 msgid "Image"
 msgstr "Image"
 
@@ -369,7 +373,7 @@ msgstr "Nous contacter"
 msgid "Clear"
 msgstr "Effacer"
 
-#: core/resources/ui_strings.py:60 core/resources/ui_strings.py:97
+#: core/resources/ui_strings.py:60 core/resources/ui_strings.py:98
 #: dashboard/templates/dashboard/post_list.html:8 dashboard/views.py:392
 msgid "New Post"
 msgstr "Nouvelle Publication"
@@ -429,24 +433,37 @@ msgid "The publication's content is empty"
 msgstr "La publication est vide"
 
 #: core/resources/ui_strings.py:71
+msgid ""
+"Select the date at which you want your post to be published. Leave it empty "
+"it if you want your publication to be published as soon as possible. Note "
+"that due to schedule policy, publications might appear with 30 min delay. To "
+"avoid that, use a schedule that has an 30 minutes interval"
+msgstr ""
+"Sélectionnez la date à laquelle vous souhaitez que votre publication soit "
+"publié. Laissez-le vide si vous souhaitez que votre publication soit publiée "
+"au plus vite. Notez qu'en raison de la politique de planification, les "
+"publications peuvent apparaître avec un délai de 30 minutes. Pour éviter "
+"cela, utilisez un programme qui a un intervalle de 30 minutes"
+
+#: core/resources/ui_strings.py:72
 msgid "Open your story"
 msgstr "Ouvrir votre story"
 
-#: core/resources/ui_strings.py:72
+#: core/resources/ui_strings.py:73
 msgid "There no posts currently. Feel free to create a new one"
 msgstr ""
 "Il n'y a pas de publication actuellement. N'hésitez pas à en créer une "
 "nouvelle"
 
-#: core/resources/ui_strings.py:73
+#: core/resources/ui_strings.py:74
 msgid "Invalid user request"
 msgstr "Demande d'utilisateur invalide"
 
-#: core/resources/ui_strings.py:74
+#: core/resources/ui_strings.py:75
 msgid "Resource not found !"
 msgstr "Ressource introuvable !"
 
-#: core/resources/ui_strings.py:75
+#: core/resources/ui_strings.py:76
 msgid ""
 "The resource you requested does not exist or is no longer available. Visit "
 "our blog to discover other blog posts."
@@ -454,23 +471,23 @@ msgstr ""
 "La ressource que vous avez demandée n'existe pas ou n'est plus disponible. "
 "Visitez notre blog pour découvrir d'autres articles de blos."
 
-#: core/resources/ui_strings.py:76
+#: core/resources/ui_strings.py:77
 msgid "Discover our Blog"
 msgstr "Découvrir notre Blog"
 
-#: core/resources/ui_strings.py:77
+#: core/resources/ui_strings.py:78
 msgid "Post Preview"
 msgstr "Aperçu de la publication"
 
-#: core/resources/ui_strings.py:78
+#: core/resources/ui_strings.py:79
 msgid "Story's title ..."
 msgstr "Titre de la story ..."
 
-#: core/resources/ui_strings.py:79
+#: core/resources/ui_strings.py:80
 msgid "Not found"
 msgstr "Pas trouvé"
 
-#: core/resources/ui_strings.py:80
+#: core/resources/ui_strings.py:81
 #, python-brace-format
 msgid ""
 "Hey, have a look on this article {POST_URL}. I think it is interesting, "
@@ -479,11 +496,11 @@ msgstr ""
 "Salut, jetez un œil à cet article {POST_URL}. Je pense que c'est "
 "intéressant, merci !"
 
-#: core/resources/ui_strings.py:81
+#: core/resources/ui_strings.py:82
 msgid "We use cookies"
 msgstr "Nous utilisons des cookies"
 
-#: core/resources/ui_strings.py:82
+#: core/resources/ui_strings.py:83
 msgid ""
 "We use cookies and other tracking technologies to improve your browsing "
 "experience on our website, to show you personalized content and targeted "
@@ -495,114 +512,114 @@ msgstr ""
 "contenu personnalisé et des publicités ciblées, pour analyser le trafic de "
 "notre site Web et pour comprendre d'où viennent nos visiteurs."
 
-#: core/resources/ui_strings.py:83
+#: core/resources/ui_strings.py:84
 msgid "Start typing here ..."
 msgstr "Commencez à écrire ici..."
 
-#: core/resources/ui_strings.py:84
+#: core/resources/ui_strings.py:85
 msgid "Enter a quote"
 msgstr "Saisissez une citation"
 
-#: core/resources/ui_strings.py:85
+#: core/resources/ui_strings.py:86
 msgid "Quote's author"
 msgstr "Auteur de la citation"
 
-#: core/resources/ui_strings.py:86
+#: core/resources/ui_strings.py:87
 msgid "Be the first to comment"
 msgstr "Soyez le premier à commenter"
 
-#: core/resources/ui_strings.py:87
+#: core/resources/ui_strings.py:88
 msgid "Post a comment"
 msgstr "Poste un commentaire"
 
-#: core/resources/ui_strings.py:88
+#: core/resources/ui_strings.py:89
 msgid "Only members can comment. Please log in or create an account to comment"
 msgstr ""
 "Seuls les membres peuvent commenter. S'il vous plaît, connectez-vous ou "
 "créez un compte pour commenter"
 
-#: core/resources/ui_strings.py:89
+#: core/resources/ui_strings.py:90
 msgid "Comment"
 msgstr "Commenter"
 
-#: core/resources/ui_strings.py:90
+#: core/resources/ui_strings.py:91
 #: dashboard/templates/dashboard/post_detail.html:28
 #: dashboard/templates/dashboard/post_update.html:27
 msgid "Comments"
 msgstr "Commentaires"
 
-#: core/resources/ui_strings.py:91
+#: core/resources/ui_strings.py:92
 #: dashboard/templates/dashboard/user_detail.html:53 templates/tags/nav.html:40
 #: templates/tags/nav.html:42
 msgid "Account"
 msgstr "Compte"
 
-#: core/resources/ui_strings.py:92 core/resources/ui_strings.py:99
+#: core/resources/ui_strings.py:93 core/resources/ui_strings.py:100
 #: templates/dashboard_base.html:36 templates/post_base.html:9
 #: templates/tags/nav.html:18 templates/tags/nav.html:37
 #: templates/users_base.html:9
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: core/resources/ui_strings.py:94
+#: core/resources/ui_strings.py:95
 #: dashboard/templates/dashboard/category_detail.html:50
 #: dashboard/templates/dashboard/post_list.html:14
 #: templates/dashboard_base.html:39 templates/post_base.html:10
 msgid "Posts"
 msgstr "Publications"
 
-#: core/resources/ui_strings.py:95 dashboard/views.py:422
+#: core/resources/ui_strings.py:96 dashboard/views.py:422
 msgid "Post"
 msgstr "Publication"
 
-#: core/resources/ui_strings.py:96 dashboard/views.py:437
+#: core/resources/ui_strings.py:97 dashboard/views.py:437
 msgid "Post Update"
 msgstr "Actualiser la publication"
 
-#: core/resources/ui_strings.py:100
+#: core/resources/ui_strings.py:101
 #: dashboard/templates/dashboard/coupon_create.html:4
 #: dashboard/templates/dashboard/coupon_detail.html:7
 #: dashboard/templates/dashboard/coupon_list.html:19
 msgid "Coupons"
 msgstr "Coupons"
 
-#: core/resources/ui_strings.py:101
+#: core/resources/ui_strings.py:102
 msgid "Coupon"
 msgstr "Coupon"
 
-#: core/resources/ui_strings.py:102
+#: core/resources/ui_strings.py:103
 #: dashboard/templates/dashboard/coupon_detail.html:4
 #: dashboard/templates/dashboard/coupon_list.html:12
 msgid "New Coupon"
 msgstr ""
 
-#: core/resources/ui_strings.py:103
+#: core/resources/ui_strings.py:104
 msgid "Coupon Update"
 msgstr ""
 
-#: core/resources/ui_strings.py:105
+#: core/resources/ui_strings.py:106
 #: dashboard/templates/dashboard/news_create.html:4
 #: dashboard/templates/dashboard/news_detail.html:8 dashboard/views.py:251
 #: templates/post_base.html:20
 msgid "Infos"
 msgstr ""
 
-#: core/resources/ui_strings.py:106
+#: core/resources/ui_strings.py:107
 #: dashboard/templates/dashboard/news_update.html:4 dashboard/views.py:299
 msgid "Info"
 msgstr ""
 
-#: core/resources/ui_strings.py:107
+#: core/resources/ui_strings.py:108
 #: dashboard/templates/dashboard/news_detail.html:5
 #: dashboard/templates/dashboard/news_list.html:10
 msgid "New Info"
 msgstr "Nouvelle Info"
 
-#: core/resources/ui_strings.py:108 dashboard/views.py:314
+#: core/resources/ui_strings.py:109 dashboard/views.py:314
 msgid "Info Update"
 msgstr "Actualiser l'info"
 
-#: core/resources/ui_strings.py:110
+#: core/resources/ui_strings.py:111
 #: dashboard/templates/dashboard/group_create.html:7
 #: dashboard/templates/dashboard/group_create.html:8
 #: dashboard/templates/dashboard/group_detail.html:14
@@ -611,37 +628,37 @@ msgstr "Actualiser l'info"
 msgid "Groups"
 msgstr "Groupes"
 
-#: core/resources/ui_strings.py:111
+#: core/resources/ui_strings.py:112
 #: dashboard/templates/dashboard/user_detail.html:98
 msgid "Group"
 msgstr "Groupe"
 
-#: core/resources/ui_strings.py:112
+#: core/resources/ui_strings.py:113
 #: dashboard/templates/dashboard/group_list.html:29
 msgid "New Group"
 msgstr "Nouveau Groupe"
 
-#: core/resources/ui_strings.py:113
+#: core/resources/ui_strings.py:114
 msgid "Group Update"
 msgstr "Actualiser le groupe"
 
-#: core/resources/ui_strings.py:116
+#: core/resources/ui_strings.py:117
 msgid "Highlights"
 msgstr ""
 
-#: core/resources/ui_strings.py:117
+#: core/resources/ui_strings.py:118
 msgid "Highlight"
 msgstr ""
 
-#: core/resources/ui_strings.py:118
+#: core/resources/ui_strings.py:119
 msgid "Highlight Update"
 msgstr ""
 
-#: core/resources/ui_strings.py:119
+#: core/resources/ui_strings.py:120
 msgid "New Highlight"
 msgstr ""
 
-#: core/resources/ui_strings.py:120
+#: core/resources/ui_strings.py:121
 #: dashboard/templates/dashboard/new_user.html:11
 #: dashboard/templates/dashboard/user_detail.html:16
 #: dashboard/templates/dashboard/user_list.html:18
@@ -653,50 +670,50 @@ msgstr ""
 msgid "Users"
 msgstr "Utilisateurs"
 
-#: core/resources/ui_strings.py:121
+#: core/resources/ui_strings.py:122
 msgid "Customers"
 msgstr "Clients"
 
-#: core/resources/ui_strings.py:122
+#: core/resources/ui_strings.py:123
 msgid "Sellers"
 msgstr "Vendeurs"
 
-#: core/resources/ui_strings.py:123
+#: core/resources/ui_strings.py:124
 msgid "User"
 msgstr "Utilisateur"
 
-#: core/resources/ui_strings.py:124
+#: core/resources/ui_strings.py:125
 msgid "User Update"
 msgstr "Actualiser l'utilisateur"
 
-#: core/resources/ui_strings.py:125
+#: core/resources/ui_strings.py:126
 #: dashboard/templates/dashboard/user_list.html:13 dashboard/views.py:761
 msgid "New User"
 msgstr "Nouvel utilisateur"
 
-#: core/resources/ui_strings.py:128 templates/users_base.html:16
+#: core/resources/ui_strings.py:129 templates/users_base.html:16
 msgid "Tokens"
 msgstr "Tokens"
 
-#: core/resources/ui_strings.py:129
+#: core/resources/ui_strings.py:130
 #: dashboard/templates/dashboard/partner_token_list.html:17
 msgid "Partner Tokens"
 msgstr "Tokens Partenaires"
 
-#: core/resources/ui_strings.py:130
+#: core/resources/ui_strings.py:131
 #: dashboard/templates/dashboard/partner_token_list.html:9
 msgid "New Token"
 msgstr "Nouveau token"
 
-#: core/resources/ui_strings.py:131
+#: core/resources/ui_strings.py:132
 msgid "Subscription Payment"
 msgstr ""
 
-#: core/resources/ui_strings.py:132
+#: core/resources/ui_strings.py:133
 msgid "Subscription Payments"
 msgstr ""
 
-#: core/resources/ui_strings.py:133
+#: core/resources/ui_strings.py:134
 msgid "Create Subscription Payment"
 msgstr ""
 
@@ -2207,11 +2224,15 @@ msgstr ""
 msgid "Slug"
 msgstr ""
 
+#: templates/tags/editor.html:20
+msgid "Schedule"
+msgstr ""
+
 #: templates/tags/home-main-section.html:8
 msgid "Our selection"
 msgstr "Notre sélection"
 
-#: templates/tags/home-main-section.html:74
+#: templates/tags/home-main-section.html:87
 msgid "Most recent"
 msgstr "Recent"
 
