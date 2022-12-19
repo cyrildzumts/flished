@@ -651,6 +651,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 }
             }
             console.log("Schedule valid : %s", is_valid);
+            console.log("scheduled_at value : %s", scheduled_at.value);
             return is_valid;
         };
 
