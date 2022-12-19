@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-19 13:23+0100\n"
+"POT-Creation-Date: 2022-12-19 14:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,7 +58,7 @@ msgstr "Veuillez choisir une catégory"
 #: blog/templates/blog/blog_post_update.html:40
 #: templates/email_tags/order_cancel_confirmation_email.html:47
 #: templates/email_tags/order_confirmation_email.html:46
-#: templates/tags/editor.html:37
+#: templates/tags/editor.html:40
 msgid "Image"
 msgstr "Image"
 
@@ -435,15 +435,12 @@ msgstr "La publication est vide"
 #: core/resources/ui_strings.py:71
 msgid ""
 "Select the date at which you want your post to be published. Leave it empty "
-"it if you want your publication to be published as soon as possible. Note "
-"that due to schedule policy, publications might appear with 30 min delay. To "
-"avoid that, use a schedule that has an 30 minutes interval"
+"it if you want your publication to be published as soon as possible. It is "
+"recommended to use an interval of 30 minutes."
 msgstr ""
-"Sélectionnez la date à laquelle vous souhaitez que votre publication soit "
+"Sélectionnez la date à laquelle vous souhaitez que votre message soit "
 "publié. Laissez-le vide si vous souhaitez que votre publication soit publiée "
-"au plus vite. Notez qu'en raison de la politique de planification, les "
-"publications peuvent apparaître avec un délai de 30 minutes. Pour éviter "
-"cela, utilisez un programme qui a un intervalle de 30 minutes"
+"au plus vite. Il est recommandé d'utiliser un intervalle de 30 minutes."
 
 #: core/resources/ui_strings.py:72
 msgid "Open your story"
