@@ -5,18 +5,15 @@
 {% endblock HEADER %}
 
 {% block MAIN %}
-
-<div class="flex flex-left full padding-h"><h4>{% trans "Scheduled Posts" %}</h4></div>
 <div class="container">
+    <div class="flex flex-left full padding-h"><h4>{% trans "Scheduled Posts" %}</h4></div>
    {% if scheduled_posts %}
    {% include "tags/blog_posts_tag.html" with blog_posts=scheduled_posts SHOW_STATUS=True %}
    {% else %}
-   <div class="container">
-        <div class="mat-box">
-            <p>{% trans "You have not scheduled a story yet." %}</p>
-            <p><a class="mat-button mat-button-default" href="{{SITE_HOST}}{% url 'blog:create-post' %}"><i class="fas fa-edit icon"></i>{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</a></p>
-        </div>
-   </div>
+   <div class="mat-box full">
+    <p>{% trans "You have not scheduled a story yet." %}</p>
+    <p><a class="mat-button mat-button-default" href="{{SITE_HOST}}{% url 'blog:create-post' %}"><i class="fas fa-edit icon"></i>{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</a></p>
+</div>
    {% endif %}
    
 </div>
