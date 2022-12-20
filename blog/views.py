@@ -110,7 +110,7 @@ def scheduled_stories(request):
     context = {
         'page_title': page_title,
         'PAGE_TITLE': page_title,
-        'story_list': list_set,
+        'scheduled_posts': list_set,
         'SHOW_STATUS': True,
         'ADD_ACTIONS': True,
         'posts_count': posts_count
