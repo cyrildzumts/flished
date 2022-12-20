@@ -315,7 +315,7 @@ def category_detail_slug(request, slug=None):
 def search(request):
     context = {}
     search_query = utils.get_request_data(request).get('search')
-    template_name = "blog/search_results.html"
+    template_name = "blog/search-results.html"
     page_title = (search_query or "Error") + " - " + settings.SITE_NAME
     search_results = blog_service.search_posts(search_query)
     post_not_found = search_results is None or not search_results.exists()
