@@ -252,7 +252,7 @@ def delete_posts(request):
 
     if len(id_list):
         post_id_list = list(map(int, id_list))
-        Post.objects.filter(pk__in=post_id_list, autho=request.user).delete()
+        Post.objects.filter(pk__in=post_id_list, author=request.user).delete()
         messages.success(request, f"Posts deleted")
         logger.info(f"Posts \"{id_list}\" deleted by user {username}")
         
