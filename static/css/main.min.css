@@ -3121,6 +3121,7 @@ label.nav-label::after{
 .search-form-wrapper{
 	width: 100%;
 	padding: 1em;
+	z-index: 10;
 }
 .search-box{
 	display: flex;
