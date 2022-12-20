@@ -26,6 +26,6 @@ def core_context(request):
         'UI_WHATSAPP_SHARE_BODY': UI_STRINGS.UI_WHATSAPP_SHARE_BODY,
         'DEFAULT_FROM_EMAIL': settings.DEFAULT_FROM_EMAIL,
         'TEMPLATE_CACHE_TIMEOUT': settings.TEMPLATE_CACHE_TIMEOUT,
-        'SEARCH_AVAILABLE': True
+        'SEARCH_AVAILABLE': False
     }
     return context

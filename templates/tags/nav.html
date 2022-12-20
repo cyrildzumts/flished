@@ -20,7 +20,7 @@
                 {% if not request.user.is_authenticated %}
                 <li class="nav-item js-action-abtest" data-action="1"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:login' %}?next={{request.path}}" title="{% trans 'Login' %}"><i class="fas fa-sign-in-alt icon"></i></a></li>
                 {% endif %}
-                <li class="nav-item hidden-m js-action-abtest" data-action="4"><a class="nav-link" href="{{SITE_HOST}}" title="{% trans 'Search for posts' %}"><i class="fas fa-search icon"></i></a></li>
+                {% comment %}<li class="nav-item hidden-m js-action-abtest" data-action="4"><a class="nav-link" href="{{SITE_HOST}}" title="{% trans 'Search for posts' %}"><i class="fas fa-search icon"></i></a></li>{% endcomment %}
             </ul>
         </div>
         
@@ -32,7 +32,7 @@
                 </ul>
                 {% endif %}
                 <ul class="navbar-nav secondary">
-                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}" title="{% trans 'Search for posts' %}"><i class="fas fa-search icon"></i>{% translate "Search" %}</a></li>
+                    {% comment %}<li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}" title="{% trans 'Search for posts' %}"><i class="fas fa-search icon"></i>{% translate "Search" %}</a></li>{% endcomment %}
                     {% if is_dashboard_allowed %}
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i>{{UI_STRINGS_CONTEXT.UI_DASHBOARD_LABEL}}</a></li>
                     {% endif %}
