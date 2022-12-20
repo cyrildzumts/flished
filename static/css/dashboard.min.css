@@ -2745,6 +2745,7 @@ label.nav-label::after{
 	display: none;
 }
 .search-form-wrapper{
+	width: 100%;
 	padding: 1em;
 }
 .search-box{
