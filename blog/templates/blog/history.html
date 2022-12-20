@@ -8,7 +8,7 @@
 <div class="container">
    <div class="flex flex-left full padding"><h2>{{UI_STRINGS_CONTEXT.UI_USER_HISTORY_LABEL}}({{posts_count|default:'0'}})</h2></div>
    {% if histories %}
-   {% include "tags/blog_posts_tag.html" with blog_posts=histories %}
+   {% include "tags/histories-tag.html" with blog_posts=histories %}
    {% else %}
    <div class="mat-box container">
         <p>{{UI_STRINGS_CONTEXT.UI_USER_NO_HISTORY}}</p>

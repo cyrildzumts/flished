@@ -1,0 +1,26 @@
+
+{% load core_tags %}
+{% load blog_tags %}
+  <div class="post-list-wrapper">
+    <div class="block-title margin-v"><strong>{{UI_STRINGS_CONTEXT.UI_STANDARD_POST_LIST_TITLE}}</strong></div>
+    
+    <div class="post-list">
+    <ul>
+      {% for history in histories %}
+      <li>
+        <div class="post-entry">
+          <div class="link-wrapper"><a href="{{history.post.get_absolute_url}}">{{blog_post.title}}</a></div>
+          <div class="summary-wrapper">
+            <div class="post-summary">
+              {% render_post_summary history.post %}
+            </div>
+            <div class="post-header">
+              <span>{{history.post.author.get_full_name}}</span>|<span>{{history.created_at}}</span>{% comment %}|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>{% endcomment %}
+            </div>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    </div>
+  </div>
