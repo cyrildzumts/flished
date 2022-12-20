@@ -86,6 +86,7 @@ def my_stories(request):
         'PAGE_TITLE': page_title,
         'story_list': list_set,
         'SHOW_STATUS': True,
+        'ADD_ACTIONS': True,
         'posts_count': posts_count,
     }
     return render(request, template_name, context)
@@ -111,6 +112,7 @@ def scheduled_stories(request):
         'PAGE_TITLE': page_title,
         'story_list': list_set,
         'SHOW_STATUS': True,
+        'ADD_ACTIONS': True,
         'posts_count': posts_count
     }
     return render(request, template_name, context)
@@ -238,6 +240,25 @@ def blog_post(request, author, post_slug):
 def delete_post(request, post_slug):
     post = get_object_or_404(Post, slug=post_slug, author=request.user)
     Post.objects.filter(pk=post.pk).update(post_status=Constants.POST_STATUS_DELETED)
+    return redirect('blog:blog-home')
+
+
+@login_required
+def delete_posts(request):
+    username = request.user.username
+    
+    postdata = utils.get_postdata(request)
+    id_list = postdata.getlist('posts')
+
+    if len(id_list):
+        post_id_list = list(map(int, id_list))
+        Post.objects.filter(pk__in=post_id_list, autho=request.user).delete()
+        messages.success(request, f"Posts deleted")
+        logger.info(f"Posts \"{id_list}\" deleted by user {username}")
+        
+    else:
+        messages.error(request, f"Posts could not be deleted")
+        logger.error(f"ID list invalid. Error : {id_list}")
     return redirect('blog:blog-home')
 
 

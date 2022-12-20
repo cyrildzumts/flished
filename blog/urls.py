@@ -12,6 +12,7 @@ blog_routes = [
     path('preview/', views.post_preview, name="post-preview"),
 
     path('delete/<slug:post_slug>/', views.delete_post, name="delete-post"),
+    path('delete-posts/', views.delete_posts, name="delete-posts"),
     path('update-post/<slug:post_slug>/', views.update_post, name="update-post"),
     path('create-comment/<slug:author>/<slug:post_slug>/', views.create_comment, name="create-comment"),
     path('categories/<slug:slug>/', views.category_detail_slug, name="category-detail"),

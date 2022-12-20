@@ -3,6 +3,12 @@
 {% load blog_tags %}
   <div class="post-list-wrapper">
     <div class="block-title margin-v"><strong>{{UI_STRINGS_CONTEXT.UI_STANDARD_POST_LIST_TITLE}}</strong></div>
+    {% if ADD_ACTIONS %}
+    <form action="blog:delete-posts" method="post">{% csrf_token %}
+      <div class="actions">
+        <button type="submit"><i class="fas fa-trash icon"></i><span>{{UI_STRINGS_CONTEXT.UI_DELETE_SELECTION_LABEL}}</span></button>
+      </div>
+    {% endif %}
     <div class="post-list">
     <ul>
       {% for blog_post in blog_posts %}
@@ -15,7 +21,7 @@
             </div>
             <div class="post-header">
               <span>{{blog_post.author.get_full_name}}</span>|<span>{{blog_post.published_at|default:blog_post.created_at}}</span>|<span><i class="fas fa-comments icon"></i>{{blog_post.comments.count}}</span>{% if SHOW_STATUS %} | <span><i class="far fa-lightbulb"></i><span>{{blog_post.post_status|post_status_value}}</span></span>{% endif %}
-              {% if blog_post.author == request.user %} | <a href="{{blog_post.get_update_url}}" title="{{UI_STRINGS_CONTEXT.UI_UPDATE_BLOG_POST}}"><i class="fas fa-edit icon"></i></a> | <a href="{{blog_post.get_delete_url}}" title="{{UI_STRINGS_CONTEXT.UI_DELETE_BLOG_POST}}"><i class="fas fa-trash icon"></i></a>{% endif %}
+              {% if blog_post.author == request.user %} | <a href="{{blog_post.get_update_url}}" title="{{UI_STRINGS_CONTEXT.UI_UPDATE_BLOG_POST}}"><i class="fas fa-edit icon"></i></a> | <a href="{{blog_post.get_delete_url}}" title="{{UI_STRINGS_CONTEXT.UI_DELETE_BLOG_POST}}"><i class="fas fa-trash icon"></i></a> {% if ADD_ACTIONS %}| <span class="padding-h"><input type="checkbox" name="posts" id="post-{{forloop.counter0}}" value="{{blog_post.pk}}"></span>{% endif %}{% endif %}
             </div>
           </div>
         </div>
@@ -23,4 +29,7 @@
       {% endfor %}
     </ul>
     </div>
+    {% if ADD_ACTIONS %}
+    </form>
+    {% endif %}
   </div>
