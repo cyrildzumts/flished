@@ -24,6 +24,16 @@
           </div>
           <div class="hint hidden"><p>{% translate "Please, select a category" %}</p></div>
         </div>
+        <div class="padding full">
+          <label class="bold" for="scheduled_at">{{UI_STRINGS_CONTEXT.UI_POST_SCHEDULE_LABEL}}</label>
+          <div class="flex flex-left margin-v flex-wrap">
+              <input type="datetime-local" name="scheduled_at" id="scheduled_at" value="{% if post.scheduled_at %}{{post.scheduled_at|date:'Y-m-d'}}T{{post.scheduled_at|time:'H:i:s'}}{% endif %}">
+              <span class="accordion-toggle" data-target="schedule-hint"><i class="fas fa-question-circle"></i></span>
+          </div>
+          <div id="schedule-hint" class="accordion margin-v mat-box">
+              <div class="padding"><p class="small">{{UI_STRINGS_CONTEXT.UI_POST_SCHEDULE_HINT}}</p></div>
+          </div>
+      </div>
       </div>
       <form action="">{% csrf_token %}
         <input id="content" type="hidden" name="content" value="{{post.content_json_str|default_if_none:''}}">
