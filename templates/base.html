@@ -81,7 +81,7 @@
 {% block HEADER %}
 {% endblock HEADER %}
 {% block SEARCH_BAR %}
-{{% if SEARCH_AVAILABLE %}
+{% if SEARCH_AVAILABLE %}
 {% include 'tags/search_bar.html' with search_id="flished-search-tag" %}
 {% endif %}
 {% endblock SEARCH_BAR %}
