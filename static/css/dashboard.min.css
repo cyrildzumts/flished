@@ -1147,7 +1147,7 @@ body.header-not-at-top .site-header{
 	flex-direction: column;
 	position: relative;
 	
-	padding-top: 48px;
+	padding-top: 72px;
 	
 	flex: 1 0 auto;
 }
