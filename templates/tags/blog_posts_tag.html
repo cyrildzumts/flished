@@ -4,7 +4,7 @@
   <div class="post-list-wrapper">
     <div class="block-title margin-v"><strong>{{UI_STRINGS_CONTEXT.UI_STANDARD_POST_LIST_TITLE}}</strong></div>
     {% if ADD_ACTIONS %}
-    <form action="blog:delete-posts" method="post">{% csrf_token %}
+    <form action="{% url 'blog:delete-posts' %}" method="post">{% csrf_token %}
       <div class="actions">
         <button type="submit"><i class="fas fa-trash icon"></i><span>{{UI_STRINGS_CONTEXT.UI_DELETE_SELECTION_LABEL}}</span></button>
       </div>
