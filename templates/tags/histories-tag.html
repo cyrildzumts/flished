@@ -9,7 +9,7 @@
       {% for history in histories %}
       <li>
         <div class="post-entry">
-          <div class="link-wrapper"><a href="{{history.post.get_absolute_url}}">{{blog_post.title}}</a></div>
+          <div class="link-wrapper"><a href="{{history.post.get_absolute_url}}">{{history.post.title}}</a></div>
           <div class="summary-wrapper">
             <div class="post-summary">
               {% render_post_summary history.post %}
