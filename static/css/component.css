@@ -454,6 +454,7 @@ canvas{
 /* sections */
 ul, ol{
 	margin: 1em;
+	padding: 1em;
 }
 ul,nav, .nav{
 	list-style-type: none;
