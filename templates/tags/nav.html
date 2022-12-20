@@ -20,7 +20,7 @@
                 {% if not request.user.is_authenticated %}
                 <li class="nav-item js-action-abtest" data-action="1"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:login' %}?next={{request.path}}" title="{% trans 'Login' %}"><i class="fas fa-sign-in-alt icon"></i></a></li>
                 {% endif %}
-                <li class="nav-item hidden-m"><a class="nav-link" href="{{SITE_HOST}}" title="{% trans 'Search for posts' %}"><i class="fas fa-search icon"></i></a></li>
+                <li class="nav-item hidden-m js-action-abtest" data-action="4"><a class="nav-link" href="{{SITE_HOST}}" title="{% trans 'Search for posts' %}"><i class="fas fa-search icon"></i></a></li>
             </ul>
         </div>
         

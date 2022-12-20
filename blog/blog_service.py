@@ -12,6 +12,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from core import core_tools 
 from core.resources import ui_strings as CORE_UI_STRINGS
 from flished import utils
+import functools, operator
 import datetime
 import logging
 
@@ -330,3 +331,23 @@ def get_new_post_comments(post_id,data) :
         comment_count = 0
 
     return {'success': True, 'comments': comments, 'likes': post.likes.count(), 'latest': latest, 'comment_count': comment_count}
+
+
+def build_search_query(search_query):
+    if not isinstance(search_query, str):
+        return None
+    
+    return search_query.split()
+
+
+def search_posts(search_query):
+    if not search_query:
+        return None
+
+    query_str = search_query
+    logger.info(f"Search str : {query_str}")
+    POST_VECTOR = SearchVector('title') + SearchVector('content') + SearchVector('author__username') + SearchVector('author__first_name')+ SearchVector('author__last_name') + SearchVector('tags__tag')
+    CATEGORY_VECTOR = SearchVector('category__name') + SearchVector('category__display_name') + SearchVector('category__description')
+    DB_VECTOR = POST_VECTOR + CATEGORY_VECTOR
+    DB_QUERY = functools.reduce(operator.or_, [SearchQuery(q) for q in query_str.split()])
+    return Post.objects.annotate(search=DB_VECTOR).filter(search=DB_QUERY, post_status=Constants.POST_STATUS_PUBLISHED, is_active=True)

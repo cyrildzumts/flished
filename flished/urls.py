@@ -37,6 +37,7 @@ urlpatterns_i18n = i18n_patterns( * [
     path('faq/', views.faq, name='faq'),
     path('dashboard/', include('dashboard.urls')),
     path('scheduled/', blog_views.scheduled_stories, name="scheduled"),
+    path('search/', blog_views.search, name="search"),
 
 
 ], prefix_default_language=False)

@@ -309,3 +309,19 @@ def category_detail_slug(request, slug=None):
         #'structured_data': structured_data,
     }
     return render(request,template_name, context)
+
+
+
+def search(request):
+    context = {}
+    search_query = utils.get_request_data(request).get('search')
+    template_name = "blog/search_results.html"
+    page_title = (search_query or "Error") + " - " + settings.SITE_NAME
+    search_results = blog_service.search_posts(search_query)
+    post_not_found = search_results is None or not search_results.exists()
+    context['page_title'] = page_title + " | " + settings.SITE_NAME
+    context['search_results'] = search_results
+    context['posts_count'] = search_results.count()
+    context['search'] = search_query
+    context['NO_SEARCH_RESULTS'] = post_not_found
+    return render(request,template_name, context)
