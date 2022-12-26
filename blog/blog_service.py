@@ -352,4 +352,4 @@ def search_posts(search_query):
     DB_QUERY = SearchQuery(search_query) | SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_PHRASE) 
     #DB_QUERY = functools.reduce(operator.or_, [SearchQuery(q) for q in query_str.split()])
     #return Post.objects.annotate(search=DB_VECTOR).filter(search=DB_QUERY, post_status=Constants.POST_STATUS_PUBLISHED, is_active=True)
-    return Post.objects.annotate(rank=SearchRank(DB_VECTOR, DB_QUERY)).filter(rank__gte=Constants.SEARCH_RANK_FILTER,post_status=Constants.POST_STATUS_PUBLISHED, is_active=True).order_by(Constants.SEARCH_ORDER_BY_RANK_DESCENDING)
+    return Post.objects.annotate(rank=SearchRank(DB_VECTOR, DB_QUERY)).filter("""rank__gte=Constants.SEARCH_RANK_FILTER,"""post_status=Constants.POST_STATUS_PUBLISHED, is_active=True).order_by(Constants.SEARCH_ORDER_BY_RANK_DESCENDING)
