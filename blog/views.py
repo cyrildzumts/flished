@@ -337,11 +337,12 @@ def search(request):
     search_query = utils.get_request_data(request).get('search')
     template_name = "blog/search-results.html"
     page_title = (search_query or "Error") + " - " + settings.SITE_NAME
-    search_results = blog_service.search_posts(search_query)
-    post_not_found = search_results is None or not search_results.exists()
-    context['page_title'] = page_title + " | " + settings.SITE_NAME
-    context['search_results'] = search_results
-    context['posts_count'] = search_results.count()
-    context['search'] = search_query
-    context['NO_SEARCH_RESULTS'] = post_not_found
+    if search_query is not None:
+        search_results = blog_service.search_posts(search_query)
+        post_not_found = search_results is None or not search_results.exists()
+        context['page_title'] = page_title + " | " + settings.SITE_NAME
+        context['search_results'] = search_results
+        context['posts_count'] = search_results.count()
+        context['search'] = search_query
+        context['NO_SEARCH_RESULTS'] = post_not_found
     return render(request,template_name, context)
