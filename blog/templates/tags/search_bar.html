@@ -1,7 +1,5 @@
 {% load i18n %}
-{% load cache %}
 
-{% cache TEMPLATE_CACHE_TIMEOUT search LANGUAGE_CODE search_id %}
 <div class="search-form-wrapper">
     <div class="container">
         <div class="hidden-m col-9"></div>
@@ -18,4 +16,3 @@
         </div>
     </div>
 </div>
-{% endcache %}
