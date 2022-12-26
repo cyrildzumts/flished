@@ -8,7 +8,7 @@
 <div class="container">
     <div class="flex flex-left full padding"><h4><span>{{UI_STRINGS_CONTEXT.UI_SEARCH_RESULTS_LABEL}}</span><span class="padding-h"><i>{{search}}</i></span>({{posts_count|default:'0'}})</h4></div>
    {% if search_results %}
-   {% include "tags/blog_posts_tag.html" with blog_posts=search_results %}
+   {% include "tags/results-tag.html" with blog_posts=search_results %}
    {% else %}
     <div class="mat-box container">
     {% include 'tags/no_search_results.html' %}
