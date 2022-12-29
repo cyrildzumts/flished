@@ -8,7 +8,7 @@
                 <form id="search-form" class="form" name="search-form" action="{% url 'search' %}" method="get" autocomplete="off">
                     <div class="search-box">
                         <i class="fas fa-search icon"></i>
-                        <input type="text" id="search-{{search_id}}" class="search" name="search" value="{{search|default_if_none:''}}" aria-label="{{UI_STRINGS_CONTEXT.UI_SEARCH_LABEL}}" placeholder="{{UI_STRINGS_CONTEXT.UI_SEARCH_LABEL}}" autocomplete="off">
+                        <input type="text" id="search-{{search_id|default:'default'}}" class="search" name="search" value="{{search|default_if_none:''}}" aria-label="{{UI_STRINGS_CONTEXT.UI_SEARCH_LABEL}}" placeholder="{{UI_STRINGS_CONTEXT.UI_SEARCH_LABEL}}" autocomplete="off">
                     </div>
                 </form>
             </div>
