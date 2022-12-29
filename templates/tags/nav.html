@@ -14,6 +14,7 @@
         </div>
         <div class="flex main-nav-bar">
             <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}/search" title="{{UI_STRINGS_CONTEXT.UI_SEARCH_LABEL}}"><i class="fas fa-search icon"></i><span>{{UI_STRINGS_CONTEXT.UI_SEARCH_LABEL}}</span></a></li>
                 {% if is_dashboard_allowed %}
                 <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i><span class="hidden-m">{{UI_STRINGS_CONTEXT.UI_DASHBOARD_LABEL}}</span></a></li>
                 {% endif %}
@@ -32,9 +33,9 @@
                 </ul>
                 {% endif %}
                 <ul class="navbar-nav secondary">
-                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}/search" title="{% trans 'Search for posts' %}"><i class="fas fa-search icon"></i>{% translate "Search" %}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}/search" title="{{UI_STRINGS_CONTEXT.UI_SEARCH_LABEL}}"><i class="fas fa-search icon"></i><span>{{UI_STRINGS_CONTEXT.UI_SEARCH_LABEL}}</span></a></li>
                     {% if is_dashboard_allowed %}
-                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i>{{UI_STRINGS_CONTEXT.UI_DASHBOARD_LABEL}}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i><span>{{UI_STRINGS_CONTEXT.UI_DASHBOARD_LABEL}}</span></a></li>
                     {% endif %}
                     {% if request.user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'blog:create-post' %}"><i class="fas fa-edit icon"></i><span>{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</span></a></li>
