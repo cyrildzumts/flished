@@ -346,7 +346,7 @@ def search_posts(search_query):
 
     query_str = search_query
     logger.info(f"Search str : {query_str}")
-    POST_VECTOR = SearchVector('title') + SearchVector('content') + SearchVector('author__username') + SearchVector('author__first_name')+ SearchVector('author__last_name') + SearchVector('tags__tag')
+    POST_VECTOR = SearchVector('title') + SearchVector('content') + SearchVector('author__username') + SearchVector('author__first_name')+ SearchVector('author__last_name') #+ SearchVector('tags__tag')
     #CATEGORY_VECTOR = SearchVector('category__name') + SearchVector('category__display_name') + SearchVector('category__description')
     DB_VECTOR = POST_VECTOR #+ CATEGORY_VECTOR
     DB_QUERY = SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_WEBSEARCH) 
