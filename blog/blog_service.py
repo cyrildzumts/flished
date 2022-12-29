@@ -349,7 +349,7 @@ def search_posts(search_query):
     POST_VECTOR = SearchVector('title') + SearchVector('content') + SearchVector('author__username') + SearchVector('author__first_name')+ SearchVector('author__last_name') + SearchVector('tags__tag')
     CATEGORY_VECTOR = SearchVector('category__name') + SearchVector('category__display_name') + SearchVector('category__description')
     DB_VECTOR = POST_VECTOR + CATEGORY_VECTOR
-    DB_QUERY = SearchQuery(search_query) | SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_WEBSEARCH) 
+    DB_QUERY = SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_WEBSEARCH) 
     #DB_QUERY = functools.reduce(operator.or_, [SearchQuery(q) for q in query_str.split()])
     #return Post.objects.annotate(search=DB_VECTOR).filter(search=DB_QUERY, post_status=Constants.POST_STATUS_PUBLISHED, is_active=True)
     return Post.objects.annotate(rank=SearchRank(DB_VECTOR, DB_QUERY)).filter(post_status=Constants.POST_STATUS_PUBLISHED, is_active=True).order_by(Constants.SEARCH_ORDER_BY_RANK_DESCENDING)
