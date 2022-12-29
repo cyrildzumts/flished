@@ -3536,10 +3536,6 @@ li .order-tag{
 	.recommendations{
 		width: 22.5em;
 	}
-	.search-form-wrapper{
-		position: absolute;
-		right: 0;
-	}
 	.catalog-options-wrapper{
 		width: 15rem;
 		padding: 1em 0;
