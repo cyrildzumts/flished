@@ -350,4 +350,4 @@ def search_posts(search_query):
     CATEGORY_VECTOR = SearchVector('category__name') + SearchVector('category__display_name') + SearchVector('category__description')
     DB_VECTOR = POST_VECTOR + CATEGORY_VECTOR
     DB_QUERY = SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_WEBSEARCH) 
-    return Post.objects.annotate(rank=SearchRank(DB_VECTOR, DB_QUERY)).filter(post_status=Constants.POST_STATUS_PUBLISHED, is_active=True, rank__gte=Constants.SEARCH_RANK_FILTER).order_by(Constants.SEARCH_ORDER_BY_RANK_DESCENDING)
+    return Post.objects.annotate(rank=SearchRank(DB_VECTOR, DB_QUERY)).filter(post_status=Constants.POST_STATUS_PUBLISHED, is_active=True).order_by(Constants.SEARCH_ORDER_BY_RANK_DESCENDING)
