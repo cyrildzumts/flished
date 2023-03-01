@@ -2355,8 +2355,14 @@ td a {
 	background-color: var(--code-textarea-bg);
 	color: var(--code-textarea);
 	border: 0;
+	resize: none;
 	min-height: 6em;
 	min-width: 21em;
+	word-break: keep-all;
+	overflow-wrap: break-word;
+	white-space: pre-wrap;
+	outline-offset: 2px;
+	caret-color: white;
 	
 }
 .code-area textarea:focus{
