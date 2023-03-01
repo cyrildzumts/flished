@@ -371,6 +371,7 @@ def posts(request):
         'content_title' : UI_STRINGS.DASHBOARD_POSTS_TITLE
     }
     queryset = Post.objects.all().order_by('-created_at')
+    post_count = queryset.count()
     page_title = UI_STRINGS.DASHBOARD_POSTS_TITLE + " - " + settings.SITE_NAME
     page = request.GET.get('page', 1)
     paginator = Paginator(queryset, utils.PAGINATED_BY)
@@ -382,6 +383,7 @@ def posts(request):
         list_set = None
     context['page_title'] = page_title
     context['post_list'] = list_set
+    context['post_count'] = post_count
     return render(request,template_name, context)
 
 

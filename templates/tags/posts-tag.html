@@ -5,7 +5,7 @@
 <div class="activity-list-wrapper full">
         <div class="mat-box style-box">
             <div class="padding title flex flex-left">
-                <span class="medium bold">{{list_title}}</span> {% if FULL_LIST_LINK and post_list %} <a class="mat-button mat-button-text" href="{% url FULL_LIST_LINK %}"><span class="small padding-h">{% trans "See all" %}</span><i class="fas fa-arrow-right"></i></a> {% endif %}
+                <span class="medium bold">{{list_title}}{% if post_count %}({{post_count}}){% endif %}</span> {% if FULL_LIST_LINK and post_list %} <a class="mat-button mat-button-text" href="{% url FULL_LIST_LINK %}"><span class="small padding-h">{% trans "See all" %}</span><i class="fas fa-arrow-right"></i></a> {% endif %}
             </div>
             
             <div class="container">

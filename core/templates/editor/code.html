@@ -1,6 +1,16 @@
 {% autoescape off %}
 <div class="code-area" id="code-area-{{code.id}}">
-    <textarea id="code-{{code.id}}" disabled>{{code.data.code}}</textarea>
+    <div class="code-border-frame">
+        <div class="code-header">
+            <ul>
+                <li><span><i class="fas fa-circle green"></i></span></li>
+                <li><span><i class="fas fa-circle red"></i></span></li>
+                <li><span><i class="fas fa-circle yellow"></i></span></li>
+            </ul>
+        </div>
+        <textarea id="code-{{code.id}}" disabled>{{code.data.code}}</textarea>
+    </div>
+    
 </div>
 
 {% endautoescape %}

@@ -14,38 +14,5 @@
                 {% include 'tags/posts-tag.html' with list_title=_("Posts") BASE_URL="dashboard:post-detail" FILTER_ENABLED=True %}
         </div>
 </form>
-{% comment %}
-<div class="mat-table-wrapper">
-        <div class="mat-table-title padding-v">{% trans "Posts" %}</div>
-        <div class="table-wrapper">
-        <table id="post-list" class="mat-table js-filter-table">
-        
-        <thead>
-                <tr>
-                        <th class="th-checkbox"><label><input id="filter-select-all" class="js-select-all" type="checkbox" name="allselected" title="{% trans 'Select all' %}"></label></th>
-                        <th scope="col">{% trans "Title" %}</th>
-                        <th scope="col">{% trans "Author" %}</th>
-                        <th scope="col">{% trans "Views" %}</th>
-                        <th scope="col">{% trans "Details" %}</th>
-                </tr>
-        </thead>
-        <tbody>
-                {% for post in post_list  %}
-                <tr>
-                <td scope="row" class="checkbox"><input class="js-selectable" type="checkbox" name="categories" value="{{category.pk}}"></td>
-                <td data-label="{% trans 'Title' %}"><span>{{post.title}}</span></td>
-                <td data-label="{% trans 'Author' %}"><span>{{post.author.get_full_name}}</span></td>
-                <td data-label="{% trans 'Views' %}"><span>{{post.view_count}}</span></td>
-                <td data-label="{% trans 'Details' %}"><a class="mat-button mat-button-outline" href="{{post.get_dashboard_url}}"><span><i class="fas fa-info icon"></i>{% trans "Details" %}</span></a></td>
-                </tr>
-                {% endfor %}
-                
-        </tbody>
-        </table>
-        </div>
-</div>
-{% include "tags/pagination.html" with page_set=post_list %}
-{% endcomment %}
-
 </div><!--End of Table Wrapper-->
 {% endblock CONTENT_MAIN %}
