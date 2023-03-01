@@ -495,15 +495,12 @@ option:checked{
 }
 .green{
     color: #2ecc71;
-    background-color: #2ecc71;
 }
 .yellow{
     color: #f1c40f;
-    background-color: #f1c40f;
 }
 .red{
     color: #e74c3c;
-    background-color: #e74c3c;
 }
 :root{
   --active-border-color: #45A29E;
@@ -2742,9 +2739,10 @@ td a {
 }
 .code-area textarea{
 	width: 100%;
-	padding: 0;
+	padding: 0.2em;
 	background-color: var(--code-textarea-bg);
 	color: var(--code-textarea);
+	border: 0;
 	min-height: 6em;
 }
 .code-area textarea:focus{
@@ -2756,6 +2754,7 @@ td a {
 }
 .code-header ul{
 	display: flex;
+	padding: 0.5em;
 }
 .code-header ul li{
 	margin: 0.2em;
