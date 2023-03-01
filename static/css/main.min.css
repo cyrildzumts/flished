@@ -46,7 +46,13 @@
     --dotted-color : #0a0a0a;
     --quote : #eadbcb;
     --quote-color: #a88b6d;
-    --quote-border-color : #a88b6d
+    --quote-border-color : #a88b6d;
+    --code-area-bg : #2c3e50;
+    --code-area: #bdc3c7;
+    --code-header : #bdc3c7;
+    --code-header-bg : #34495e;
+    --code-textarea: #bdc3c7;
+    --code-textarea-bg: #2c3e50;
 }
 body{
     background-color: var(--body-bg);
@@ -486,6 +492,18 @@ option:checked{
 .subscription .subscription-footer{
     background-color: var(--subscription-footer-bg);
     color: var(--subscription-footer-color);
+}
+.green{
+    color: #2ecc71;
+    background-color: #2ecc71;
+}
+.yellow{
+    color: #f1c40f;
+    background-color: #f1c40f;
+}
+.red{
+    color: #e74c3c;
+    background-color: #e74c3c;
 }
 :root{
   --active-border-color: #45A29E;
@@ -2715,19 +2733,32 @@ td a {
 }
 .code-area{
 	box-shadow: var(--box-shadow);
-	background-color: #fafafa;
-	margin: 1em 0;
+	background-color: var(--code-area-bg);
+	color: var(--code-area);
 	padding: 0.5em;
+    margin: 0.2em;
+	border-radius: 8px;
 	width: 100%;
 }
 .code-area textarea{
 	width: 100%;
 	padding: 0;
-	color: #1a1a1a;
+	background-color: var(--code-textarea-bg);
+	color: var(--code-textarea);
 	min-height: 6em;
 }
 .code-area textarea:focus{
 	border: 0 !important;
+}
+.code-header{
+	background-color: var(--code-header-bg);
+	color: var(--code-header);
+}
+.code-header ul{
+	display: flex;
+}
+.code-header ul li{
+	margin: 0.2em;
 }
 .link-meta a{
 	color: #0a0a0a;

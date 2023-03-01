@@ -39,5 +39,11 @@
     --dotted-color : #0a0a0a;
     --quote : #eadbcb;
     --quote-color: #a88b6d;
-    --quote-border-color : #a88b6d
+    --quote-border-color : #a88b6d;
+    --code-area-bg : #2c3e50;
+    --code-area: #bdc3c7;
+    --code-header : #bdc3c7;
+    --code-header-bg : #34495e;
+    --code-textarea: #bdc3c7;
+    --code-textarea-bg: #2c3e50;
 }
