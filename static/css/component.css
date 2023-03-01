@@ -2677,22 +2677,35 @@ td a {
 
 .code-area{
 	box-shadow: var(--box-shadow);
-	background-color: #fafafa;
-	margin: 1em 0;
+	background-color: var(--code-area-bg);
+	color: var(--code-area);
 	padding: 0.5em;
+    margin: 0.2em;
+	border-radius: 8px;
 	width: 100%;
 }
 
 .code-area textarea{
 	width: 100%;
 	padding: 0;
-	color: #1a1a1a;
+	background-color: var(--code-textarea-bg);
+	color: var(--code-textarea);
 	min-height: 6em;
 }
 .code-area textarea:focus{
 	border: 0 !important;
 }
+.code-header{
+	background-color: var(--code-header-bg);
+	color: var(--code-header);
+}
 
+.code-header ul{
+	display: flex;
+}
+.code-header ul li{
+	margin: 0.2em;
+}
 
 .link-meta a{
 	color: #0a0a0a;
