@@ -180,7 +180,7 @@ p{
 	margin: 1em 0;
 }
 .post-wrapper, .post-list-wrapper{
-	max-width: 45em;
+	width: 45em;
 	padding: 1em;
 	margin: 1em 0;
 }
@@ -2343,10 +2343,10 @@ td a {
 	box-shadow: var(--box-shadow);
 	background-color: var(--code-area-bg);
 	color: var(--code-area);
-    margin: 0.5em;
 	border-radius: 8px;
 	border: 2px solid var(--code-area-bg);
-	max-width: 100%;
+	margin: 1em 0;
+	
 	min-width: 21em;
 }
 .code-area textarea{
@@ -3333,6 +3333,10 @@ li .order-tag{
 	width: 100%;
 }
 @media only screen and (max-width:50em){
+	.code-area{
+		max-width: 100%;
+	}
+	
 	.section .title span{
 		width: 100%;
 	}
@@ -3549,6 +3553,10 @@ li .order-tag{
 	}
 }
 @media only screen and (min-width:50em){
+	
+	.code-area{
+		max-width: fit-content;
+	}
 	
 	.navbar-expand .navbar-nav {
 		flex-direction: row;
