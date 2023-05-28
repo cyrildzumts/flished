@@ -18,6 +18,7 @@ translation_tools
 flished_site*.conf
 flished_site*.conf.backup
 robots.txt
+ads.txt
 log
 logs
 */build/*
