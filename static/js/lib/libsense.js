@@ -138,13 +138,13 @@ function onUserGranted(){
         localStorage.setItem(input.name, input.value);
         Cookies.set(input.name, input.value, {sameSite:"Lax", expires: input.checked ? CONSENT_STORAGE_DURATION : CONSENT_DENIED_STORAGE_DURATION});
     });
-    /*
+    
     CONSENT_ITEMS.forEach(entry =>{
         localStorage.setItem(entry, CONSENT_GRANTED);
         Cookies.set(entry, CONSENT_GRANTED, {sameSite:"Lax", expires: CONSENT_STORAGE_DURATION});
         tagObject[entry] = CONSENT_GRANTED;
     });
-    */
+    
     Cookies.set(COOKIE_NAME, CONSENT_GRANTED, {sameSite:"Lax", expires: CONSENT_STORAGE_DURATION});
     let dataLayerVariables = {
         'essentialConsent':"granted",
