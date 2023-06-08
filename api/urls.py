@@ -1,4 +1,4 @@
-from django.conf.urls import url, include
+from django.conf.urls import include
 from django.urls import path, reverse_lazy
 from rest_framework.routers import DefaultRouter
 from rest_framework.authtoken import views as drf_api_views
