@@ -1,4 +1,4 @@
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 UNSPLASH_CREDENTIALS_KEY = "unsplash"
 UNSPLASH_CACHE_KEY = f"credentials.{UNSPLASH_CREDENTIALS_KEY}"

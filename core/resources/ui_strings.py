@@ -1,4 +1,4 @@
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 HOME_META_DESCRIPTION = "Votre Plateforme de publication en ligne"
 HOME_META_KEYWORDS = "flished"
