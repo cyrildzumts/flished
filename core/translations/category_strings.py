@@ -21,6 +21,7 @@ CATEGORY_REVIEWS_DESCRIPTION = _("Keep up to date on business activities, startu
 CATEGORY_POLITICS_DESCRIPTION = _("Keep up to date on business activities, startups and the like, on FLISHED.")
 CATEGORY_TECHNOLOGY_DESCRIPTION = _("Keep up to date on business activities, startups and the like, on FLISHED.")
 CATEGORY_BEAUTY_DESCRIPTION = _("Keep up to date on business activities, startups and the like, on FLISHED.")
+CATEGORY_SOFTWARE_ENGINEERING = _("Find articles that talk about software development topics, Software Engineering.")
 
 
 
@@ -45,4 +46,5 @@ CATEGORY_DESCRIPTION_CONTEXT = {
     "politics" : {"description": CATEGORY_POLITICS_DESCRIPTION, "meta-keywords":_("politics"),"page-title":_("Politics | News on politics around the world"),"name":_("Politics")},
     "reviews" : {"description": CATEGORY_REVIEWS_DESCRIPTION, "meta-keywords":_("reviews, products reviews"),"page-title":_("Reviews | Product reviews"),"name":_("Reviews")},
     "technology" : {"description": CATEGORY_TECHNOLOGY_DESCRIPTION, "meta-keywords":_("technology, science, engineering"),"page-title":_("Technology | Science , Engineering"),"name":_("Technology")},
+    "software-engineering": {"description": CATEGORY_SOFTWARE_ENGINEERING, "meta-keywords": _("software engineering computer development designs patterns java c++ python"), "page-title": "Software Engineeirng - Computer Science", "name": _("Software Engineeirng")}
 }

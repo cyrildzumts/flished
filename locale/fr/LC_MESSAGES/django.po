@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-20 02:11+0100\n"
+"POT-Creation-Date: 2023-09-23 12:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgstr "Catégorie"
 msgid "Please, select a category"
 msgstr "Veuillez choisir une catégory"
 
-#: blog/templates/blog/blog_post_update.html:40
+#: blog/templates/blog/blog_post_update.html:50
 #: templates/email_tags/order_cancel_confirmation_email.html:47
 #: templates/email_tags/order_confirmation_email.html:46
 #: templates/tags/editor.html:40
@@ -162,7 +162,7 @@ msgstr "S'identifier"
 #: templates/accounts/registration/password_reset_complete.html:15
 #: templates/registration/login.html:41
 #: templates/registration/password_reset_complete.html:16
-#: templates/tags/nav.html:21 templates/tags/nav.html:48
+#: templates/tags/nav.html:22 templates/tags/nav.html:48
 msgid "Login"
 msgstr "Connexion"
 
@@ -189,7 +189,7 @@ msgstr "Créer mon compte"
 
 #: core/resources/ui_strings.py:21 core/resources/ui_strings.py:110
 #: core/resources/ui_strings.py:117 templates/dashboard_base.html:36
-#: templates/post_base.html:9 templates/tags/nav.html:18
+#: templates/post_base.html:9 templates/tags/nav.html:19
 #: templates/tags/nav.html:39 templates/users_base.html:9
 msgid "Dashboard"
 msgstr "Dashboard"
@@ -436,7 +436,7 @@ msgid "Clear"
 msgstr "Effacer"
 
 #: core/resources/ui_strings.py:76 core/resources/ui_strings.py:115
-#: dashboard/templates/dashboard/post_list.html:8 dashboard/views.py:392
+#: dashboard/templates/dashboard/post_list.html:8 dashboard/views.py:394
 msgid "New Post"
 msgstr "Nouvelle Publication"
 
@@ -623,11 +623,11 @@ msgstr "Compte"
 msgid "Posts"
 msgstr "Publications"
 
-#: core/resources/ui_strings.py:113 dashboard/views.py:422
+#: core/resources/ui_strings.py:113 dashboard/views.py:424
 msgid "Post"
 msgstr "Publication"
 
-#: core/resources/ui_strings.py:114 dashboard/views.py:437
+#: core/resources/ui_strings.py:114 dashboard/views.py:439
 msgid "Post Update"
 msgstr "Actualiser la publication"
 
@@ -742,7 +742,7 @@ msgid "User Update"
 msgstr "Actualiser l'utilisateur"
 
 #: core/resources/ui_strings.py:143
-#: dashboard/templates/dashboard/user_list.html:13 dashboard/views.py:761
+#: dashboard/templates/dashboard/user_list.html:13 dashboard/views.py:763
 msgid "New User"
 msgstr "Nouvel utilisateur"
 
@@ -793,119 +793,134 @@ msgstr ""
 "Tenez-vous au courant des activités commerciales, des startups et autres, "
 "sur FLISHED."
 
-#: core/translations/category_strings.py:34
+#: core/translations/category_strings.py:24
+msgid ""
+"Find articles that talk about software development topics, Software "
+"Engineering."
+msgstr "Trouvez des articles qui parlent de sujets liés au développement logiciel et au génie logiciel, Software Engineering"
+
+#: core/translations/category_strings.py:35
 msgid "business, fashion, culture,health, marketing,politics"
 msgstr "affaires, mode, culture, santé, marketing, politique"
 
-#: core/translations/category_strings.py:39
+#: core/translations/category_strings.py:40
 msgid "business, business topic, startups"
 msgstr "affaires, sujet d'affaires, startups"
 
-#: core/translations/category_strings.py:39
+#: core/translations/category_strings.py:40
 msgid "Business | Stories about Business,Startups,E-Commerce"
 msgstr "Business | Histoires sur les affaires, les startups, le E-Commerce"
 
-#: core/translations/category_strings.py:39
+#: core/translations/category_strings.py:40
 msgid "Business"
 msgstr "Business"
 
-#: core/translations/category_strings.py:40
+#: core/translations/category_strings.py:41
 msgid "culture, tv-shows, movies"
 msgstr "culture, émissions de télévision, films"
 
-#: core/translations/category_strings.py:40
+#: core/translations/category_strings.py:41
 msgid "Culture | TV-Shows, Movies, Music"
 msgstr "Culture | Émissions de télévision, films, musique"
 
-#: core/translations/category_strings.py:40
+#: core/translations/category_strings.py:41
 msgid "Culture"
 msgstr "Culture"
 
-#: core/translations/category_strings.py:41
+#: core/translations/category_strings.py:42
 msgid "fashion, mode, beauty,perfumes"
 msgstr "mode, mode, beauté, parfums"
 
-#: core/translations/category_strings.py:41
+#: core/translations/category_strings.py:42
 msgid "Fashion | Beauty, Cosmetics, Perfumes"
 msgstr "Mode | Beauté, Mode, Cosmétique, Parfums"
 
-#: core/translations/category_strings.py:41
+#: core/translations/category_strings.py:42
 msgid "Fashion"
 msgstr "Mode"
 
-#: core/translations/category_strings.py:42
+#: core/translations/category_strings.py:43
 msgid "games, console"
 msgstr "console de jeux, jeux vidéo"
 
-#: core/translations/category_strings.py:42
+#: core/translations/category_strings.py:43
 msgid "Games | Game Consoles, Mobile games"
 msgstr "Jeux | Consoles de jeux, Jeux mobiles"
 
-#: core/translations/category_strings.py:42
+#: core/translations/category_strings.py:43
 msgid "Games"
 msgstr "Jeux Vidéo"
 
-#: core/translations/category_strings.py:43
+#: core/translations/category_strings.py:44
 msgid "health"
 msgstr "santé"
 
-#: core/translations/category_strings.py:43
+#: core/translations/category_strings.py:44
 msgid "Health | Stories and tips on health"
 msgstr "Santé | Histoires et conseils sur la santé"
 
-#: core/translations/category_strings.py:43
+#: core/translations/category_strings.py:44
 msgid "Health"
 msgstr "Santé"
 
-#: core/translations/category_strings.py:44
+#: core/translations/category_strings.py:45
 msgid "marketing"
 msgstr "marketing, publicité"
 
-#: core/translations/category_strings.py:44
+#: core/translations/category_strings.py:45
 msgid "Marketing | Share your tips and stories marketing and SEO"
 msgstr "Marketing | Partagez vos conseils et histoires marketing et SEO"
 
-#: core/translations/category_strings.py:44
+#: core/translations/category_strings.py:45
 msgid "Marketing"
 msgstr "Marketing"
 
-#: core/translations/category_strings.py:45
+#: core/translations/category_strings.py:46
 msgid "politics"
 msgstr "politiques"
 
-#: core/translations/category_strings.py:45
+#: core/translations/category_strings.py:46
 msgid "Politics | News on politics around the world"
 msgstr "Politique | L'actualité politique dans le monde"
 
-#: core/translations/category_strings.py:45
+#: core/translations/category_strings.py:46
 msgid "Politics"
 msgstr "Politiques"
 
-#: core/translations/category_strings.py:46
+#: core/translations/category_strings.py:47
 msgid "reviews, products reviews"
 msgstr "avis, avis sur des produits"
 
-#: core/translations/category_strings.py:46
+#: core/translations/category_strings.py:47
 msgid "Reviews | Product reviews"
 msgstr "Avis | Avis sur les produits"
 
-#: core/translations/category_strings.py:46
+#: core/translations/category_strings.py:47
 msgid "Reviews"
 msgstr "Revues"
 
-#: core/translations/category_strings.py:47
+#: core/translations/category_strings.py:48
 msgid "technology, science, engineering"
 msgstr "technologie, science, ingénierie"
 
-#: core/translations/category_strings.py:47
+#: core/translations/category_strings.py:48
 msgid "Technology | Science , Engineering"
 msgstr "Technologie | Sciences , Ingénierie"
 
-#: core/translations/category_strings.py:47
+#: core/translations/category_strings.py:48
 msgid "Technology"
 msgstr "Technologie"
 
-#: dashboard/templates/dashboard/abtesting.html:10 dashboard/views.py:497
+#: core/translations/category_strings.py:49
+msgid ""
+"software engineering computer development designs patterns java c++ python"
+msgstr "software engineering développement informatique designs patterns java c++ python"
+
+#: core/translations/category_strings.py:49
+msgid "Software Engineeirng"
+msgstr "Software Engineeirng"
+
+#: dashboard/templates/dashboard/abtesting.html:10 dashboard/views.py:499
 msgid "AB/TEST"
 msgstr "AB/TEST"
 
@@ -1755,50 +1770,50 @@ msgstr ""
 msgid "News deleted"
 msgstr ""
 
-#: dashboard/views.py:409
+#: dashboard/views.py:411
 #, python-brace-format
 msgid "Post {instance} created"
 msgstr ""
 
-#: dashboard/views.py:413
+#: dashboard/views.py:415
 msgid "Post not created"
 msgstr ""
 
-#: dashboard/views.py:448
+#: dashboard/views.py:450
 msgid "Post updated"
 msgstr ""
 
-#: dashboard/views.py:452
+#: dashboard/views.py:454
 msgid "Post not updated"
 msgstr ""
 
-#: dashboard/views.py:465
+#: dashboard/views.py:467
 msgid "Post deleted"
 msgstr ""
 
-#: dashboard/views.py:777
+#: dashboard/views.py:779
 #, python-brace-format
 msgid "User {name} created"
 msgstr ""
 
-#: dashboard/views.py:808
+#: dashboard/views.py:810
 msgid "User Token Generation"
 msgstr ""
 
-#: dashboard/views.py:820
+#: dashboard/views.py:822
 #, python-brace-format
 msgid "Token successfully generated for user {username}"
 msgstr ""
 
-#: dashboard/views.py:824
+#: dashboard/views.py:826
 msgid "The submitted form is not valid"
 msgstr ""
 
-#: dashboard/views.py:846
+#: dashboard/views.py:848
 msgid "Dashboard Users Tokens"
 msgstr ""
 
-#: dashboard/views.py:878
+#: dashboard/views.py:880
 msgid "Dashboard Users"
 msgstr ""
 
