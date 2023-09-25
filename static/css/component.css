@@ -2698,8 +2698,8 @@ td a {
 	background-color: var(--code-textarea-bg);
 	color: var(--code-textarea);
 	border: 0;
-	resize: none;
-	min-height: 6em;
+	/*resize: none;*/
+	min-height: 15em;
 	min-width: 21em;
 	word-break: keep-all;
 	overflow-wrap: break-word;
