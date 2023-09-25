@@ -2682,12 +2682,18 @@ td a {
 	border-radius: 8px;
 	border: 2px solid var(--code-area-bg);
 	margin: 1em 0;
-	
+	width: 100%;
 	min-width: 21em;
 }
 
+.code-border-frame{
+	width: 100%;
+	height: 100%;
+}
+
 .code-area textarea{
-	max-width: 100%;
+	width: 100%;
+	height: 100%;
 	padding: 0.5em;
 	background-color: var(--code-textarea-bg);
 	color: var(--code-textarea);
@@ -2706,6 +2712,7 @@ td a {
 	border: 0 !important;
 }
 .code-header{
+	width: 100%;
 	background-color: var(--code-header-bg);
 	color: var(--code-header);
 }
@@ -3868,9 +3875,7 @@ li .order-tag{
 }
 
 @media only screen and (max-width:50em){
-	.code-area{
-		max-width: 100%;
-	}
+
 	
 	.section .title span{
 		width: 100%;
@@ -4117,9 +4122,6 @@ li .order-tag{
 	.navbar-expand .navbar-toggler {
 		display: none;
 	}*/
-	.code-area{
-		max-width: fit-content;
-	}
 	
 	.navbar-expand .navbar-nav {
 		flex-direction: row;
