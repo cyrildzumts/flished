@@ -2380,9 +2380,7 @@ td a {
 	display: inline-block;
 }
 .code-area .code{
-	word-break: break-word;
-	word-wrap: break-word;
-	white-space: pre-wrap;
+	white-space: pre;
 	text-align: left;
 }
 .code-area textarea:focus{
