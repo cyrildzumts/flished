@@ -2759,6 +2759,21 @@ td a {
 	caret-color: white;
 	
 }
+.code-area .code-wrapper{
+	width: 100%;
+	height: auto;
+	padding: 0.5em;
+	overflow-x: auto;
+}
+.code-area span.code{
+	display: inline-block;
+}
+.code-area .code{
+	word-break: break-word;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+	text-align: left;
+}
 .code-area textarea:focus{
 	border: 0 !important;
 }
