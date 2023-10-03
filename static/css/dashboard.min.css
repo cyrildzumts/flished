@@ -3850,6 +3850,7 @@ li .order-tag{
 	justify-content: center;
 	font-size: 0.6rem;
 	font-weight: 500;
+    flex-wrap: wrap;
 	
 	
 }

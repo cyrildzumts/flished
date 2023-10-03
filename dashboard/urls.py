@@ -38,7 +38,7 @@ urlpatterns = [
     path('posts/delete/<uuid:post_uuid>/', views.post_delete, name='post-delete'),
     path('posts/delete/', views.post_bulk_delete, name='posts-delete'),
     path('posts/create/', views.post_create, name='post-create'),
-    #path('products/products-changes/', views.products_changes, name='products-changes'),
+
 
     path('tokens/', views.tokens, name='tokens'),
     path('users/', views.users, name='users'),

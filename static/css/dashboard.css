@@ -239,6 +239,7 @@
 	justify-content: center;
 	font-size: 0.6rem;
 	font-weight: 500;
+    flex-wrap: wrap;
 	/*padding-bottom: 0.5rem;*/
 	/*margin-bottom: 0.5rem;*/
 }
