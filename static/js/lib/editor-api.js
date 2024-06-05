@@ -336,7 +336,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         ajax_api.fetch_api(BACKEND_IMAGE_UPLOAD_URL, fetch_options).then((response)=>{
             return response;
         }, function(reason){
-            console.error("Error on fetching unsplash credentials.");
+            console.error("Error on uploading image to the backend.");
             console.error(reason);
             return {'success': 0}
         });
@@ -358,7 +358,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         ajax_api.fetch_api(BACKEND_IMAGE_FROM_URL, fetch_options).then((response)=>{
             return response;
         }, function(reason){
-            console.error("Error on fetching unsplash credentials.");
+            console.error("Error on uploading image from url to the backend.");
             console.error(reason);
             return {'success': 0}
         });
