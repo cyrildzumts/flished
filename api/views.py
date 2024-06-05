@@ -272,7 +272,6 @@ def fetchUrl(request):
 
 
 @api_view(['POST'])
-@api_view()
 def fetch_image_by_url(request):
     data = utils.get_postdata(request)
     try:
@@ -283,7 +282,6 @@ def fetch_image_by_url(request):
 
 
 @api_view(['POST'])
-@api_view()
 def upload_image(request):
     logger.info(f"API Upload Image")
     try:
