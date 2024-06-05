@@ -256,11 +256,13 @@ class PostImage(models.Model):
     width = models.IntegerField(blank=True, null=True)
     name = models.CharField(max_length=64, null=False, blank=False)
     caption = models.CharField(max_length=128, null=False, blank=False)
+    is_linked = models.BooleanField(default=False, blank=True, null=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='images', blank=True, null=True)
     image = models.ImageField(upload_to=upload_image_to, height_field='height', width_field='width')
     created_at = models.DateTimeField(auto_now_add=True, blank=False, null=False)
     last_edited_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     image_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
+    FORM_FIELDS = ['name', 'caption', 'post', 'image']
 
 
     def delete_image_file(self):
