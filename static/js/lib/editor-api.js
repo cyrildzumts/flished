@@ -333,7 +333,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             type: 'POST',
             method: 'POST',
             enctype : 'multipart/form-data',
-            data : formData,
+            body : formData,
             dataType : 'json',
         };
         ajax_api.fetch_api(BACKEND_IMAGE_UPLOAD_URL, fetch_options).then((response)=>{
@@ -358,7 +358,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             type: 'POST',
             method: 'POST',
             enctype : 'multipart/form-data',
-            data : formData,
+            body : formData,
             dataType : 'json',
         };
         ajax_api.fetch_api(BACKEND_IMAGE_FROM_URL, fetch_options).then((response)=>{
