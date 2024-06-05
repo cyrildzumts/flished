@@ -1,5 +1,3 @@
-const { resolve } = require('chart.js/helpers');
-
 define(['require','ajax_api', 'element_utils', 'editor/editor', 
     'editor/plugins/header.min','editor/plugins/list.min', 'editor/plugins/link.min',
     'editor/plugins/checklist.min', 'editor/plugins/quote.min', 'editor/plugins/table.min',
@@ -328,6 +326,8 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             });
         }
         let responseData;
+        let promise = new Promise((resolve, reject)=>{
+        });
         console.log("Uploading image to backend ...");
         if(file.size > IMAGE_MAX_SIZE){
             notify({level:'error', 'content': 'image is too big'});
@@ -353,15 +353,18 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 notify({level:'error', 'content': response.errors});
             }
             responseData = response;
+            return new Promise((resolve, reject)=>{
+                resolve(responseData);
+            });
         }, function(reason){
             console.error("Error on uploading image to the backend.");
             console.error(reason);
             responseData = reason;
             notify({level:'error', 'content': 'An error occured on the server'});
-        });/*
-        return new Promise((resolve, reject)=>{
-            resolve(responseData);
-        });*/
+            return new Promise((resolve, reject)=>{
+                resolve(responseData);
+            });
+        });
     }
 
     function upload_image_by_url(url){
