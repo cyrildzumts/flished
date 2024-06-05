@@ -287,6 +287,7 @@ def fetch_image_by_url(request):
 def upload_image(request):
     data = utils.get_postdata(request)
     image = request.FILES.get('image')
+    logger.info(f"API Upload Image : Data {data}")
     try:
         data = blog_service.create_post_image(data, image)
     except Exception as e:
