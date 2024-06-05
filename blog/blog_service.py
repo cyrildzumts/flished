@@ -108,16 +108,21 @@ def create_post_image(data, image):
     errors = None
     image_id = ""
     image_url = None
-    form = BLOG_FORMS.PostImageForm({'name': name, 'caption': caption}, files=image)
-    if form.is_valid():
-        logger.info("Image Form is valid")
-        image = form.save()
-        image_id = image.pk
-        image_url = image.image.url
-        success = 1
-    else:
-        logger.warning(f"Image form invalid : Error : {form.errors}")
-        errors = form.errors.as_text()
+    try:
+        form = BLOG_FORMS.PostImageForm({'name': name, 'caption': caption}, files=image)
+        if form.is_valid():
+            logger.info("Image Form is valid")
+            image = form.save()
+            image_id = image.pk
+            image_url = image.image.url
+            success = 1
+        else:
+            logger.warning(f"Image form invalid : Error : {form.errors}")
+            errors = form.errors.as_text()
+    except Exception as e:
+        logger.warning(f"Error on saving Image : Error : {e}")
+        success = 0
+        errors = str(e)
     
     return {
         'success': success,
