@@ -49,9 +49,9 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         'linkTool': render_linkTool,
         'checklist': render_checklist,
         'quote': render_quote,
-        'image': render_inlineImage,
+        //'image': render_inlineImage,
         'emoji': render_emoji,
-        'image2': render_image,
+        'image': render_image,
     };
     function render_emoji(emoji){
         console.log(emoji);
