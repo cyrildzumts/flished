@@ -8,6 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY          =  os.environ['FLISHED_SECRET_KEY']
 SITE_NAME           =  os.environ.get('FLISHED_SITE_NAME', 'FLISHED')
+DEFAULT_AUTO_FIELD  = 'django.db.models.BigAutoField'
 CELERY_BROKER_URL   = os.environ.get('FLISHED_CELERY_BROKER_URL')
 CELERY_BACKEND      = os.environ.get('FLISHED_CELERY_BACKEND')
 
