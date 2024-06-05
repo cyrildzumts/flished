@@ -1,3 +1,5 @@
+const { resolve } = require('chart.js/helpers');
+
 define(['require','ajax_api', 'element_utils', 'editor/editor', 
     'editor/plugins/header.min','editor/plugins/list.min', 'editor/plugins/link.min',
     'editor/plugins/checklist.min', 'editor/plugins/quote.min', 'editor/plugins/table.min',
@@ -323,6 +325,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         if(csrfmiddlewaretoken == null){
             return;
         }
+        let responseData;
         console.log("Uploading image to backend ...");
         if(file.size > IMAGE_MAX_SIZE){
             notify({level:'error', 'content': 'image is too big'});
@@ -345,12 +348,16 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             if(response.success == 0){
                 notify({level:'error', 'content': response.errors});
             }
-            return response;
+            responseData = response;
         }, function(reason){
             console.error("Error on uploading image to the backend.");
             console.error(reason);
+            responseData = reason;
             notify({level:'error', 'content': 'An error occured on the server'});
             return {'success': 0}
+        });
+        return new Promise((resolve, reject)=>{
+            resolve(responseData);
         });
     }
 
@@ -359,6 +366,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             return;
         }
         console.log("Uploading image from URL  to backend ... : Url %s", url);
+        let responseData;
         let formData = new FormData();
         formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
         formData.append('url', url)
@@ -374,12 +382,17 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             if(response.success == 0){
                 notify({level:'error', 'content': response.errors});
             }
+            responseData = response;
             return response;
         }, function(reason){
+            responseData = reason;
             console.error("Error on uploading image from url to the backend.");
             console.error(reason);
             notify({level:'error', 'content': 'An error occured on the server'});
             return {'success': 0}
+        });
+        return new Promise((resolve, reject)=>{
+            resolve(responseData);
         });
     }
 
