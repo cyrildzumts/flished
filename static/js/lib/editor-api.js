@@ -330,8 +330,11 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         formData.append('name', 'image-name');
         formData.append('additionalRequestData', {name: 'image-name', 'extension': 'png', 'caption': 'image-caption'});
         let fetch_options = {
-            method : 'POST',
-            body: formData
+            type: 'POST',
+            method: 'POST',
+            enctype : 'multipart/form-data',
+            data : formData,
+            dataType : 'json',
         };
         ajax_api.fetch_api(BACKEND_IMAGE_UPLOAD_URL, fetch_options).then((response)=>{
             return response;
@@ -352,8 +355,11 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         formData.append('url', url)
         formData.append('additionalRequestData', {name: 'empty', 'extension': 'png', 'caption': 'image-caption'});
         let fetch_options = {
-            method : 'POST',
-            body: formData
+            type: 'POST',
+            method: 'POST',
+            enctype : 'multipart/form-data',
+            data : formData,
+            dataType : 'json',
         };
         ajax_api.fetch_api(BACKEND_IMAGE_FROM_URL, fetch_options).then((response)=>{
             return response;
