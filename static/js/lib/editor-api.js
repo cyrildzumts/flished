@@ -388,13 +388,11 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 notify({level:'error', 'content': response.errors});
             }
             responseData = response;
-            return response;
         }, function(reason){
             responseData = reason;
             console.error("Error on uploading image from url to the backend.");
             console.error(reason);
             notify({level:'error', 'content': 'An error occured on the server'});
-            return {'success': 0}
         });
         return new Promise((resolve, reject)=>{
             resolve(responseData);
