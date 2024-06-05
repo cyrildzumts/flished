@@ -828,6 +828,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     })();
 
     $(document).ready(function(){
+        csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]');
         postManager = new PostManager();
         postManager.init();
         create_editor();
