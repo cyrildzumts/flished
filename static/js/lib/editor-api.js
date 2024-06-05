@@ -323,13 +323,17 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     }
     function upload_image(file){
         if(csrfmiddlewaretoken == null){
-            return;
+            return new Promise((resolve, reject)=>{
+                resolve(null);
+            });
         }
         let responseData;
         console.log("Uploading image to backend ...");
         if(file.size > IMAGE_MAX_SIZE){
             notify({level:'error', 'content': 'image is too big'});
-            return;
+            return new Promise((resolve, reject)=>{
+                resolve(null);
+            });
         }
         let formData = new FormData();
         formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
@@ -354,7 +358,6 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             console.error(reason);
             responseData = reason;
             notify({level:'error', 'content': 'An error occured on the server'});
-            return {'success': 0}
         });
         return new Promise((resolve, reject)=>{
             resolve(responseData);
@@ -363,7 +366,9 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
 
     function upload_image_by_url(url){
         if(csrfmiddlewaretoken == null){
-            return;
+            return new Promise((resolve, reject)=>{
+                resolve(null);
+            });
         }
         console.log("Uploading image from URL  to backend ... : Url %s", url);
         let responseData;
