@@ -319,11 +319,9 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             
         });
     }
-    function upload_image(file){
+    async function upload_image(file){
         if(csrfmiddlewaretoken == null){
-            return new Promise((resolve, reject)=>{
-                resolve(null);
-            });
+            return {'success': 0};
         }
         let responseData;
         let promise = new Promise((resolve, reject)=>{
@@ -331,9 +329,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         console.log("Uploading image to backend ...");
         if(file.size > IMAGE_MAX_SIZE){
             notify({level:'error', 'content': 'image is too big'});
-            return new Promise((resolve, reject)=>{
-                resolve(null);
-            });
+            return {'success': 0};
         }
         let formData = new FormData();
         formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
@@ -348,19 +344,19 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             body : formData,
             dataType : 'json',
         };
-        ajax_api.fetch_api(BACKEND_IMAGE_UPLOAD_URL, fetch_options).then((response)=>{
+        responseData = await ajax_api.fetch_api(BACKEND_IMAGE_UPLOAD_URL, fetch_options).then((response)=>{
             if(response.success == 0){
                 notify({level:'error', 'content': response.errors});
             }
-            responseData = response;
-            return responseData;
+            //responseData = response;
+            return response;
         }, function(reason){
             console.error("Error on uploading image to the backend.");
             console.error(reason);
-            responseData = reason;
+            //responseData = reason;
             notify({level:'error', 'content': 'An error occured on the server'});
-            return responseData;
-        });
+            return response;
+        });        
     }
 
     function upload_image_by_url(url){
