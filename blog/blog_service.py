@@ -106,24 +106,31 @@ def create_post_image(data, image):
     name = data.get('name')
     success = 0
     errors = None
+    image_id = ""
+    image_url = None
     form = BLOG_FORMS.PostImageForm({'name': name, 'caption': caption}, files=image)
     if form.is_valid():
         logger.info("Image Form is valid")
-        success = 1
+        #image = form.save()
+        #image_id = image.pk
+        #image_url = image.image.url
+        success = 0
+        errors = ""
     else:
         logger.warning(f"Image form invalid : Error : {form.errors}")
         errors = form.errors.as_text()
     
     return {
         'success': success,
-
         'file': {
-            'url': settings.SITE_HOST,
+            'url': f"{settings.SITE_HOST}/{image_url}",
+            'id': image_id,
             'extension': '.webp',
             'width': 'width',
             'heigth': 'heigth',
-            'errors': errors
-        }
+            
+        },
+        'errors': errors
     }
 
 
@@ -133,17 +140,21 @@ def create_post_image_from_url(data, url):
     logger.info(f"Fetching Image from  Url : {url}")
     success = 0
     errors = None
+    image_id = ""
+    image_url = None
     try:
         response = requests.get(url, timeout=60, headers=Constants.HEADERS, stream=True)
         if response.status_code != Constants.HTTP_OK:
             logger.warning(f"Url {url} not found.")
             return {'success': 0, 'link': url, 'meta': {}}
-        image_path = f"media/{data.get('name')}-{utils.get_random_ref()}.png"
+        image_path = f"media/posts/images/{data.get('name')}-{utils.get_random_ref()}.png"
         with open(image_path, "wb") as out_file:
             shutil.copyfileobj(response.raw, out_file)
         del response
         image = PostImage(caption=data.get('caption'), name=data.get('name'), image=UploadedFile(file=open(image_path, 'rb')))
         image.save()
+        image_id = image.pk
+        image_url = image.image.url
         success = 1
         
     except Exception as e:
@@ -152,14 +163,14 @@ def create_post_image_from_url(data, url):
     
     return {
             'success': success,
-
             'file': {
-                'url': image.image.url,
+                'url': f"{settings.SITE_HOST}/{image_url}",
+                'id': image_id,
                 'extension': '.webp',
                 'width': 'width',
                 'heigth': 'heigth',
-                'errors': errors
-            }
+            },
+            'errors': errors
         }
 
 

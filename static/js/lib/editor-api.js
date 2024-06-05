@@ -22,6 +22,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     
     const EDITOR_CHANGE_TIMEOUT = 1000; // 1s
     const SAVE_DRAFT_INTERVAL = 10000; // 10s
+    const IMAGE_MAX_SIZE = 10000000;
     const POST_STATUS_DRAFT = 0
     const POST_STATUS_PUBLISH = 1
     const POST_STATUS_SCHEDULED = 5
@@ -323,11 +324,15 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             return;
         }
         console.log("Uploading image to backend ...");
+        if(file.size > IMAGE_MAX_SIZE){
+            notify({level:'error', 'content': 'image is too big'});
+            return;
+        }
         let formData = new FormData();
         formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
         formData.append('image', file);
         formData.append('caption', 'image-caption');
-        formData.append('name', 'image-name');
+        formData.append('name', file.filename);
         formData.append('additionalRequestData', {name: 'image-name', 'extension': 'png', 'caption': 'image-caption'});
         let fetch_options = {
             type: 'POST',
@@ -337,10 +342,14 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             dataType : 'json',
         };
         ajax_api.fetch_api(BACKEND_IMAGE_UPLOAD_URL, fetch_options).then((response)=>{
+            if(response.success == 0){
+                notify({level:'error', 'content': response.errors});
+            }
             return response;
         }, function(reason){
             console.error("Error on uploading image to the backend.");
             console.error(reason);
+            notify({level:'error', 'content': 'An error occured on the server'});
             return {'success': 0}
         });
     }
@@ -362,10 +371,14 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             dataType : 'json',
         };
         ajax_api.fetch_api(BACKEND_IMAGE_FROM_URL, fetch_options).then((response)=>{
+            if(response.success == 0){
+                notify({level:'error', 'content': response.errors});
+            }
             return response;
         }, function(reason){
             console.error("Error on uploading image from url to the backend.");
             console.error(reason);
+            notify({level:'error', 'content': 'An error occured on the server'});
             return {'success': 0}
         });
     }

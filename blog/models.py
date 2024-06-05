@@ -22,7 +22,7 @@ def upload_post_image_to(instance, filename):
 
 
 def upload_image_to(instance, filename):
-    return f"media/{instance.slug}/{filename}"
+    return f"posts/images/{instance.pk}/{filename}"
 
 class Tag(models.Model):
 

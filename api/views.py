@@ -286,9 +286,9 @@ def upload_image(request):
     logger.info(f"API Upload Image")
     try:
         data = utils.get_postdata(request)
-        image = request.FILES
+        image = request.FILES.get('image')
         logger.info(f"API Upload Image : Image {image}")
-        data = blog_service.create_post_image(data, image)
+        data = blog_service.create_post_image(data, request.FILES)
     except Exception as e:
         return Response({'success': 0, 'errors': str(e)})
     return Response(data)
