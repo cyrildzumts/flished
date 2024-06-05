@@ -5,7 +5,7 @@ from django.db import models
 from django.shortcuts import reverse
 from django.contrib.auth.models import User
 from core.translations.category_strings import CATEGORY_DESCRIPTION_CONTEXT
-from blog import constants as Contants
+from blog import constants as Constants
 from PIL import Image
 from io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
@@ -19,6 +19,10 @@ def upload_to(instance, filename):
 
 def upload_post_image_to(instance, filename):
     return f"posts/{instance.slug}/{filename}"
+
+
+def upload_image_to(instance, filename):
+    return f"media/{instance.slug}/{filename}"
 
 class Tag(models.Model):
 
@@ -53,11 +57,11 @@ class Category(models.Model):
     view_count = models.IntegerField(blank=True, null=True, default=0)
     parent = models.ForeignKey('self', related_name='children', blank=True, null=True, on_delete=models.SET_NULL)
     slug = models.SlugField(max_length=250, blank=True, null=True)
-    description = models.CharField(max_length=Contants.CATEGORY_DESCRIPTION_MAX_SIZE, blank=True, null=True)
-    seo_page_title = models.CharField(max_length=Contants.SEO_PAGE_TITLE_MAX_SIZE, blank=True, null=True)
-    seo_description = models.CharField(max_length=Contants.SEO_DESCRIPTION_MAX_SIZE, blank=True, null=True)
-    seo_meta_keywords = models.CharField(max_length=Contants.SEO_META_KEYWORDS_MAX_SIZE, blank=True, null=True)
-    facebook_description = models.CharField(max_length=Contants.FACEBOOK_DESCRIPTION_MAX_SIZE, blank=True, null=True)
+    description = models.CharField(max_length=Constants.CATEGORY_DESCRIPTION_MAX_SIZE, blank=True, null=True)
+    seo_page_title = models.CharField(max_length=Constants.SEO_PAGE_TITLE_MAX_SIZE, blank=True, null=True)
+    seo_description = models.CharField(max_length=Constants.SEO_DESCRIPTION_MAX_SIZE, blank=True, null=True)
+    seo_meta_keywords = models.CharField(max_length=Constants.SEO_META_KEYWORDS_MAX_SIZE, blank=True, null=True)
+    facebook_description = models.CharField(max_length=Constants.FACEBOOK_DESCRIPTION_MAX_SIZE, blank=True, null=True)
     category_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     FORM_FIELDS = ['name', 'display_name',  'parent', 'added_by', 'is_active','seo_page_title','seo_description','seo_meta_keywords','facebook_description']
 
@@ -121,7 +125,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     scheduled_at = models.DateTimeField(null=True, blank=True)
     published_at = models.DateTimeField(null=True, blank=True)
-    post_status = models.IntegerField(default=Contants.POST_STATUS_DRAFT, blank=True)
+    post_status = models.IntegerField(default=Constants.POST_STATUS_DRAFT, blank=True)
     view_count = models.IntegerField(default=0, blank=True, null=True)
     likes = models.ManyToManyField(User, related_name="likes")
     readers = models.ManyToManyField(User, related_name="histories", through="PostHistory")
@@ -158,14 +162,14 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         if self.image:
             filename,ext = os.path.splitext(self.image.path)
-            if ext != Contants.WEBP_EXT:
+            if ext != Constants.WEBP_EXT:
                 name,ext2 = os.path.splitext(self.image.name)
-                finale_name = f"{name}{Contants.WEBP_EXT}"
+                finale_name = f"{name}{Constants.WEBP_EXT}"
                 image = Image.open(self.image)
                 image.load()
                 img_stream = BytesIO()
                 img = image.convert("RGB")
-                img.save(img_stream,format="WEBP", quality=Contants.WEBP_QUALITY)
+                img.save(img_stream,format="WEBP", quality=Constants.WEBP_QUALITY)
                 img_stream.seek(0)
                 self.image = InMemoryUploadedFile(img_stream,'ImageField', finale_name, 'image/webp',sys.getsizeof(img_stream),None)
 
@@ -220,7 +224,7 @@ class Comment(models.Model):
 
     author = models.ForeignKey(User, related_name='comments', on_delete=models.CASCADE)
     post = models.ForeignKey(Post,related_name='comments', on_delete=models.CASCADE)
-    comment = models.CharField(max_length=Contants.COMMENT_MAX_SIZE)
+    comment = models.CharField(max_length=Constants.COMMENT_MAX_SIZE)
     flags = models.IntegerField(default=0, blank=True, null=True)
     comment_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     created_at = models.DateTimeField(auto_now_add=True, blank=False, null=False, editable=False)
@@ -239,3 +243,54 @@ class Comment(models.Model):
 
     def get_delete_url(self):
         return reverse("dashboard:tag-delete", kwargs={"comment_uuid": self.comment_uuid})
+    
+
+
+
+
+class PostImage(models.Model):
+    height = models.IntegerField(blank=True, null=True)
+    width = models.IntegerField(blank=True, null=True)
+    name = models.CharField(max_length=64, null=False, blank=False)
+    caption = models.CharField(max_length=128, null=False, blank=False)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='images', blank=True, null=True)
+    image = models.ImageField(upload_to=upload_image_to, height_field='height', width_field='width')
+    created_at = models.DateTimeField(auto_now_add=True, blank=False, null=False)
+    last_edited_at = models.DateTimeField(auto_now=True, blank=True, null=True)
+    image_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
+
+
+    def delete_image_file(self):
+        self.image.delete(False)
+
+    def get_image_url(self):
+        return self.image.url
+    
+    def get_absolute_url(self):
+        return reverse("blog:image-detail", kwargs={"image_uuid": self.image_uuid})
+    
+    
+    def get_update_url(self):
+        return reverse("blog:image-update", kwargs={"image_uuid": self.image_uuid})
+
+    def get_delete_url(self):
+        return reverse("blog:image-delete", kwargs={"image_uuid": self.image_uuid})
+
+
+    
+    def save(self, *args, **kwargs):
+        if self.image:
+            filename,ext = os.path.splitext(self.image.path)
+            if ext != Constants.WEBP_EXT:
+                name,ext2 = os.path.splitext(self.image.name)
+                finale_name = f"{name}{Constants.WEBP_EXT}"
+                #finale_filename = f"{filename}{constants.WEBP_EXT}"
+                image = Image.open(self.image)
+                image.load()
+                img_stream = BytesIO()
+                img = image.convert("RGB")
+                img.save(img_stream,format="WEBP", quality=Constants.WEBP_QUALITY)
+                img_stream.seek(0)
+                self.image = InMemoryUploadedFile(img_stream,'ImageField', finale_name, 'image/webp',sys.getsizeof(img_stream),None)
+
+        super(PostImage, self).save(*args, **kwargs)

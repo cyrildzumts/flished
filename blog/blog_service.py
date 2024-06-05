@@ -1,6 +1,7 @@
 
+import requests
 from blog import forms as BLOG_FORMS
-from blog.models import Tag, Category, News, Post, Comment, PostHistory
+from blog.models import Tag, Category, News, Post, Comment, PostHistory, PostImage
 from blog import constants as Constants
 from django.core.cache import cache
 from django.db.models.functions import Concat
@@ -9,10 +10,11 @@ from django.template.loader import render_to_string, get_template
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.files.uploadedfile import UploadedFile
 from core import core_tools 
 from core.resources import ui_strings as CORE_UI_STRINGS
-from flished import utils
-import functools, operator
+from flished import utils, settings
+import functools, operator, shutil
 import datetime
 import logging
 
@@ -97,6 +99,67 @@ def update_post(post, data, images=None):
         logger.info("Post updated")
     
     return updated_instance
+
+
+def create_post_image(data, image):
+    caption = data.get('caption')
+    name = data.get('name')
+    success = 0
+    errors = None
+    form = BLOG_FORMS.PostImageForm({'name': name, 'caption': caption}, files=image)
+    if form.is_valid():
+        logger.info("Image Form is valid")
+        success = 1
+    else:
+        logger.warning(f"Image form invalid : Error : {form.errors}")
+        errors = form.errors.as_text()
+    
+    return {
+        'success': success,
+
+        'file': {
+            'url': settings.SITE_HOST,
+            'extension': '.webp',
+            'width': 'width',
+            'heigth': 'heigth',
+            'errors': errors
+        }
+    }
+
+
+
+def create_post_image_from_url(data, url):
+    logger.info(f"Fetching Image from  Url : {url}")
+    success = 0
+    errors = None
+    try:
+        response = requests.get(url, timeout=60, headers=Constants.HEADERS, stream=True)
+        if response.status_code != Constants.HTTP_OK:
+            logger.warning(f"Url {url} not found.")
+            return {'success': 0, 'link': url, 'meta': {}}
+        image_path = f"media/{data.get('name')}-{utils.get_random_ref()}.png"
+        with open(image_path, "wb") as out_file:
+            shutil.copyfileobj(response.raw, out_file)
+        del response
+        image = PostImage(caption=data.get('caption'), name=data.get('name'), image=UploadedFile(file=open(image_path, 'rb')))
+        image.save()
+        success = 1
+        
+    except Exception as e:
+        logger.warning(f"Error on Image upload by Url: {e}")
+        errors = str(e)
+    
+    return {
+            'success': success,
+
+            'file': {
+                'url': image.image.url,
+                'extension': '.webp',
+                'width': 'width',
+                'heigth': 'heigth',
+                'errors': errors
+            }
+        }
 
 
 def get_post(post_uuid):

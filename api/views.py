@@ -268,3 +268,21 @@ def update_activity(request):
 def fetchUrl(request):
     data = core_tools.core_fetch_url(request.GET.copy().get("url"))
     return Response(data)
+
+
+
+@api_view(['POST'])
+@api_view()
+def fetch_image_by_url(request):
+    data = utils.get_postdata(request)
+    data = blog_service.create_post_image_from_url(data, data.get('url'))
+    return Response(data)
+
+
+@api_view(['POST'])
+@api_view()
+def upload_image(request):
+    data = utils.get_postdata(request)
+    image = request.FILES.get('image')
+    data = blog_service.create_post_image(data, image)
+    return Response(data)

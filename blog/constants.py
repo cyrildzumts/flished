@@ -2,6 +2,12 @@ from django.utils.translation import gettext_lazy as _
 
 WEBP_QUALITY = 80
 WEBP_EXT = ".webp"
+IMAGE_MAX_SIZE = 10000000
+USER_AGENT = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:100.0) Gecko/20100101 Firefox/100.0"
+HTTP_OK = 200
+HEADERS = {
+    'User-Agent': USER_AGENT
+}
 DB_DATETIME_FORMAT = "DD Mon YYYY HH24:MI"
 CATEGORY_PAGE_TITLE_KEY = 'page-title'
 CATEGORY_META_KEYWORDS_KEY = 'meta-keywords'

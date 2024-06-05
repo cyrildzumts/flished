@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist, ValidationError
-from blog.models import Category, Post, News, Tag, Comment
+from blog.models import Category, Post, News, Tag, Comment, PostImage
 
 
 class TagForm(forms.ModelForm):
@@ -39,4 +39,13 @@ class NewsForm(forms.ModelForm):
 
 class FetchCommentsForm(forms.Form):
     created_at = forms.DateTimeField()
+
+
+
+
+class PostImageForm(forms.ModelForm):
+
+    class Meta:
+        model = PostImage
+        fields = ['name', 'post', 'image', 'caption']
     

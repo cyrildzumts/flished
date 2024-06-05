@@ -9,6 +9,8 @@ router = DefaultRouter()
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('upload-image/', views.upload_image, name='upload-image'),
+    path('fetch-image-url/', views.fetch_image_by_url, name='fetch-image-url'),
     #path('analytics/', views.analytics_data, name='analytics'),
     path('api-token-auth/', drf_api_views.obtain_auth_token, name='api-token-auth'),
     path('authenticate/', views.authenticate, name='authenticate'),
