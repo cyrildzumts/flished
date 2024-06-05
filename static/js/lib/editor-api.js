@@ -27,7 +27,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     const POST_STATUS_SCHEDULED = 5
     const BACKEND_IMAGE_UPLOAD_URL = "/api/upload-image/";
     const BACKEND_IMAGE_FROM_URL = "/api/fetch-image-url/";
-    const csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]');
+    let csrfmiddlewaretoken = undefined;
     let AUTO_SAVE_TIMER;
     let editor;
     let post_content;
