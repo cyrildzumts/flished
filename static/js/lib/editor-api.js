@@ -322,7 +322,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         if(csrfmiddlewaretoken == null){
             return;
         }
-        let url = BACKEND_IMAGE_UPLOAD_URL;
+        console.log("Uploading image to backend ...");
         let formData = new FormData();
         formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
         formData.append('image', file);
@@ -333,7 +333,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             method : 'POST',
             body: formData
         };
-        ajax_api.fetch_api(url, fetch_options).then((response)=>{
+        ajax_api.fetch_api(BACKEND_IMAGE_UPLOAD_URL, fetch_options).then((response)=>{
             return response;
         }, function(reason){
             console.error("Error on fetching unsplash credentials.");
@@ -346,6 +346,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         if(csrfmiddlewaretoken == null){
             return;
         }
+        console.log("Uploading image from URL  to backend ... : Url %s", url);
         let formData = new FormData();
         formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
         formData.append('url', url)
@@ -398,13 +399,19 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 image : {
                     class: ImageTool,
                     config: {
+                        uploader : {
+                            upload_image, upload_image_by_url
+                        }
+                        /*
                         endpoints: {
                             byFile: BACKEND_IMAGE_UPLOAD_URL,
                             byUrl : BACKEND_IMAGE_FROM_URL,
                             additionalRequestData : {
                                 'csrfmiddlewaretoken' : csrfmiddlewaretoken.value
                             }
-                        }
+                        },*/
+
+                        
                     }
                 },
                 list: {
