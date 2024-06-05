@@ -358,10 +358,10 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             console.error(reason);
             responseData = reason;
             notify({level:'error', 'content': 'An error occured on the server'});
-        });
+        });/*
         return new Promise((resolve, reject)=>{
             resolve(responseData);
-        });
+        });*/
     }
 
     function upload_image_by_url(url){
