@@ -1,10 +1,11 @@
 ({
-    baseUrl: "lib",
+    baseUrl: "../lib",
     paths: {
         vendor : "../vendor",
         jquery: "../vendor/jquery-3.6.0.min",
-        main: '../report-app',
+        editor: "../vendor/editor",
+        main: '../editor-app',
     },
     name: "main",
-    out: "report.min.js"
+    out: "../editor.min.js"
 })

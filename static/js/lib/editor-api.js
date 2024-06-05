@@ -3,7 +3,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     'editor/plugins/checklist.min', 'editor/plugins/quote.min', 'editor/plugins/table.min',
     'editor/plugins/inline-image','editor/plugins/editor-emoji.min',
     'editor/plugins/code.min','editor/plugins/inline-code.min',
-    'editor/plugins/marker.min'
+    'editor/plugins/marker.min', 'editor/plugins/image.min'
     ], function(require,ajax_api, element_utils,EditorJS) {
     'use strict';
 
@@ -18,12 +18,15 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
     const Emoji = require('editor/plugins/editor-emoji.min');
     const Table = require('editor/plugins/table.min');
     const InlineImage = require('editor/plugins/inline-image');
+    const ImageTool = require('editor/plugins/image.min');
     
     const EDITOR_CHANGE_TIMEOUT = 1000; // 1s
     const SAVE_DRAFT_INTERVAL = 10000; // 10s
     const POST_STATUS_DRAFT = 0
     const POST_STATUS_PUBLISH = 1
     const POST_STATUS_SCHEDULED = 5
+    const BACKEND_IMAGE_UPLOAD_URL = "/upload-image/";
+    const BACKEND_IMAGE_FROM_URL = "/fetch-image-url/";
     let AUTO_SAVE_TIMER;
     let editor;
     let post_content;
@@ -45,7 +48,8 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
         'checklist': render_checklist,
         'quote': render_quote,
         'image': render_inlineImage,
-        'emoji': render_emoji
+        'emoji': render_emoji,
+        'image2': render_image,
     };
     function render_emoji(emoji){
         console.log(emoji);
@@ -83,6 +87,20 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                 id:inlineImage.id,
                 src: inlineImage.data.url,
                 title: inlineImage.data.caption,
+                cls:'img-responsive',
+            }
+        });
+        return node;
+    }
+
+    function render_image(image){
+        let node = element_utils.create_element_api({
+            element: "img",
+            options : {
+                id:image.id,
+                src: image.data.file.url,
+                title: image.data.caption,
+                caption: image.data.caption,
                 cls:'img-responsive',
             }
         });
@@ -322,6 +340,7 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                     class : Header,
                     inlineToolbar : true
                 },
+                /*
                 image: {
                     class : InlineImage,
                     inlineToolbar : true,
@@ -330,6 +349,13 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                             display: true
                         },
                         unsplash : unsplash_conf
+                    }
+                },*/
+                image : {
+                    class: ImageTool,
+                    endpoints: {
+                        byFile: BACKEND_IMAGE_UPLOAD_URL,
+                        byUrl : BACKEND_IMAGE_FROM_URL,
                     }
                 },
                 list: {

@@ -129,6 +129,7 @@ def create_post_image(data, image):
 
 
 def create_post_image_from_url(data, url):
+    
     logger.info(f"Fetching Image from  Url : {url}")
     success = 0
     errors = None

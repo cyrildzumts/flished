@@ -275,7 +275,10 @@ def fetchUrl(request):
 @api_view()
 def fetch_image_by_url(request):
     data = utils.get_postdata(request)
-    data = blog_service.create_post_image_from_url(data, data.get('url'))
+    try:
+        data = blog_service.create_post_image_from_url(data.get('additionalRequestData'), data.get('url'))
+    except Exception as e:
+        return Response({'success': 0, 'errors': str(e)})
     return Response(data)
 
 
@@ -284,5 +287,8 @@ def fetch_image_by_url(request):
 def upload_image(request):
     data = utils.get_postdata(request)
     image = request.FILES.get('image')
-    data = blog_service.create_post_image(data, image)
+    try:
+        data = blog_service.create_post_image(data, image)
+    except Exception as e:
+        return Response({'success': 0, 'errors': str(e)})
     return Response(data)
