@@ -114,8 +114,7 @@ def create_post_image(data, image):
         image = form.save()
         image_id = image.pk
         image_url = image.image.url
-        success = 0
-        errors = "Image false Error. Form is actually valid"
+        success = 1
     else:
         logger.warning(f"Image form invalid : Error : {form.errors}")
         errors = form.errors.as_text()

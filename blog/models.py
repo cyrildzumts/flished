@@ -13,6 +13,9 @@ import os
 from flished import settings
 import uuid
 # Create your models here.
+import logging
+
+logger = logging.getLogger(__name__)
 
 def upload_to(instance, filename):
     return f"products/{instance.product.id}/{instance.product.category.code}-{instance.product.id}-{instance.height}x{instance.width}-{filename}"
@@ -22,6 +25,7 @@ def upload_post_image_to(instance, filename):
 
 
 def upload_image_to(instance, filename):
+    logger.info(f"Saving image for instance : {instance} : pk : {instance.pk} - id : {instance.id}")
     return f"posts/images/{instance.pk}/{filename}"
 
 class Tag(models.Model):
