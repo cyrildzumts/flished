@@ -356,7 +356,8 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
             //responseData = reason;
             notify({level:'error', 'content': 'An error occured on the server'});
             return response;
-        });        
+        });  
+        return responseData;      
     }
 
     async function upload_image_by_url(url){
