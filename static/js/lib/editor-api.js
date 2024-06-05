@@ -400,7 +400,8 @@ define(['require','ajax_api', 'element_utils', 'editor/editor',
                     class: ImageTool,
                     config: {
                         uploader : {
-                            upload_image, upload_image_by_url
+                            updloadByFile : upload_image, 
+                            uploadByUrl : upload_image_by_url
                         }
                         /*
                         endpoints: {
