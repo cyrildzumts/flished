@@ -111,9 +111,9 @@ def create_post_image(data, image):
     form = BLOG_FORMS.PostImageForm({'name': name, 'caption': caption}, files=image)
     if form.is_valid():
         logger.info("Image Form is valid")
-        #image = form.save()
-        #image_id = image.pk
-        #image_url = image.image.url
+        image = form.save()
+        image_id = image.pk
+        image_url = image.image.url
         success = 0
         errors = "Image false Error. Form is actually valid"
     else:
