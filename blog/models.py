@@ -25,7 +25,7 @@ def upload_post_image_to(instance, filename):
 
 
 def upload_image_to(instance, filename):
-    logger.info(f"Saving image for instance : {instance} : pk : {instance.pk} - id : {instance.id}")
+    logger.info(f"Saving image {filename} for instance : {instance} : pk : {instance.pk} - id : {instance.id}")
     return f"posts/images/{instance.pk}/{filename}"
 
 class Tag(models.Model):
