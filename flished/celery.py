@@ -16,6 +16,25 @@ app.conf.task_queues = (
 app.conf.task_default_queue = settings.CELERY_DEFAULT_QUEUE
 app.conf.task_default_exchange_type = settings.CELERY_DEFAULT_EXCHANGE_TYPE
 app.conf.task_default_routing_key = settings.CELERY_DEFAULT_ROUTING_KEY
+app.conf.worker_cancel_long_running_tasks_on_connection_loss = True
+app.conf.task_acks_late = True
+app.conf.task_reject_on_worker_lost = True
+app.conf.control_queue_exclusive = True
+app.conf.event_queue_exclusive = True
+
+# Add this to handle connection loss with Quorum queues
+app.conf.broker_transport_options = {
+    'confirm_publish': True,
+    'queue_properties': {
+        'x-queue-type': 'quorum'
+    }
+}
+app.conf.result_backend_transport_options = {
+    'confirm_publish': True,
+    'queue_properties': {
+        'x-queue-type': 'quorum'
+    }
+}
 app.conf.beat_schedule = {
     'clean_users': {
         'task': 'core.tasks.clean_users_not_actif',
